@@ -1,0 +1,8 @@
+#! /bin/csh -f
+#
+
+time ../Source/mc-npt
+
+mv fort.22 movie.pdb
+
+exit

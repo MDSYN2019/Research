@@ -1,0 +1,37 @@
+#! /bin/csh -f
+#
+# NSTEP     = NUMBER OF TIMESTEPS
+# NINIT     = NUMBER OF INITIALIZATION STEPS
+# TEMP      = TEMPERATURE
+# TSTEP     = TIMESTEP FOR INTEGRATION
+# NU        = FREQUENCY ANDERSEN THERMOSTAT
+# FREQNOS   = FREQUENCY NOSE-HOOVER CHAIN
+# NNOSHOVER = LENGTH OF THE NH CHAIN
+#
+# CHOISE    = 1 (NVE)
+#           = 2 (ANDERSEN)
+#           = 3 (NOSE-HOOVER CHAIN)
+#           = 4 (NO MD, BUT SIMPLE MC)
+
+set NSTEP     = 5000
+set NINIT     = 50
+set TEMP      = 0.05d0
+set TSTEP     = 0.01d0
+set CHOISE    = 3
+set NU        = 10.0d0
+set FREQNOS   = 1.5d0
+set NNOSHOVER = 1
+
+cat > fort.21 <<endofdata
+$NSTEP  $TEMP  $TSTEP    $NINIT
+$CHOISE $NU    $FREQNOS  $NNOSHOVER
+endofdata
+
+time ../Source/barrier1 > out
+
+mv fort.22 pos.vel
+mv fort.25 msd
+mv fort.27 distri.pos  
+rm fort.*
+
+exit

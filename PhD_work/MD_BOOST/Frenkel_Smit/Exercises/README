@@ -1,0 +1,58 @@
+MOLECULAR SIMULATION COURSE: EXERCISES
+
+This distribution contains the course exercise programs. 
+You need the directory 'lib' in the same directory as 
+the exercises.
+
+To compile the source, simply type
+
+make
+
+in the directory containing the source code. All makefiles have been
+prepared for RedHat Linux 6.2 (Zoot) on an i386 using the GNU
+compilers. For other Unix systems, the Makefile may have to be
+modified and you may have to type "make clean" first. The random
+number generator provided in this distribution was written in C
+(lib/ran_uniform.c). Some care have to be taken, because some
+compilers put underscores after FORTRAN77 subroutines. For example,
+for SGI machines ran_uniform__ has to be changed into ran_uniform_
+(see lib/ran_uniform_SGI.c). A FORTRAN77 version is also available in
+the directory lib.
+
+To run the programs, go to the Run directory and type
+
+./run
+
+In many of the exercises, a program has to be modified or
+completed. Usually, the location of where the program has to be
+modified is indicated with
+
+C   Start Modification
+C   End   Modification
+
+The solutions of most of the programming exercises are available on
+request: send an email to Berend Smit. Also, if you have any
+suggestions the authors would like to hear them.
+
+We have done our best to remove all errors from this document and the
+programs. However, we have to make the following statement:
+
+``We make no warranties that this document or the programs accompanied
+by this document are free of error, or that they will meet your
+requirements for any particular application. The authors disclaim all
+liability for direct and consequential damages resulting from the use
+of this document or the programs accompanied by this document. It is
+not allowed to distribute this document and the accompanying
+programs.''
+
+Berend Smit
+Department of Chemical Engineering
+University of Amsterdam
+Nieuwe Achtergracht 166
+1018 WV Amsterdam
+The Netherlands
+
+tel   : +31 20 525 6917
+fax   : +31 20 525 5604
+email : bsmit@science.uva.nl
+web   : http://molsim.chem.uva.nl

@@ -1,0 +1,92 @@
+ --- rho 0.70 
+ **************** MC_NVT ***************
+  ******** test random numbers ***********
+  i,ranf()  1  0.111804209
+  i,ranf()  2  0.741663107
+  i,ranf()  3  0.460279342
+  i,ranf()  4  0.11380694
+  i,ranf()  5  0.548399506
+ Initialisation on lattice: 
+       100 particles placed on a lattice
+  Number of equilibration cycles             :         0
+  Number of production cycles                :       200
+  Sample frequency                           :         1
+
+  Number of att. to displ. a part. per cycle :        50
+  Maximum displacement                       :     0.090
+
+
+  Number of particles                        :       100
+  Temperature                                :     2.000
+  Density                                    :     0.700
+  Box length                                 :     5.228
+
+  Model parameters: 
+     epsilon: 1.000
+     sigma  : 1.000
+     mass   : 1.000
+ Simulations with tail correction: 
+ Potential truncated at  Rc =:     2.614
+ Tail corrections:   energy =     -0.328 pressure     -0.459
+
+
+ Total energy initial configuration:   -486.41131
+ Total virial initial configuration:   1264.98050
+ ======>> Done  40 out of  200
+ Max. displ. set to :  0.135 (old :  0.090)
+ Frac. acc.: 0.76 attempts:    2000 succes:    1527
+ ======>> Done  80 out of  200
+ Max. displ. set to :  0.177 (old :  0.135)
+ Frac. acc.: 0.66 attempts:    2000 succes:    1310
+ ======>> Done  120 out of  200
+ Max. displ. set to :  0.217 (old :  0.177)
+ Frac. acc.: 0.61 attempts:    2000 succes:    1229
+ ======>> Done  160 out of  200
+ Max. displ. set to :  0.240 (old :  0.217)
+ Frac. acc.: 0.55 attempts:    2000 succes:    1105
+ ======>> Done  200 out of  200
+ Max. displ. set to :  0.266 (old :  0.240)
+ Frac. acc.: 0.55 attempts:    2000 succes:    1109
+ Number of att. to displ. a part.  :      10000
+ success:       6280(= 62.80%)
+ Total energy end of simulation    :   -435.10087
+       running energy              :   -435.10087
+       difference                  :   0.56843E-12
+ Total virial end of simulation    :    924.99885
+       running virial              :    924.99885
+       difference                  :  -0.70486E-11
+  ***** Calculate block averages ************
+   number of averages  2
+ block data     1  -4.353243   5.571909
+ block data     2  -3.873849   6.937174
+ block data     3  -3.767289   7.089957
+ block data     4  -3.643877   7.306701
+ block data     5  -3.564445   7.368292
+ block data     6  -3.446739   7.477289
+ block data     7  -3.684868   6.552650
+ block data     8  -3.744613   6.301772
+ block data     9  -3.917049   5.490941
+ block data    10  -3.864847   5.675821
+ block data    11  -4.018680   4.816470
+ block data    12  -3.871916   5.231824
+ block data    13  -3.959535   4.939934
+ block data    14  -4.145361   4.148239
+ block data    15  -4.429411   2.859759
+ block data    16  -4.394186   2.997523
+ block data    17  -4.484538   2.768365
+ block data    18  -4.286115   3.507860
+ block data    19  -4.206855   3.585621
+ block data    20  -4.269389   3.390794
+ ###### energy       -3.99634038         0.07089348
+ ###### press         5.20094479         0.36440946
+   number of blocks  200
+         0   0.0225   0.0011   0.1155   0.0058
+         1   0.0316   0.0022   0.1631   0.0116
+         2   0.0443   0.0045   0.2303   0.0233
+         3   0.0621   0.0090   0.3263   0.0471
+         4   0.0877   0.0187   0.4694   0.1001
+         5   0.1194   0.0377   0.6772   0.2142
+         6   0.1671   0.0835   1.0461   0.5231
+ --- rho 0.70 
+../Source/mc_nvt: Command not found.
+../Block/block: Command not found.

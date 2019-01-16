@@ -8,7 +8,7 @@
 MPI_input::MPI_input() {
 } // constructor 
 
-MPI_input::MPI_input(float& a, float& b, int& np, int& mr, int& pe) {
+MPI_input::MPI_input(float* a, float* b, int* np, int mr, int pe) {
  // constructor - allocate values
   a_ptr = a;
   b_ptr = b;
@@ -27,17 +27,18 @@ void MPI_input::MPI_start() {
 }
 
 void MPI_input::Get_data() {
-  std::cout << "Enter a, b and n \n";
-  scanf("%lf %lf %d", a_ptr, b_ptr, n_ptr);
-  for (int dest = 1; dest < p; dest++) {
-    tag = 0;
-    MPI_Send(a_ptr, 1, MPI_FLOAT, dest, tag, MPI_COMM_WORLD);
-    tag = 1;
-    MPI_Send(b_ptr, 1, MPI_FLOAT, dest, tag, MPI_COMM_WORLD);
-    tag = 2;
-    MPI_Send(n_ptr, 1, MPI_INT, dest, tag, MPI_COMM_WORLD);
-  }
-  else {
+  if (my_rank == 0) {
+    std::cout << "Enter a, b and n \n";
+    scanf("%lf %lf %d", a_ptr, b_ptr, n_ptr);
+    for (int dest = 1; dest < p; dest++) {
+      tag = 0;
+      MPI_Send(a_ptr, 1, MPI_FLOAT, dest, tag, MPI_COMM_WORLD);
+      tag = 1;
+      MPI_Send(b_ptr, 1, MPI_FLOAT, dest, tag, MPI_COMM_WORLD);
+      tag = 2;
+      MPI_Send(n_ptr, 1, MPI_INT, dest, tag, MPI_COMM_WORLD);
+    }
+  } else {
     tag = 0;
     MPI_Recv(a_ptr, 1, MPI_FLOAT, source, tag, MPI_COMM_WORLD, &status);
     tag = 1;
@@ -46,3 +47,4 @@ void MPI_input::Get_data() {
     MPI_Recv(n_ptr, 1, MPI_INT, source, tag, MPI_COMM_WORLD, &status);
   }
 }
+

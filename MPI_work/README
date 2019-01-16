@@ -1,0 +1,9 @@
+To compile this file, use the following command, once making a build directory using the command:
+
+mkdir build
+cd build
+cmake -DMPI_C_COMPILER=/path/to/where/your/mpic++/is ../
+
+It should work from this point
+
+

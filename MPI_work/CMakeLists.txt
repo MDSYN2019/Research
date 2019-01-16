@@ -10,8 +10,6 @@ include(CheckCXXCompilerFlag)
 CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
 CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
 
-set(CMAKE_CXX_COMPILER "/usr/local/bin/mpic++")
-
 if(COMPILER_SUPPORTS_CXX11)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 elseif(COMPILER_SUPPORTS_CXX0X)
@@ -45,8 +43,8 @@ add_subdirectory (src)
 set (EXTRA_LIBS ${EXTRA_LIBS} src)
 
 # GSL libraries linking
-set(CMAKE_GSL_LINKER_FLAGS "${CMAKE_GSL_LINKER_FLAGS} -lgsl")
-set(CMAKE_GSL_LINKER_FLAGS_CBLAS "${CMAKE_GSL_LINKER_FLAGS_CBLAS} -lgslcblas")
+#set(CMAKE_GSL_LINKER_FLAGS "${CMAKE_GSL_LINKER_FLAGS} -lgsl")
+#set(CMAKE_GSL_LINKER_FLAGS_CBLAS "${CMAKE_GSL_LINKER_FLAGS_CBLAS} -lgslcblas")
 set(MATH "${MATH} -lm")
 
 #if(Boost_FOUND)
@@ -66,6 +64,5 @@ set(MATH "${MATH} -lm")
 if(Boost_FOUND)
   include_directories (${Boost_INCLUDE_DIRS})
   add_executable (MPI_EX main.cxx)
-  target_link_libraries (MPI_EX  ${EXTRA_LIBS} ${BOOST_LIBRARIES} ${Boost_LIBRARIES}  ${MATH} ${MPI_INCLUDE_PATH})
+  target_link_libraries (MPI_EX  ${EXTRA_LIBS} ${BOOST_LIBRARIES} ${Boost_LIBRARIES}  ${MATH})
 endif()
-

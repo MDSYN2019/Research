@@ -34,24 +34,18 @@ double FFtools::LJ (double dist_ab, double eps_ab, double sigma_ab) {
   if (LJ < 0.0 && dist_ab < 2.0) {
     std::cout << "WARNING! \n" std::endl;
     exit(0);
-  }
-  
+  }  
   return LJ;
-
 }
-
-
 
   
 double FFtools::distance(double ax,double ay,double az, double bx, double by, double bz) {
-
     double dist;
     dist = sqrt((bx-ax)*(bx-ax) + (by-ay)*(by-ay) + (bz-az)*(bz-az));
     return dist;
 }
 
-double FFtools::minDist(double ax,double ay,double az, double bx, double by, 
-	       double bz,double bxx, double byy, double bzz) {
+double FFtools::minDist(double ax,double ay,double az, double bx, double by, double bz,double bxx, double byy, double bzz) {
     double dist; 
     double dx; // Delta X
     double dy; // Delta Y 

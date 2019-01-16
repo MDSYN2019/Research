@@ -33,11 +33,8 @@ public:
   double alpha(double, double, double);  
 
 private:  
-
   /*
-
     Scientific constants used in this work 
-  
   */
 
   double BOLTZMANN = 0.0019872041; // units for the boltzmann constant are in kcal mol^-1 //

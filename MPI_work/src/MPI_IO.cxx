@@ -1,15 +1,48 @@
+#include <iostream>
+#include <iomanip>
+#include <vector>
+#include "mpi.h"
+// Custom headers
+#include "MPI_IO.hpp"
 
+MPI_input::MPI_input() {
+} // constructor 
 
-class MPI_input {
-public:
-  void Get_data{
- 
+MPI_input::MPI_input(float& a, float& b, int& np, int& mr, int& pe) {
+ // constructor - allocate values
+  a_ptr = a;
+  b_ptr = b;
+  n_ptr = np;
+  my_rank = mr;
+  p = pe;
+}
+
+MPI_input::~MPI_input() {
+} // destructor 
+
+void MPI_input::MPI_start() { 
+  MPI_Init(NULL, NULL);
+  MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
+  MPI_Comm_size(MPI_COMM_WORLD, &p);  
+}
+
+void MPI_input::Get_data() {
+  std::cout << "Enter a, b and n \n";
+  scanf("%lf %lf %d", a_ptr, b_ptr, n_ptr);
+  for (int dest = 1; dest < p; dest++) {
+    tag = 0;
+    MPI_Send(a_ptr, 1, MPI_FLOAT, dest, tag, MPI_COMM_WORLD);
+    tag = 1;
+    MPI_Send(b_ptr, 1, MPI_FLOAT, dest, tag, MPI_COMM_WORLD);
+    tag = 2;
+    MPI_Send(n_ptr, 1, MPI_INT, dest, tag, MPI_COMM_WORLD);
   }
-
-private:
-  float* a_ptr;
-  float* b_ptr;
-  int* n_ptr;
-  int my_rank;
-  int p;
-};
+  else {
+    tag = 0;
+    MPI_Recv(a_ptr, 1, MPI_FLOAT, source, tag, MPI_COMM_WORLD, &status);
+    tag = 1;
+    MPI_Recv(b_ptr, 1, MPI_FLOAT, source, tag, MPI_COMM_WORLD, &status);
+    tag = 2;
+    MPI_Recv(n_ptr, 1, MPI_INT, source, tag, MPI_COMM_WORLD, &status);
+  }
+}

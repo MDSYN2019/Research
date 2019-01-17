@@ -125,6 +125,7 @@ int main ()  {
   int numberoftraj = 1000; /*The number of trajectories in the dump file*/
  
   /*misc*/
+  
   char line[100];
   int n = 0; 
   int m = 0;
@@ -134,7 +135,6 @@ int main ()  {
   double xdiff;
   double ydiff;
   double zdiff; 
-
 
   /* Parameters for bin */
 
@@ -176,17 +176,13 @@ int main ()  {
   /* Refreshing the bin! */ 
 
   double binwidth = 0.25;  
-
-  for (j=0;j<nbins;j++) { 
+  for (int j=0; j < nbins; j++) { 
     V_ave[j] = 0;
     sumofweight[j] = 0; 
     k = 0;  
   } 
   
-  
-  
   int nlines = numberofatoms + 9;  
-
   for(int trajno=0; trajno < numberoftraj; trajno++) {
 
     std::cout << "\n";
@@ -195,38 +191,28 @@ int main ()  {
     l = 0;
     n = 0;
 
-    for(int k=0; k < nlines; k++) { 
-      
+    for(int k = 0; k < nlines; k++) { 
       fgets(line,sizeof(line),ipf);
-
       //while (fgets(line,sizeof(line),ipf) != NULL) {
-	 
       if (l < 5) {	
 	/*We are doing nothing*/
-     
 	l++;
-	  
       }
+      
       else if ((l > 4 && l < 8)) {
-      
 	/*We are scanning the bit with just the box parameters*/
-      
 	sscanf(line, "%lf %lf", &box1, &box2);
 	//	printf("%lf %lf \n",box1,box2 );
 	boxlength[l-5] = box2-box1; 
 	l++;
       }
-	
       else if (l == 8) {
-      
 	//	printf(" **** l= %d \n",l);
 	/*We are doing nothing*/
-      
 	l++;
       }
-    
+      
       else {
-
 	//	printf(" ***** l = %d \n",l );
 	/* convert the text to numbers */
 	sscanf(line,"%d %d %lf %lf %lf",&index,&atomtype,&x,&y,&z);
@@ -237,10 +223,7 @@ int main ()  {
 	zco[index-1] = z*boxlength[2];  
 	n++;
 	l++;
-
-
       }
-
     }
    
     /*We now have data stored of an entire frame */
@@ -282,7 +265,7 @@ int main ()  {
       
     }
     
-    for (i=0;i<numberofwaters;i++) {
+    for (int i = 0; i < numberofwaters; i++) {
       
       firstoxygen = 3*(i);
       firsthydrogen =  3*(i) + 1;
@@ -299,7 +282,7 @@ int main ()  {
       closestdistance1 = bignumber;
       closestdistance2 = bignumber; 
       
-      for (j=0;j<numberofwaters;j++) { 
+      for (int j=0; j < numberofwaters; j++) { 
 	
 	if (i != j) { 
 	  
@@ -330,17 +313,15 @@ int main ()  {
 	    
 	    closestdistance2 = closestdistance1;
 
-	    /*'Hence, set the water thought to be closest to be the second closest'*/ 
+	    /*Hence, set the water thought to be closest to be the second closest*/ 
 
 	    closestwater2 = closestwater1; 
 
-	    /*'Reset the closestdistance1 to be COMdist to make it smaller*/
+	    /*Reset the closestdistance1 to be COMdist to make it smaller*/
 	    
 	    closestdistance1 = COMdist;
-
-	    /*The closestwater described characteristic of the array*/
-
-	    closestwater1 = j;     
+	    closestwater1 = j; 	    /* The closestwater described characteristic of the array */
+     
 	  }
 	
 	  else if (COMdist < closestdistance2) { 
@@ -499,20 +480,23 @@ int main ()  {
 	
 	//	printf("%lf %lf %lf \n",boxlength[1]*boxLJ,COMdistgoldwater,weight);
 
-	for (j=0;j<nbins;j++) { 
-
+	for (int j=0; j < nbins; j++) { 
 	  bin_min[j] = j*binwidth;
 	  bin_max[j] = (j+1)*binwidth;
 	  
 	  if (COMdistgoldwater > bin_min[j] && COMdistgoldwater <= bin_max[j]) {  
+
 	    V_ave[j] +=boxLJ*weight;  
+
 	    sumofweight[j] += weight;
+
 	    bin_counter[j]++; 
+	    
 	    newLJ[j] = V_ave[j]/sumofweight[j];	    
 	  }
 	  // printf("%lf %lf %d \n", bin_min[j],V_ave[j]/sumofweight[j],bin_counter[j]);    
 	}	 
-      }     
+      }
       
       for (int j = 0; j < nbins; j++) {  
 	std::cout << "%lf %lf %d \n" <<  bin_min[j] << newLJ[j] <<bin_counter[j]); 

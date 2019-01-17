@@ -2,119 +2,15 @@
 #include <sstream>
 #include <cstdio>
 #include <cassert>
-#include <mpi.h>
 #include <vector>
 #include <mutex>
 #include <string>
-
-double Trap(double left_endpt, double right_endpt, int trap_count, double base_len) {
-  double estimate;
-  
-  estimate = (left_endpt + right_endpt) / 2.0;
-
-  for (int i = 1; i <= trap_count -1; i++) {
-
-    
-  }
-
-}
-
-  
-class StringNode {
-  // Singly linked list of strings
-private:
-  std::string elem;
-  StringNode* next; // next item in the list
-  friend class StringLinkedList;
-};
+#include <mpi.h>
 
 
-class StringLinkedList {
-public:
-
-  StringLinkedList();
-  ~StringLinkedList();
-  bool empty() const;
-  const std::string& front() const;
-  void addFront(const std::string& e);
-  void removeFront();
-
-private:
-  StringNode* head;
-};
-
-/*
-
-The list constructor creates an empty list by setting the head pointer to NULL.
-
- */
-
-StringLinkedList::StringLinkedList() : head(NULL) {} // constructor - point head pointer to NULL
-StringLinkedList::~StringLinkedList() { while (!empty()) removeFront();} // 
-bool StringLinkedList::empty() const {
-  return head == NULL;
-}
-const std::string& StringLinkedList::front() const {
-  return head->item;
-}
-
-
-class Counter {
-public:
-  Counter();
-  int getCount();
-  void increaseBy(int x);
-private:
-  int count;
-};
-
-Counter::Counter() {
-  count = 0;
-}
-
-int Counter::getCount() {
-  return count;
-}
-
-void Counter::increaseBy(int x) {
-  count += x;
-}
-  
-
-float *create_rand_nums(int num_elements){
-  float *rand_nums = new [sizeof(float) * num_elmements]; // pointer towards 
-  assert(rand_nums != NULL);
-  int i;
-  for (int i = 0; i < num_elements; i++) {
-    rand_nums[i] = (rand() / (float)RAND_MAX);
-  }
-  return rand_nums;
-}
-
-void ping_ping() {
-
-  int world_rank;
-  int world_size;
-  
-  MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
-  MPI_Comm_size(MPI_COMM_WORLD, &world_size);
-
-  int number; 
-}
-
-
-class pseudo_LAMMPS {
-public:
-  class Memory *memory;
-  MPI_Comm World;
-  virtual void print();
-  virtual void show();
-
-};
-
-void Get_input (int my_rank, int comm_sz, double * a_p, double * b_p, int * n_p ) {
+void Get_input(int my_rank, int comm_sz, double * a_p, double * b_p, int * n_p ) {
   int dest;
-  if  (my_rank == 0) {
+  if (my_rank == 0) {
     std::cout << "Enter a, b and n " << std::endl;
     // scanf
     for (dest = 1; dest < comm_sz; dest++) {
@@ -122,12 +18,12 @@ void Get_input (int my_rank, int comm_sz, double * a_p, double * b_p, int * n_p 
       MPI_Send(b_p, 1, MPI_DOUBLE, dest, 0, MPI_COMM_WORLD); // ditto 
       MPI_Send(n_p, 1, MPI_INT, dest, 0, MPI_COMM_WORLD);  // ditto 
     }
-  } else {
+  }
+  else {
     MPI_Recv(a_p, 1, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE); // if process is 0, receive 
     MPI_Recv(b_p, 1, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE); // ditto
     MPI_Recv(n_p, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE); // ditto again
   }
-  
 }
 
 void Vector_sum(double x[], double y[], double z[], int n) {
@@ -148,10 +44,8 @@ void Parallel_vector_sum(double local_x[], double local_y[], double local_z[], i
 
 
 void Read_vector(double local_a[], int local_n, int n, char vec_name[], int my_rank, MPI_Comm comm) {
-
   double * a = NULL;
   int i;
-
   if (my_rank == 0) {
     a = new double [n];
     std::cout << "Enter the vector %s \n" << vec_name;
@@ -165,7 +59,6 @@ void Read_vector(double local_a[], int local_n, int n, char vec_name[], int my_r
   }
   
   else {
-
     MPI_Scatter(a, local_n, MPI_DOUBLE, local_a, local_n, MPI_DOUBLE, 0, comm);
   }
 }
@@ -173,10 +66,8 @@ void Read_vector(double local_a[], int local_n, int n, char vec_name[], int my_r
 void Print_vector (double local_b[], int local_n, int n, char title[], int my_rank*, MPI_Comm comm) {
   double b* = NULL;
   int i;
-
   if (my_rank == 0) {
     b = malloc (n * sizeof(double));
-
     MPI_Gather(local_b, local_n, MPI_DOUBLE, b, local_n, MPI_DOUBLE, 0, comm);    
   }
 
@@ -198,7 +89,6 @@ double NewtonInterpolant(double x, int npts, double *xpts, double * newton_coeff
 }
 
 int main(int argc, char ** argv) {
-
   int my_rank, comm_sz, n = 1024, local_n;
   double a = 0.0, b = 3.0; //  the limits of the function
 

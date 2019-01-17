@@ -1,0 +1,1 @@
+/home/noh/anaconda3/bin/c++   -std=c++11  -L/usr/local/lib -rdynamic CMakeFiles/JE.dir/main.o  -o JE  -L/home/noh/Desktop/WIP/GIT/PhD_work/JE_work/build/src src/libsrc.a -lm 

@@ -14,19 +14,15 @@
 #ifndef __MPI_BC__
 #define __MPI_BC__
 
-#include <iostream>
-#include <vector>
-#include "mpi.h"
-
 class MPI_BC {
 public:
   MPI_BC();
   virtual ~MPI_BC();
+
   int Ceiling_log2(int);
   void Send(float, float, int, int);
   void Receive(float*, float*, int*, int);
-  voud Get_data2(float*, float*, int*, int, int);
-  void Get_data2(float*, float*, int*, int);  
+
 private:
   //TODO
 };

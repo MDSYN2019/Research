@@ -35,12 +35,28 @@ Abbreviation: JE - Jarzynski Equalily
 
 */
 
+
 #include <iostream>
 #include <iomanip>
-#include <vector>
-#include <algorithm>
+#include <fstream>
+#include <sstream>
 #include <cstdio>
 #include <cstdlib>
+#include <complex>
+#include <cmath>
+#include <cassert>
+#include <numeric>
+#include <functional>
+
+// STL libraries
+
+#include <string>
+#include <vector>
+#include <list>
+#include <array>
+#include <map>
+#include <algorithm>
+#include <experimental/filesystem>
 
 #include "JE_compute.hpp"
 

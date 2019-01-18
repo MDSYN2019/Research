@@ -25,8 +25,73 @@ water molecule is coarse-grained and described in a 3-molecule blob
 #include <vector>
 
 #include "FFtools.hpp"
+
+void FFtools::openDumpFile() {
+
+  std::cout << "Opening file %s\n " << dump.realgold2;
+  ipf = fopen("dump.realgold2", "r");
+
+  if (ipf == NULL) {
+    std::cout << "Error opening file\n";
+    exit(1);
+  }
+  double binwidth = 0.25;  
+
+
+  for (int j = 0; j < nbins; j++) { 
+
+    V_ave[j] = 0;
+    sumofweight[j] = 0; 
+    k = 0;  
+  }
+  
+  int nlines = numberofatoms + 9;  
+  
+  for(int trajno = 0; trajno < numberoftraj; trajno++) {
+
+    std::cout << "\n";
+    std::cout << "This is the data for trajectory no %d \n" << trajno;
+
+    l = 0;
+    n = 0;
+
+    for(int k = 0; k < nlines; k++) { 
+
+      fgets(line,sizeof(line),ipf);
+
+      if (l < 5) {	
+	l++;
+      }
       
+      else if ((l > 4 && l < 8)) {
+	/* We are scanning the bit with just the box parameters */
+	sscanf(line, "%lf %lf", &box1, &box2);
+	boxlength[l-5] = box2-box1; 
+	l++;
+      }
+      else if (l == 8) {
+	/* We are doing nothing */
+	l++;
+      }
+      
+      else {
+	//	printf(" ***** l = %d \n",l );
+	/* convert the text to numbers */
+	sscanf(line,"%d %d %lf %lf %lf",&index,&atomtype,&x,&y,&z);
+	a[index-1] = index;
+	b[index-1] = atomtype;
+	xco[index-1] = x*boxlength[0]; 
+	yco[index-1] = y*boxlength[1];
+	zco[index-1] = z*boxlength[2];  
+	n++;
+	l++;
+      }
+    }
+  } 
+}
+
 double FFtools::LJ (double dist_ab, double eps_ab, double sigma_ab) {   
+
   double LJ;
  
   LJ = 4*eps_ab*(pow((sigma_ab/dist_ab),12)-pow((sigma_ab/dist_ab),6));

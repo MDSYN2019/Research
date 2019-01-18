@@ -1,6 +1,8 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
+#include "mpi.h"
+
 #include "MPI_broadcast.hpp"
 
 MPI_BC::MPI_BC() {
@@ -9,19 +11,26 @@ MPI_BC::MPI_BC() {
 MPI_BC::~MPI_BC() {
 } // destructor 
 
-int MPI_BC::Ceiling_log2(int x) {
-    /* Use unsigned so that right shift will fill                                                                                                 
-     * leftmost bit with 0 
-     */
-    unsigned temp = (unsigned) x - 1;
-    int result = 0;
+void MPI_BC::build_mpi_type(double* a_p, double* b_p, int* n_p, MPI_Datatype input_mpi_t_p) {
 
-    while (temp != 0) {
-         temp = temp >> 1;
-         result = result + 1 ;
-    }
-    return result;
-} 
+  int array_of_blocklengths[3] = {1,1,1};
+  MPI_Datatype array_of_types[3] = {MPI_DOUBLE, MPI_DOUBLE, MPI_INT};
+  MPI_Aint a_addr, b_addr, n_addr;
+  MPI_Aint array_of_displacements[3] = {0};
+  
+  
+}
+
+void MPI_BC::Get_input(int my_rank, int comm_sz, double* a_p, double* b_p, int* n_p) { // input, input, input, output, output
+  if (my_rank == 0) {
+    std::cout << "Enter a, b and n \n";
+    scanf("%lf %lf %d", a_p, b_p, n_p);
+    MPI_Bcast(a_p, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+    MPI_Bcast(b_p, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+    MPI_Bcast(n_p, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+  }
+  // Get Input
+}
 
 void MPI_BC::Send(float a, float b, int n, int dest) {
     MPI_Send(&a, 1, MPI_FLOAT, dest, 0, MPI_COMM_WORLD);
@@ -41,6 +50,5 @@ void MPI_BC::Get_data2() {
   if (my_rank == 0) {
     std::cout << "Enter a, b, and n \n";
     scanf("%lf %lf %d", a_ptr, b_ptr, n_ptr);
-  }
-  
+  }  
 }

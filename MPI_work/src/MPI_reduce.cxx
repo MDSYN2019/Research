@@ -7,7 +7,6 @@
 #include <string>
 #include <mpi.h>
 
-
 void Get_input(int my_rank, int comm_sz, double * a_p, double * b_p, int * n_p ) {
   int dest;
   if (my_rank == 0) {
@@ -34,14 +33,11 @@ void Vector_sum(double x[], double y[], double z[], int n) {
 }
 
 void Parallel_vector_sum(double local_x[], double local_y[], double local_z[], int local_n) {
-
   int local_i;
-
   for (local_i = 0; local_i < local_n; local_i++) {
     local_z[local_i] = local_x[local_i] + local_y[local_i]; 
   }
 }
-
 
 void Read_vector(double local_a[], int local_n, int n, char vec_name[], int my_rank, MPI_Comm comm) {
   double * a = NULL;

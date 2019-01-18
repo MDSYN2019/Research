@@ -1,4 +1,3 @@
-
 /*
   Tree structured-program looking at MPI_Broadcast 
   
@@ -22,7 +21,9 @@ class MPI_BC {
 public:
   MPI_BC();
   virtual ~MPI_BC();
-  int Ceiling_log2(int);
+  
+  void Get_Input(int, int, double*, double*, int*);
+  void build_mpi_type(double*, double*, int*, MPI_Datatype*);
   void Send(float, float, int, int);
   void Receive(float*, float*, int*, int);
   voud Get_data2(float*, float*, int*, int, int);
@@ -30,6 +31,5 @@ public:
 private:
   //TODO
 };
-
 
 #endif

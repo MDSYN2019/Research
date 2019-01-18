@@ -137,6 +137,7 @@ void JarzynskiFreeEnergy::read(std::string input) {
   std::ifstream myFile;
   myFile.open(input, std::ifstream::in);
   std::cout << myFile.is_open() << std::endl;
+
   if (myFile.is_open() == 0) {    
     std::cout << "Cannot open files" << std::endl;     
     exit(1);

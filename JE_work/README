@@ -1,0 +1,13 @@
+README:
+
+Here is the C++ file I used for computing the free energy using the Jarzynsi Equality. More details on the background can be
+found in main.cxx.
+
+The work files can be found in the /data/ folder. The most important columns are column 2 and the last column (starting index 1), which represents
+the reaction coordinate and the work values computed using LAMMPS.
+
+Please contact me at Sangyoung123@googlemail.com for more information
+
+Thanks
+
+Sang

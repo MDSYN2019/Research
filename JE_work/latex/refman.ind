@@ -1,5 +1,36 @@
 \begin{theindex}
 
+  \item {$\sim$\+Jarzynski\+Free\+Energy}
+    \subitem {Jarzynski\+Free\+Energy}, \hyperpage{4}
+
+  \indexspace
+
+  \item {J\+E\+Raw}
+    \subitem {Jarzynski\+Free\+Energy}, \hyperpage{4}
+  \item {J\+E\+Taylor}
+    \subitem {Jarzynski\+Free\+Energy}, \hyperpage{4}
+  \item {J\+Eprocess\+Vector}
+    \subitem {Jarzynski\+Free\+Energy}, \hyperpage{4}
   \item {Jarzynski\+Free\+Energy}, \hyperpage{3}
+    \subitem {$\sim$\+Jarzynski\+Free\+Energy}, \hyperpage{4}
+    \subitem {J\+E\+Raw}, \hyperpage{4}
+    \subitem {J\+E\+Taylor}, \hyperpage{4}
+    \subitem {J\+Eprocess\+Vector}, \hyperpage{4}
+    \subitem {Jarzynski\+Free\+Energy}, \hyperpage{3}
+    \subitem {read}, \hyperpage{5}
+    \subitem {reset\+Index}, \hyperpage{5}
+    \subitem {vec\+Process}, \hyperpage{5}
+
+  \indexspace
+
+  \item {read}
+    \subitem {Jarzynski\+Free\+Energy}, \hyperpage{5}
+  \item {reset\+Index}
+    \subitem {Jarzynski\+Free\+Energy}, \hyperpage{5}
+
+  \indexspace
+
+  \item {vec\+Process}
+    \subitem {Jarzynski\+Free\+Energy}, \hyperpage{5}
 
 \end{theindex}

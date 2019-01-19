@@ -1,6 +1,0 @@
-/home/noh/Desktop/WIP/GIT/PhD_work/JE_work/build/CMakeFiles/rebuild_cache.dir
-/home/noh/Desktop/WIP/GIT/PhD_work/JE_work/build/CMakeFiles/JE.dir
-/home/noh/Desktop/WIP/GIT/PhD_work/JE_work/build/CMakeFiles/edit_cache.dir
-/home/noh/Desktop/WIP/GIT/PhD_work/JE_work/build/src/CMakeFiles/rebuild_cache.dir
-/home/noh/Desktop/WIP/GIT/PhD_work/JE_work/build/src/CMakeFiles/src.dir
-/home/noh/Desktop/WIP/GIT/PhD_work/JE_work/build/src/CMakeFiles/edit_cache.dir

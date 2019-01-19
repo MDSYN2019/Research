@@ -18,6 +18,12 @@ MPI_PP::MPI_PP() {
 }
 
 MPI_PP::~MPI_PP() {
-  // Nothing to do here
+  // Nothing to do here - not deallocating anything 
 }
 
+MPI_PP::serial_dot(float*, float*, int ) {
+  for (int i = 0; i < n; i++) {
+    sum = sum + x[i] * y[i];
+  }
+  return sum;
+}

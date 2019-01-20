@@ -7,7 +7,7 @@ public:
   FFtools(const FFtools& ref);  // Copy constructor
   FFtools& operator=(const FFtools ref); // Assignment operator overloaded
   virtual ~FFtools(); // Destructor
- 
+  
   double LJ(double dist_ab, double eps_ab, double sigma_ab);  
   double distance(double ax,double ay,double az, double bx, double by, double bz); 
   double minDist(double ax,double ay,double az, double bx, double by, double bz, double bxx, double byy, double bzz);
@@ -29,7 +29,7 @@ private:
   double Odcoordinatey; /*cartersian coordinates for the oxygen on water d */
   double Odcoordinatez; /*cartersian coordinates for the oxygen on water d */
 
-   /*LJ parameters*/
+  /* LJ parameters */
   double Oepsilon = 0.15207;
   double Osigma = 3.1507;
   double Hepsilon = 0.000;

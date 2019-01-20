@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
+#include <algorithm>
 #include "mpi.h"
 #include "MPI_broadcast.hpp"
 
@@ -13,6 +14,15 @@ MPI_BC::MPI_BC() {
 MPI_BC::~MPI_BC() {
   MPI_Finalize();
 } // destructor 
+
+void MPI_BC::parallel_allocate_vec(double *a_p, double *b_p, int lenOfVec, std::vector<int>& vecpart) {
+  // Take array entry and push back to a vector in each
+  MPI_Get_address(); 
+  std::vector<int> vectorofBlockLengths; // Vector 
+  vectorofBlocklengths.push_back(lenOfVec); // Add in length of vector 
+  MPI_Get_address(&vectorOfBlockLengths[0], aint);
+  MPI_Datatype type = MPI_INT; 
+}
 
 void MPI_BC::build_mpi_type(double* a_p, double* b_p, int* n_p, MPI_Datatype input_mpi_t_p) {
   int array_of_blocklengths[3] = {1,1,1};

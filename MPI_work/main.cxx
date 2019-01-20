@@ -1,19 +1,31 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
-
+#include <string>
 #include <mpi.h>
-#include <iostream>
 
-#include "mpi.h"
+
+// MPI headers
+
 #include "MPI_IO.hpp"
+#include "MPI_broadcast.hpp"
+#include "MPI_functions.hpp"
+
+std::vector<int> aa;
+
+void Read_vector(double* local_a, int local_n, int n, std::string vec_name, int my_rank, MPI_Comm comm) {
+  double* a = NULL;
+  int i;
+  if (my_rank == 0) {
+    // TODO
+  }
+
+}
 
 int main() {
-  
   MPI_Init(&argc, &argv);
-  int rank;
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-
+  
   if (rank == 0) {
     int value = 17;
     int result = MPI_Send(&value, 1, MPI_INT, 1, 0, MPI_COMM_WORLD);

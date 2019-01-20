@@ -14,6 +14,7 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include "mpi.h"
 
 class MPI_BC {
@@ -21,13 +22,16 @@ public:
   MPI_BC();
   virtual ~MPI_BC();
   
-  void Get_Input(int, int, double*, double*, int*);
-  void build_mpi_type(double*, double*, int*, MPI_Datatype*);
-  void Send(float, float, int, int);
+  void Get_Input(int, int, double*, double*, int*); // WIP
+  void build_mpi_type(double*, double*, int*, MPI_Datatype*); // WIP
+  void Send(float, float, int, int); //
   void Receive(float*, float*, int*, int);
-  voud Get_data2(float*, float*, int*, int, int);
+  void Get_data2(float*, float*, int*, int, int);
+  void parallel_allocate_vec();
 private:
   int my_rank, comm_sz;
+  MPI_Aint aint; // What does MPI_Aint mean?
+  std::vector<int> vectorOfBlockLengths;
 };
 
 #endif

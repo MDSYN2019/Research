@@ -2,24 +2,30 @@
 #include <iomanip>
 #include <vector>
 #include "mpi.h"
-
 #include "MPI_broadcast.hpp"
 
 MPI_BC::MPI_BC() {
+  MPI_Init(NULL, NULL);
+  MPI_Comm_size(MPI_COMM_WORLD, &comm_sz);
+  MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
 } // constructor 
 
 MPI_BC::~MPI_BC() {
+  MPI_Finalize();
 } // destructor 
 
 void MPI_BC::build_mpi_type(double* a_p, double* b_p, int* n_p, MPI_Datatype input_mpi_t_p) {
-
   int array_of_blocklengths[3] = {1,1,1};
   MPI_Datatype array_of_types[3] = {MPI_DOUBLE, MPI_DOUBLE, MPI_INT};
   MPI_Aint a_addr, b_addr, n_addr;
-  MPI_Aint array_of_displacements[3] = {0};
-  
-  
-}
+  MPI_Aint array_of_displacements[3] = {0};  
+  MPI_Get_address(a_p, &a_addr);
+  MPI_Get_address(b_p, &b_addr);
+  MPI_Get_address(n_p, &n_addr);
+  array_of_displacements[1] = b_addr - a_addr;
+  array_of_displacements[2] = n_addr - a_addr;
+  MPI_Type_commmit(input_mpi_t_p);
+} // Build MPI type
 
 void MPI_BC::Get_input(int my_rank, int comm_sz, double* a_p, double* b_p, int* n_p) { // input, input, input, output, output
   if (my_rank == 0) {

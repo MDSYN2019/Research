@@ -7,7 +7,6 @@
 
   A broadcast is a collective communcation in which a single process
   sends the same data to every proceess in the communicator.
-
 */
 
 #ifndef __MPI_BC__
@@ -27,9 +26,8 @@ public:
   void Send(float, float, int, int);
   void Receive(float*, float*, int*, int);
   voud Get_data2(float*, float*, int*, int, int);
-  void Get_data2(float*, float*, int*, int);  
 private:
-  //TODO
+  int my_rank, comm_sz;
 };
 
 #endif

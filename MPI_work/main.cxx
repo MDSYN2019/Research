@@ -13,6 +13,18 @@
 
 std::vector<int> aa;
 
+// Creates an array of random numbers. Each number has a value from 0 - 1
+float *create_rand_nums(int num_elements) {
+  float *rand_nums = (float *)malloc(sizeof(float) * num_elements);
+  assert(rand_nums != NULL);
+  int i;
+  for (i = 0; i < num_elements; i++) {
+    rand_nums[i] = (rand() / (float)RAND_MAX);
+  }
+  return rand_nums;
+}
+
+
 void Read_vector(double* local_a, int local_n, int n, std::string vec_name, int my_rank, MPI_Comm comm) {
   double* a = NULL;
   int i;
@@ -21,6 +33,8 @@ void Read_vector(double* local_a, int local_n, int n, std::string vec_name, int 
   }
 
 }
+
+
 
 int main() {
   MPI_Init(&argc, &argv);

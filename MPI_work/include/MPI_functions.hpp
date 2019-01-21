@@ -10,28 +10,22 @@
 
 
 namespace Skiena {
-
-
   template <class T> class linked_list {
   public:
-
     list *search_list(list *l, item_type x);
-    linked_list(); // Constructors
-    ~linked_list(); // destructor 
-
+    linked_list(); // Constructor
+    ~linked_list(); // Destructor 
   private:
     double item;
     typedef struct list {
       T val;
       struct list *next;
     };
-
   };
-  
   
   linked_list::linked_list() {
   }
-
+  
   linked_list::*search_list(list *l, item_type x) {
     if (l == NULL) {
       return (NULL);
@@ -104,7 +98,6 @@ public:
   typedef std::ptrdiff_T difference_type;
   typedef T& reference;
   typedef const T& const_reference;
-
   /*
     What about self-assignment? It is possible that a user might wind up assigning an object to itself. As we shall see, it iss crucial 
     that assignment operators deal correctly with self-assignment

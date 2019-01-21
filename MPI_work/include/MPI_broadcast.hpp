@@ -19,12 +19,13 @@
 
 class MPI_BC {
 public:
-  MPI_BC();
-  virtual ~MPI_BC();
+  MPI_BC(); // Default constructor 
+  MPI_BC(int); // Custom constructor 
+  virtual ~MPI_BC(); // Destructor  
   void Get_Input(int, int, double*, double*, int*); // WIP
   void buildMpiType(double*, double*, int*, MPI_Datatype*); // WIP
-  void Send(float, float, int, int); //
-  void Receive(float*, float*, int*, int);
+  void Send(float, float, int, int); // Standard send/receive pair 
+  void Receive(float*, float*, int*, int); // Standard send/receive pair 
   void GetData(float*, float*, int*, int, int); // WIP
 private:
   int my_rank, comm_sz;

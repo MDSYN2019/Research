@@ -7,10 +7,50 @@
 #include <mpi.h>
 #include "MPI_broadcast.hpp"
 
+template <class T> class Vec {
+public:
+  typedef T* iterator;
+  typedef const T* const_iterator;
+  typedef size_t size_type;
+  typedef T value_type;
+  typedef std::ptrdiff_T difference_type;
+  typedef T& reference;
+  typedef const T& const_reference;
+  /*
+    What about self-assignment? It is possible that a user might wind up assigning an object to itself. As we shall see, it is crucial 
+    that assignment operators deal correctly with self-assignment
+  */
+  template <class T>
+  Vec<T>& Vec<T>::operator=(const Vec& rhs) {
+   // check for self-assignment
+    if (&rhs != this) {
+      // free the array in the left hand side
+      uncreate();
+      create (rhs.begin(), rhs.end());
+    }
+    return *this;
+  }
+  
+  &Vec operator=(const Vec&);
+  Vec() {create();}
+  // we'll assume that one of our utiity functions will handle the allocation and copy so that the copy constucorr can forward its wworkd to taht function
+  Vec(const Vec& v){(create(v.begin(), v.end()));} // copy constructor
+  explicit Vec(std::size_t n, const T& val = T()) {create(n,val);} // this explicit constructor takes a size_type and a value - this will allocate neough mempry of type T of number n, and initialize it with the values val 
+  size_type size() const {return limit - data;}
+  
+  T& operator[] (size_type i) { return data[i]}
+  const T& operator[](size_type i) const {return data[i];}
+  iterator begin() {return data;}
+  const_iterator begin() const {return data;}
+  iterator_end() {return limit;}
+  const_iterator end() {return limit;}
+private:
+  iterator data; // first the first element of the data
+  iterator limit;
+};
+
 std::map<std::string, std::string> typeConvDict; // TODO
-
 enum MPI_TYPE {MPI_CHAR, MPI_SHORT, MPI_INT, MPI_LONG, MPI_LONG_LONG, MPI_UNSIGNED_CHAR, MPI_UNSIGNED_SHORT, MPI_UNSIGNED, MPI_UNSIGNED_LONG, MPI_FLOAT, MPI_DOUBLE, MPI_LONG_DOUBLE, MPI_BYTE, MPI_PACKED};
-
 
 void my_bcast(void* data, int count, MPI_Datatype datatype, int root,
               MPI_Comm communicator) {
@@ -43,18 +83,18 @@ MPI_BC::~MPI_BC() {
   MPI_Finalize();
 } // destructor 
 
-void MPI_BC::parallelAllocateVec(double* aa, double* bb, int lenOfVec, std::vector<int>& vecpart) {
-  // Vector related operations
-  std::iota(MPItype.begin(), MPItype.end(), 1);
-  std::iota(MPIDatatype.begin(), MPIDatatype.end(), MPI_INT);
-  std::iota(MPIdisplacements.begin(), MPIdisplacements.end(), sizeof(int)); 
+void MPI_BC::parallelAllocateVec(double* aa, double* bb, int lenOfVec, std::vector<int>& vecpart, MPI_Datatype* input_mpi_t_p) {
+
+  std::iota(MPItype.begin(), MPItype.end(), 1); // Vector allocation of types
+  std::iota(MPIDatatype.begin(), MPIDatatype.end(), MPI_INT); // Vector allocation of MPI_INt
+  std::iota(MPIdisplacements.begin(), MPIdisplacements.end(), sizeof(int));  // vector allocation of the size of the vector 
+  //
   MPI_Get_address(&vecpart[0], aint);
   MPI_Type_create_struct(lenOfVec, MPItype, MPIdisplacements, MPItype, input_mpi_t_p);
   MPI_type_commit(input_mpi_t_p);
-  
 }
 
-void MPI_BC::buildMpiType(double* a_p, double* b_p, int* n_p, MPI_Datatype input_mpi_t_p) {
+void MPI_BC::buildMpiType(double* a_p, double* b_p, int* n_p, MPI_Datatype* input_mpi_t_p) {
   /*
     
     A derived datatype can bbe used to represent any collection 
@@ -84,7 +124,6 @@ void MPI_BC::buildMpiType(double* a_p, double* b_p, int* n_p, MPI_Datatype input
 // Build MPI type
 
 void MPI_BC::Get_input(int my_rank, int comm_sz, double* a_p, double* b_p, int* n_p) { // input, input, input, output, output
-
   if (my_rank == 0) {
     std::cout << "Enter a, b and n \n";
     scanf("%lf %lf %d", a_p, b_p, n_p); 
@@ -96,12 +135,14 @@ void MPI_BC::Get_input(int my_rank, int comm_sz, double* a_p, double* b_p, int* 
   // Get Input
 }
 
-
 void MPI_BC::Get_input2(int my_rank, int comm_sz, double* a_p, double* b_p, int* n_p) { // input, input, input, output, output
 
   MPI_Datatype input_mpi_t;
-  buildMpiType(); // TODO
+  buildMpiType(a_p, b_p, n_p, &input_mpi_t); // TODO
   // Get Input
+  if (my_rank == 0) {
+
+  }
 }
 
 void MPI_BC::Send(float a, float b, int n, int dest) {

@@ -24,6 +24,7 @@ MPI_BC::~MPI_BC() {
 void MPI_BC::parallelAllocateVec(double* aa, double* bb, int lenOfVec, std::vector<int>& vecpart) {
   int array_of_blocklengths =
   // Vector related operations
+    
   MPI_Datatype type = {MPI_DOUBLE};
   MPI_Get_address(&vecpart, ..);
   vectorofBlocklengths.push_back(lenOfVec); // Add in length of vector  

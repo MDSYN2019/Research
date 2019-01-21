@@ -8,7 +8,7 @@
 #include <sstream>
 #include <vector>
 
-
+/*
 namespace Skiena {
   template <class T> class linked_list {
   public:
@@ -89,6 +89,10 @@ complex complex::operator+ (const complex& c) const {
   return result; // This should be a const, as we defined the overloaded operator to return a const 
 }
 
+*/
+
+  /*
+
 template <class T> class Vec {
 public:
   typedef T* iterator;
@@ -98,11 +102,9 @@ public:
   typedef std::ptrdiff_T difference_type;
   typedef T& reference;
   typedef const T& const_reference;
-  /*
     What about self-assignment? It is possible that a user might wind up assigning an object to itself. As we shall see, it iss crucial 
     that assignment operators deal correctly with self-assignment
     
-   */
   template <class T>
   Vec<T>& Vec<T>::operator=(const Vec& rhs) {
    // check for self-assignemnt
@@ -137,5 +139,7 @@ private:
   iterator data; // first the first element of the data
   iterator limit;
 };
+
+   */
 
 #endif

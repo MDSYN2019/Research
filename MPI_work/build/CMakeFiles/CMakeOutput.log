@@ -1,0 +1,653 @@
+The system is: Linux - 4.15.0-34-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /home/noh/anaconda3/bin/cc 
+Build flags: -I/usr/local/include
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/3.10.2/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /home/noh/anaconda3/bin/c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/3.10.2/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_08403/fast"
+/usr/bin/make -f CMakeFiles/cmTC_08403.dir/build.make CMakeFiles/cmTC_08403.dir/build
+make[1]: Entering directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_08403.dir/testCCompiler.c.o
+/home/noh/anaconda3/bin/cc   -I/usr/local/include    -o CMakeFiles/cmTC_08403.dir/testCCompiler.c.o   -c /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_08403
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_08403.dir/link.txt --verbose=1
+/home/noh/anaconda3/bin/cc -I/usr/local/include   -L/usr/local/lib  -rdynamic CMakeFiles/cmTC_08403.dir/testCCompiler.c.o  -o cmTC_08403 
+make[1]: Leaving directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_8ffb7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8ffb7.dir/build.make CMakeFiles/cmTC_8ffb7.dir/build
+make[1]: Entering directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8ffb7.dir/CMakeCCompilerABI.c.o
+/home/noh/anaconda3/bin/cc   -I/usr/local/include    -o CMakeFiles/cmTC_8ffb7.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_8ffb7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8ffb7.dir/link.txt --verbose=1
+/home/noh/anaconda3/bin/cc -I/usr/local/include   -L/usr/local/lib -v -rdynamic CMakeFiles/cmTC_8ffb7.dir/CMakeCCompilerABI.c.o  -o cmTC_8ffb7 
+Reading specs from /home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/specs
+COLLECT_GCC=/home/noh/anaconda3/bin/cc
+COLLECT_LTO_WRAPPER=/home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/lto-wrapper
+Target: x86_64-conda_cos6-linux-gnu
+Configured with: /opt/conda/conda-bld/compilers_linux-64_1520532893746/work/.build/src/gcc-7.2.0/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=x86_64-conda_cos6-linux-gnu --prefix=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/gcc_built --with-sysroot=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/gcc_built/x86_64-conda_cos6-linux-gnu/sysroot --enable-languages=c,c++,fortran,objc,obj-c++ --with-pkgversion='crosstool-NG fa8859cb' --enable-__cxa_atexit --disable-libmudflap --enable-libgomp --disable-libssp --enable-libquadmath --enable-libquadmath-support --enable-libsanitizer --enable-libmpx --with-gmp=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/.build/x86_64-conda_cos6-linux-gnu/buildtools --with-mpfr=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/.build/x86_64-conda_cos6-linux-gnu/buildtools --with-mpc=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/.build/x86_64-conda_cos6-linux-gnu/buildtools --with-isl=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/.build/x86_64-conda_cos6-linux-gnu/buildtools --enable-lto --enable-threads=posix --enable-target-optspace --enable-plugin --enable-gold --disable-nls --disable-multilib --with-local-prefix=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/gcc_built/x86_64-conda_cos6-linux-gnu/sysroot --enable-long-long --enable-default-pie
+Thread model: posix
+gcc version 7.2.0 (crosstool-NG fa8859cb) 
+COMPILER_PATH=/home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/:/home/noh/anaconda3/bin/../libexec/gcc/:/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/bin/
+LIBRARY_PATH=/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/:/home/noh/anaconda3/bin/../lib/gcc/:/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib/../lib/:/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib/../lib/:/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib/:/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib/:/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib/:/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/
+COLLECT_GCC_OPTIONS='-I' '/usr/local/include' '-L/usr/local/lib' '-v' '-rdynamic' '-o' 'cmTC_8ffb7' '-mtune=generic' '-march=x86-64'
+ /home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/collect2 -plugin /home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/liblto_plugin.so -plugin-opt=/home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccDxMJym.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_8ffb7 /home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib/Scrt1.o /home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib/crti.o /home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/crtbeginS.o -L/usr/local/lib -L/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0 -L/home/noh/anaconda3/bin/../lib/gcc -L/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib/../lib -L/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib/../lib -L/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib -L/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib -L/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib -L/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib -rpath /home/noh/anaconda3/lib CMakeFiles/cmTC_8ffb7.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/crtendS.o /home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib/crtn.o
+COLLECT_GCC_OPTIONS='-I' '/usr/local/include' '-L/usr/local/lib' '-v' '-rdynamic' '-o' 'cmTC_8ffb7' '-mtune=generic' '-march=x86-64'
+make[1]: Leaving directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_8ffb7/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_8ffb7.dir/build.make CMakeFiles/cmTC_8ffb7.dir/build]
+  ignore line: [make[1]: Entering directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_8ffb7.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/home/noh/anaconda3/bin/cc   -I/usr/local/include    -o CMakeFiles/cmTC_8ffb7.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_8ffb7]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8ffb7.dir/link.txt --verbose=1]
+  ignore line: [/home/noh/anaconda3/bin/cc -I/usr/local/include   -L/usr/local/lib -v -rdynamic CMakeFiles/cmTC_8ffb7.dir/CMakeCCompilerABI.c.o  -o cmTC_8ffb7 ]
+  ignore line: [Reading specs from /home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/specs]
+  ignore line: [COLLECT_GCC=/home/noh/anaconda3/bin/cc]
+  ignore line: [COLLECT_LTO_WRAPPER=/home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/lto-wrapper]
+  ignore line: [Target: x86_64-conda_cos6-linux-gnu]
+  ignore line: [Configured with: /opt/conda/conda-bld/compilers_linux-64_1520532893746/work/.build/src/gcc-7.2.0/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=x86_64-conda_cos6-linux-gnu --prefix=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/gcc_built --with-sysroot=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/gcc_built/x86_64-conda_cos6-linux-gnu/sysroot --enable-languages=c,c++,fortran,objc,obj-c++ --with-pkgversion='crosstool-NG fa8859cb' --enable-__cxa_atexit --disable-libmudflap --enable-libgomp --disable-libssp --enable-libquadmath --enable-libquadmath-support --enable-libsanitizer --enable-libmpx --with-gmp=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/.build/x86_64-conda_cos6-linux-gnu/buildtools --with-mpfr=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/.build/x86_64-conda_cos6-linux-gnu/buildtools --with-mpc=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/.build/x86_64-conda_cos6-linux-gnu/buildtools --with-isl=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/.build/x86_64-conda_cos6-linux-gnu/buildtools --enable-lto --enable-threads=posix --enable-target-optspace --enable-plugin --enable-gold --disable-nls --disable-multilib --with-local-prefix=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/gcc_built/x86_64-conda_cos6-linux-gnu/sysroot --enable-long-long --enable-default-pie]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 7.2.0 (crosstool-NG fa8859cb) ]
+  ignore line: [COMPILER_PATH=/home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/:/home/noh/anaconda3/bin/../libexec/gcc/:/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/bin/]
+  ignore line: [LIBRARY_PATH=/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/:/home/noh/anaconda3/bin/../lib/gcc/:/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib/../lib/:/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib/../lib/:/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib/:/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib/:/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib/:/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-I' '/usr/local/include' '-L/usr/local/lib' '-v' '-rdynamic' '-o' 'cmTC_8ffb7' '-mtune=generic' '-march=x86-64']
+  link line: [ /home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/collect2 -plugin /home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/liblto_plugin.so -plugin-opt=/home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccDxMJym.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_8ffb7 /home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib/Scrt1.o /home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib/crti.o /home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/crtbeginS.o -L/usr/local/lib -L/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0 -L/home/noh/anaconda3/bin/../lib/gcc -L/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib/../lib -L/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib/../lib -L/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib -L/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib -L/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib -L/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib -rpath /home/noh/anaconda3/lib CMakeFiles/cmTC_8ffb7.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/crtendS.o /home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib/crtn.o]
+    arg [/home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccDxMJym.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--sysroot=/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_8ffb7] ==> ignore
+    arg [/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib/Scrt1.o] ==> ignore
+    arg [/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib/crti.o] ==> ignore
+    arg [/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/crtbeginS.o] ==> ignore
+    arg [-L/usr/local/lib] ==> dir [/usr/local/lib]
+    arg [-L/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0] ==> dir [/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0]
+    arg [-L/home/noh/anaconda3/bin/../lib/gcc] ==> dir [/home/noh/anaconda3/bin/../lib/gcc]
+    arg [-L/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib/../lib] ==> dir [/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib/../lib]
+    arg [-L/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib/../lib] ==> dir [/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib/../lib]
+    arg [-L/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib] ==> dir [/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib]
+    arg [-L/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib] ==> dir [/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib]
+    arg [-L/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib] ==> dir [/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib]
+    arg [-L/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib] ==> dir [/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib]
+    arg [-rpath] ==> ignore
+    arg [/home/noh/anaconda3/lib] ==> ignore
+    arg [CMakeFiles/cmTC_8ffb7.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/crtendS.o] ==> ignore
+    arg [/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib/crtn.o] ==> ignore
+  collapse library dir [/usr/local/lib] ==> [/usr/local/lib]
+  collapse library dir [/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0] ==> [/home/noh/anaconda3/lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0]
+  collapse library dir [/home/noh/anaconda3/bin/../lib/gcc] ==> [/home/noh/anaconda3/lib/gcc]
+  collapse library dir [/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib/../lib] ==> [/home/noh/anaconda3/x86_64-conda_cos6-linux-gnu/lib]
+  collapse library dir [/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib/../lib] ==> [/home/noh/anaconda3/x86_64-conda_cos6-linux-gnu/sysroot/lib]
+  collapse library dir [/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib] ==> [/home/noh/anaconda3/x86_64-conda_cos6-linux-gnu/sysroot/usr/lib]
+  collapse library dir [/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib] ==> [/home/noh/anaconda3/x86_64-conda_cos6-linux-gnu/lib]
+  collapse library dir [/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib] ==> [/home/noh/anaconda3/x86_64-conda_cos6-linux-gnu/sysroot/lib]
+  collapse library dir [/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib] ==> [/home/noh/anaconda3/x86_64-conda_cos6-linux-gnu/sysroot/usr/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit dirs: [/usr/local/lib;/home/noh/anaconda3/lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0;/home/noh/anaconda3/lib/gcc;/home/noh/anaconda3/x86_64-conda_cos6-linux-gnu/lib;/home/noh/anaconda3/x86_64-conda_cos6-linux-gnu/sysroot/lib;/home/noh/anaconda3/x86_64-conda_cos6-linux-gnu/sysroot/usr/lib]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c368a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c368a.dir/build.make CMakeFiles/cmTC_c368a.dir/build
+make[1]: Entering directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c368a.dir/feature_tests.c.o
+/home/noh/anaconda3/bin/cc   -I/usr/local/include    -std=c11 -o CMakeFiles/cmTC_c368a.dir/feature_tests.c.o   -c /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_c368a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c368a.dir/link.txt --verbose=1
+/home/noh/anaconda3/bin/cc -I/usr/local/include   -L/usr/local/lib  -rdynamic CMakeFiles/cmTC_c368a.dir/feature_tests.c.o  -o cmTC_c368a 
+make[1]: Leaving directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a30ca/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a30ca.dir/build.make CMakeFiles/cmTC_a30ca.dir/build
+make[1]: Entering directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a30ca.dir/feature_tests.c.o
+/home/noh/anaconda3/bin/cc   -I/usr/local/include    -std=c99 -o CMakeFiles/cmTC_a30ca.dir/feature_tests.c.o   -c /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_a30ca
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a30ca.dir/link.txt --verbose=1
+/home/noh/anaconda3/bin/cc -I/usr/local/include   -L/usr/local/lib  -rdynamic CMakeFiles/cmTC_a30ca.dir/feature_tests.c.o  -o cmTC_a30ca 
+make[1]: Leaving directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_41991/fast"
+/usr/bin/make -f CMakeFiles/cmTC_41991.dir/build.make CMakeFiles/cmTC_41991.dir/build
+make[1]: Entering directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_41991.dir/feature_tests.c.o
+/home/noh/anaconda3/bin/cc   -I/usr/local/include    -std=c90 -o CMakeFiles/cmTC_41991.dir/feature_tests.c.o   -c /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_41991
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_41991.dir/link.txt --verbose=1
+/home/noh/anaconda3/bin/cc -I/usr/local/include   -L/usr/local/lib  -rdynamic CMakeFiles/cmTC_41991.dir/feature_tests.c.o  -o cmTC_41991 
+make[1]: Leaving directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a926f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a926f.dir/build.make CMakeFiles/cmTC_a926f.dir/build
+make[1]: Entering directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a926f.dir/testCXXCompiler.cxx.o
+/home/noh/anaconda3/bin/c++     -o CMakeFiles/cmTC_a926f.dir/testCXXCompiler.cxx.o -c /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_a926f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a926f.dir/link.txt --verbose=1
+/home/noh/anaconda3/bin/c++     -L/usr/local/lib  -rdynamic CMakeFiles/cmTC_a926f.dir/testCXXCompiler.cxx.o  -o cmTC_a926f 
+make[1]: Leaving directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_31de1/fast"
+/usr/bin/make -f CMakeFiles/cmTC_31de1.dir/build.make CMakeFiles/cmTC_31de1.dir/build
+make[1]: Entering directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_31de1.dir/CMakeCXXCompilerABI.cpp.o
+/home/noh/anaconda3/bin/c++     -o CMakeFiles/cmTC_31de1.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_31de1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_31de1.dir/link.txt --verbose=1
+/home/noh/anaconda3/bin/c++     -L/usr/local/lib -v -rdynamic CMakeFiles/cmTC_31de1.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_31de1 
+Reading specs from /home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/specs
+COLLECT_GCC=/home/noh/anaconda3/bin/c++
+COLLECT_LTO_WRAPPER=/home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/lto-wrapper
+Target: x86_64-conda_cos6-linux-gnu
+Configured with: /opt/conda/conda-bld/compilers_linux-64_1520532893746/work/.build/src/gcc-7.2.0/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=x86_64-conda_cos6-linux-gnu --prefix=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/gcc_built --with-sysroot=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/gcc_built/x86_64-conda_cos6-linux-gnu/sysroot --enable-languages=c,c++,fortran,objc,obj-c++ --with-pkgversion='crosstool-NG fa8859cb' --enable-__cxa_atexit --disable-libmudflap --enable-libgomp --disable-libssp --enable-libquadmath --enable-libquadmath-support --enable-libsanitizer --enable-libmpx --with-gmp=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/.build/x86_64-conda_cos6-linux-gnu/buildtools --with-mpfr=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/.build/x86_64-conda_cos6-linux-gnu/buildtools --with-mpc=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/.build/x86_64-conda_cos6-linux-gnu/buildtools --with-isl=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/.build/x86_64-conda_cos6-linux-gnu/buildtools --enable-lto --enable-threads=posix --enable-target-optspace --enable-plugin --enable-gold --disable-nls --disable-multilib --with-local-prefix=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/gcc_built/x86_64-conda_cos6-linux-gnu/sysroot --enable-long-long --enable-default-pie
+Thread model: posix
+gcc version 7.2.0 (crosstool-NG fa8859cb) 
+COMPILER_PATH=/home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/:/home/noh/anaconda3/bin/../libexec/gcc/:/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/bin/
+LIBRARY_PATH=/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/:/home/noh/anaconda3/bin/../lib/gcc/:/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib/../lib/:/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib/../lib/:/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib/:/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib/:/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib/:/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/
+COLLECT_GCC_OPTIONS='-L/usr/local/lib' '-v' '-rdynamic' '-o' 'cmTC_31de1' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/collect2 -plugin /home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/liblto_plugin.so -plugin-opt=/home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccSOeAee.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_31de1 /home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib/Scrt1.o /home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib/crti.o /home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/crtbeginS.o -L/usr/local/lib -L/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0 -L/home/noh/anaconda3/bin/../lib/gcc -L/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib/../lib -L/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib/../lib -L/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib -L/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib -L/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib -L/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib -rpath /home/noh/anaconda3/lib CMakeFiles/cmTC_31de1.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/crtendS.o /home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib/crtn.o
+COLLECT_GCC_OPTIONS='-L/usr/local/lib' '-v' '-rdynamic' '-o' 'cmTC_31de1' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+make[1]: Leaving directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_31de1/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_31de1.dir/build.make CMakeFiles/cmTC_31de1.dir/build]
+  ignore line: [make[1]: Entering directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_31de1.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/home/noh/anaconda3/bin/c++     -o CMakeFiles/cmTC_31de1.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_31de1]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_31de1.dir/link.txt --verbose=1]
+  ignore line: [/home/noh/anaconda3/bin/c++     -L/usr/local/lib -v -rdynamic CMakeFiles/cmTC_31de1.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_31de1 ]
+  ignore line: [Reading specs from /home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/specs]
+  ignore line: [COLLECT_GCC=/home/noh/anaconda3/bin/c++]
+  ignore line: [COLLECT_LTO_WRAPPER=/home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/lto-wrapper]
+  ignore line: [Target: x86_64-conda_cos6-linux-gnu]
+  ignore line: [Configured with: /opt/conda/conda-bld/compilers_linux-64_1520532893746/work/.build/src/gcc-7.2.0/configure --build=x86_64-build_pc-linux-gnu --host=x86_64-build_pc-linux-gnu --target=x86_64-conda_cos6-linux-gnu --prefix=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/gcc_built --with-sysroot=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/gcc_built/x86_64-conda_cos6-linux-gnu/sysroot --enable-languages=c,c++,fortran,objc,obj-c++ --with-pkgversion='crosstool-NG fa8859cb' --enable-__cxa_atexit --disable-libmudflap --enable-libgomp --disable-libssp --enable-libquadmath --enable-libquadmath-support --enable-libsanitizer --enable-libmpx --with-gmp=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/.build/x86_64-conda_cos6-linux-gnu/buildtools --with-mpfr=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/.build/x86_64-conda_cos6-linux-gnu/buildtools --with-mpc=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/.build/x86_64-conda_cos6-linux-gnu/buildtools --with-isl=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/.build/x86_64-conda_cos6-linux-gnu/buildtools --enable-lto --enable-threads=posix --enable-target-optspace --enable-plugin --enable-gold --disable-nls --disable-multilib --with-local-prefix=/opt/conda/conda-bld/compilers_linux-64_1520532893746/work/gcc_built/x86_64-conda_cos6-linux-gnu/sysroot --enable-long-long --enable-default-pie]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 7.2.0 (crosstool-NG fa8859cb) ]
+  ignore line: [COMPILER_PATH=/home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/:/home/noh/anaconda3/bin/../libexec/gcc/:/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/bin/]
+  ignore line: [LIBRARY_PATH=/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/:/home/noh/anaconda3/bin/../lib/gcc/:/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib/../lib/:/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib/../lib/:/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib/:/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib/:/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib/:/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-L/usr/local/lib' '-v' '-rdynamic' '-o' 'cmTC_31de1' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/collect2 -plugin /home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/liblto_plugin.so -plugin-opt=/home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccSOeAee.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_31de1 /home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib/Scrt1.o /home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib/crti.o /home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/crtbeginS.o -L/usr/local/lib -L/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0 -L/home/noh/anaconda3/bin/../lib/gcc -L/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib/../lib -L/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib/../lib -L/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib -L/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib -L/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib -L/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib -rpath /home/noh/anaconda3/lib CMakeFiles/cmTC_31de1.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/crtendS.o /home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib/crtn.o]
+    arg [/home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/home/noh/anaconda3/bin/../libexec/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccSOeAee.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--sysroot=/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_31de1] ==> ignore
+    arg [/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib/Scrt1.o] ==> ignore
+    arg [/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib/crti.o] ==> ignore
+    arg [/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/crtbeginS.o] ==> ignore
+    arg [-L/usr/local/lib] ==> dir [/usr/local/lib]
+    arg [-L/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0] ==> dir [/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0]
+    arg [-L/home/noh/anaconda3/bin/../lib/gcc] ==> dir [/home/noh/anaconda3/bin/../lib/gcc]
+    arg [-L/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib/../lib] ==> dir [/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib/../lib]
+    arg [-L/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib/../lib] ==> dir [/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib/../lib]
+    arg [-L/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib] ==> dir [/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib]
+    arg [-L/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib] ==> dir [/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib]
+    arg [-L/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib] ==> dir [/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib]
+    arg [-L/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib] ==> dir [/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib]
+    arg [-rpath] ==> ignore
+    arg [/home/noh/anaconda3/lib] ==> ignore
+    arg [CMakeFiles/cmTC_31de1.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/crtendS.o] ==> ignore
+    arg [/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib/crtn.o] ==> ignore
+  collapse library dir [/usr/local/lib] ==> [/usr/local/lib]
+  collapse library dir [/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0] ==> [/home/noh/anaconda3/lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0]
+  collapse library dir [/home/noh/anaconda3/bin/../lib/gcc] ==> [/home/noh/anaconda3/lib/gcc]
+  collapse library dir [/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib/../lib] ==> [/home/noh/anaconda3/x86_64-conda_cos6-linux-gnu/lib]
+  collapse library dir [/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib/../lib] ==> [/home/noh/anaconda3/x86_64-conda_cos6-linux-gnu/sysroot/lib]
+  collapse library dir [/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib/../lib] ==> [/home/noh/anaconda3/x86_64-conda_cos6-linux-gnu/sysroot/usr/lib]
+  collapse library dir [/home/noh/anaconda3/bin/../lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/../../../../x86_64-conda_cos6-linux-gnu/lib] ==> [/home/noh/anaconda3/x86_64-conda_cos6-linux-gnu/lib]
+  collapse library dir [/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/lib] ==> [/home/noh/anaconda3/x86_64-conda_cos6-linux-gnu/sysroot/lib]
+  collapse library dir [/home/noh/anaconda3/bin/../x86_64-conda_cos6-linux-gnu/sysroot/usr/lib] ==> [/home/noh/anaconda3/x86_64-conda_cos6-linux-gnu/sysroot/usr/lib]
+  implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+  implicit dirs: [/usr/local/lib;/home/noh/anaconda3/lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0;/home/noh/anaconda3/lib/gcc;/home/noh/anaconda3/x86_64-conda_cos6-linux-gnu/lib;/home/noh/anaconda3/x86_64-conda_cos6-linux-gnu/sysroot/lib;/home/noh/anaconda3/x86_64-conda_cos6-linux-gnu/sysroot/usr/lib]
+  implicit fwks: []
+
+
+
+
+Detecting CXX [-std=c++1z] compiler features compiled with the following output:
+Change Dir: /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_41906/fast"
+/usr/bin/make -f CMakeFiles/cmTC_41906.dir/build.make CMakeFiles/cmTC_41906.dir/build
+make[1]: Entering directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_41906.dir/feature_tests.cxx.o
+/home/noh/anaconda3/bin/c++    -std=c++1z -o CMakeFiles/cmTC_41906.dir/feature_tests.cxx.o -c /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_41906
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_41906.dir/link.txt --verbose=1
+/home/noh/anaconda3/bin/c++     -L/usr/local/lib  -rdynamic CMakeFiles/cmTC_41906.dir/feature_tests.cxx.o  -o cmTC_41906 
+make[1]: Leaving directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++14] compiler features compiled with the following output:
+Change Dir: /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_27717/fast"
+/usr/bin/make -f CMakeFiles/cmTC_27717.dir/build.make CMakeFiles/cmTC_27717.dir/build
+make[1]: Entering directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_27717.dir/feature_tests.cxx.o
+/home/noh/anaconda3/bin/c++    -std=c++14 -o CMakeFiles/cmTC_27717.dir/feature_tests.cxx.o -c /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_27717
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_27717.dir/link.txt --verbose=1
+/home/noh/anaconda3/bin/c++     -L/usr/local/lib  -rdynamic CMakeFiles/cmTC_27717.dir/feature_tests.cxx.o  -o cmTC_27717 
+make[1]: Leaving directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++11] compiler features compiled with the following output:
+Change Dir: /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e6b4d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e6b4d.dir/build.make CMakeFiles/cmTC_e6b4d.dir/build
+make[1]: Entering directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e6b4d.dir/feature_tests.cxx.o
+/home/noh/anaconda3/bin/c++    -std=c++11 -o CMakeFiles/cmTC_e6b4d.dir/feature_tests.cxx.o -c /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_e6b4d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e6b4d.dir/link.txt --verbose=1
+/home/noh/anaconda3/bin/c++     -L/usr/local/lib  -rdynamic CMakeFiles/cmTC_e6b4d.dir/feature_tests.cxx.o  -o cmTC_e6b4d 
+make[1]: Leaving directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++98] compiler features compiled with the following output:
+Change Dir: /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_28b99/fast"
+/usr/bin/make -f CMakeFiles/cmTC_28b99.dir/build.make CMakeFiles/cmTC_28b99.dir/build
+make[1]: Entering directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_28b99.dir/feature_tests.cxx.o
+/home/noh/anaconda3/bin/c++    -std=c++98 -o CMakeFiles/cmTC_28b99.dir/feature_tests.cxx.o -c /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_28b99
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_28b99.dir/link.txt --verbose=1
+/home/noh/anaconda3/bin/c++     -L/usr/local/lib  -rdynamic CMakeFiles/cmTC_28b99.dir/feature_tests.cxx.o  -o cmTC_28b99 
+make[1]: Leaving directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:0cxx_alias_templates
+    Feature record: CXX_FEATURE:0cxx_alignas
+    Feature record: CXX_FEATURE:0cxx_alignof
+    Feature record: CXX_FEATURE:0cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:0cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:0cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:0cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:0cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:0cxx_default_function_template_args
+    Feature record: CXX_FEATURE:0cxx_defaulted_functions
+    Feature record: CXX_FEATURE:0cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:0cxx_delegating_constructors
+    Feature record: CXX_FEATURE:0cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:0cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:0cxx_explicit_conversions
+    Feature record: CXX_FEATURE:0cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:0cxx_extern_templates
+    Feature record: CXX_FEATURE:0cxx_final
+    Feature record: CXX_FEATURE:0cxx_func_identifier
+    Feature record: CXX_FEATURE:0cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:0cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:0cxx_inline_namespaces
+    Feature record: CXX_FEATURE:0cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:0cxx_local_type_template_args
+    Feature record: CXX_FEATURE:0cxx_long_long_type
+    Feature record: CXX_FEATURE:0cxx_noexcept
+    Feature record: CXX_FEATURE:0cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:0cxx_nullptr
+    Feature record: CXX_FEATURE:0cxx_override
+    Feature record: CXX_FEATURE:0cxx_range_for
+    Feature record: CXX_FEATURE:0cxx_raw_string_literals
+    Feature record: CXX_FEATURE:0cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:0cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:0cxx_rvalue_references
+    Feature record: CXX_FEATURE:0cxx_sizeof_member
+    Feature record: CXX_FEATURE:0cxx_static_assert
+    Feature record: CXX_FEATURE:0cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:0cxx_thread_local
+    Feature record: CXX_FEATURE:0cxx_trailing_return_types
+    Feature record: CXX_FEATURE:0cxx_unicode_literals
+    Feature record: CXX_FEATURE:0cxx_uniform_initialization
+    Feature record: CXX_FEATURE:0cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:0cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:0cxx_variadic_macros
+    Feature record: CXX_FEATURE:0cxx_variadic_templates
+Performing C++ SOURCE FILE Test COMPILER_SUPPORTS_CXX11 succeeded with the following output:
+Change Dir: /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_88b1b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_88b1b.dir/build.make CMakeFiles/cmTC_88b1b.dir/build
+make[1]: Entering directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_88b1b.dir/src.cxx.o
+/home/noh/anaconda3/bin/c++    -DCOMPILER_SUPPORTS_CXX11   -std=c++11 -o CMakeFiles/cmTC_88b1b.dir/src.cxx.o -c /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_88b1b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_88b1b.dir/link.txt --verbose=1
+/home/noh/anaconda3/bin/c++   -DCOMPILER_SUPPORTS_CXX11  -L/usr/local/lib  -rdynamic CMakeFiles/cmTC_88b1b.dir/src.cxx.o  -o cmTC_88b1b 
+make[1]: Leaving directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORTS_CXX0X succeeded with the following output:
+Change Dir: /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_78861/fast"
+/usr/bin/make -f CMakeFiles/cmTC_78861.dir/build.make CMakeFiles/cmTC_78861.dir/build
+make[1]: Entering directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_78861.dir/src.cxx.o
+/home/noh/anaconda3/bin/c++    -DCOMPILER_SUPPORTS_CXX0X   -std=c++0x -o CMakeFiles/cmTC_78861.dir/src.cxx.o -c /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_78861
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_78861.dir/link.txt --verbose=1
+/home/noh/anaconda3/bin/c++   -DCOMPILER_SUPPORTS_CXX0X  -L/usr/local/lib  -rdynamic CMakeFiles/cmTC_78861.dir/src.cxx.o  -o cmTC_78861 
+make[1]: Leaving directory '/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+int main() { return 0; }

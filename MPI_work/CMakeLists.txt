@@ -29,14 +29,17 @@ include_directories (${GSL_INCLUDE_DIRS} ${GSLCBLAS_INCLUDE_DIRS})
 set(Boost_USE_STATIC_LIBS ON) 
 set(Boost_USE_MULTITHREADED ON)  
 set(Boost_USE_STATIC_RUNTIME OFF) 
+
 find_package(Boost) 
 if(Boost_FOUND)
   include_directories (${Boost_INCLUDE_DIRS})
 endif()
 
-#find_package(MPI REQUIRED)
-#include_directories(${MPI_INCLUDE_PATH})
-#include_directories ("${EIGEN3_INCLUDE_DIR}")
+find_package(MPI REQUIRED)
+include_directories(${MPI_INCLUDE_PATH})
+
+
+# include_directories ("${EIGEN3_INCLUDE_DIR}")
 # Specifically add the src library definition for linking
 
 add_subdirectory (src)
@@ -64,5 +67,5 @@ set(MATH "${MATH} -lm")
 if(Boost_FOUND)
   include_directories (${Boost_INCLUDE_DIRS})
   add_executable (MPI_EX main.cxx)
-  target_link_libraries (MPI_EX  ${EXTRA_LIBS} ${BOOST_LIBRARIES} ${Boost_LIBRARIES}  ${MATH})
+  target_link_libraries (MPI_EX  ${EXTRA_LIBS} ${BOOST_LIBRARIES} ${Boost_LIBRARIES}  ${MATH} ${MPI_LIBRARIES})
 endif()

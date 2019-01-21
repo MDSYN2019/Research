@@ -7,6 +7,7 @@
 #include <mpi.h>
 #include "MPI_broadcast.hpp"
 
+/*
 template <class T> class Vec {
 public:
   typedef T* iterator;
@@ -16,10 +17,7 @@ public:
   typedef std::ptrdiff_T difference_type;
   typedef T& reference;
   typedef const T& const_reference;
-  /*
-    What about self-assignment? It is possible that a user might wind up assigning an object to itself. As we shall see, it is crucial 
-    that assignment operators deal correctly with self-assignment
-  */
+
   template <class T>
   Vec<T>& Vec<T>::operator=(const Vec& rhs) {
    // check for self-assignment
@@ -48,8 +46,10 @@ private:
   iterator data; // first the first element of the data
   iterator limit;
 };
+*/
 
 std::map<std::string, std::string> typeConvDict; // TODO
+
 enum MPI_TYPE {MPI_CHAR, MPI_SHORT, MPI_INT, MPI_LONG, MPI_LONG_LONG, MPI_UNSIGNED_CHAR, MPI_UNSIGNED_SHORT, MPI_UNSIGNED, MPI_UNSIGNED_LONG, MPI_FLOAT, MPI_DOUBLE, MPI_LONG_DOUBLE, MPI_BYTE, MPI_PACKED};
 
 void my_bcast(void* data, int count, MPI_Datatype datatype, int root,
@@ -83,12 +83,13 @@ MPI_BC::~MPI_BC() {
   MPI_Finalize();
 } // destructor 
 
-void MPI_BC::parallelAllocateVec(double* aa, double* bb, int lenOfVec, std::vector<int>& vecpart, MPI_Datatype* input_mpi_t_p) {
+void MPI_BC::InitializeVec(int lenOfVec) : vectorOfBlockLengths(lenofVec), MPItype(lenOfVec), MPIDatatype(lenOfVec), MPIdisplacements(lenOfVec) {}
 
+void MPI_BC::parallelAllocateVec(double* aa, double* bb, int lenOfVec, std::vector<int>& vecpart, MPI_Datatype* input_mpi_t_p) {
   std::iota(MPItype.begin(), MPItype.end(), 1); // Vector allocation of types
   std::iota(MPIDatatype.begin(), MPIDatatype.end(), MPI_INT); // Vector allocation of MPI_INt
   std::iota(MPIdisplacements.begin(), MPIdisplacements.end(), sizeof(int));  // vector allocation of the size of the vector 
-  //
+  
   MPI_Get_address(&vecpart[0], aint);
   MPI_Type_create_struct(lenOfVec, MPItype, MPIdisplacements, MPItype, input_mpi_t_p);
   MPI_type_commit(input_mpi_t_p);

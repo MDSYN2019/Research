@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <vector>
 #include <string>
+#include <cassert>
 #include <mpi.h>
 
 
@@ -37,6 +38,8 @@ void Read_vector(double* local_a, int local_n, int n, std::string vec_name, int 
 
 
 int main() {
+  
+  /*
   MPI_Init(&argc, &argv);
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
   
@@ -55,6 +58,6 @@ int main() {
   }
   
   MPI_Finalize();
-
+  */
   return 0;
 }

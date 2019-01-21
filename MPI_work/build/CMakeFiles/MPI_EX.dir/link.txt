@@ -1,1 +1,1 @@
-/home/noh/anaconda3/bin/c++   -std=c++11  -L/usr/local/lib -rdynamic CMakeFiles/MPI_EX.dir/main.o  -o MPI_EX  -L/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/src  -L/home/noh/anaconda3/lib -Wl,-rpath,/home/noh/anaconda3/lib src/libsrc.a -lm /home/noh/anaconda3/lib/libmpicxx.so /home/noh/anaconda3/lib/libmpi.so 
+/home/noh/anaconda3/bin/c++   -std=c++11  -L/usr/local/lib -rdynamic CMakeFiles/MPI_EX.dir/main.o  -o MPI_EX  -L/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/src src/libsrc.a -lm 

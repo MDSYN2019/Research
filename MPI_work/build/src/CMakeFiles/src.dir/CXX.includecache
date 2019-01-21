@@ -16,6 +16,18 @@ vector
 mpi.h
 ../include/mpi.h
 
+../include/MPI_broadcast.hpp
+iostream
+-
+vector
+-
+algorithm
+-
+mpi.h
+-
+numeric
+-
+
 /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/src/MPI_IO.cxx
 iostream
 -
@@ -27,6 +39,26 @@ mpi.h
 /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/src/mpi.h
 MPI_IO.hpp
 /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/src/MPI_IO.hpp
+
+/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/src/MPI_broadcast.cxx
+iostream
+-
+iomanip
+-
+vector
+-
+map
+-
+algorithm
+-
+iterator
+-
+numeric
+-
+mpi.h
+/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/src/mpi.h
+MPI_broadcast.hpp
+/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/src/MPI_broadcast.hpp
 
 /usr/local/include/mpi.h
 stddef.h

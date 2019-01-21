@@ -91,8 +91,6 @@ MPI_EX_EXTERNAL_OBJECTS =
 MPI_EX: CMakeFiles/MPI_EX.dir/main.o
 MPI_EX: CMakeFiles/MPI_EX.dir/build.make
 MPI_EX: src/libsrc.a
-MPI_EX: /home/noh/anaconda3/lib/libmpicxx.so
-MPI_EX: /home/noh/anaconda3/lib/libmpi.so
 MPI_EX: CMakeFiles/MPI_EX.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable MPI_EX"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MPI_EX.dir/link.txt --verbose=$(VERBOSE)

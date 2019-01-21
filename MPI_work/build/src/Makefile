@@ -140,6 +140,21 @@ MPI_IO.s:
 	cd /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_IO.s
 .PHONY : MPI_IO.s
 
+# target to build an object file
+MPI_broadcast.o:
+	cd /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_broadcast.o
+.PHONY : MPI_broadcast.o
+
+# target to preprocess a source file
+MPI_broadcast.i:
+	cd /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_broadcast.i
+.PHONY : MPI_broadcast.i
+
+# target to generate assembly for a file
+MPI_broadcast.s:
+	cd /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_broadcast.s
+.PHONY : MPI_broadcast.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -152,6 +167,9 @@ help:
 	@echo "... MPI_IO.o"
 	@echo "... MPI_IO.i"
 	@echo "... MPI_IO.s"
+	@echo "... MPI_broadcast.o"
+	@echo "... MPI_broadcast.i"
+	@echo "... MPI_broadcast.s"
 .PHONY : help
 
 

@@ -12,7 +12,7 @@
 #include "MPI_broadcast.hpp"
 #include "MPI_functions.hpp"
 
-std::vector<int> aa;
+std::vector<int> bb;
 
 // Creates an array of random numbers. Each number has a value from 0 - 1
 float *create_rand_nums(int num_elements) {
@@ -36,9 +36,10 @@ void Read_vector(double* local_a, int local_n, int n, std::string vec_name, int 
 }
 
 
-
 int main() {
-  
+
+  MPI_BC aa;
+
   /*
   MPI_Init(&argc, &argv);
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);

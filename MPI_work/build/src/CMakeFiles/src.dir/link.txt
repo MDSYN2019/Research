@@ -1,2 +1,2 @@
-/home/noh/anaconda3/bin/ar qc libsrc.a  CMakeFiles/src.dir/MPI_IO.o
+/home/noh/anaconda3/bin/ar qc libsrc.a  CMakeFiles/src.dir/MPI_IO.o CMakeFiles/src.dir/MPI_broadcast.o
 /home/noh/anaconda3/bin/ranlib libsrc.a

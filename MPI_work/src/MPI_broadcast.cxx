@@ -22,15 +22,22 @@ MPI_BC::~MPI_BC() {
 } // destructor 
 
 void MPI_BC::parallelAllocateVec(double* aa, double* bb, int lenOfVec, std::vector<int>& vecpart) {
-  int array_of_blocklengths =
   // Vector related operations
   MPI_Datatype type = {MPI_DOUBLE};
-  MPI_Get_address(&vecpart, ..);
+  int array_of_blocklengths = lenOfVec;
   vectorofBlocklengths.push_back(lenOfVec); // Add in length of vector  
   MPI_Get_address(&vectorOfBlockLengths[0], aint);
+
+  MPI_Aint array_of_displacements = aint;
+
+  std::vector<MPI_Aint> vals(lenofVec);
+  std::iota(vals.begin(), vals.end(), MPI_Aint);
+  std::vector<MPI_Aint> types(lenofVec);
+  std::iota(types.begin(), types.end(), MPI_Aint);
+
   MPI_Datatype type = {MPI_INT};
-  MPI_Type_create_struct();
-  
+  MPI_Type_create_struct(lenOfVec, array_of_blocklengths, array_of_displacements, types, ,input_mpi_t_p);
+  MPI_Type_commit(input_mpi_t_p);
 }
 
 void MPI_BC::buildMpiType(double* a_p, double* b_p, int* n_p, MPI_Datatype input_mpi_t_p) {
@@ -42,7 +49,8 @@ void MPI_BC::buildMpiType(double* a_p, double* b_p, int* n_p, MPI_Datatype input
 
     If a function that sends data knows the types and the relative 
     locations in memory of a collection of data items, 
-    
+
+    We can use MPI_Type_create_struct - the argument count is the number of elements in the datatype, 
   */
   
   int array_of_blocklengths[3] = {1,1,1};

@@ -44,15 +44,13 @@ MPI_BC::~MPI_BC() {
 } // destructor 
 
 void MPI_BC::parallelAllocateVec(double* aa, double* bb, int lenOfVec, std::vector<int>& vecpart) {
-  int array_of_blocklengths =
   // Vector related operations
-    
-  MPI_Datatype type = {MPI_DOUBLE};
-  MPI_Get_address(&vecpart, ..);
-  vectorofBlocklengths.push_back(lenOfVec); // Add in length of vector  
-  MPI_Get_address(&vectorOfBlockLengths[0], aint);
-  MPI_Datatype type = {MPI_INT};
-  MPI_Type_create_struct();
+  std::iota(MPItype.begin(), MPItype.end(), 1);
+  std::iota(MPIDatatype.begin(), MPIDatatype.end(), MPI_INT);
+  std::iota(MPIdisplacements.begin(), MPIdisplacements.end(), sizeof(int)); 
+  MPI_Get_address(&vecpart[0], aint);
+  MPI_Type_create_struct(lenOfVec, MPItype, MPIdisplacements, MPItype, input_mpi_t_p);
+  MPI_type_commit(input_mpi_t_p);
   
 }
 
@@ -98,6 +96,14 @@ void MPI_BC::Get_input(int my_rank, int comm_sz, double* a_p, double* b_p, int* 
   // Get Input
 }
 
+
+void MPI_BC::Get_input2(int my_rank, int comm_sz, double* a_p, double* b_p, int* n_p) { // input, input, input, output, output
+
+  MPI_Datatype input_mpi_t;
+  buildMpiType(); // TODO
+  // Get Input
+}
+
 void MPI_BC::Send(float a, float b, int n, int dest) {
     MPI_Send(&a, 1, MPI_FLOAT, dest, 0, MPI_COMM_WORLD);
     MPI_Send(&b, 1, MPI_FLOAT, dest, 1, MPI_COMM_WORLD);
@@ -115,6 +121,6 @@ void MPI_BC::GetData() {
     std::cout << "Enter a, b, and n \n";
     scanf("%lf %lf %d", a_ptr, b_ptr, n_ptr);
   }
-  
+ 
   
 }

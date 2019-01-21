@@ -29,7 +29,11 @@ public:
 private:
   int my_rank, comm_sz;
   MPI_Aint aint; // What does MPI_Aint mean?
-  std::vector<int> vectorOfBlockLengths;
+  int lenOfVec;
+  std::vector<int> vectorOfBlockLengths(lenOfVec);
+  std::vector<int> MPItype(lenOfVec);
+  std::vector<MPI_Datatype> MPIDatatype(lenOfVec);
+  std::vector<MPI_Aint> MPIdisplacements(lenOfVec);
 };
 
 #endif

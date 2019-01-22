@@ -5,6 +5,19 @@
 #include <cmath>
 
 VanillaOption::VanillaOption() { init(); }
+
+// Copy constructor
+
+VanillaOption::VanillaOption(const VanillaOption& rhs) {
+  copy(rhs);
+}
+
+VanillaOption::VanillaOption::operator=(const VanillaOption& rhs) {
+  if (this == &rhs) return *this;
+  copy (rhs);
+  return *this;
+}
+
 VanillaOption::VanillaOption(const double& _K, const double& _r, const double& _T, const doule& _S, const double& _sigma);
 
 void VanillaOption::init() {
@@ -16,7 +29,18 @@ void VanillaOption::init() {
 }
 
 void VanillaOption::copy(const VanillaOption& rhs) {
+  K = rhs.getK();
+  r = rhs.getr();
+  T = rhs.getT();
+  S = rhs.getS();
+  sigma = _sigma;
 }
+double VanillaOption::getK() const {return K;}
+double VanillaOption::getr() const {return r;}
+double VanillaOption::getT() const {return T;}
+double VanillaOption::getS() const {return S;}
+double VanillaOption::getsigma() const {return sigma;}
 
+}
 
 #endif 

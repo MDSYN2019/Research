@@ -81,6 +81,12 @@ MPI_BC::MPI_BC() {
   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
 } // constructor 
 
+MPI_BC::MPI_BC::operator=(const MPI_BC& rhs) {
+  if (this == &rhs) return *this;
+  copy (rhs);
+  return *this;
+}
+
 
 MPI_BC::~MPI_BC() {
   MPI_Finalize();

@@ -21,8 +21,10 @@ class MPI_BC {
 
 public:
   MPI_BC(); // Default constructor 
-  //  MPI_BC(int); // Custom constructor 
-  virtual ~MPI_BC(); // Destructor  
+  MPI_BC(int); // Custom constructor 
+  MPI_BC(const MPI_BC& rhs);
+  virtual ~MPI_BC(); // Destructor
+  
   void InitializeVec(int);
   //  void Get_Input(int, int, double*, double*, int*); // WIP
   void buildMpiType(double*, double*, int*, MPI_Datatype*); // WIP

@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <iterator>
 #include <numeric>
+
 #include "mpi.h"
 #include "MPI_broadcast.hpp"
 
@@ -93,11 +94,9 @@ void MPI_BC::InitializeVec(int lenOfVec) {
 }
 
 void MPI_BC::parallelAllocateVec(double* aa, double* bb, int lenOfVec, std::vector<int>* vecpart, MPI_Datatype* input_mpi_t_p) {
-
   std::iota(MPItype.begin(), MPItype.end(), 1); // Vector allocation of types
   std::iota(MPIDatatype.begin(), MPIDatatype.end(), MPI_INT); // Vector allocation of MPI_INt
   std::iota(MPIdisplacements.begin(), MPIdisplacements.end(), sizeof(int));  // vector allocation of the size of the vector 
-
   pointerToArray = &MPItype[0];
   
   MPI_Get_address(&vecpart[0], &aint);

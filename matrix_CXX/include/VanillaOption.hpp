@@ -16,11 +16,19 @@ public:
   VanillaOption(const VanillaOption& rhs); // Copy constructor 
   VanillaOption& operator=(const VanillaOption& rhs); // Assignment 
   virtual ~VanillaOption(); // Destructor 
+
+  // Get constants
+
   double getK() const;
   double getr() const;
   double getT() const;
   double getS() const;
   double getsigma() const;
+
+  double calc_call_price() const;
+  double calc_put_price() const;
+  
+
 };
 
 #endif 

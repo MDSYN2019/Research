@@ -35,11 +35,27 @@ void VanillaOption::copy(const VanillaOption& rhs) {
   S = rhs.getS();
   sigma = _sigma;
 }
+
+double VanillaOption::calc_call_price() {
+  
+  double sigma_sqrt_T = sigma * sqrt(T);
+  double d_1 = (log (S/K) + (r + sigma * sigma * 0.5) * T)/ sigma_sqrt_T;
+  double d_2 = d_1 - sigma_sqrt_T;
+
+  return S * N(d_1) - K * exp(-r*T) * N(d_2);
+  
+}
+
+
+
 double VanillaOption::getK() const {return K;}
 double VanillaOption::getr() const {return r;}
 double VanillaOption::getT() const {return T;}
 double VanillaOption::getS() const {return S;}
 double VanillaOption::getsigma() const {return sigma;}
+
+
+
 
 }
 

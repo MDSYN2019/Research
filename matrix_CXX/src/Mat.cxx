@@ -1,6 +1,9 @@
 #ifndef __SIMPLE_MATRIX_CPP
 #define __SIMPLE_MATRIX_CPP
 
+#include <vector>
+#include <Eigen/Dense>
+#include <Eigen/LU>
 #include "Mat.hpp"
 
 // Default constructor
@@ -39,7 +42,6 @@ template <typename Type>
 SimpleMatrix<Type> SimpleMatrix<Type>::get_mat() const {
   return mat;
 }
-
 // Matrix access method, via rows and columns index
 template <typename Type>
 Type& SimpleMatrix<Type>::value(const int& row, const int& col) {

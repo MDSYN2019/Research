@@ -1,6 +1,42 @@
 #ifndef __SIMPLE__MATRIX__H__
 #define __SIMPLE__MATRIX__H__
 
+#include <vector>
+#include <Eigen/Dense>
+#include <Eigen/LU>
+
+template<typename T> class QSMatrix {
+private:
+  std::vector<std::vector<T> > mat;
+  unsigned rows;
+  unsigned cols;
+public:
+  QSMatrix(unsigned _rows, unsigned _cols, const T& _inital);
+  QSMatrix(const QSMatrix<T>& rhs);
+  virtual ~QSMatrix();
+
+  // Matrix mathematical operations
+  QSMatrix<T> operator+(const QSMatrix<T>& rhs);
+  QSMatrix<T>& operator+=(const QSMatrix<T>& rhs);
+
+  QSMatrix<T> operator-(const QSMatrix<T>& rhs);
+};
+
+/*
+
+Matrix classes for Quantitative Finance
+
+In order to do any serious work in quantitative finance it is necessary to be familiar with 
+linear algebra. It is extensively used in statistical analysis and finite difference methods 
+and thus plays a large role in quant finance.
+
+The first stage in the implementation os such a matrix class is to decide a 
+specification. We ued to decide which mathematical operations we wish to include 
+and how the interface operations should be implemented. 
+
+*/
+
+
 /*
   Generic Programming and Template Classes
   

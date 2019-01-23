@@ -52,9 +52,8 @@ private:
 
 std::map<std::string, std::string> typeConvDict; // TODO
 
-/*
-void my_bcast(void* data, int count, MPI_Datatype datatype, int root,
-              MPI_Comm communicator) {
+
+void my_bcast(void* data, int count, MPI_Datatype datatype, int root, MPI_Comm communicator) {
   int world_rank;
   MPI_Comm_rank(communicator, &world_rank);
   int world_size;
@@ -73,7 +72,7 @@ void my_bcast(void* data, int count, MPI_Datatype datatype, int root,
     MPI_Recv(data, count, datatype, root, 0, communicator, MPI_STATUS_IGNORE);
   }
 }
-*/
+
 
 MPI_BC::MPI_BC() {
   MPI_Init(NULL, NULL);

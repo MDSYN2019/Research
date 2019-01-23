@@ -1,7 +1,6 @@
 #ifndef __PAYOFF__
 #define __PAYOFF__
 
-
 class PayOff {
 public:
   PayOff(); // Default (no parameter) constructor 

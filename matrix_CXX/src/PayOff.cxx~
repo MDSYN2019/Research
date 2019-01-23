@@ -1,5 +1,0 @@
-#ifndef __PAYOFF__
-#define __PAYOFF__
-
-
-#include <algorithm>

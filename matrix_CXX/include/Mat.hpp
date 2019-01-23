@@ -17,10 +17,6 @@
 
   - Generally, more errors caught at complule time and less at run-time. Thus there isn't 
   as much need for try-catch exception blocks in your code 
-
-
-  
- 
 */
 
 

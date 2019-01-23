@@ -1,4 +1,4 @@
-//---------------------------------------------------------------------------//
+1//---------------------------------------------------------------------------//
 // !!                                                                     !! //
 //                                                                           //
 //  Copyright (C) 2016 Joe Boudreau                                          //
@@ -30,8 +30,7 @@ namespace Genfun {
   FUNCTION_OBJECT_IMP_INLINE(InterpolatingFunction)
   
   class InterpolatingFunction::Clockwork {
-  public:
-    
+  public:   
     inline Clockwork():
       nPointsEval(0),
       natural(false),

@@ -63,6 +63,6 @@ set(MATH "${MATH} -lm")
 if(Boost_FOUND)
   include_directories (${Boost_INCLUDE_DIRS})
   add_executable (quant main.cxx)
-  target_link_libraries (quant ${EXTRA_LIBS} ${BOOST_LIBRARIES} ${Boost_LIBRARIES}  ${MATH})
+  target_link_libraries (quant ${EXTRA_LIBS} ${BOOST_LIBRARIES} ${Boost_LIBRARIES} ${MATH} ${CMAKE_GSL_LINKER_FLAGS} ${CMAKE_GSL_LINKER_FLAGS_CBLAS})
 endif()
 

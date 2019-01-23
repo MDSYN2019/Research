@@ -38,10 +38,9 @@
 #ifndef _InterpolatingFunction_h_
 #define _InterpolatingFunction_h_ 
 
-#include "QatGenericFunctions/AbsFunction.h"
-#include "QatGenericFunctions/Parameter.h"
+#include "AbsFunction.h"
+#include "Parameter.h"
 #include <vector>
-
 namespace Genfun {
 
   //
@@ -93,5 +92,4 @@ namespace Genfun {
 } // namespace Genfun
 
 #include "QatGenericFunctions/InterpolatingFunction.icc"
-
 #endif

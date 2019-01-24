@@ -23,6 +23,18 @@ public:
   QSMatrix<T> operator*(const QSMatrix<T>& rhs);
   QSMatrix<T>& operator*=(const QSMatrix<T>& rhs);
   QSMatrix<T> transpose();
+
+
+  // Matrix/scalar operations
+  QSMatrix<T> operator+(const T& rhs);
+  QSMatrix<T> operator-(const T& rhs);
+  QSMatrix<T> operator*(const T& rhs);
+  QSMatrix<T> operator/(const T& rhs);
+
+  // Matrix/vector operations
+  std::vector<T> operator*(const std::vector<T>& rhs);
+  std::vector<T> diag_vec();
+  
 };
 
 /*

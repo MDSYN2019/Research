@@ -5,11 +5,9 @@
 #include <algorithm>
 #include <iterator>
 #include <numeric>
-
 #include "mpi.h"
 #include "MPI_broadcast.hpp"
 
-/*
 template <class T> class Vec {
 public:
   typedef T* iterator;
@@ -19,7 +17,6 @@ public:
   typedef std::ptrdiff_T difference_type;
   typedef T& reference;
   typedef const T& const_reference;
-
   template <class T>
   Vec<T>& Vec<T>::operator=(const Vec& rhs) {
    // check for self-assignment
@@ -37,21 +34,22 @@ public:
   Vec(const Vec& v){(create(v.begin(), v.end()));} // copy constructor
   explicit Vec(std::size_t n, const T& val = T()) {create(n,val);} // this explicit constructor takes a size_type and a value - this will allocate neough mempry of type T of number n, and initialize it with the values val 
   size_type size() const {return limit - data;}
-  
   T& operator[] (size_type i) { return data[i]}
   const T& operator[](size_type i) const {return data[i];}
+
   iterator begin() {return data;}
   const_iterator begin() const {return data;}
+
   iterator_end() {return limit;}
   const_iterator end() {return limit;}
+
 private:
   iterator data; // first the first element of the data
   iterator limit;
 };
-*/
+
 
 std::map<std::string, std::string> typeConvDict; // TODO
-
 
 void my_bcast(void* data, int count, MPI_Datatype datatype, int root, MPI_Comm communicator) {
   int world_rank;
@@ -72,7 +70,6 @@ void my_bcast(void* data, int count, MPI_Datatype datatype, int root, MPI_Comm c
     MPI_Recv(data, count, datatype, root, 0, communicator, MPI_STATUS_IGNORE);
   }
 }
-
 
 MPI_BC::MPI_BC() {
   MPI_Init(NULL, NULL);
@@ -159,6 +156,7 @@ void MPI_BC::Get_input2(int my_rank, int comm_sz, double* a_p, double* b_p, int*
 
   }
 }
+
 */
 void MPI_BC::Send(float a, float b, int n, int dest) {
     MPI_Send(&a, 1, MPI_FLOAT, dest, 0, MPI_COMM_WORLD);
@@ -170,6 +168,7 @@ void MPI_BC::Receive(float* a_ptr, float* b_ptr, int* n_ptr, int   source) {
     MPI_Recv(a_ptr, 1, MPI_FLOAT, source, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     MPI_Recv(b_ptr, 1, MPI_FLOAT, source, 1, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
     MPI_Recv(n_ptr, 1, MPI_INT, source, 2, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+
 } /* Receive */
 
 /*

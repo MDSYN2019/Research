@@ -88,11 +88,9 @@ void Build_derived_type(
     /* Find address of n and displacement from a   */
     MPI_Address(n_ptr, &address);
     displacements[2] = address - start_address;
-
     /* Build the derived datatype */
     MPI_Type_struct(3, block_lengths, displacements, 
         typelist, mesg_mpi_t_ptr);
-
     /* Commit it -- tell system we'll be using it for */
     /* communication.                                 */
     MPI_Type_commit(mesg_mpi_t_ptr);

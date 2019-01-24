@@ -18,8 +18,11 @@ public:
   // Matrix mathematical operations
   QSMatrix<T> operator+(const QSMatrix<T>& rhs);
   QSMatrix<T>& operator+=(const QSMatrix<T>& rhs);
-
   QSMatrix<T> operator-(const QSMatrix<T>& rhs);
+  QSMatrix<T>& operator-=(const QSMatrix<T>& rhs);
+  QSMatrix<T> operator*(const QSMatrix<T>& rhs);
+  QSMatrix<T>& operator*=(const QSMatrix<T>& rhs);
+  QSMatrix<T> transpose();
 };
 
 /*

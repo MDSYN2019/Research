@@ -35,7 +35,9 @@ if(Boost_FOUND)
   include_directories (${Boost_INCLUDE_DIRS})
 endif()
 
-#include_directories ("${EIGEN3_INCLUDE_DIR}")
+find_package (Eigen3 3.3 REQUIRED NO_MODULE)
+
+include_directories ("${EIGEN3_INCLUDE_DIR}")
 # Specifically add the src library definition for linking
 
 add_subdirectory (src)
@@ -63,6 +65,6 @@ set(MATH "${MATH} -lm")
 if(Boost_FOUND)
   include_directories (${Boost_INCLUDE_DIRS})
   add_executable (JE main.cxx)
-  target_link_libraries (JE  ${EXTRA_LIBS} ${BOOST_LIBRARIES} ${Boost_LIBRARIES}  ${MATH})
+  target_link_libraries (JE  ${EXTRA_LIBS} ${BOOST_LIBRARIES} ${Boost_LIBRARIES} ${MATH} ${EIGEN3_INCLUDE_DIR} Eigen3::Eigen)
 endif()
 

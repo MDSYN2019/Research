@@ -1,0 +1,132 @@
+"Page" refers to the first page in "Parallel Programming with MPI"
+containing code used in the program.
+
+Page  File(s) and Description
+----  -----------------------
+ 41   chap03/greetings.c -- greetings program
+
+ 55   chap04/serial.c -- serial trapezoidal rule
+ 57   chap04/trap.c -- parallel trapezoidal rule, first version
+ 61   chap04/get_data.c -- parallel trap. rule, reads and distributes
+          input using linear for loops.
+
+ 67   chap05/get_data1.c -- parallel trap. rule, uses hand-coded, tree-
+          structured broadcast to distribute input.
+ 70   chap05/get_data2.c -- parallel trap. rule, uses 3 calls to MPI_Bcast
+          to distribute input.
+ 74   chap05/reduce.c -- parallel trap. rule, uses 3 calls to MPI_Bcast
+          to distribute input and MPI_Reduce to compute final sum.
+ 75   chap05/serial_dot.c -- serial dot product
+ 76   chap05/parallel_dot.c -- parallel dot product
+ 78   chap05/parallel_dot1.c -- parallel dot product using MPI_Allreduce
+ 78   chap05/serial_mat_vect.c -- serial matrix-vector product
+ 83   chap05/parallel_mat_vect.c -- parallel matrix-vector product
+
+ 90   chap06/count.c -- send a subarray using count parameter
+ 93   chap06/get_data3.c -- parallel trap. rule, builds derived datatype
+          for use with distribution of input
+ 96   chap06/send_row.c -- send row of a matrix
+ 97   chap06/send_col.c -- use derived datatype to send a column of
+          a matrix
+ 98   chap06/send_triangle.c -- use derived datatype to send upper triangle
+          of a matrix
+100   chap06/send_col_to_row.c -- send a row of a matrix on one process to 
+          a column on another
+100   chap06/get_data4.c -- parallel trap. rule, use MPI_Pack/Unpack in
+          distribution of input
+104   chap06/sparse_row.c -- use MPI_Pack/Unpack to send a row of sparse
+          matrix
+
+113   chap07/serial_mat_mult.c -- serial matrix multiplication of two square
+          matrices
+118   chap07/comm_create.c -- build a communicator using MPI_Comm_create
+118   chap07/comm_test.c -- tests communicator built using MPI_Comm_create
+120   chap07/comm_split.c -- builds a collection of communicators using
+          MPI_Comm_split
+121   chap07/top_fcns.c -- builds and tests basic Cartesian topology
+          functions
+125   chap07/fox.c -- uses Fox's algorithm to multiply two square matrices
+
+140   chap08/cache_test.c -- cache and retrieve a process rank attribute
+143   chap08/cio_test.c, cio.c, cio.h, vsscanf.c, vsscanf.h, Makefile.cio --
+          functions for basic collective I/O
+154   chap08/stdin_test.c -- test whether an MPI implementation allows
+          input from stdin.
+154   chap08/arg_test.c -- test whether an MPI implementation allows
+          processes access to command line arguments
+157   chap08/cfopen.c -- open a file
+157   chap08/multi_files.c -- each process opens and writes to a different
+          file.
+165   chap08/ub.c -- build a derived type that uses MPI_UB
+166   chap08/sum.c, cyclic_io.c, cyclic_io.h, Makefile.sum -- functions for
+          array I/O using cyclic distribution
+
+180   chap09/bug.c -- bugged serial insertion sort
+188   chap09/mat_mult.c -- nondeterministic matrix multiplication
+192   chap09/comm_time_0.c -- initial ring pass program
+200   chap09/comm_time_1.c -- added first debugging output
+202   chap09/comm_time_2.c -- ring pass started by process 0
+204   chap09/comm_time_2a.c -- printf added to Print_results
+205   chap09/comm_time_3.c -- fixed incorrect calculation of *order_ptr
+206   chap09/comm_time_3a.c -- two different message sizes
+206   chap09/comm_time_4.c -- removed printf from Print_results
+208   chap09/comm_time_5.c -- checking behavior of message-passing functions
+          by adding Cprintf's
+209   chap09/comm_time_6.c -- relocate pesky Cprintf's
+210   chap09/comm_time_7.c -- remove debug output, change number of tests
+211   chap09/err_handler.c -- test changing default error handler in MPI
+          to MPI_ERRORS_RETURN
+
+218   chap10/serial_jacobi.c -- serial version of Jacobi's method
+223   chap10/parallel_jacobi.c -- parallel version of Jacobi's method
+226   chap10/sort_1.c, sort_1.h -- level 1 version of sort program
+231   chap10/sort_2.c, sort_2.h -- add Get_list_size, Allocate_list, and
+          Get_local_keys
+234   chap10/sort_3.c, sort_3.h -- add Redistribute_keys, finish 
+          Allocate_list, add Insert, Local_sort, and Print_list
+237   chap10/sort_4.c, sort_4.h -- add Find_alltoall_send_params,
+          Find_cutoff, and Find_recv_displacements.  Allow user input
+          list size
+
+255   chap11/parallel_trap.c -- parallel trapezoidal rule with code for
+          taking timings.   
+
+267   chap12/ping_pong.c -- two process ping-pong
+268   chap12/send.c, bcast.c -- simple example showing MPI's profiling
+          interface
+
+283   chap13/ag_ring_blk.c -- ring allgather using blocking send/recv
+292   chap13/ag_cube_blk.c -- hypercube allgather using blocking send/recv
+298   chap13/ag_ring_nblk.c -- ring allgather using nonblocking
+          communications
+299   chap13/ag_cube_nblk.c -- hypercube allgather using nonblocking
+          communications
+301   chap13/ag_ring_pers.c -- ring allgather using persistent
+          communication requests
+305   chap13/ag_ring_syn.c -- ring allgather using synchronous sends
+307   chap13/ag_ring_rdy.c -- ring allgather using ready mode sends
+309   chap13/ag_ring_buf.c -- ring allgather using buffered mode sends
+
+319   chap14a/serial_bitonic.c -- serial bitonic sort 
+322   chap14a/parallel_bitonic.c -- parallel bitonic sort
+326   chap14a/recursive_dfs.c -- recursive depth-first search
+327   chap14a/iterative_dfs.c -- iterative depth-first search
+
+328   chap14b/par_tree_search.c, par_tree_search.h -- parallel tree 
+          search
+330   chap14b/par_dfs.c, par_dfs.h -- parallel depth-first search
+332   chap14b/service_requests.c service_requests.h -- checks for
+          work requests from other processes
+332   chap14b/work_remains.c, work_remains.h -- checks whether there
+          is any work remaining on any process
+334   chap14b/terminate.c, terminate.h -- distributed termination
+          detection
+      chap14b/Makefile, main.c, node_stack.c, node_stack.h, queue.c,
+          queue.h, solution.c, solution.h, stats.c, stats.h --
+          additional files to complete parallel tree search program
+
+345   chap15/linsolve.c, linsolve.h, Makefile.linsolve -- use ScaLAPACK to 
+          solve a dense system of linear equations
+354   chap15/sparse_linsolve.c, Makefile.sparse_linsolve -- use PETSc to 
+          solve a sparse system of linear equations
+          

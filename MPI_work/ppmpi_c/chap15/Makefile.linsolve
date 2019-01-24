@@ -1,0 +1,38 @@
+# Makefile for building program that solves a random dense linear system
+#     using ScaLAPACK on a network of SGI's running mpich.  Change macro 
+#     definitions to suit your system.
+
+MPI_DIR = /usr/local/mpich
+MPI_LIB_DIR = $(MPI_DIR)/lib/IRIX/ch_p4
+SCALAPACK_DIR = /home/peter/SCALAPACK
+BLACS_DIR = /home/peter/BLACS/LIB
+
+CC = cc
+INCLUDE = -I$(MPI_DIR)/include
+#CC_FLAGS = -g  -DDEBUG
+#CC_FLAGS = -g
+
+FORTRAN_LIB = -lftn
+MPI_LIB = -L$(MPI_LIB_DIR) -lmpi
+BLACS_LIB = $(BLACS_DIR)/blacsF77init_MPI-SGI-1.a \
+            $(BLACS_DIR)/blacsCinit_MPI-SGI-1.a \
+	    $(BLACS_DIR)/blacs_MPI-SGI-1.a
+BLAS_LIB = -lblas
+PBLAS_LIB = $(SCALAPACK_DIR)/pblas_SGI.a
+SCALAPACK_LIB = $(SCALAPACK_DIR)/scalapack_SGI.a \
+	$(SCALAPACK_DIR)/tools_SGI.a
+
+LIB = $(SCALAPACK_LIB) $(SCALAPACK_LIB) $(SCALAPACK_LIB) \
+	$(PBLAS_LIB) $(PBLAS_LIB) \
+	$(BLAS_LIB) $(BLAS_LIB) \
+	$(BLACS_LIB) $(BLACS_LIB) $(MPI_LIB) -lm $(FORTRAN_LIB) \
+        $(MPI_LIB) $(MPI_LIB)
+
+linsolve: linsolve.h linsolve.o
+	$(CC) -o linsolve $(LIB)
+
+clean:
+	rm -f linsolve.o linsolve core
+
+.c.o:
+	$(CC) -c $(INCLUDE) $(CC_FLAGS) $*.c

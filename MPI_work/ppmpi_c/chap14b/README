@@ -1,0 +1,45 @@
+Parallel Tree Search Program
+----------------------------
+This program generates a random tree and searches the tree for a 
+minimum cost node.  It has been compiled and tested on a network of
+SGI's running IRIX 5.3 and the mpich and LAM implementations of MPI.
+With some modification it will also run under the CHIMP implementation
+of MPI.  CHIMP doesn't allow the use of the collective input function
+Cscanf, and there are some aspects to how it handles attribute-caching
+that are non-standard.
+
+Compiling
+---------
+System dependent information is included in the beginning of the 
+Makefile.  Modify to suit your system.
+
+Execution on a homogeneous network of workstations
+--------------------------------------------------
+For mpich: mpirun -np <number of processes> tree
+For LAM: mpirun -w n<min process>-<max process> tree
+    Note:  With LAM the program should be started on the host
+    that called lamboot.
+
+Input
+-----
+    max_depth: the maximum depth of a node in the tree
+    cutoff_depth:  maximum depth of a node to be used in dynamic
+        load balancing
+    max_work: the maximum number of nodes expanded in a single
+        call to Par_dfs (parallel depth first search)
+    max_children:  the maximum number of children a node in the
+        tree can have.
+
+Output
+------
+The cost of a minimum cost node, and a description of the node
+containing the minimum cost.  If the program is compiled with "-DSTATS",
+it will also print statistics on the performance of the program.
+
+The Program
+-----------
+The program illustrates the use of dynamic load balancing under MPI.
+It generates a random tree as specified by the input parameters
+max_depth and max_children.  Each maximum-depth leaf node in the tree 
+has a random integer cost associated.  The program finds a maximum-depth
+leaf node in the tree with minimum cost.

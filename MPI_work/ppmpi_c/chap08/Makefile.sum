@@ -1,0 +1,25 @@
+# Makefile for building sum program for illustrating cyclic_io functions
+#     Change macros to suit your implementation
+#
+# See Chap 8, pp. 158 & ff in PPMPI
+
+CC       =  cc
+#CFLAGS   =  -g -fullwarn -DDEBUG
+CFLAGS   =  -g -fullwarn
+LDFLAGS  =
+INCLUDE  =  -I/usr/local/mpich/include
+LIB      =  -L/usr/local/mpich/lib/IRIX/ch_p4 -lmpi 
+
+test: sum.o cyclic_io.o cio.o vsscanf.o 
+	$(CC) -o sum sum.o cyclic_io.o cio.o vsscanf.o $(INCLUDE) $(LIB)
+
+sum.o: cyclic_io.h cio.h
+
+cyclic_io.o: cyclic_io.h cio.h
+
+cio.o: cio.h vsscanf.h
+
+vsscanf.o: vsscanf.h
+
+.c.o:
+	$(CC) -c $(CFLAGS) $*.c $(INCLUDE)

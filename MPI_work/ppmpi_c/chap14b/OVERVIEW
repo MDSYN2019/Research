@@ -1,0 +1,166 @@
+Overview of Parallel Tree Search
+--------------------------------
+The tree search program generates a random tree, and searches the tree for
+a leaf node at maximum depth with minimum "cost".  The main purpose of
+the program is to illustrate dynamic load balancing in parallel depth-first
+search of a tree.
+
+There are two input values governing the structure of the tree:
+
+    max_depth:  the maximum possible depth of a tree node.
+    max_children:  the maximum possible number of children a node
+        can have.
+
+Input to the program consists of these two values and two additional
+values that govern dynamic load balancing in the program:
+
+    cutoff_depth:  when work is redistributed, nodes in the tree
+        that have depth greater than or equal to the cutoff_depth are 
+        not re-distributed.
+    max_work:  the maximum number of nodes to expand in a single
+        call to parallel depth-first search before checking whether
+        a process has received requests for work.
+
+Output from the program consists of the cost of a minimum cost leaf, and
+a description (ancestor list -- see below) of the node that had the
+minimum cost.  If the program was compiled with "-DSTATS", information
+on the performance of the program will also be printed.
+
+Basic Algorithm
+---------------
+    1.  Get input and initialize basic data structures. [main.c]
+    2.  Process 0:  Use (serial) depth-first search to generate enough
+        of the tree so that there is at least one node per process.
+        [par_tree_search.c]
+    3.  Process 0 scatters the nodes generated in step 2 among the 
+        processes.  [par_tree_search.]
+    4.  do {
+    4a.     Run depth first search of local tree. [par_dfs.c]
+    4b.     Service requests for work. [service_requests.c]
+    4c. } while (any process still has work [work_remains.c])
+    5.  Update solution [solution.c]
+    6.  Print results of search [solution.c]
+    7.  Clean up [main.c]
+
+Main Data Structures
+--------------------
+Each node of the tree consists of the following list of integers:
+
+    depth:  the depth of the node in the tree (root has depth 0,
+        children of the root have depth 1, grandchildren of the
+        root have depth 2, etc)
+    sibling rank:  the number of siblings "older" than the node.
+        For example, if a parent node has 3 children, the left-most
+        child has sibling rank 0, the middle child has sibling rank
+        1, and the right-most child has sibling rank 2:
+
+                          parent
+                         /  |  \
+                        0   1   2
+
+    seed:  for internal nodes, the seed is used in determining how
+        many children it will have and their seed values.  For leaf 
+        nodes at maximum depth the seed is the cost of the node.
+    ancestors:  a list of the sibling ranks of the ancestors of a
+        node.  For the root, the list will be empty.  For a child
+        of the root, the list will consist of the single integer 0
+        (the root has sibling rank 0).  For a child of the first
+        child of the root, the list will contain (0,0).  For a
+        child of the second child of the root, the list will contain
+        (0,1), etc.  The ancestor list of a node together with the 
+        sibling rank of the node uniquely identifies the node.
+    size:  the size of the node is the number of integers composing
+        the node.  Thus, the size of a node will be 4 + length of
+        the ancestor list = 4 + depth of node - 1.  The size member
+        is used to identify the new top of the stack when we pop the
+        stack.     
+        
+The tree itself isn't an explicit data structure in the program.  Each
+process pushes nodes onto its stack using depth-first search.  So the
+main data structure in the program is each process' local stack.  In
+the C program this is a struct consisting of the following members
+
+    stack_list:  an array of ints storing the tree nodes that have
+        been pushed onto the stack using depth first search.
+    max_size:  the number of ints allocated for the stack.
+    in_use:  the number of ints actually in use for the stack.
+    stack_top:  a pointer to the beginning of the node on the top
+        of the stack.
+
+Program files
+-------------
+    main.c:  get input, set up data structures, call Par_tree_search,
+        print stats, free data structures.
+    par_tree_search.c:  process 0 generates enough of tree so that
+        its local stack has at least one tree-node per process, and
+        scatters the tree-nodes among the processes.  Runs main
+        do-while loop -- calls Par_dfs, Service_requests, and
+        Work_remains.  After completion of do-while loop, it calls
+        functions to update the solution on each process, and print
+        the solution.
+    par_dfs.c:  runs depth-first search on tree.  Returns
+        after local stack is exhausted, or it has expanded max_work
+        tree-nodes.
+    service_requests.c:  uses MPI_Iprobe to see whether other processes
+        have requested work.  If so, it checks its local stack to see
+        whether it has any nodes above cutoff_depth.  If so, it sends
+        half of them to the requesting process.  If not, it sends
+        a "reject" message.  The splitting of the stack is done using
+        MPI_Type_indexed.  After the data has been sent.  The stack
+        is "compressed".
+    work_remains.c:  Checks whether local stack is empty.  If not, it
+        returns TRUE.  If it is, it executes the following algorithm.
+            Send "energy" to process 0 (see terminate.c, below).
+            while(TRUE) {
+                Send reject messages to all processes requesting work.
+                if (the search is complete) {
+                    Cancel outstanding work requests.
+                    return FALSE.
+                } else if (there's no outstanding request) {
+                    Generate a process rank to which to send a request.
+                    Send a request for work.
+                } else if (a reply has been received) {
+                    if (work has been received) return TRUE.
+                }
+            }
+    node_stack.c:  functions for manipulating tree-nodes and the stack.
+    solution.c:  functions for keeping track of the best solution so
+        far.
+    queue.c:  functions for checking for pending messages.
+    terminate.c:  functions for determining whether the search
+        has been completed.  The idea is described in chapter 14 of
+        the text in the section "Distributed Termination Detection."
+        Here's the basic idea.  At the start of the program, process 0 has
+        one unit of some indestructible quantity -- I called it energy.  
+        When the data is distributed, the energy is divided into p
+        equal parts and also distributed among the processes.  So each 
+        process has 1/p of the energy.  (I don't actually send the energy 
+        out initially, since every process knows it will get 1/p units of 
+        energy, each can just set its energy to 1/p).  Whenever
+        a process exhausts its local stack, it sends whatever energy
+        it has to process 0.  Whenever a process satisfies a request
+        for work, it splits its energy in two equal pieces, keeping half
+        for itself and sending half to the process receiving the work.
+        Each process keeps track of its available energy in "my_energy".
+        Process 0, also keeps track of returned energy in "returned_energy."
+        Since energy is never destroyed, the sum of all energy on all the
+        processes will always be 1.  When process 0 finds that
+        "returned_energy" is 1, no process (including itself) will have
+        any work left, and it can broadcast a termination message to all
+        processes.  The only catch here is that floating point
+        arithmetic isn't exact.  So I've written functions for exact
+        rational arithmetic:  a fraction a/b is represented as a pair of
+        longs (a,b).  Dividing by 2 changes (a,b) to (a,2b).  Adding
+        (a,b) + (c,d) = (ad + bc,bd).  This can still cause problems,
+        but I haven't added any security checks.  Future work, no doubt.
+    stats.c:  functions for keeping track of runtime, requests sent,
+        etc.  
+    cio.c:  basic I/O functions -- see Chap 8 in PPMPI.
+    vsscanf.c:  Used by basic I/O functions to copy a variable length
+        argument list into a string.  Only implemented for types
+        int, string, float, and double.
+
+Since the functions Par_tree_search, Par_dfs, Service_requests, and 
+Work_remains are supposed to be adaptable to general parallel depth-first
+search, some of the functions they call are passed "dummy" arguments that
+are, in fact, never used.   

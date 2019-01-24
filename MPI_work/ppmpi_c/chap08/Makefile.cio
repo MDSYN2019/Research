@@ -1,0 +1,22 @@
+# Makefile.cio -- builds basic I/O functions and test program
+#     Change macros to suit your system
+# See Chap 8, pp. 142 & ff in PPMPI 
+
+CC       =  cc
+#CFLAGS   =  -g -fullwarn -DDEBUG
+CFLAGS   =  -g -fullwarn
+LDFLAGS  =
+INCLUDE  =  -I/usr/local/mpich/include
+LIB      =  -L/usr/local/mpich/lib/IRIX/ch_p4 -lmpi
+
+cio_test: cio_test.o cio.o vsscanf.o
+	$(CC) -o cio_test cio_test.o cio.o vsscanf.o $(INCLUDE) $(LIB)
+
+cio_test.o: cio.h vsscanf.h
+
+cio.o: cio.h vsscanf.h
+
+vsscanf.o: vsscanf.h
+
+.c.o:
+	$(CC) -c $(CFLAGS) $*.c $(INCLUDE)

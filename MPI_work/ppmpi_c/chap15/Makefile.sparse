@@ -1,0 +1,32 @@
+# Makefile for building program that solves a random sparse linear system
+#     using PETSc on a network of SGI's running mpich.  Change macro 
+#     definitions to suit your system.
+
+PETSC_DIR  = /usr/people/peter/petsc
+MPI_DIR    = /usr/local/mpich
+CC         = cc 
+INCLUDE    = -I$(PETSC_DIR)/include -I$(MPI_DIR)/include
+CFLAGS     = -g
+DEFINES    = -DPARCH_IRIX -DPETSC_DEBUG -DPETSC_LOG \
+             -DPETSC_BOPT_g
+PETSC_LIB  = -L$(PETSC_DIR)/lib/libg/IRIX \
+             -lpetscsnes \
+             -lpetscsles \
+             -lpetscksp \
+             -lpetscmat \
+             -lpetscvec \
+             -lpetscdraw \
+             -lpetscsys 
+LAPACK_LIB = /home/peter/petsc/lib/lapack.a
+FORT_LIB   = -lftn
+BLAS_LIB   = -lblas
+MPI_LIB    = -L$(MPI_DIR)/lib/IRIX/ch_p4/ -lmpi
+LIB        = $(PETSC_LIB) $(LAPACK_LIB) $(FORT_LIB) \
+             $(BLAS_LIB) $(FORT_LIB) $(MPI_LIB) \
+             -lfpe -lX11 -lm
+
+sparse_linsolve: sparse_linsolve.o
+	$(CC) -o sparse_linsolve sparse_linsolve.o  $(LIB)
+
+.c.o:
+	$(CC) -c $(DEFINES) $(CFLAGS) $(INCLUDE) $*.c

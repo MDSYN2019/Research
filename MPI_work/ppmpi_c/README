@@ -1,0 +1,58 @@
+The files in the various subdirectories are source code from the
+book Parallel Programming with MPI by Peter Pacheco, Morgan Kaufmann
+Publishers.
+
+COMPILING
+---------
+Many of the programs are self-contained, and should compile by
+themselves provided you make sure that the compiler can find
+the MPI header files and the MPI library.  From Chapter 8
+onward, many of the programs use the collective I/O functions
+described in Chapter 8.  For these programs, in order to properly 
+build your executables, you should make sure that the header
+files chap08/cio.h and chap08/vsscanf.h are accessible, and
+the program should be linked with chap08/cio.o and chap08/vsscanf.o
+The file chap08/Makefile.generic can be modified for use for programs
+requiring these files.  Programs that require more complex 
+rules to build have Makefiles included with the source.
+
+RUNNING
+-------
+The exact syntax for starting the programs is highly system dependent.
+See your local expert for details.  Any input needed by the program
+can be determined from comments at the beginning of the source.
+
+I/O
+---
+All of the complete applications only use process 0 for I/O.  However,
+many of the short test programs (e.g., build a communicator using
+MPI_Comm_create) print data from processes other than 0.
+
+License
+-------
+Copyright (c) 1997 and 2011 Peter Pacheco and Morgan Kaufmann Publishers
+Francisco. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+   - Redistributions of source code must retain the above copyright
+     notice, this list of conditions and the following disclaimer.
+   - Redistributions in binary form must reproduce the above
+     copyright notice, this list of conditions and the following
+     disclaimer in the documentation and/or other materials provided
+     with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.

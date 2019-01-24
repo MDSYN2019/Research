@@ -86,7 +86,6 @@ MPI_BC::MPI_BC::operator=(const MPI_BC& rhs) {
   return *this;
 }
 
-
 MPI_BC::~MPI_BC() {
   MPI_Finalize();
 } // destructor 

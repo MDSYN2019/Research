@@ -1,0 +1,22 @@
+# Makefile.generic -- template makefile for building programs that
+#     must be linked with the collective I/O functions
+#     Change macros to suit your system
+#     Replace prog, prog.o with appropriate file names
+
+CC       =  cc
+CFLAGS   =  -g -fullwarn
+INCLUDE  =  -I/usr/local/mpich/include -I../chap08
+LIB      =  -L/usr/local/mpich/lib/IRIX/ch_p4 -lmpi
+
+prog: prog.o cio.o vsscanf.o
+	$(CC) -o cio_test cio_test.o ../chap08/cio.o ../chap08/vsscanf.o \
+		$(INCLUDE) $(LIB)
+
+prog.o: cio.h vsscanf.h
+
+cio.o: cio.h vsscanf.h
+
+vsscanf.o: vsscanf.h
+
+.c.o:
+	$(CC) -c $(CFLAGS) $*.c $(INCLUDE)

@@ -18,7 +18,6 @@
 #include <numeric>
 
 class MPI_BC {
-
 public:
   MPI_BC(); // Default constructor 
   MPI_BC(int); // Custom constructor 
@@ -31,7 +30,7 @@ public:
   void Send(float, float, int, int); // Standard send/receive pair 
   void Receive(float*, float*, int*, int); // Standard send/receive pair 
   // void GetData(float*, float*, int*, int, int); // WIP
-  void parallelAllocateVec(double*, double*, int, std::vector<int>*, MPI_Datatype*);
+  void parallelAllocateVec(double&, double&, int, std::vector<int>&, MPI_Datatype&);
 private:
   int my_rank, comm_sz;
   MPI_Aint aint; // What does MPI_Aint mean?

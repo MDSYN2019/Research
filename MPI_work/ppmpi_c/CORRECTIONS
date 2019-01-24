@@ -1,0 +1,4 @@
+CORRECTIONS
+
+chap07/serial_mat_mult.c, Jan 23, 2000:  Statements reading and printing
+matrix B, changed to read in B instead of A (lines 33 and 34).

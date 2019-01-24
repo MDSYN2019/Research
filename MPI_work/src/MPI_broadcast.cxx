@@ -8,6 +8,7 @@
 #include "mpi.h"
 #include "MPI_broadcast.hpp"
 
+/*
 template <class T> class Vec {
 public:
   typedef T* iterator;
@@ -47,7 +48,7 @@ private:
   iterator data; // first the first element of the data
   iterator limit;
 };
-
+*/
 
 std::map<std::string, std::string> typeConvDict; // TODO
 
@@ -77,22 +78,25 @@ MPI_BC::MPI_BC() {
   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
 } // constructor 
 
+/*
 MPI_BC::MPI_BC::operator=(const MPI_BC& rhs) {
   if (this == &rhs) return *this;
   copy (rhs);
   return *this;
 }
-
+*/
 MPI_BC::~MPI_BC() {
   MPI_Finalize();
 } // destructor 
 
+/*
 void MPI_BC::InitializeVec(int lenOfVec) {
   vectorOfBlockLengths = std::vector<int>(lenOfVec);
   MPItype = std::vector<int>(lenOfVec);
   MPIDatatype = std::vector<MPI_Datatype>(lenOfVec);
   MPIdisplacements = std::vector<MPI_Aint>(lenOfVec);
 }
+*/
 
 void MPI_BC::parallelAllocateVec(double* aa, double* bb, int lenOfVec, std::vector<int>* vecpart, MPI_Datatype* input_mpi_t_p) {
   std::iota(MPItype.begin(), MPItype.end(), 1); // Vector allocation of types
@@ -101,7 +105,7 @@ void MPI_BC::parallelAllocateVec(double* aa, double* bb, int lenOfVec, std::vect
   pointerToArray = &MPItype[0];
   
   MPI_Get_address(&vecpart[0], &aint);
-  MPI_Type_create_struct(lenOfVec, pointerToArray, MPIdisplacements, MPItype, input_mpi_t_p);
+  //  MPI_Type_create_struct(lenOfVec, pointerToArray, MPIdisplacements, MPItype, input_mpi_t_p);
   MPI_Type_commit(input_mpi_t_p);
 }
 

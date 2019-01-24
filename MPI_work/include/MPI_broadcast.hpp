@@ -20,17 +20,17 @@
 class MPI_BC {
 public:
   MPI_BC(); // Default constructor 
-  MPI_BC(int); // Custom constructor 
-  MPI_BC(const MPI_BC& rhs);
+  // MPI_BC(int); // Custom constructor 
+  //  MPI_BC(const MPI_BC& rhs);
   virtual ~MPI_BC(); // Destructor
   
-  void InitializeVec(int);
+  //  void InitializeVec(int);
   //  void Get_Input(int, int, double*, double*, int*); // WIP
   void buildMpiType(double*, double*, int*, MPI_Datatype*); // WIP
   void Send(float, float, int, int); // Standard send/receive pair 
   void Receive(float*, float*, int*, int); // Standard send/receive pair 
   // void GetData(float*, float*, int*, int, int); // WIP
-  void parallelAllocateVec(double&, double&, int, std::vector<int>&, MPI_Datatype&);
+  void parallelAllocateVec(double*, double*, int, std::vector<int>*, MPI_Datatype*);
 private:
   int my_rank, comm_sz;
   MPI_Aint aint; // What does MPI_Aint mean?
@@ -38,7 +38,7 @@ private:
   int* pointerToArray;
   std::vector<int> vectorOfBlockLengths;
   std::vector<int> MPItype;
-  MPI_Datatype MPIDatatype[lenOfVec];
+  std::vector<MPI_Datatype> MPIDatatype;
   std::vector<MPI_Aint> MPIdisplacements;
 };
 

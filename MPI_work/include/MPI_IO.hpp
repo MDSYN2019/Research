@@ -10,26 +10,24 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
-#include "mpi.h"
+#include <mpi.h>
 
 class MPI_input {
 public:
   MPI_input();
-  MPI_input(float*, float*, int*, int, int);
+  MPI_input(int, int);
   virtual ~MPI_input();
   void MPI_start();
   void Get_data();
 private:
   int* n_ptr;
-  int p;
   int source = 0;
   int dest;
   int tag;
-
   float* a_ptr;
   float* b_ptr;
   int my_rank;
-  
+  int p; 
   MPI_Status status;
 };
 

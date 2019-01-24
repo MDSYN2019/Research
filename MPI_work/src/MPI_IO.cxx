@@ -1,23 +1,24 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
-#include "mpi.h"
+#include <mpi.h>
 // Custom headers
 #include "MPI_IO.hpp"
 
 MPI_input::MPI_input() {
 } // constructor 
 
-MPI_input::MPI_input(float* a, float* b, int* np, int mr, int pe) {
+MPI_input::MPI_input( int mr, int pe) {
  // constructor - allocate values
-  a_ptr = a;
-  b_ptr = b;
-  n_ptr = np;
+  /// a_ptr = a;
+  // b_ptr = b;
+  // n_ptr = np;
   my_rank = mr;
   p = pe;
 }
 
 MPI_input::~MPI_input() {
+  MPI_Finalize();
 } // destructor 
 
 void MPI_input::MPI_start() { 

@@ -51,7 +51,6 @@ private:
 */
 
 std::map<std::string, std::string> typeConvDict; // TODO
-
 void my_bcast(void* data, int count, MPI_Datatype datatype, int root, MPI_Comm communicator) {
   int world_rank;
   MPI_Comm_rank(communicator, &world_rank);
@@ -79,12 +78,15 @@ MPI_BC::MPI_BC() {
 } // constructor 
 
 /*
+
 MPI_BC::MPI_BC::operator=(const MPI_BC& rhs) {
   if (this == &rhs) return *this;
   copy (rhs);
   return *this;
 }
+
 */
+
 MPI_BC::~MPI_BC() {
   MPI_Finalize();
 } // destructor 
@@ -135,10 +137,10 @@ void MPI_BC::buildMpiType(double* a_p, double* b_p, int* n_p, MPI_Datatype* inpu
   //MPI_Type_create_struct();
   //MPI_Type_commmit(input_mpi_t_p);
 }
+
 // Build MPI type
 
 /*
-
 void MPI_BC::Get_input(int my_rank, int comm_sz, double* a_p, double* b_p, int* n_p) { // input, input, input, output, output
   if (my_rank == 0) {
     std::cout << "Enter a, b and n \n";

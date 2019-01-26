@@ -51,12 +51,11 @@ MD_structures::MD_structures() {} // We only have one constructor so we don't ne
 MD_structures::MD_structures(int N) {
   nMols = N;
 }
-
 // We only have one constructor so we don't need to specifically define anything
-
 void MD_structures::allocMat() {}
 void MD_structures::printArray() {}
 void MD_structures::LeapfrogStep(int part) {
+
   if (part == 1) { 
     for (int n = 0; n < nMols; n++) {
       // Add vectors here

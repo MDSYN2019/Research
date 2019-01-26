@@ -1,5 +1,5 @@
 /*
-
+TDO
 ---------------------------------------------------------------------------------
 | Jarzynski-Equality Algorithm based on multiple implementations/corrections    |
 |                                                                               | 

@@ -21,8 +21,7 @@ class MCalg {
 public:
   MCalg();
   MCalg(int);
-  //~MCalg();
-  
+  //~MCalg();  
   MCalg operator+(MCalg); 
   double randist(); // distribution function 
   void direct_pi(); // approximtion of pi

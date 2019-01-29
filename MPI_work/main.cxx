@@ -3,9 +3,13 @@
 #include <vector>
 #include <string>
 #include <cassert>
+#include <cmath>
 #include <array>
 
 #include "mpi.h"
+
+#include <gsl/gsl_errno.h>
+#include <gsl/gsl_spline.h>
 
 typedef struct {
   double a;
@@ -13,6 +17,12 @@ typedef struct {
   int c;
 } myStruct;
 
+
+typedef struct {
+  double a;
+  double b;
+  int c;
+} arraySend;
 
 double total_d, local_d;
 
@@ -62,7 +72,9 @@ double b;
 int c;
 
 int main(int argc, char** argv) {
+
   int my_rank, comm_sz;
+
   MPI_Init(NULL, NULL);
   MPI_Comm_size(MPI_COMM_WORLD, &comm_sz);
   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
@@ -74,8 +86,37 @@ int main(int argc, char** argv) {
   for (int q = 1; q < comm_sz; q++) {
     std::cout << q << " " << exampleDatatype.a << " " << exampleDatatype.b << " " << exampleDatatype.c << std::endl;
   }
-  
+
   MPI_Finalize();
+
+  
+  int i;
+  double xi, yi, x[10], y[10];
+
+  std::cout << "#m=0,S=17\n";
+
+  for (int i = 0; i < 10; i++)
+    {
+      x[i] = i + 0.5 * sin (i);
+      y[i] = i + cos (i * i);
+      std::cout << "%g %g\n" <<  x[i] << y[i];
+    }
+
+  std::cout << "#m=1,S=0\n";
+
+  
+  gsl_interp_accel *acc = gsl_interp_accel_alloc ();
+  gsl_spline *spline = gsl_spline_alloc (gsl_interp_cspline, 10);
+  gsl_spline_init (spline, x, y, 10);
+
+  for (xi = x[0]; xi < x[9]; xi += 0.01) {
+    yi = gsl_spline_eval (spline, xi, acc);
+    std::cout << "%g %g\n" <<  xi <<  yi;
+  }
+
+  gsl_spline_free (spline);
+  gsl_interp_accel_free (acc);
+  
   //MPI_input a(3, 5);
   // a.Get_data();
   
@@ -99,7 +140,7 @@ int main(int argc, char** argv) {
   
   MPI_Finalize();
   */
- 
+
 
   return 0;
 }

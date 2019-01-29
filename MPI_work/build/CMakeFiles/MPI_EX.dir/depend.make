@@ -3,6 +3,10 @@
 
 CMakeFiles/MPI_EX.dir/main.o: ../include/MPI_IO.hpp
 CMakeFiles/MPI_EX.dir/main.o: ../main.cxx
+CMakeFiles/MPI_EX.dir/main.o: /usr/local/include/gsl/gsl_errno.h
+CMakeFiles/MPI_EX.dir/main.o: /usr/local/include/gsl/gsl_interp.h
+CMakeFiles/MPI_EX.dir/main.o: /usr/local/include/gsl/gsl_spline.h
+CMakeFiles/MPI_EX.dir/main.o: /usr/local/include/gsl/gsl_types.h
 CMakeFiles/MPI_EX.dir/main.o: /usr/local/include/mpi.h
 CMakeFiles/MPI_EX.dir/main.o: /usr/local/include/mpicxx.h
 CMakeFiles/MPI_EX.dir/main.o: /usr/local/include/mpio.h

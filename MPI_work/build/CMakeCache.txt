@@ -271,6 +271,9 @@ MPI_mpi_LIBRARY:FILEPATH=/home/noh/anaconda3/lib/libmpi.so
 //Location of the mpicxx library for MPI
 MPI_mpicxx_LIBRARY:FILEPATH=/home/noh/anaconda3/lib/libmpicxx.so
 
+//Dependencies for the target
+gsllib_LIB_DEPENDS:STATIC=general;-L/home/noh/anaconda3/pkgs/gsl-2.1-2/lib/;general;libgsl.a;general;libgslcblas.a;
+
 //Dependencies for target
 src_LIB_DEPENDS:STATIC=
 

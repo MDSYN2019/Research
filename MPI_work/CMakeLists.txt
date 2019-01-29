@@ -34,6 +34,9 @@ set(Boost_USE_STATIC_LIBS ON)
 set(Boost_USE_MULTITHREADED ON)  
 set(Boost_USE_STATIC_RUNTIME OFF) 
 
+#find_package(GSL)
+#include_directories(${GSL_INCLUDE_DIR})
+
 find_package(Boost) 
 if(Boost_FOUND)
   include_directories (${Boost_INCLUDE_DIRS})
@@ -41,6 +44,7 @@ endif()
 
 find_package(MPI REQUIRED)
 add_subdirectory (src)
+
 set (EXTRA_LIBS ${EXTRA_LIBS} src)
 set(MATH "${MATH} -lm")
 
@@ -48,25 +52,20 @@ set(MATH "${MATH} -lm")
 # Specifically add the src library definition for linking
 
 # GSL libraries linking
+#set(CMAKE_GSL_LINKER_LIB "${CMAKE_GSL_LINKER_LIB} -L/home/noh/anaconda3/pkgs/gsl-2.1-2/lib/")
 #set(CMAKE_GSL_LINKER_FLAGS "${CMAKE_GSL_LINKER_FLAGS} -lgsl")
 #set(CMAKE_GSL_LINKER_FLAGS_CBLAS "${CMAKE_GSL_LINKER_FLAGS_CBLAS} -lgslcblas")
-
-#if(Boost_FOUND)
-#    include_directories(${Boost_INCLUDE_DIRS}) 
-#    add_executable(progname file1.cxx file2.cxx) 
-#    target_link_libraries(progname ${Boost_LIBRARIES})
-#endif()
-
-#set(BOOST_FILE "${BOOST_FILE} -libboost_filesystem -libboost_system")
-#set(CV "${CV} -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs")
-#set(OpenCV_DIR "/usr/local/include/opencv2")
-#MESSAGE(STATUS "Include dirs ${OpenCV_INCLUDE_DIRS}")
-#MESSAGE(STATUS "LINK LIBRARIES ${OpenCV_LIBS}")
-
 # add the executable
 
 include_directories (${Boost_INCLUDE_DIRS})
 #target_compile_options(MPI_EX PRIVATE ${MPI_CXX_COMPILE_FLAGS})
 add_executable (MPI_EX main.cxx)
-target_include_directories(MPI_EX PRIVATE ${MPI_CXX_INCLUDE_PATH}) 
-target_link_libraries (MPI_EX ${EXTRA_LIBS} ${Boost_LIBRARIES} ${MATH} ${MPI_CXX_LIBRARIES})
+target_include_directories(MPI_EX PRIVATE ${MPI_CXX_INCLUDE_PATH})
+
+ADD_LIBRARY(gsllib 
+    main.cxx
+)
+target_link_libraries(gsllib -L/home/noh/anaconda3/pkgs/gsl-2.1-2/lib/)
+target_link_libraries(gsllib libgsl.a)
+target_link_libraries(gsllib libgslcblas.a)
+target_link_libraries(MPI_EX ${EXTRA_LIBS} ${Boost_LIBRARIES} ${MATH} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB} gsllib)

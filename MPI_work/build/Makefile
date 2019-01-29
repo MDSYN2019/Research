@@ -124,6 +124,19 @@ MPI_EX/fast:
 .PHONY : MPI_EX/fast
 
 #=============================================================================
+# Target rules for targets named gsllib
+
+# Build rule for target.
+gsllib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gsllib
+.PHONY : gsllib
+
+# fast build rule for target.
+gsllib/fast:
+	$(MAKE) -f CMakeFiles/gsllib.dir/build.make CMakeFiles/gsllib.dir/build
+.PHONY : gsllib/fast
+
+#=============================================================================
 # Target rules for targets named src
 
 # Build rule for target.
@@ -139,16 +152,19 @@ src/fast:
 # target to build an object file
 main.o:
 	$(MAKE) -f CMakeFiles/MPI_EX.dir/build.make CMakeFiles/MPI_EX.dir/main.o
+	$(MAKE) -f CMakeFiles/gsllib.dir/build.make CMakeFiles/gsllib.dir/main.o
 .PHONY : main.o
 
 # target to preprocess a source file
 main.i:
 	$(MAKE) -f CMakeFiles/MPI_EX.dir/build.make CMakeFiles/MPI_EX.dir/main.i
+	$(MAKE) -f CMakeFiles/gsllib.dir/build.make CMakeFiles/gsllib.dir/main.i
 .PHONY : main.i
 
 # target to generate assembly for a file
 main.s:
 	$(MAKE) -f CMakeFiles/MPI_EX.dir/build.make CMakeFiles/MPI_EX.dir/main.s
+	$(MAKE) -f CMakeFiles/gsllib.dir/build.make CMakeFiles/gsllib.dir/main.s
 .PHONY : main.s
 
 # Help Target
@@ -158,8 +174,9 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... MPI_EX"
 	@echo "... edit_cache"
+	@echo "... MPI_EX"
+	@echo "... gsllib"
 	@echo "... src"
 	@echo "... main.o"
 	@echo "... main.i"

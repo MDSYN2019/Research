@@ -1,4 +1,4 @@
-1//---------------------------------------------------------------------------//
+//---------------------------------------------------------------------------//
 // !!                                                                     !! //
 //                                                                           //
 //  Copyright (C) 2016 Joe Boudreau                                          //
@@ -20,16 +20,17 @@
 //                                                                           //
 //---------------------------------------------------------------------------//
 
-#include "InterpolatingFunction.h"
+#include "QatGenericFunctions/InterpolatingFunction.h"
 #include "gsl/gsl_spline.h"
 #include <cmath>
 #include <cfloat>
 #include <stdexcept>
-
 namespace Genfun {
-  FUNCTION_OBJECT_IMP_INLINE(InterpolatingFunction)  
+  FUNCTION_OBJECT_IMP_INLINE(InterpolatingFunction)
+  
   class InterpolatingFunction::Clockwork {
-  public:   
+  public:
+    
     inline Clockwork():
       nPointsEval(0),
       natural(false),
@@ -60,9 +61,11 @@ namespace Genfun {
     // Interpolators:
     gsl_interp_accel    *acc;
     gsl_spline          *spline;
-  private:    
+  private:
+    
     // Make this illegal:
     Clockwork(const Clockwork & right);
+
   };
 
   inline InterpolatingFunction::InterpolatingFunction(InterpolationType type)
@@ -72,7 +75,7 @@ namespace Genfun {
   }
   
   inline InterpolatingFunction::InterpolatingFunction(const InterpolatingFunction & right)
-    :Genfun::AbsFunction(), c(new Clockwork())
+    :Genfun::AbsFunction(),c(new Clockwork())
   {
     c->xPoints=right.c->xPoints;
     c->yPoints=right.c->yPoints;
@@ -89,6 +92,7 @@ namespace Genfun {
   }
   
   inline double InterpolatingFunction::operator() (double x) const {
+
     // Initialize, if required:
     double y=0;
     if (c->nPointsEval!=c->xPoints.size()) {

@@ -2,13 +2,14 @@
 #include <iomanip>
 #include <vector>
 #include <mpi.h>
+
 // Custom headers
 #include "MPI_IO.hpp"
 
 MPI_input::MPI_input() {
 } // constructor 
 
-MPI_input::MPI_input( int mr, int pe) {
+MPI_input::MPI_input(int mr, int pe) {
  // constructor - allocate values
   /// a_ptr = a;
   // b_ptr = b;

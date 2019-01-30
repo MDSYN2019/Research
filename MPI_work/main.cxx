@@ -27,7 +27,6 @@ typedef struct {
 double total_d, local_d;
 
 void Build_mpi_type (double* a_p, double* b_p, int* n_p, myStruct* stct, MPI_Datatype* input_mpi_t_p) {
-
   int array_of_blocklengths[3] = {1,1,1};
   MPI_Datatype array_of_types[3] = {MPI_DOUBLE, MPI_DOUBLE, MPI_INT};
   MPI_Aint array_of_displacements[3] = {0};
@@ -89,7 +88,7 @@ int main(int argc, char** argv) {
 
   MPI_Finalize();
 
-  
+
   int i;
   double xi, yi, x[10], y[10];
 

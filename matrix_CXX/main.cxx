@@ -6,8 +6,15 @@
 
 int main(int argc, char **argv) {
 
-  Eigen::Matrix3d p;
   
+  Eigen::MatrixXd p(2,2);
+
+  p(0,0) = 3;
+  p(1,0) = 3;
+  p(0,1) = 3;
+  p(1,1) = 3;
+  
+  std::cout << p.sum() << std::endl;
   /*
   QSMatrix<double> mat1(10,10,1.0);
   QSMatrix<double> mat2(10,10,2.0);

@@ -6,8 +6,7 @@
 #include <Eigen/LU>
 #include "Mat.hpp"
 
-// Default constructor
-
+/*
 template <typename Type>
 SimpleMatrix<Type>::SimpleMatrix() {
   // No need for implementation, as the vector "mat"
@@ -45,8 +44,6 @@ Type& SimpleMatrix<Type>::value(const int& row, const int& col) {
   return mat[row][col];
 }
 // QSMatrix
-
-/*
   Our task with the source file is to implement all of the methods outlines in the header file.
   In particular we need to implement methods for the following:
 
@@ -55,6 +52,7 @@ Type& SimpleMatrix<Type>::value(const int& row, const int& col) {
   - Matrix/ 
  */
 
+/*
 // Parameter construction
 template<typename T>
 QSMatrix<T>::QSMatrix(unsigned _rows, unsigned _cols, const T& _inital) {
@@ -172,6 +170,6 @@ QSMatrix<T> QSMatrix<T>::operator*(const T& rhs) {
   }
   return result;
 }
-
+*/
 
 #endif

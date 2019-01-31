@@ -1,9 +1,14 @@
-
-#include "Mat.h"
+//#include "Mat.h"
 #include <iostream>
+
+#include <Eigen/Dense>
+
 
 int main(int argc, char **argv) {
 
+  Eigen::Matrix3d p;
+  
+  /*
   QSMatrix<double> mat1(10,10,1.0);
   QSMatrix<double> mat2(10,10,2.0);
   QSMatrix<double> mat3 = mat1 + mat2;
@@ -14,6 +19,10 @@ int main(int argc, char **argv) {
     }
     std::cout << std::endl;
   }
+
+
+  Eigen::Matrix3d p;
+  */
   
   return 0;
   

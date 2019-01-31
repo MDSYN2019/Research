@@ -11,6 +11,58 @@
 #include <gsl/gsl_errno.h>
 #include <gsl/gsl_spline.h>
 
+
+void Get_data4(
+         float*  a_ptr    /* out */, 
+         float*  b_ptr    /* out */, 
+         int*    n_ptr    /* out */,
+         int     my_rank  /* in  */) {
+
+    char  buffer[100];  /* Store data in buffer        */
+    int   position;     /* Keep track of where data is */    
+                        /*     in the buffer           */
+
+    if (my_rank == 0){
+        printf("Enter a, b, and n\n");
+        scanf("%f %f %d", a_ptr, b_ptr, n_ptr);
+
+        /* Now pack the data into buffer.  Position = 0 */
+        /* says start at beginning of buffer.           */
+        position = 0;  
+
+        /* Position is in/out */
+        MPI_Pack(a_ptr, 1, MPI_FLOAT, buffer, 100,
+            &position, MPI_COMM_WORLD);
+        /* Position has been incremented: it now refer- */
+        /* ences the first free location in buffer.     */
+
+        MPI_Pack(b_ptr, 1, MPI_FLOAT, buffer, 100,
+            &position, MPI_COMM_WORLD);
+        /* Position has been incremented again. */
+
+        MPI_Pack(n_ptr, 1, MPI_INT, buffer, 100,
+            &position, MPI_COMM_WORLD);
+        /* Position has been incremented again. */
+
+        /* Now broadcast contents of buffer */
+        MPI_Bcast(buffer, 100, MPI_PACKED, 0,
+            MPI_COMM_WORLD);
+    } else {
+        MPI_Bcast(buffer, 100, MPI_PACKED, 0,
+            MPI_COMM_WORLD);
+
+        /* Now unpack the contents of buffer */
+        position = 0;
+        MPI_Unpack(buffer, 100, &position, a_ptr, 1, MPI_FLOAT, MPI_COMM_WORLD);
+        /* Once again position has been incremented: */
+        /* it now references the beginning of b.     */
+
+        MPI_Unpack(buffer, 100, &position, b_ptr, 1, MPI_FLOAT, MPI_COMM_WORLD);
+        MPI_Unpack(buffer, 100, &position, n_ptr, 1, MPI_INT, MPI_COMM_WORLD);
+    }
+} /* Get_data4 */
+
+
 typedef struct {
   double a;
   double b;
@@ -25,6 +77,9 @@ typedef struct {
 } arraySend;
 
 double total_d, local_d;
+
+
+
 
 void Build_mpi_type (double* a_p, double* b_p, int* n_p, myStruct* stct, MPI_Datatype* input_mpi_t_p) {
   int array_of_blocklengths[3] = {1,1,1};

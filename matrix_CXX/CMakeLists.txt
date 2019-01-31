@@ -2,7 +2,7 @@
 cmake_minimum_required (VERSION 1.0)
 project (quant)
 #find_package( OpenCV REQUIRED COMPONENTS core)
-#find_package (Eigen3 3.3 REQUIRED NO_MODULE)
+find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 
 # Ensure C++11 is invoked
 
@@ -35,16 +35,16 @@ if(Boost_FOUND)
   include_directories (${Boost_INCLUDE_DIRS})
 endif()
 
-#include_directories ("${EIGEN3_INCLUDE_DIR}")
+include_directories ("${EIGEN3_INCLUDE_DIR}")
 # Specifically add the src library definition for linking
 
 add_subdirectory (src)
 set (EXTRA_LIBS ${EXTRA_LIBS} src)
 
 # GSL libraries linking
-set(CMAKE_GSL_LINKER_FLAGS "${CMAKE_GSL_LINKER_FLAGS} -lgsl")
-set(CMAKE_GSL_LINKER_FLAGS_CBLAS "${CMAKE_GSL_LINKER_FLAGS_CBLAS} -lgslcblas")
-set(MATH "${MATH} -lm")
+#set(CMAKE_GSL_LINKER_FLAGS "${CMAKE_GSL_LINKER_FLAGS} -lgsl")
+#set(CMAKE_GSL_LINKER_FLAGS_CBLAS "${CMAKE_GSL_LINKER_FLAGS_CBLAS} -lgslcblas")
+#set(MATH "${MATH} -lm")
 
 #if(Boost_FOUND)
 #    include_directories(${Boost_INCLUDE_DIRS}) 
@@ -61,7 +61,7 @@ set(MATH "${MATH} -lm")
 
 # add the executable
 if(Boost_FOUND)
-  include_directories (${Boost_INCLUDE_DIRS})
+  include_directories (${Boost_INCLUDE_DIRS} ${EIGEN3_INCLUDE_DIR})
   add_executable (quant main.cxx)
   target_link_libraries (quant ${EXTRA_LIBS} ${BOOST_LIBRARIES} ${Boost_LIBRARIES} ${MATH} ${CMAKE_GSL_LINKER_FLAGS} ${CMAKE_GSL_LINKER_FLAGS_CBLAS})
 endif()

@@ -1,0 +1,1 @@
+/home/noh/anaconda3/bin/c++   -std=c++11  -L/usr/local/lib -rdynamic CMakeFiles/quant.dir/main.o  -o quant src/libsrc.a 

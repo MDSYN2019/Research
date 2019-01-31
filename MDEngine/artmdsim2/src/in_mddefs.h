@@ -32,6 +32,7 @@ typedef struct {
 typedef struct {
   real c[I(MAX_MPEX_ORD, MAX_MPEX_ORD) + 1], s[I(MAX_MPEX_ORD, MAX_MPEX_ORD) + 1];
 } MpTerms;
+
 typedef struct {
   MpTerms le, me;
   int occ;

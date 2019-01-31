@@ -1,4 +1,3 @@
-
 cmake_minimum_required (VERSION 1.0)
 project (quant)
 #find_package( OpenCV REQUIRED COMPONENTS core)
@@ -40,24 +39,6 @@ include_directories ("${EIGEN3_INCLUDE_DIR}")
 
 add_subdirectory (src)
 set (EXTRA_LIBS ${EXTRA_LIBS} src)
-
-# GSL libraries linking
-#set(CMAKE_GSL_LINKER_FLAGS "${CMAKE_GSL_LINKER_FLAGS} -lgsl")
-#set(CMAKE_GSL_LINKER_FLAGS_CBLAS "${CMAKE_GSL_LINKER_FLAGS_CBLAS} -lgslcblas")
-#set(MATH "${MATH} -lm")
-
-#if(Boost_FOUND)
-#    include_directories(${Boost_INCLUDE_DIRS}) 
-#    add_executable(progname file1.cxx file2.cxx) 
-#    target_link_libraries(progname ${Boost_LIBRARIES})
-#]endif()
-
-#set(BOOST_FILE "${BOOST_FILE} -libboost_filesystem -libboost_system")
-#set(CV "${CV} -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs")
-#set(OpenCV_DIR "/usr/local/include/opencv2")
-
-#MESSAGE(STATUS "Include dirs ${OpenCV_INCLUDE_DIRS}")
-#MESSAGE(STATUS "LINK LIBRARIES ${OpenCV_LIBS}")
 
 # add the executable
 if(Boost_FOUND)

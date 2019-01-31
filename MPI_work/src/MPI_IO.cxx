@@ -10,17 +10,9 @@ MPI_input::MPI_input() {
 } // constructor 
 
 MPI_input::MPI_input(int mr, int pe) {
- // constructor - allocate values
-  /// a_ptr = a;
-  // b_ptr = b;
-  // n_ptr = np;
   my_rank = mr;
   p = pe;
 }
-
-MPI_input::~MPI_input() {
-  MPI_Finalize();
-} // destructor 
 
 void MPI_input::MPI_start() { 
   MPI_Init(NULL, NULL);
@@ -49,4 +41,8 @@ void MPI_input::Get_data() {
     MPI_Recv(n_ptr, 1, MPI_INT, source, tag, MPI_COMM_WORLD, &status);
   }
 }
+
+MPI_input::~MPI_input() {
+  MPI_Finalize();
+} // destructor 
 

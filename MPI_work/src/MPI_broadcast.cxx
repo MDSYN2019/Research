@@ -1,3 +1,16 @@
+/*
+
+Performance evaluation of MPI programs
+
+We're usually not interested in the time taken from the sstart of program execution 
+to the end of program execution. 
+
+We're nly interested in the time it takes to do the actual multiplicaton, 
+s we need to modify our source code by adding in calls to a function that will tell us the amount of 
+time that elapses frm the beginning t the end of the actual atual matrix
+ */
+
+
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -9,6 +22,7 @@
 #include "MPI_broadcast.hpp"
 
 /*
+
 template <class T> class Vec {
 public:
   typedef T* iterator;
@@ -109,9 +123,17 @@ void MPI_BC::parallelAllocateVec(double* aa, double* bb, int lenOfVec, std::vect
   MPI_Get_address(&vecpart[0], &aint);
   //  MPI_Type_create_struct(lenOfVec, pointerToArray, MPIdisplacements, MPItype, input_mpi_t_p);
   MPI_Type_commit(input_mpi_t_p);
+  finish = MPI_Wtime();
+ 
 }
 
+
+void MPI_BC::packData() {
+}
+
+
 void MPI_BC::buildMpiType(double* a_p, double* b_p, int* n_p, MPI_Datatype* input_mpi_t_p) {
+
 
   /*  
     A derived datatype can bbe used to represent any collection 
@@ -121,7 +143,7 @@ void MPI_BC::buildMpiType(double* a_p, double* b_p, int* n_p, MPI_Datatype* inpu
     If a function that sends data knows the types and the relative 
     locations in memory of a collection of data items,   
   */
-  
+  start = MPI_Wtime();
   int array_of_blocklengths[3] = {1,1,1};
 
   MPI_Datatype array_of_types[3] = {MPI_DOUBLE, MPI_DOUBLE, MPI_INT};
@@ -165,16 +187,18 @@ void MPI_BC::Get_input2(int my_rank, int comm_sz, double* a_p, double* b_p, int*
 
 */
 void MPI_BC::Send(float a, float b, int n, int dest) {
-    MPI_Send(&a, 1, MPI_FLOAT, dest, 0, MPI_COMM_WORLD);
-    MPI_Send(&b, 1, MPI_FLOAT, dest, 1, MPI_COMM_WORLD);
-    MPI_Send(&n, 1, MPI_INT, dest, 2, MPI_COMM_WORLD);
+   start = MPI_Wtime();
+   MPI_Send(&a, 1, MPI_FLOAT, dest, 0, MPI_COMM_WORLD);
+   MPI_Send(&b, 1, MPI_FLOAT, dest, 1, MPI_COMM_WORLD);
+   MPI_Send(&n, 1, MPI_INT, dest, 2, MPI_COMM_WORLD);
 } /* Send */
 
 void MPI_BC::Receive(float* a_ptr, float* b_ptr, int* n_ptr, int   source) {
-    MPI_Recv(a_ptr, 1, MPI_FLOAT, source, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-    MPI_Recv(b_ptr, 1, MPI_FLOAT, source, 1, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-    MPI_Recv(n_ptr, 1, MPI_INT, source, 2, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-
+  
+  MPI_Recv(a_ptr, 1, MPI_FLOAT, source, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+  MPI_Recv(b_ptr, 1, MPI_FLOAT, source, 1, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+  MPI_Recv(n_ptr, 1, MPI_INT, source, 2, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+  finish = MPI_Wtime();
 } /* Receive */
 
 /*

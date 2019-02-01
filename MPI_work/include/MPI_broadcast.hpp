@@ -22,20 +22,24 @@ public:
   MPI_BC(); // Default constructor 
   // MPI_BC(int); // Custom constructor 
   //  MPI_BC(const MPI_BC& rhs);
-  virtual ~MPI_BC(); // Destructor
-  
+  virtual ~MPI_BC(); // Destructor2
   //  void InitializeVec(int);
   //  void Get_Input(int, int, double*, double*, int*); // WIP
-  void buildMpiType(double*, double*, int*, MPI_Datatype*); // WIP
+  
+  void packData(); // Using MPI_Pack/MPI_unpack
+  void time_ellapsed(); // Total time for the MPI program to execute
+
+  void buildMpiType(double*, double*, int*, MPI_Datatype*); // Allocates the data type into a struct and broadcasts it 
   void Send(float, float, int, int); // Standard send/receive pair 
   void Receive(float*, float*, int*, int); // Standard send/receive pair 
   // void GetData(float*, float*, int*, int, int); // WIP
   void parallelAllocateVec(double*, double*, int, std::vector<int>*, MPI_Datatype*);
 private:
   int my_rank, comm_sz;
-  MPI_Aint aint; // What does MPI_Aint mean?
   int lenOfVec;
   int* pointerToArray;
+  double start, finish; // integers for measuring the start and finish of the function called from this class
+  MPI_Aint aint; // What does MPI_Aint mean?
   std::vector<int> vectorOfBlockLengths;
   std::vector<int> MPItype;
   std::vector<MPI_Datatype> MPIDatatype;

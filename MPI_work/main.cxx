@@ -11,6 +11,8 @@
 #include <gsl/gsl_errno.h>
 #include <gsl/gsl_spline.h>
 
+#include "MPI_IO.hpp"
+
 
 void Get_data4(float*  a_ptr, float*  b_ptr, int* n_ptr , int my_rank) {
     char  buffer[100];  /* Store data in buffer        */
@@ -64,8 +66,6 @@ typedef struct {
 double total_d, local_d;
 
 
-
-
 void Build_mpi_type (double* a_p, double* b_p, int* n_p, myStruct* stct, MPI_Datatype* input_mpi_t_p) {
   int array_of_blocklengths[3] = {1,1,1};
   MPI_Datatype array_of_types[3] = {MPI_DOUBLE, MPI_DOUBLE, MPI_INT};
@@ -87,20 +87,16 @@ void Build_mpi_type (double* a_p, double* b_p, int* n_p, myStruct* stct, MPI_Dat
 }
 
 void Get_Input(int my_rank, int comm_sz, double* a_p, double* b_p, int* n_p, myStruct* myStruct) {
-
   MPI_Datatype input_mpi_t;  
   Build_mpi_type(a_p, b_p, n_p, myStruct, &input_mpi_t);
- 
   if (my_rank == 0) {
     MPI_Bcast(myStruct, 1, input_mpi_t, 0, MPI_COMM_WORLD);
   }
-  
   MPI_Type_free(&input_mpi_t);
 }
 
 // MPI headers
 
-#include "MPI_IO.hpp"
 //#include "MPI_broadcast.hpp"
 //#include "MPI_functions.hpp"
 std::vector<int> bb;

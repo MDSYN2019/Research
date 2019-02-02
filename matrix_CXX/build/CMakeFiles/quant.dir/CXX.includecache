@@ -9,7 +9,19 @@
 /home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/main.cxx
 iostream
 -
+string
+-
 Eigen/Dense
+-
+cppunit/extensions/TestFactoryRegistry.h
+-
+cppunit/CompilerOutputter.h
+-
+cppunit/ui/text/TestRunner.h
+-
+cppunit/TestFixture.h
+-
+cppunit/extensions/HelperMacros.h
 -
 
 /usr/local/include/eigen3/Eigen/Cholesky

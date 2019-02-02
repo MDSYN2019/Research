@@ -34,6 +34,35 @@ if(Boost_FOUND)
   include_directories (${Boost_INCLUDE_DIRS})
 endif()
 
+
+find_library( CPPUNIT_LIBRARY_DEBUG NAMES cppunit cppunit_dll cppunitd cppunitd_dll
+            PATHS   ${FOO_PREFIX}/lib
+                    /usr/lib
+                    /usr/lib64
+                    /usr/local/lib
+                    /usr/local/lib64
+            PATH_SUFFIXES debug )
+
+find_library( CPPUNIT_LIBRARY_RELEASE NAMES cppunit cppunit_dll
+            PATHS   ${FOO_PREFIX}/lib
+                    /usr/lib
+                    /usr/lib64
+                    /usr/local/lib
+                    /usr/local/lib64
+		    PATH_SUFFIXES release )
+
+
+if(CPPUNIT_LIBRARY_DEBUG AND NOT CPPUNIT_LIBRARY_RELEASE)
+    set(CPPUNIT_LIBRARY_RELEASE ${CPPUNIT_LIBRARY_DEBUG})
+endif(CPPUNIT_LIBRARY_DEBUG AND NOT CPPUNIT_LIBRARY_RELEASE)
+
+set( CPPUNIT_LIBRARY debug     ${CPPUNIT_LIBRARY_DEBUG}
+  optimized ${CPPUNIT_LIBRARY_RELEASE} )
+
+
+
+
+
 include_directories ("${EIGEN3_INCLUDE_DIR}")
 # Specifically add the src library definition for linking
 
@@ -44,6 +73,6 @@ set (EXTRA_LIBS ${EXTRA_LIBS} src)
 if(Boost_FOUND)
   include_directories (${Boost_INCLUDE_DIRS} ${EIGEN3_INCLUDE_DIR})
   add_executable (quant main.cxx)
-  target_link_libraries (quant ${EXTRA_LIBS} ${BOOST_LIBRARIES} ${Boost_LIBRARIES} ${MATH} ${CMAKE_GSL_LINKER_FLAGS} ${CMAKE_GSL_LINKER_FLAGS_CBLAS})
+  target_link_libraries (quant ${EXTRA_LIBS} ${BOOST_LIBRARIES} ${Boost_LIBRARIES} ${MATH} ${CMAKE_GSL_LINKER_FLAGS} ${CMAKE_GSL_LINKER_FLAGS_CBLAS}  ${CPPUNIT_LIBRARY})
 endif()
 

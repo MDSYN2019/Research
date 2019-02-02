@@ -91,6 +91,7 @@ quant_EXTERNAL_OBJECTS =
 quant: CMakeFiles/quant.dir/main.o
 quant: CMakeFiles/quant.dir/build.make
 quant: src/libsrc.a
+quant: /usr/local/lib/libcppunit.so
 quant: CMakeFiles/quant.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable quant"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/quant.dir/link.txt --verbose=$(VERBOSE)

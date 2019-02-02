@@ -1,11 +1,40 @@
 //#include "Mat.h"
 #include <iostream>
-
+#include <string>
 #include <Eigen/Dense>
+#include <cppunit/extensions/TestFactoryRegistry.h>
+#include <cppunit/CompilerOutputter.h>
+#include <cppunit/ui/text/TestRunner.h>
+#include <cppunit/TestFixture.h>
+#include <cppunit/extensions/HelperMacros.h>
 
+class Complex {
+  friend bool operator==(const Complex& a, const Complex& b);
+  double real, imaginary;
+public:
+  Complex(double r, double i = 0) : real(r), imaginary(i) {
+  }
+};
+
+bool operator==(const Complex &a, const Complex &b) {
+  return true;
+}
+
+class ComplexNumberTest : public CppUnit::TestCase { 
+public: 
+  ComplexNumberTest( std::string name ) : CppUnit::TestCase( name ) {}
+  
+  void runTest() {
+    CPPUNIT_ASSERT( Complex (10, 1) == Complex (10, 1) );
+    CPPUNIT_ASSERT( !(Complex (1, 1) == Complex (2, 2)) );
+  }
+};
+
+ComplexNumberTest A("df");
 
 int main(int argc, char **argv) {
 
+  A.runTest();
   
   Eigen::MatrixXd p(2,2);
 

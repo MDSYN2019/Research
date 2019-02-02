@@ -12,14 +12,15 @@
 #include <gsl/gsl_spline.h>
 
 #include "MPI_IO.hpp"
-
+//#include "MPI_broadcast.hpp"
+//#include "MPI_functions.hpp"
 
 void Get_data4(float*  a_ptr, float*  b_ptr, int* n_ptr , int my_rank) {
     char  buffer[100];  /* Store data in buffer        */
     int   position;     /* Keep track of where data is */    
                         /*     in the buffer           */
     if (my_rank == 0){
-        printf("Enter a, b, and n\n");
+      std::cout << "Enter a, b, and n\n";
         scanf("%f %f %d", a_ptr, b_ptr, n_ptr);
         /* Now pack the data into buffer.  Position = 0 */
         /* says start at beginning of buffer.           */
@@ -95,10 +96,6 @@ void Get_Input(int my_rank, int comm_sz, double* a_p, double* b_p, int* n_p, myS
   MPI_Type_free(&input_mpi_t);
 }
 
-// MPI headers
-
-//#include "MPI_broadcast.hpp"
-//#include "MPI_functions.hpp"
 std::vector<int> bb;
 myStruct exampleDatatype;
 

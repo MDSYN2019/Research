@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/noh/Desktop/WIP/GIT/PhD_work/matrix_CXX/src/Mat.cxx" "/home/noh/Desktop/WIP/GIT/PhD_work/matrix_CXX/build/src/CMakeFiles/src.dir/Mat.o"
+  "/home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/src/Mat.cxx" "/home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/build/src/CMakeFiles/src.dir/Mat.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -12,8 +12,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../src"
   "../include"
-  "/usr/local/include"
-  "/home/noh/anaconda3/include/eigen3"
+  "/usr/local/include/eigen3"
   )
 
 # Targets to which this target links.

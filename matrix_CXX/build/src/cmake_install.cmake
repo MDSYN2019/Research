@@ -1,4 +1,4 @@
-# Install script for directory: /home/noh/Desktop/WIP/GIT/PhD_work/matrix_CXX/src
+# Install script for directory: /home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

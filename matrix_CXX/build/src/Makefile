@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/noh/Desktop/WIP/GIT/PhD_work/matrix_CXX
+CMAKE_SOURCE_DIR = /home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/noh/Desktop/WIP/GIT/PhD_work/matrix_CXX/build
+CMAKE_BINARY_DIR = /home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -69,8 +69,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/noh/Desktop/WIP/GIT/PhD_work/matrix_CXX/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/noh/Desktop/WIP/GIT/PhD_work/matrix_CXX/build/CMakeFiles /home/noh/Desktop/WIP/GIT/PhD_work/matrix_CXX/build/src/CMakeFiles/progress.marks
-	cd /home/noh/Desktop/WIP/GIT/PhD_work/matrix_CXX/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/noh/Desktop/WIP/GIT/PhD_work/matrix_CXX/build/CMakeFiles 0
+	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/build/CMakeFiles /home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/build/src/CMakeFiles/progress.marks
+	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/noh/Desktop/WIP/GIT/PhD_work/matrix_CXX/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
+	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/noh/Desktop/WIP/GIT/PhD_work/matrix_CXX/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/noh/Desktop/WIP/GIT/PhD_work/matrix_CXX/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/noh/Desktop/WIP/GIT/PhD_work/matrix_CXX/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/CMakeFiles/src.dir/rule:
-	cd /home/noh/Desktop/WIP/GIT/PhD_work/matrix_CXX/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/src.dir/rule
+	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/src.dir/rule
 .PHONY : src/CMakeFiles/src.dir/rule
 
 # Convenience name for target.
@@ -122,22 +122,22 @@ src: src/CMakeFiles/src.dir/rule
 
 # fast build rule for target.
 src/fast:
-	cd /home/noh/Desktop/WIP/GIT/PhD_work/matrix_CXX/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/build
+	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/build
 .PHONY : src/fast
 
 # target to build an object file
 Mat.o:
-	cd /home/noh/Desktop/WIP/GIT/PhD_work/matrix_CXX/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/Mat.o
+	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/Mat.o
 .PHONY : Mat.o
 
 # target to preprocess a source file
 Mat.i:
-	cd /home/noh/Desktop/WIP/GIT/PhD_work/matrix_CXX/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/Mat.i
+	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/Mat.i
 .PHONY : Mat.i
 
 # target to generate assembly for a file
 Mat.s:
-	cd /home/noh/Desktop/WIP/GIT/PhD_work/matrix_CXX/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/Mat.s
+	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/Mat.s
 .PHONY : Mat.s
 
 # Help Target
@@ -163,6 +163,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/noh/Desktop/WIP/GIT/PhD_work/matrix_CXX/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

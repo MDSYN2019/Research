@@ -1,2 +1,2 @@
-/home/noh/anaconda3/bin/ar qc libsrc.a  CMakeFiles/src.dir/Mat.o
-/home/noh/anaconda3/bin/ranlib libsrc.a
+/usr/bin/ar qc libsrc.a  CMakeFiles/src.dir/Mat.o
+/usr/bin/ranlib libsrc.a

@@ -15,6 +15,21 @@
 //#include "MPI_broadcast.hpp"
 //#include "MPI_functions.hpp"
 
+double total_d, local_d;
+
+typedef struct {
+  double a;
+  double b;
+  int c;
+} myStruct;
+
+typedef struct {
+  double a;
+  double b;
+  int c;
+} arraySend;
+
+
 void Get_data4(float*  a_ptr, float*  b_ptr, int* n_ptr , int my_rank) {
     char  buffer[100];  /* Store data in buffer        */
     int   position;     /* Keep track of where data is */    
@@ -50,21 +65,6 @@ void Get_data4(float*  a_ptr, float*  b_ptr, int* n_ptr , int my_rank) {
     }
 } /* Get_data4 */
 
-
-typedef struct {
-  double a;
-  double b;
-  int c;
-} myStruct;
-
-
-typedef struct {
-  double a;
-  double b;
-  int c;
-} arraySend;
-
-double total_d, local_d;
 
 
 void Build_mpi_type (double* a_p, double* b_p, int* n_p, myStruct* stct, MPI_Datatype* input_mpi_t_p) {

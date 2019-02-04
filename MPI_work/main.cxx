@@ -17,12 +17,11 @@
 //#include "MPI_broadcast.hpp"
 //#include "MPI_functions.hpp"
   
-template <class To, class From>
-To safe_reinterpret_cast(From form) {
+struct LUdcmp {
+  int n;
+  M
 
-
-}
-
+};
 double total_d, local_d;
 int idfdf;
 

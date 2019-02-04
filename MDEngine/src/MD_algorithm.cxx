@@ -155,6 +155,15 @@ void MD_structures::SetParams()
   valMag = placeholder;
 }
 
+
+void EvalProps() {
+
+  real vv;
+  int n;
+
+  VZero(vSum);
+  
+}
 /*
 // Calculating Pi through monte-carlo algorithm
 

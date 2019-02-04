@@ -148,8 +148,9 @@ void MD_structures::SetParams()
   // TODO
 
   rCut = pow(2., 1./6);
-  V = s1 * v1.x;
-  V = s2 * v2.y;
+  region(0) = s1 * vector(0);
+  region(0) = s2 * vector(0);
+  
   nMol = placeholder;
   valMag = placeholder;
 }

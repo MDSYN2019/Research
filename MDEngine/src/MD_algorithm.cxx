@@ -51,11 +51,11 @@ MD_structures::MD_structures() {} // We only have one constructor so we don't ne
 MD_structures::MD_structures(int N) {
   nMols = N;
 }
+
 // We only have one constructor so we don't need to specifically define anything
 void MD_structures::allocMat() {}
 void MD_structures::printArray() {}
 void MD_structures::LeapfrogStep(int part) {
-
   if (part == 1) { 
     for (int n = 0; n < nMols; n++) {
       // Add vectors here
@@ -73,9 +73,8 @@ void MD_structures::LeapfrogStep(int part) {
 void MD_structures::computeForce() {
   //  std::vector<Mol> positionArray;
   for (int i = 0; i <= nMols; i++) {    
-    // Mol mol;
-    mol.r(0) = 0.0;
-    mol.r(1) = 0.0;
+    mol.r(0) = 0.0;     // Mol mol;
+    mol.r(1) = 0.0;     // Mol mol;
     positionArray.push_back(mol); // push back inital type of data, then we initialize it 
   }
   
@@ -83,33 +82,27 @@ void MD_structures::computeForce() {
     for (int j2 = j1+1; j2 < nMols; j2++) {
       dr(0) = positionArray.at(j1).r(0) - positionArray.at(j2).r(0); 
       dr(1) = positionArray.at(j1).r(1) - positionArray.at(j2).r(1);  
-      // x-coordinates block
-      
+      // x-coordinates block - minimum image convention   
       if (dr(0) >= 0.5 * region(0)) {
 	dr(0) -= region(0);
       } else if (dr(0) >= 0.5 * region(0)) {
 	dr(0) += region(0);
       }
-      // y-coordinates block
+      // y-coordinates block - minimum image convention 
       if (dr(1) >= 0.5 * region(1)) {
 	dr(1) -= region(1);
       } else if (dr(0) >= 0.5 * region(1)) {
 	dr(1) += region(1);
       }
-      
       rr = (dr(0) * dr(0)) + dr(1) * dr(1);
-      
       if (rr < rrCut) {	
 	rri = 1.0/rr; // 
 	rri3 = rri * rri * rri; // 
 	fcVal = 48. * rri3 * (rri3 - 0.5) * rri; //
-
 	positionArray.at(j1).ra(0) += fcVal * dr(0);
 	positionArray.at(j1).ra(1) += fcVal * dr(1);
-
 	positionArray.at(j2).ra(0) += fcVal * dr(0);
 	positionArray.at(j2).ra(1) += fcVal * dr(1);
-	
 	uSum += 4.0 * rri3 * (rri3 - 1.0) + 1.0;
       }      
     }
@@ -128,8 +121,7 @@ void MD_structures::initCoords() {
       c(0) = nx + 0.5;
       c(1) = ny + 0.5;
       c = c * gap;
-      c = c + -0.5 * region;
-          
+      c = c + -0.5 * region;          
     }   
   }
 }
@@ -150,6 +142,19 @@ void MD_structures::initVels() {
   }
 }
 
+void MD_structures::SetParams()
+{
+  // Page 46 
+  // TODO
+
+  rCut = pow(2., 1./6);
+  V = s1 * v1.x;
+  V = s2 * v2.y;
+  nMol = placeholder;
+  valMag = placeholder;
+}
+
+/*
 // Calculating Pi through monte-carlo algorithm
 
 MCalg::MCalg() {}
@@ -193,3 +198,4 @@ MCalg MCalg::operator+(MCalg aso) {
 }
 
 
+*/

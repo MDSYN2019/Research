@@ -5,27 +5,36 @@
 #include <cassert>
 #include <cmath>
 #include <array>
+#include <cassert>
+
+// Custom headers
 
 #include "mpi.h"
-
 #include <gsl/gsl_errno.h>
 #include <gsl/gsl_spline.h>
-
 #include "MPI_IO.hpp"
+
 //#include "MPI_broadcast.hpp"
 //#include "MPI_functions.hpp"
+  
+template <class To, class From>
+To safe_reinterpret_cast(From form) {
+
+
+}
 
 double total_d, local_d;
+int idfdf;
 
 typedef struct {
-  double a;
-  double b;
+   double a;
+   double b;
   int c;
 } myStruct;
 
 typedef struct {
-  double a;
-  double b;
+   double a;
+   double b;
   int c;
 } arraySend;
 
@@ -67,7 +76,7 @@ void Get_data4(float*  a_ptr, float*  b_ptr, int* n_ptr , int my_rank) {
 
 
 
-void Build_mpi_type (double* a_p, double* b_p, int* n_p, myStruct* stct, MPI_Datatype* input_mpi_t_p) {
+void Build_mpi_type ( double* a_p,  double* b_p, int* n_p, myStruct* stct, MPI_Datatype* input_mpi_t_p) {
   int array_of_blocklengths[3] = {1,1,1};
   MPI_Datatype array_of_types[3] = {MPI_DOUBLE, MPI_DOUBLE, MPI_INT};
   MPI_Aint array_of_displacements[3] = {0};
@@ -87,7 +96,7 @@ void Build_mpi_type (double* a_p, double* b_p, int* n_p, myStruct* stct, MPI_Dat
   MPI_Type_commit(input_mpi_t_p);
 }
 
-void Get_Input(int my_rank, int comm_sz, double* a_p, double* b_p, int* n_p, myStruct* myStruct) {
+void Get_Input(int my_rank, int comm_sz,  double* a_p,  double* b_p, int* n_p, myStruct* myStruct) {
   MPI_Datatype input_mpi_t;  
   Build_mpi_type(a_p, b_p, n_p, myStruct, &input_mpi_t);
   if (my_rank == 0) {
@@ -99,8 +108,8 @@ void Get_Input(int my_rank, int comm_sz, double* a_p, double* b_p, int* n_p, myS
 std::vector<int> bb;
 myStruct exampleDatatype;
 
-double a;
-double b;
+ double a;
+ double b;
 int c;
 
 int main(int argc, char** argv) {
@@ -122,16 +131,16 @@ int main(int argc, char** argv) {
   MPI_Finalize();
 
 
-  int i;
-  double xi, yi, x[10], y[10];
+  int idfdf;
+   double xi, yi, x[10], y[10];
 
   std::cout << "#m=0,S=17\n";
 
-  for (int i = 0; i < 10; i++)
+  for (int idfdf = 0; idfdf < 10; idfdf++)
     {
-      x[i] = i + 0.5 * sin (i);
-      y[i] = i + cos (i * i);
-      std::cout << "%g %g\n" <<  x[i] << y[i];
+      x[idfdf] = idfdf + 0.5 * sin (idfdf);
+      y[idfdf] = idfdf + cos (idfdf * idfdf);
+      std::cout << "%g %g\n" <<  x[idfdf] << y[idfdf];
     }
 
   std::cout << "#m=1,S=0\n";
@@ -173,6 +182,8 @@ int main(int argc, char** argv) {
   MPI_Finalize();
   */
 
+
+  
 
   return 0;
 }

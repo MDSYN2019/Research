@@ -2,9 +2,8 @@
 #define __MD__libraries__structures__
 
 /*
-The goal is to generate the atomic trajectories 
-*/
 
+*/
 #include <Eigen/Dense>
 #include <cmath>
 #include <vector>
@@ -33,13 +32,15 @@ public:
   void Wrap(int, int);
   inline void allocMat();
   inline void printArray();
+
   void computeForce();
   void LeapfrogStep(int);
-
   void initCoords();
   void initVels();
-  void setNum(int N);
+  void SetParams();
   
+
+  void setNum(int N);
 private:  
   MatrixXd dr = MatrixXd(1,1); // You must initialize the size of the container before 
   MatrixXd vector = MatrixXd(1,1); // Ditto ;   
@@ -53,16 +54,12 @@ private:
   int deltaT;
   int rCut, temperature, timeNow, uSum, velMag;
   int moreCycles, nMol, stepAvg, stepCount, stepEquil, stepLimit;
-
   double fcVal, rr, rrCut, rri, rri3;
-  
   Mol mol;
   Prop kinEnergy, pressure, totEnergy;
 
   // STL libraries  
-
   std::vector<Mol> positionArray;
-  
 };
 
 // What are the global variabls used by this program?
@@ -71,6 +68,5 @@ Mol *mol;
 MatrixXd region, vSum;
 MatrixXd initUcell;
 Prop kinEnergy, pressure, totEnergy;
-
 
 #endif 

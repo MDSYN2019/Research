@@ -50,6 +50,7 @@ namespace Genfun {
     virtual double operator ()(double argument) const;
     virtual double operator ()(const Argument & a) const {return operator() (a[0]);}
 
+
     // Derivative.  
     Derivative partial (unsigned int) const;
 

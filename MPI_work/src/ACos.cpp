@@ -31,19 +31,13 @@ FUNCTION_OBJECT_IMP(ACos)
 
 ACos::ACos()
 {}
-
 ACos::~ACos() {
 }
-
 ACos::ACos(const ACos & right) : AbsFunction(right)
 {  }
-
-
 double ACos::operator() (double x) const {
   return acos(x);
 }
-
-
 Derivative ACos::partial(unsigned int index) const {
  if (index!=0) throw std::range_error("ACos: partial derivative index out of range");
 

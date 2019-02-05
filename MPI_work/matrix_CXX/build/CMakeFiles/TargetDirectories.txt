@@ -1,6 +1,0 @@
-/home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/build/CMakeFiles/rebuild_cache.dir
-/home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/build/CMakeFiles/quant.dir
-/home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/build/CMakeFiles/edit_cache.dir
-/home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/build/src/CMakeFiles/rebuild_cache.dir
-/home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/build/src/CMakeFiles/src.dir
-/home/oohnohnoh1/Desktop/GIT/PhD_work/matrix_CXX/build/src/CMakeFiles/edit_cache.dir

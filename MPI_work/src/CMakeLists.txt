@@ -1,1 +1,1 @@
-add_library(src MPI_IO.cxx MPI_broadcast.cxx)
+add_library(src Mat.cxx)

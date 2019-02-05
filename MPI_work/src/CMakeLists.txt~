@@ -1,1 +1,1 @@
-add_library(src JE_alg.cxx)
+add_library(src )

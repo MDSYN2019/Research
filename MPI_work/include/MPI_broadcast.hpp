@@ -17,15 +17,26 @@
 #include <mpi.h>
 #include <numeric>
 
+
+/*
+  For the constructors that take a size, we will allocate 
+ */
+template <typename T, typename Q, typename R>  class MPI_BC_Generic {
+public:
+  MPI_BC_Generic();
+  MPI_BC_Generic(std::size_t n);
+private:
+  T* data;
+  T* limit;
+};
+
+
 class MPI_BC {
 public:
   MPI_BC(); // Default constructor 
+  explicit MPI_BC(std::size_t n,   ); 
   // MPI_BC(int); // Custom constructor 
-  //  MPI_BC(const MPI_BC& rhs);
-  virtual ~MPI_BC(); // Destructor2
-  //  void InitializeVec(int);
-  //  void Get_Input(int, int, double*, double*, int*); // WIP
-  
+  virtual ~MPI_BC();   
   void packData(); // Using MPI_Pack/MPI_unpack
   void time_ellapsed(); // Total time for the MPI program to execute
 

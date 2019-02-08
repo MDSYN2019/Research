@@ -17,13 +17,18 @@
 //#include "MPI_broadcast.hpp"
 //#include "MPI_functions.hpp"
   
-struct LUdcmp {
-  int n;
-  M
+template <class T> class placeHolder {
+public:
+  /*
+    The role of any construct is to ensure that the object is correcltl
+    initialized. 
 
-};
-double total_d, local_d;
-int idfdf;
+    For the constructor to take a size, we will allocate the given amount 
+   */
+  placeHolder() { create(); }
+  explicit placeHolder(std::size_t n, const T& val = T()) {create(n, val);}  
+		       
+}
 
 typedef struct {
    double a;

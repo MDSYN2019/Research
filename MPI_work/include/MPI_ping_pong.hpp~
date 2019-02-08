@@ -1,4 +1,0 @@
-#ifdef __PP__
-#define __PP__
-
-#endif

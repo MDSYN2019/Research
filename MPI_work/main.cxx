@@ -16,7 +16,11 @@
 
 //#include "MPI_broadcast.hpp"
 //#include "MPI_functions.hpp"
+
+/*
   
+ */
+
 template <class T> class placeHolder {
 public:
   /*
@@ -27,8 +31,17 @@ public:
    */
   placeHolder() { create(); }
   explicit placeHolder(std::size_t n, const T& val = T()) {create(n, val);}  
-		       
-}
+
+  // iterators
+
+  typedef T* iterator;
+  typedef const T* const_iterator;
+  typedef T value_type;
+  typedef std::ptrdiff_t difference_type;
+  typedef T& reference;
+  typedef const T& const_reference;
+
+};
 
 typedef struct {
    double a;

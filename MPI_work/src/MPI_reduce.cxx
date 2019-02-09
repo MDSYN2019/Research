@@ -7,6 +7,25 @@
 #include <string>
 #include <mpi.h>
 
+class MPI_sorting_methods {
+public:
+  MPI_sorting_methods();
+  ~MPI_sorting_methods();
+  void Bubble_sort(int a[], int n) {
+    for (list_length = n; list_length >= 2; list_length--) {
+      for (i = 0; i < list_length - 1; i++) {
+	if (a[i] > a[i+1]) {
+	  temp = a[i];
+	  a[i] = a[i+1];
+	  a[i+1] = temp;
+	}
+      }
+    }
+  }
+private:
+  int list_length, i, temp;
+};
+
 void Get_input(int my_rank, int comm_sz, double * a_p, double * b_p, int * n_p ) {
   int dest;
   if (my_rank == 0) {

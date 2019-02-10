@@ -18,22 +18,28 @@
 #include <cppunit/extensions/HelperMacros.h>
 
 
-class MPI_input {
+class MPIInput {
+
 public:
-  MPI_input();
-  MPI_input(int, int);
-  virtual ~MPI_input();
-  void MPI_start();
-  void Get_data();
+  MPIInput();
+  MPIInput(int, int);
+  void MPIStart();
+  void getData();
+  void bubbleSort();
+  virtual ~MPIInput();
+
 private:
   int* n_ptr;
   int source = 0;
   int dest;
   int tag;
+  int my_rank;
+  int p;
+   
+  //
+  
   float* a_ptr;
   float* b_ptr;
-  int my_rank;
-  int p; 
   MPI_Status status;
 };
 

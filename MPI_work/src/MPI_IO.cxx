@@ -15,21 +15,35 @@
 // Custom headers
 #include "MPI_IO.hpp"
 
-MPI_input::MPI_input() {
+MPIInput::MPI_input() {
 } // constructor 
 
-MPI_input::MPI_input(int mr, int pe) {
+MPIInput::MPI_input(int mr, int pe) {
   my_rank = mr;
   p = pe;
 }
 
-void MPI_input::MPI_start() { 
+void MPIInput::MPI_start() { 
   MPI_Init(NULL, NULL);
   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
   MPI_Comm_size(MPI_COMM_WORLD, &p);  
 }
 
-void MPI_input::Get_data() {
+void MPIInput::bubbleSort(int a[], int n) {
+   // --  bubble sort variables --
+  int temp;
+  for (int list_length = n; list_length >= 2; list_length--) {
+    for (int i = 0; i < list_length - 1 ; i++) {
+      if (a[i] > a[i+1]) {
+	temp = a[i];
+	a[i] = a[i+1];
+	a[i+1] = temp;
+      }
+    }
+  }
+}
+
+void MPIInput::getData() {
   if (my_rank == 0) {
     std::cout << "Enter a, b and n \n";
     scanf("%lf %lf %d", a_ptr, b_ptr, n_ptr);
@@ -51,7 +65,7 @@ void MPI_input::Get_data() {
   }
 }
 
-MPI_input::~MPI_input() {
+MPIInput::~MPI_input() {
   MPI_Finalize();
 } // destructor 
 

@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=c++11   CMakeFiles/main.dir/main.o  -o main  -L/home/noh/Desktop/Program/GIT/Testing_C_programs/C++_Stuff/src/src -rdynamic -lgsl -lgslcblas src/libsrc.a -lboost_filesystem -lm 

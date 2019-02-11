@@ -1,0 +1,137 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+                
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+                
+  <meta name="GENERATOR"
+ content="Mozilla/4.79 [en] (X11; U; IRIX 6.5 IP32) [Netscape]">
+  <title></title>
+</head>
+  <body>
+        
+<center><font size="+3"><br>
+  Parallel Scientific Computing in C++ and MPI</font>  <br>
+   <font size="+3">Chapter 8 Overview</font></center>
+        
+<p><br>
+    <br>
+    </p>
+     
+<h4><font size="+2">Book Chapter Introduction</font></h4>
+     
+<blockquote>In this chapter we continue with mixed discretizations for initial 
+ value problems (IVP) and boundary value problems (BVP), but our emphasis 
+is on advection equations and wave propagation with and without dissipation. 
+ &nbsp;Specifically, we introduce two important non-dimensional numbers that 
+ define the accuracy and the stability of discretizations we present: The 
+  <i>Courant number</i> or CFL condition first proposed by Courant in 1928, 
+ and the (grid) <i>Peclet number</i> for advection-diffusion systems. We also
+ provide C++ functions and corresponding results that illustrate the effects
+ of numerical diffusion and numerical dispersion in pure advection and in
+advection-diffusion systems.<br>
+     <br>
+   On the parallel computing side, we introduce the concept of non-blocking 
+ communications, specifically the use of <i>MPI_Isend</i> and <i>MPI_Irecv.</i>&nbsp; 
+ Non-blocking communications may lead to a reduction in the computational 
+time by allowing the programmer to appropriately intertwine computation and 
+communication.<br>
+   </blockquote>
+     
+<div align="left">   
+<h4><br>
+  </h4>
+   
+<h4><font size="+2">SCchapter8 Introduction and Chapter 8 Driver Programs</font></h4>
+   &nbsp;&nbsp;&nbsp; Within the text, there are several places where the 
+<i>software suite</i> is referenced. &nbsp;In some cases the code is explicitly 
+placed within the text, and at other times within the text we merely alert 
+you that the software is available on this CD. &nbsp;As you read through Chapter
+8, you will find that the following function/classes were discussed. <br>
+    </div>
+  <br>
+   
+<blockquote>      
+  <ul>
+      <li>Section 8.1.3: void EF_CentralDifference(int N, double CFL, double
+ *uold, double *unew) function definition</li>
+      <li>Section 8.1.3: void EF_FirstOrderUpwind(int N, double CFL, double
+ *uold, double *unew) function definition</li>
+      <li>Section 8.1.3: void LaxFriedrichs(int N, double CFL, double *uold,
+ double *unew) function definition</li>
+      <li>Section 8.1.3: void LaxFriedrichsTadmor(int N, double CFL, double
+ *uold, double *unew) function definition</li>
+      <li>Section 8.1.3: void LaxFriedrichsTadmor(int N, double CFL, double
+ *uold, double *unew, double alpha) function definition</li>
+      <li>Section 8.1.4: void EF_SecondOrderUpwind(int N, double CFL, double
+ *uold, double *unew) function definition</li>
+      <li>Section 8.1.4: void LaxWendroff(int N, double CFL, double *uold,
+ double *unew) function definition</li>
+      <li>Section 8.1.4: void CrankNicolson_CentralDifference(int N, double
+ CFL, double *uold, double *unew) function definition</li>
+      <li>Section 8.1.5: void AB2_CentralDifferenceNP(int N, double CFL,
+double  **uold, double *unew) function definition</li>
+      <li>Section 8.2.2: void CrankNicolson_CentralDifference_AdvectionDiffusion(int
+ N, double CFL, double DN, double *uold, double *unew) function definition</li>
+       
+  </ul>
+    <br>
+  </blockquote>
+  &nbsp;&nbsp;&nbsp; The declarations and definitions of these functions/classes
+ can be found in the following files:<br>
+  <br>
+   
+<blockquote>Go to the file <a href="../SCchapter8.h">SCchapter8.h</a> for
+ function/class declarations   <br>
+   </blockquote>
+     
+<blockquote>Go to the file <a href="../SCchapter8.cpp">SCchapter8.cpp</a>
+ for function/class definitions<br>
+   </blockquote>
+          &nbsp;&nbsp;&nbsp; In the case that an entire program (meaning
+that  a main() function is provided) is presented in the text, we classify
+this  as a driver program. &nbsp;Unlike the functions/classes above, driver
+programs  are complete C++ programs which can be compiled and executed. &nbsp;As
+you  read through the book, you will see that driver programs are often times
+created by using functions/classes which are in the SCchapter files. &nbsp;We
+denote driver programs which are explicitly given in the text of the book
+in <font color="#ff0000">red</font>. &nbsp;In some chapters, we present very
+few driver programs explicitly in the text, however we provide some example
+driver programs which demonstrate how to use the functions/classes with in
+SCchapter files. &nbsp;Such driver programs are denoted in black.<br>
+     <br>
+  <font size="+1"><br>
+  &nbsp; </font>  
+<table border="1" width="100%" nosave="">
+   <tbody>
+      <tr>
+   <td><font size="+1">Section 8.1.3: Program demonstrating the use of the
+ Euler-Forward First-Order Upwind scheme</font></td>
+    <td><font size="+1"><a href="chapter8c0.cpp">chapter8c0.cpp</a></font></td>
+   </tr>
+    <tr>
+   <td><font size="+1">Section 8.1.3: Program demonstrating the use of the
+ Lax-Friedrichs scheme and Tadmor's Correction</font></td>
+    <td><font size="+1"><a href="chapter8c1.cpp">chapter8c1.cpp</a></font></td>
+   </tr>
+    <tr>
+   <td><font size="+1">Section 8.1.: Program demonstrating the use of the 
+Third-Order  Adams-Bashforth/Central Difference scheme</font></td>
+    <td><font size="+1"><a href="chapter8c2.cpp">chapter8c2.cpp</a></font></td>
+   </tr>
+    <tr>
+   <td><font size="+1">Section 8.2: Program demonstrating the use of the
+Crank-Nicolson/Central  Difference for the advection-diffusion equation</font></td>
+    <td><font size="+1"><a href="chapter8c3.cpp">chapter8c3.cpp</a></font></td>
+   </tr>
+         
+  </tbody>  
+</table>
+    <br>
+  &nbsp; <br>
+  &nbsp; <br>
+  <br>
+ <br>
+</body>
+</html>

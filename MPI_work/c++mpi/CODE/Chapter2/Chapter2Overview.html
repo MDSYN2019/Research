@@ -1,0 +1,165 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+                        
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+                        
+  <meta name="GENERATOR"
+ content="Mozilla/4.79 [en] (X11; U; IRIX 6.5 IP32) [Netscape]">
+  <title></title>
+</head>
+  <body>
+    <br>
+       
+<center><font size="+3">Parallel Scientific Computing in C++ and MPI</font>
+   <br>
+     <font size="+3">Chapter 2 Overview</font></center>
+            
+<p><br>
+      <br>
+      </p>
+         
+<h4><font size="+2">Book Chapter Introduction</font></h4>
+         
+<blockquote>               
+  <div align="left">&nbsp;&nbsp;&nbsp; In this chapter we introduce the main 
+  themes that we will cover in this book and provide an introduction for each
+  of them. &nbsp;We begin with a brief overview of C++ and define the two
+basic  concepts of <i>functions</i> and <i>classes</i> as well as other syntactic
+  elements of the language. &nbsp;We then introduce basic mathematical concepts
+  that include elements of linear algebra, vector orthogonalization, and
+corresponding   codes and software. &nbsp;Finally, we introduce parallel programming
+and  review some generic parallel architectures as well as standard parallel
+algorithms   for basic operations, e.g., the <i>fan-in</i> algorithm for
+recursive doubling.   &nbsp;We also provide a brief overview of the main MPI
+commands.<br>
+      <font size="+2"><br>
+      </font> </div>
+   </blockquote>
+     
+<div align="left">   
+<h4><font size="+2">SCchapter2 Introduction and Chapter 2 Driver Programs</font></h4>
+   &nbsp;&nbsp;&nbsp; Within the text, there are several places where the 
+<i>software  suite</i> is referenced. &nbsp;In some cases the code is explicitly 
+placed  within the text, and at other times within the text we merely alert 
+you that  the software is available on this CD. &nbsp;As you read through 
+Chapter 2,  you will find that the following function/classes were discussed. 
+<br>
+    </div>
+         
+<h4> </h4>
+       
+<blockquote>            
+  <ul>
+        <li> Section 2.1.1: SCVector class declaration</li>
+        <li> Section 2.2.2: float FloatMachineEps() function definition</li>
+        <li> Section 2.2.2: double DoubleMachineEps() function definition</li>
+        <li> Section 2.2.9: SCstatus GramSchmidt(SCVector * x, SCVector * 
+q)  function definition</li>
+        <li> Section 2.2.9: SCstatus GramSchmidt(SCVector * x, SCVector * 
+q,  SCMatrix &amp;r) function definition</li>
+        <li> Section 2.2.9: SCstatus QRDecomposition(SCMatrix X, SCMatrix 
+&amp;Q,  SCMatrix &amp;R) function definition</li>
+        <li> Section 2.2.9: ModifiedGramSchmidt(SCVector * x, SCVector *
+q,  SCMatrix &amp;r) function definition</li>
+               
+  </ul>
+     <br>
+    </blockquote>
+    &nbsp;&nbsp;&nbsp; The declarations and definitions of these functions/classes 
+ can be found in the following files:<br>
+   <br>
+     
+<blockquote>Go to the file <a href="../SCchapter2.h">SCchapter2.h</a> for 
+ function/class declarations   <br>
+   </blockquote>
+     
+<blockquote>Go to the file <a href="../SCchapter2.cpp">SCchapter2.cpp</a> 
+ for function/class definitions<br>
+   </blockquote>
+          &nbsp;&nbsp;&nbsp; In the case that an entire program (meaning
+that  a main() function is provided) is presented in the text, we classify
+this  as a driver program. &nbsp;Unlike the functions/classes above, driver
+programs  are complete C++ programs which can be compiled and executed. &nbsp;As
+you  read through the book, you will see that driver programs are often times 
+created by using functions/classes which are in the SCchapter files. &nbsp;We 
+denote driver programs which are explicitly given in the text of the book 
+in <font color="#ff0000">red</font>. &nbsp;In some chapters, we present very 
+few driver programs explicitly in the text, however we provide some example 
+driver programs which demonstrate how to use the functions/classes with in 
+SCchapter files. &nbsp;Such driver programs are denoted in black.<br>
+     <font size="+1"><br>
+     &nbsp;  </font>     
+<center>     
+<table border="1" width="100%" nosave="">
+      <tbody>
+         <tr nosave="">
+      <td nosave=""><font size="+1" color="#ff0000">Section 2.1: The simplest 
+  C++ code</font></td>
+       <td><font size="+1"><a href="chapter2c0.cpp">chapter2c0.cpp</a></font></td>
+      </tr>
+       <tr>
+      <td><font size="+1" color="#ff0000">Section 2.1.1: First non-trivial
+ C++  program ("Hello World'')</font></td>
+       <td><font size="+1"><a href="chapter2c1.cpp">chapter2c1.cpp</a></font></td>
+      </tr>
+       <tr>
+      <td><font size="+1" color="#ff0000">Section 2.1.1: Using functions
+in  C++</font></td>
+       <td><font size="+1"><a href="chapter2c2.cpp">chapter2c2.cpp</a></font></td>
+      </tr>
+       <tr>
+      <td><font size="+1" color="#ff0000">Section 2.1.2: Examination of the 
+ boolean  expression `&lt;'</font></td>
+       <td><font size="+1"><a href="chapter2c3.cpp">chapter2c3.cpp</a></font></td>
+      </tr>
+       <tr>
+      <td><font size="+1" color="#ff0000">Section 2.1.2: Examination of the 
+ boolean  expression `&amp;&amp;'</font></td>
+       <td><font size="+1"><a href="chapter2c4.cpp">chapter2c4.cpp</a></font></td>
+      </tr>
+       <tr>
+      <td><font size="+1" color="#ff0000">Section 2.1.2: Algorithm Collatz-A</font></td>
+       <td><font size="+1"><a href="chapter2c5.cpp">chapter2c5.cpp</a></font></td>
+      </tr>
+       <tr>
+      <td><font size="+1" color="#ff0000">Section 2.1.2: Algorithm Collatz-B</font></td>
+       <td><font size="+1"><a href="chapter2c6.cpp">chapter2c6.cpp</a></font></td>
+      </tr>
+       <tr>
+      <td><font size="+1" color="#ff0000">Section 2.2.2: Program to determine 
+  machine precision</font></td>
+       <td><font size="+1"><a href="chapter2c7.cpp">chapter2c7.cpp</a></font></td>
+      </tr>
+       <tr>
+      <td><font size="+1" color="#ff0000">Section 2.3.4: MPI - "HELLO!!'' 
+program</font></td>
+       <td><font size="+1"><a href="chapter2c8P.cpp">chapter2c8P.cpp</a></font></td>
+      </tr>
+       <tr>
+      <td><font size="+1" color="#ff0000">Section 2.3.4: MPI - Modified ``Hello 
+  world'' type program</font></td>
+       <td><font size="+1"><a href="chapter2c9P.cpp">chapter2c9P.cpp</a></font></td>
+      </tr>
+       <tr>
+      <td><font size="+1" color="#ff0000">Section 2.3.4: Serial Summation</font></td>
+       <td><font size="+1"><a href="chapter2c10.cpp">chapter2c10.cpp</a></font></td>
+      </tr>
+       <tr>
+      <td><font size="+1" color="#ff0000">Section 2.3.4: MPI - Parallel Summation</font></td>
+       <td><font size="+1"><a href="chapter2c11P.cpp">chapter2c11P.cpp</a></font></td>
+      </tr>
+                     
+  </tbody>     
+</table>
+     </center>
+       <font size="+1"><br>
+    <br>
+    </font> <br>
+     <br>
+     <br>
+  <br>
+ <br>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+            
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+            
+  <meta name="GENERATOR"
+ content="Mozilla/4.79 [en] (X11; U; IRIX 6.5 IP32) [Netscape]">
+  <title></title>
+</head>
+  <body>
+      
+<h1> This directory (/CODE) contains the following:</h1>
+      
+<ul>
+   <li> &nbsp;Source files (containing function/class definitions) and header
+ files (containing function/class declarations) for SCmathlib, a scientific
+ computing mathematics library which we have devised for use throughout the
+ book.&nbsp; SCmathlib.h/SCmathlib.cpp contain general functions/classes
+which  we may use in all the chapters of the book.&nbsp; SCchapter*.h/SCchapter*.cpp 
+ (where * = 2,3,...,10) are header and source files respectively which correspond 
+ to functions/classes that were introduced in the corresponding chapter.</li>
+     
+</ul>
+      
+<blockquote>NOTE: The reason for creating this library is to allow the programmer
+ to use the functions/classes declared and defined therein in any of the
+programs  written throughout the book.</blockquote>
+      
+<ul>
+   <li> &nbsp; A Makefile for compiling the SCmathlib library</li>
+     
+</ul>
+      
+<ul>
+   <li> Directories Chapter2 - Chapter10, each of which contains programs 
+which  were written in the corresponding chapter.</li>
+     
+</ul>
+      
+<hr width="100%" size="2"> 
+<h2>A Note Concerning Compilers, Compilation and Navigation</h2>
+ 
+<blockquote>In the writing of this software, every attempt has been made to
+conform to the ANSI C++ standard. &nbsp;Software development and testing were
+performed on an Intel processor based PC running Redhat Linux version 8.0.
+&nbsp;Compilation was accomplished using the GNU gcc 3.2 compiler. &nbsp;Although 
+some compilation tests were accomplished using native compilers under AIX, 
+IRIX and SunOS operating systems, proper compilation and execution are not 
+guaranteed. &nbsp;No compilation tests were performed under the Microsoft 
+Windows or Macintosh operating systems.<br>
+   <br>
+ Navigation of this CD has been tested under both the Linux and the Microsoft 
+Windows operating systems.<i><br>
+   <br>
+ A Note to Macintosh Users</i>: Mac OS X is required for properly navigating 
+this CD. &nbsp;Prior versions of the Mac operating system appear to interpret 
+the filenames on this CD using the 8.3 character convention, and hence filenames 
+with the first eight characters being identical are not distinguishable.<br>
+ </blockquote>
+ 
+<hr width="100%">   
+<h2> Compilation of SCmathlib for Serial Programs</h2>
+      
+<p><br>
+  &nbsp;&nbsp;&nbsp; (1) Enter the directory CODE.&nbsp; If you do a directory
+ listing, you should see a file called Makefile. </p>
+   
+<p>&nbsp;&nbsp;&nbsp; (2) type:&nbsp; gmake </p>
+   
+<p>&nbsp;&nbsp;&nbsp; After hitting return, you should see something similar 
+ (depending on what system you are running on) to the following: </p>
+   
+<p>&nbsp;&nbsp;&nbsp; g++ -O3&nbsp; -c SCmathlib.cpp <br>
+  &nbsp;&nbsp;&nbsp; g++ -O3&nbsp; -c SCchapter2.cpp <br>
+  &nbsp;&nbsp;&nbsp; g++ -O3&nbsp; -c SCchapter3.cpp <br>
+  &nbsp;&nbsp;&nbsp; g++ -O3&nbsp; -c SCchapter4.cpp <br>
+  &nbsp;&nbsp;&nbsp; g++ -O3&nbsp; -c SCchapter5.cpp <br>
+  &nbsp;&nbsp;&nbsp; g++ -O3&nbsp; -c SCchapter6.cpp <br>
+  &nbsp;&nbsp;&nbsp; g++ -O3&nbsp; -c SCchapter7.cpp <br>
+  &nbsp;&nbsp;&nbsp; g++ -O3&nbsp; -c SCchapter8.cpp <br>
+  &nbsp;&nbsp;&nbsp; g++ -O3&nbsp; -c SCchapter9.cpp <br>
+  &nbsp;&nbsp;&nbsp; ar rv libSCmathlib.a&nbsp; SCmathlib.o&nbsp; SCchapter2.o&nbsp; 
+ SCchapter3.o <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SCchapter4.o&nbsp; SCchapter5.o&nbsp; 
+ SCchapter6.o&nbsp; SCchapter7.o <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SCchapter8.o&nbsp; SCchapter9.o <br>
+  &nbsp;&nbsp;&nbsp; a - SCmathlib.o <br>
+  &nbsp;&nbsp;&nbsp; a - SCchapter2.o <br>
+  &nbsp;&nbsp;&nbsp; a - SCchapter3.o <br>
+  &nbsp;&nbsp;&nbsp; a - SCchapter4.o <br>
+  &nbsp;&nbsp;&nbsp; a - SCchapter5.o <br>
+  &nbsp;&nbsp;&nbsp; a - SCchapter6.o <br>
+  &nbsp;&nbsp;&nbsp; a - SCchapter7.o <br>
+  &nbsp;&nbsp;&nbsp; a - SCchapter8.o <br>
+  &nbsp;&nbsp;&nbsp; a - SCchapter9.o </p>
+   
+<p>&nbsp;&nbsp;&nbsp; (3) If you now do a directory listing, you should see
+ that the file libSCmathlib.a has been created. </p>
+   
+<p> </p>
+   
+<hr width="100%">   
+<h2> &nbsp; Compilation of SCmathlib for Parallel Programs</h2>
+   &nbsp;&nbsp;&nbsp; (1) Enter the directory CODE.&nbsp; If you do a directory 
+ listing, you should see a file called Makefile.   
+<p>&nbsp;&nbsp;&nbsp; (2) type:&nbsp; gmake MPISRC=1 </p>
+   
+<p>&nbsp;&nbsp;&nbsp; After hitting return, you should see something similar 
+ (depending on what system you are running on) to the following: </p>
+   
+<p>&nbsp;&nbsp;&nbsp; g++ -O3 -DMPISRC -c SCmathlib.cpp <br>
+  &nbsp;&nbsp;&nbsp; g++ -O3 -DMPISRC -c SCchapter2.cpp <br>
+  &nbsp;&nbsp;&nbsp; g++ -O3 -DMPISRC -c SCchapter3.cpp <br>
+  &nbsp;&nbsp;&nbsp; g++ -O3 -DMPISRC -c SCchapter4.cpp <br>
+  &nbsp;&nbsp;&nbsp; g++ -O3 -DMPISRC -c SCchapter5.cpp <br>
+  &nbsp;&nbsp;&nbsp; g++ -O3 -DMPISRC -c SCchapter6.cpp <br>
+  &nbsp;&nbsp;&nbsp; g++ -O3 -DMPISRC -c SCchapter7.cpp <br>
+  &nbsp;&nbsp;&nbsp; g++ -O3 -DMPISRC -c SCchapter8.cpp <br>
+  &nbsp;&nbsp;&nbsp; g++ -O3 -DMPISRC -c SCchapter9.cpp <br>
+  &nbsp;&nbsp;&nbsp; ar rv libSCmathlibP.a&nbsp; SCmathlib.o&nbsp; SCchapter2.o&nbsp; 
+ SCchapter3.o <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SCchapter4.o&nbsp; SCchapter5.o&nbsp; 
+ SCchapter6.o&nbsp; SCchapter7.o <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SCchapter8.o&nbsp; SCchapter9.o <br>
+  &nbsp;&nbsp;&nbsp; a - SCmathlib.o <br>
+  &nbsp;&nbsp;&nbsp; a - SCchapter2.o <br>
+  &nbsp;&nbsp;&nbsp; a - SCchapter3.o <br>
+  &nbsp;&nbsp;&nbsp; a - SCchapter4.o <br>
+  &nbsp;&nbsp;&nbsp; a - SCchapter5.o <br>
+  &nbsp;&nbsp;&nbsp; a - SCchapter6.o <br>
+  &nbsp;&nbsp;&nbsp; a - SCchapter7.o <br>
+  &nbsp;&nbsp;&nbsp; a - SCchapter8.o <br>
+  &nbsp;&nbsp;&nbsp; a - SCchapter9.o </p>
+   
+<p>&nbsp;&nbsp;&nbsp; (3) If you now do a directory listing, you should see
+ that the file libSCmathlibP.a has been created. <br>
+   </p>
+   
+<hr width="100%">   
+<h2> Serial Program Compilation Guide (from Appendix A)</h2>
+   For the purposes of this compilation example, we will assume that we are 
+ using the GNU g++ compiler to compile a C++ program we have written contained 
+ within the file <i>myprog.cpp</i>. In the following examples, the argument 
+ following the `-o' flag designates the file name to be used for the output. 
+ If no `-o' option is specified, most compilers default to using the name 
+``a.out''. We now present several different programming scenarios:   
+<ul>
+   <li> No user-defined libraries or user-defined header files are needed,
+ and no special system libraries (such as those associated with <i>math.h</i> 
+ are needed):</li>
+          
+  <pre>g++ -o myprog myprog.cpp</pre>
+    <li> No user-defined libraries or user-defined header files are needed,
+ but the special system library corresponding to <i>math.h </i>is needed:</li>
+          
+  <pre>g++ -o myprog myprog.cpp -lmath</pre>
+    <li> User-defined libraries, user-defined header files, and the special
+ system library corresponding to <i>math.h </i>are needed:</li>
+          
+  <pre>g++ -o myprog myprog.cpp -I/users/kirby/includes -L/users/kirby/libs<br>-lSCmathlib -lmath</pre>
+   The string following the `-I' flag designates the location of the user-defined 
+ header files to be included. The string following the `-L' flag designates 
+ the location of the user-defined libraries to be included. The string `-lSCmathlib' 
+ links the program with the user-defined library we created, and the string 
+ `-lmath' links the program with the system math library corresponding to 
+  <i>math.h</i>  
+</ul>
+      
+<hr width="100%">   
+<h2> Parallel Program Compilation Guide (from Appendix B)</h2>
+   For the purposes of this compilation example, we will assume that we are 
+ using the GNU g++ compiler to compile a C++ program we have written contained 
+ within the file <i>myprog.cpp</i>. We will also assume that the machine on
+which you are trying to compile is a parallel machine with some version of
+MPI installed. You will need to contact your system administrator to find
+ out the exact version of MPI that is available and the paths on your local
+ architecture. In the following examples, the argument following the `-o'
+flag designates the file name to be used for the output. If no `-o' option
+is specified, most compilers default to using the name ``a.out''. We now
+present several different programming scenarios:   
+<ul>
+   <li> No user-defined libraries or user-defined header files are needed,
+ and no special system libraries (such as those associated with <i>math.h</i> 
+ are needed) other than the MPI libraries:</li>
+          
+  <pre>g++ -o myprog myprog.cpp -lmpi</pre>
+    <li> No user-defined libraries or user-defined header files are needed,
+ but the special system library corresponding to <i>math.h</i> is needed
+along  with the MPI libraries:</li>
+          
+  <pre>g++ -o myprog myprog.cpp -lmath -lmpi</pre>
+    <li> User-defined libraries, user-defined header files and the special
+ system library corresponding to <i>math.h</i> are needed along with the
+MPI  libraries:</li>
+          
+  <pre>g++ -o myprog myprog.cpp -I/users/kirby/includes -L/users/kirby/libs<br>-lSCmathlib -lmath -lmpi</pre>
+   The string following the `-I' flag designates the location of the user-defined 
+ header files to be included. The string following the `-L' flag designates 
+ the location of the user-defined libraries to be included. The string `-lSCmathlib' 
+ links the program with the user-defined library we created, and the string 
+ `-lmath' links the program with the system math library corresponding to 
+  <i>math.h</i>.  The string `-lmpi' links the MPI libraries.  
+</ul>
+   You will need to contact your system administrator to verify the exact 
+command used on your computing architecture to run an MPI program. In general, 
+most architectures execute MPI programs in a fashion similar to the following: 
+  
+<pre>mpirun -np 4 myprog</pre>
+   where mpirun is a special program used for starting execution on the parallel 
+ machine, `-np 4' indicates the number of processes requested, and <i>myprog</i> 
+ denotes the program executable compiled as discussed above. <br>
+  <br>
+  <br>
+   
+<hr width="100%" size="2">  
+<h2>A Note Concerning Makefiles</h2>
+  &nbsp;&nbsp;&nbsp; For those new to the Unix programming environment, addition
+ information concerning makefiles can be found both on the web and in many
+ good books, one of which is <i>Managing Projects with make</i> by Andrew
+Oram and Steve Talbott. &nbsp;Another useful source of information for gmake
+(GNU make, which is used above) and g++ (the GNU C++ compiler) is the GNU
+website, www.gnu.org.<br>
+  <br>
+  <br>
+ 
+<hr width="100%" size="2"><br>
+<h2>A Note Concerning File Permissions</h2>
+&nbsp;&nbsp;&nbsp; Depending on how your system is configured, it may be
+necessary to change the directory and file permissions in order to compile
+within the &nbsp;CODE directory. &nbsp;If you do encounter permission problems,
+do the following: &nbsp;change directory to the parent directory of the CODE
+directory (from which, under Unix, you can see the directory CODE by doing
+an 'ls'). &nbsp;Type the expression within quotes: "chmod -R 755 CODE". &nbsp;This
+will set the directory CODE and all files and subdirectories to be owner-RWX
+(read/write/execute) and group and world RX (read/execute).<br>
+<br>
+</body>
+</html>

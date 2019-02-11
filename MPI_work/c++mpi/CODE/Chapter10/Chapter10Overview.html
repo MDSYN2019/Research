@@ -1,0 +1,124 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+                    
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+                    
+  <meta name="GENERATOR"
+ content="Mozilla/4.79 [en] (X11; U; IRIX 6.5 IP32) [Netscape]">
+  <title></title>
+</head>
+  <body>
+          
+<center><font size="+3"><br>
+   Parallel Scientific Computing in C++ and MPI</font>  <br>
+    <font size="+3">Chapter 10 Overview</font></center>
+          
+<p><br>
+     <br>
+     </p>
+       
+<h4><font size="+2">Book Chapter Introduction</font></h4>
+       
+<blockquote>In this chapter we introduce methods for solutions of the standard
+  eigenvalue problem <b>A x = <font face="Helvetica, Arial, sans-serif">lambda
+    </font>x</b> as well as for generalized eigenproblems; <b>A</b> is a
+square<i>   n <font face="Helvetica, Arial, sans-serif">x</font> n </i>matrix.
+&nbsp;The   main theory is based on the solvers of the previous chapter for
+linear systems.   &nbsp;Unlike, however, the methods of the previous chapter
+where both direct   and iterative approaches are effective, in eigenvalue
+problems only iterative   solvers are efficient. &nbsp;We start with the
+simple power method and its   variants, and we proceed with more sophisticated
+methods including a method   for non-symmetric eigenproblems using the Arnoldi
+iteration. &nbsp;We classify   the different eigensolvers as <i>local</i>
+or <i>global</i> if they are typically  used to compute one or two eigenvalues
+or the entire spectrum, respectively.<br>
+      <br>
+    We introduce one new MPI function, <i>MPI_Alltoall,</i> and demonstrate 
+ its use through some of the algorithms presented in this chapter. In addition,
+  we reiterate the use of <i>MPI_Allgather</i> and <i>MPI_Allreduce</i> through
+  example implementations of algorithms presented in this chapter.<br>
+    </blockquote>
+       
+<div align="left">    
+<h4><br>
+   </h4>
+     
+<h4><font size="+2">SCchapter10 Introduction and Chapter 10 Driver Programs</font></h4>
+    &nbsp;&nbsp;&nbsp; Within the text, there are several places where the
+ <i>software suite</i> is referenced. &nbsp;In some cases the code is explicitly
+ placed within the text, and at other times within the text we merely alert
+ you that the software is available on this CD. &nbsp;As you read through
+Chapter 10, you will find that the following function/classes were discussed.
+<br>
+     </div>
+   <br>
+       
+<blockquote>         
+  <ul>
+             <li>Section 10.1.2: double ISPowerMethod(SCMatrix &amp;A, SCVector 
+&amp;x)  function definition</li>
+           
+  </ul>
+   </blockquote>
+   <br>
+   &nbsp;&nbsp;&nbsp; The declarations and definitions of these functions/classes 
+ can be found in the following files:<br>
+    <br>
+       
+<blockquote>Go to the file <a href="../SCchapter10.h">SCchapter10.h</a> for 
+ function/class declarations   <br>
+    </blockquote>
+       
+<blockquote>Go to the file <a href="../SCchapter10.cpp">SCchapter10.cpp</a> 
+ for function/class definitions<br>
+    </blockquote>
+           &nbsp;&nbsp;&nbsp; In the case that an entire program (meaning 
+that  a main() function is provided) is presented in the text, we classify 
+this  as a driver program. &nbsp;Unlike the functions/classes above, driver 
+programs  are complete C++ programs which can be compiled and executed. &nbsp;As 
+you  read through the book, you will see that driver programs are often times 
+created by using functions/classes which are in the SCchapter files. &nbsp;We 
+denote driver programs which are explicitly given in the text of the book 
+in <font color="#ff0000">red</font>. &nbsp;In some chapters, we present very 
+few driver programs explicitly in the text, however we provide some example 
+driver programs which demonstrate how to use the functions/classes with in 
+SCchapter files. &nbsp;Such driver programs are denoted in black.<br>
+      <br>
+   <font size="+1"><br>
+   &nbsp; </font>   
+<table border="1" width="100%" nosave="">
+    <tbody>
+       <tr>
+    <td><font size="+1">Section 10.1.2: Program demonstrating the use of
+the   Inverse Power method</font></td>
+     <td><font size="+1"><a href="chapter10c0.cpp">chapter10c0.cpp</a></font></td>
+    </tr>
+     <tr>
+    <td><font size="+1" color="#ff0000">Section 10.2: MPI - Program demonstrating 
+ the first stage in parallel Householder Deflation</font></td>
+     <td><font size="+1"><a href="chapter10c1P.cpp">chapter10c1P.cpp</a></font></td>
+    </tr>
+     <tr>
+    <td><font size="+1">Section 10.3.5: Program demonstrating the TDQREigensolver
+  routine used in the tridiagonal QR eigensolver</font></td>
+     <td><font size="+1"><a href="chapter10c2.cpp">chapter10c2.cpp</a></font></td>
+    </tr>
+     <tr>
+    <td><font size="+1" color="#ff0000">Section 10.3.5: MPI - Program demonstrating 
+ the implementation of a parallel tridiagonal QR eigensolver</font></td>
+     <td><font size="+1"><a href="chapter10c3P.cpp">chapter10c3P.cpp</a></font></td>
+    </tr>
+             
+  </tbody>   
+</table>
+     <font size="+1"><br>
+   &nbsp; <br>
+   &nbsp; <br>
+   &nbsp; </font><br>
+   <br>
+  <br>
+ <br>
+</body>
+</html>

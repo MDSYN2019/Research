@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++11  -L/usr/local/lib -rdynamic CMakeFiles/OPENCV_exploration.dir/main.o  -o OPENCV_exploration  -L/home/noh/Desktop/Program/GIT/CV_Analysis/main/build/src -lgsl -lgslcblas -lgslcblas src/libsrc.a -lboost_filesystem -lm -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs 

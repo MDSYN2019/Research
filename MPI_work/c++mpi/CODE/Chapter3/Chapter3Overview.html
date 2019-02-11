@@ -1,0 +1,164 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+                    
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+                    
+  <meta name="GENERATOR"
+ content="Mozilla/4.79 [en] (X11; U; IRIX 6.5 IP32) [Netscape]">
+  <title></title>
+</head>
+  <body>
+          
+<center><font size="+3"><br>
+   Parallel Scientific Computing in C++ and MPI</font>  <br>
+    <font size="+3">Chapter 3 Overview</font></center>
+          
+<p><br>
+     </p>
+       
+<h4><font size="+2">Book Chapter Introduction</font></h4>
+            
+<blockquote>            
+  <div align="left">Two of the most common tasks in scientific computing
+are interpolation of discrete data and approximation by known functions of
+the numerical solution, the source terms, and the boundary or initial conditions.
+  &nbsp;Therefore, we need to perform these tasks both accurately and efficiently.
+  &nbsp;The data are not always nicely distributed on a uniform lattice or
+ grid, and thus we must learn how to manage these situations as well. We
+often  use polynomials to represent discrete data as they are easy to "manipulate,''
+  i.e., differentiate and integrate. &nbsp;However, <i>sines</i> and <i>cosines</i>
+  as well as special functions, called <i>wavelets,</i> are very effective
+ means to perform interpolation and approximation, and they have very interesting
+  properties.<br>
+      <br>
+    In this section, we will study different such representations and their 
+ corresponding C++ implementations. &nbsp;We consider cases where the data 
+ are just sufficient to determine exactly the representation (deterministic 
+ case) as well as cases where the data are more than the information needed 
+ (overdetermined case).<br>
+      <br>
+    Finally, we will present a more detailed discussion of <i>MPI_Send</i>
+ and    <i>MPI_Recv,</i> the two fundamental building blocks of MPI.</div>
+    </blockquote>
+    <br>
+     
+<div align="left">    
+<h4><font size="+2">SCchapter3 Introduction and Chapter 3 Driver Programs</font></h4>
+   </div>
+     
+<div align="left"> &nbsp;&nbsp;&nbsp; Within the text, there are several places
+where the <i>software suite</i> is referenced. &nbsp;In some cases the code
+is explicitly placed within the text, and at other times within the text
+we merely alert you that the software is available on this CD. &nbsp;As you
+read through Chapter 3, you will find that the following function/classes 
+ were discussed.<br>
+     
+<blockquote>         
+  <ul>
+       <li> Section 3.1.2: double NewtonDiffTable(int npts, double *xpts, 
+double  *funcvals, double * newton_coeffs) function definition</li>
+       <li> Section 3.1.2: double NewtonDiffFunction(int start_index, int 
+ending_index,  double * xpts, double * funcvals) function definition</li>
+       <li> Section 3.1.2: double NewtonInterpolant(double x, int npts, double 
+ * xpts, double * newton_coeffs) function definition</li>
+       <li> Section 3.1.3: double LagrangePoly(double x, int pt, int npts,
+ double * xpts) function definition</li>
+              <li> Section 3.1.3: double LagrangeInterpolant(double x, int
+npts, double  *xpts, double * funcvals) function definition</li>
+       <li> Section 3.1.5: double ChebyshevPoly(int degree, double x) function 
+ definition</li>
+       <li> Section 3.1.7: void LS_ComputeCoeffs(int npts, double *xpts,
+double  *funcvals, int ndeg, double *alpha, double *beta, double *lcoeffs)
+function  definition</li>
+       <li> Section 3.1.7: double LS_OrthoPoly(int j, double x, double *alpha, 
+ double *beta) function definition</li>
+       <li> Section 3.1.8: SCVector class declaration</li>
+       <li> Section 3.1.8: SCVector class definition</li>
+       <li> Section 3.1.8: LSPoly class declaration</li>
+       <li> Section 3.1.8: LSPoly class definition</li>
+       <li> Section 3.1.10: double Square_2dInterpolant(SCPoint x, int npts, 
+ double *funcvals) function definition</li>
+           
+  </ul>
+   </blockquote>
+   </div>
+    <br>
+   &nbsp;&nbsp; The declarations and definitions of these functions/classes 
+ can be found in the following files:<br>
+    <br>
+       
+<blockquote>Go to the file <a href="../SCchapter3.h">SCchapter3.h</a> for 
+ function/class declarations   <br>
+    </blockquote>
+       
+<blockquote>Go to the file <a href="../SCchapter3.cpp">SCchapter3.cpp</a> 
+ for function/class definitions<br>
+    </blockquote>
+           &nbsp;&nbsp;&nbsp; In the case that an entire program (meaning 
+that  a main() function is provided) is presented in the text, we classify 
+this  as a driver program. &nbsp;Unlike the functions/classes above, driver 
+programs  are complete C++ programs which can be compiled and executed. &nbsp;As 
+you  read through the book, you will see that driver programs are often times 
+created by using functions/classes which are in the SCchapter files. &nbsp;We 
+denote driver programs which are explicitly given in the text of the book 
+in <font color="#ff0000">red</font>. &nbsp;In some chapters, we present very 
+few driver programs explicitly in the text, however we provide some example 
+driver programs which demonstrate how to use the functions/classes with in 
+SCchapter files. &nbsp;Such driver programs are denoted in black.<br>
+      <font size="+1"><br>
+   &nbsp;  </font>   
+<table border="1" width="100%" nosave="">
+     <tbody>
+        <tr>
+     <td><font size="+1" color="#ff0000">Section 3.1.2: Static array allocation,
+  initialization, and printing</font></td>
+      <td><font size="+1"><a href="chapter3c0.cpp">chapter3c0.cpp</a></font></td>
+     </tr>
+      <tr>
+     <td><font size="+1" color="#ff0000">Section 3.1.2: Dynamic array allocation,
+  initialization, and printing</font></td>
+      <td><font size="+1"><a href="chapter3c1.cpp">chapter3c1.cpp</a></font></td>
+     </tr>
+      <tr>
+     <td><font size="+1" color="#ff0000">Section 3.1.2: Dynamic array allocation
+  with initialization accomplished by a library function (CreateGrid_EvenlySpaced)</font></td>
+      <td><font size="+1"><a href="chapter3c2.cpp">chapter3c2.cpp</a></font></td>
+     </tr>
+      <tr>
+     <td><font size="+1" color="#ff0000">Section 3.1.2: Program accomplishing
+  Newton interpolation</font></td>
+      <td><font size="+1"><a href="chapter3c3.cpp">chapter3c3.cpp</a></font></td>
+     </tr>
+      <tr>
+     <td><font size="+1" color="#ff0000">Section 3.1.3: Program accomplishing
+  Lagrange interpolation</font></td>
+      <td><font size="+1"><a href="chapter3c4.cpp">chapter3c4.cpp</a></font></td>
+     </tr>
+      <tr>
+     <td><font size="+1" color="#ff0000">Section 3.1.7: Program accomplishing
+  Least Squares approximation (using functions)</font></td>
+      <td><font size="+1"><a href="chapter3c5.cpp">chapter3c5.cpp</a></font></td>
+     </tr>
+      <tr>
+     <td><font size="+1" color="#ff0000">Section 3.1.8: Program accomplishing
+  Least Squares approximation (using classes)</font></td>
+      <td><font size="+1"><a href="chapter3c6.cpp">chapter3c6.cpp</a></font></td>
+     </tr>
+      <tr>
+     <td><font size="+1" color="#ff0000">Section 3.4: MPI - Program using 
+MPI_Send  and MPI_Recv</font></td>
+      <td><font size="+1"><a href="chapter3c7P.cpp">chapter3c7P.cpp</a></font></td>
+     </tr>
+                 
+  </tbody>    
+</table>
+      <font size="+1"><br>
+    &nbsp; <br>
+    &nbsp; </font><br>
+   <br>
+  <br>
+ <br>
+</body>
+</html>

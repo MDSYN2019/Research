@@ -28,33 +28,24 @@ public:
     initialized. 
 
     For the constructor to take a size, we will allocate the given amount 
+
    */
   placeHolder() { create(); }
   explicit placeHolder(std::size_t n, const T& val = T()) {create(n, val);}  
-
   // iterators
-
   typedef T* iterator;
   typedef const T* const_iterator;
   typedef T value_type;
   typedef std::ptrdiff_t difference_type;
   typedef T& reference;
   typedef const T& const_reference;
-
 };
 
 typedef struct {
-   double a;
-   double b;
+  double a;
+  double b;
   int c;
 } myStruct;
-
-typedef struct {
-   double a;
-   double b;
-  int c;
-} arraySend;
-
 
 void MPIGetData(float*  a_ptr, float*  b_ptr, int* n_ptr , int my_rank) {
     char  buffer[100];  /* Store data in buffer        */
@@ -75,21 +66,17 @@ void MPIGetData(float*  a_ptr, float*  b_ptr, int* n_ptr , int my_rank) {
         /* Position has been incremented again. */
         /* Now broadcast contents of buffer */
         MPI_Bcast(buffer, 100, MPI_PACKED, 0, MPI_COMM_WORLD);
-
     } else {
       MPI_Bcast(buffer, 100, MPI_PACKED, 0, MPI_COMM_WORLD);
-      
         /* Now unpack the contents of buffer */
         position = 0;
         MPI_Unpack(buffer, 100, &position, a_ptr, 1, MPI_FLOAT, MPI_COMM_WORLD);
         /* Once again position has been incremented: */
         /* it now references the beginning of b.     */
-
         MPI_Unpack(buffer, 100, &position, b_ptr, 1, MPI_FLOAT, MPI_COMM_WORLD);
         MPI_Unpack(buffer, 100, &position, n_ptr, 1, MPI_INT, MPI_COMM_WORLD);
     }
-} /* Get_data4 */
-
+}
 
 void Build_mpi_type ( double* a_p,  double* b_p, int* n_p, myStruct* stct, MPI_Datatype* input_mpi_t_p) {
   int array_of_blocklengths[3] = {1,1,1};
@@ -122,13 +109,10 @@ void Get_Input(int my_rank, int comm_sz,  double* a_p,  double* b_p, int* n_p, m
 
 std::vector<int> bb;
 myStruct exampleDatatype;
-
-double a;
-double b;
+double a, b;
 int c;
 
 int main(int argc, char** argv) {
-
   int my_rank, comm_sz;
   MPI_Init(NULL, NULL);
   MPI_Comm_size(MPI_COMM_WORLD, &comm_sz);

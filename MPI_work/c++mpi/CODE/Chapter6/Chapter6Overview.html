@@ -1,0 +1,113 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+                
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+                
+  <meta name="GENERATOR"
+ content="Mozilla/4.79 [en] (X11; U; IRIX 6.5 IP32) [Netscape]">
+  <title></title>
+</head>
+  <body>
+        
+<center><font size="+3"><br>
+  Parallel Scientific Computing in C++ and MPI</font>  <br>
+   <font size="+3">Chapter 6 Overview</font></center>
+        
+<p><br>
+    <br>
+    </p>
+     
+<h4><font size="+2">Book Chapter Introduction</font></h4>
+     
+<blockquote>In this chapter we consider implicit discretizations of space- 
+ and time-derivatives. &nbsp;Unlike the explicit discretizations presented 
+ in the previous chapter, here we express a derivative at one grid point in
+ terms of function values <i>as well as derivative values</i> at adjacent 
+grid points (spatial discretization) or in terms of previous <i>and current</i> 
+ time levels (temporal discretization). &nbsp;This, in turn, implies that 
+there is implicit coupling, and thus matrix inversion is required to obtain 
+the solution.<br>
+     <br>
+   The material of this chapter serves to introduce solutions of tridiagonal 
+ systems and correspondingly parallel computing of sparse linear systems using
+ MPI.&nbsp; We also introduce two new MPI functions: <i>MPI_Barrier,</i> used
+ for synchronizing processes, and <i>MPI_Wtime,</i> used for obtaining the
+ wallclock timing information.<br>
+   </blockquote>
+   <br>
+   
+<div align="left">   
+<h4><font size="+2">SCchapter6 Introduction and Chapter 6 Driver Programs</font></h4>
+   &nbsp;&nbsp;&nbsp; Within the text, there are several places where the 
+<i>software suite</i> is referenced. &nbsp;In some cases the code is explicitly 
+placed within the text, and at other times within the text we merely alert 
+you that the software is available on this CD. &nbsp;As you read through Chapter
+6, you will find that the following function/classes were discussed. <br>
+    </div>
+  <br>
+   
+<blockquote>      
+  <ul>
+      <li> Section 6.1.4: void ThomasAlgorithm(int N, double *b, double *a,
+ double *c, double *x, double *q) function definition</li>
+      <li> Section 6.1.4: void ThomasAlgorithLU(int N, double *b, double
+*a,  double *c, double *l, double *u, double *d) function definition</li>
+      <li> Section 6.1.4: void ThomasAlgorithm_per(int N, double *b, double
+ *a, double *c, double *x, double *q) function definition</li>
+      <li> Section 6.1.5: void ThomasAlgorithm_P(int mynode, int numnodes, 
+int N, double *b, double *a, double *c, double *x, double *q) function definition</li>
+       
+  </ul>
+  </blockquote>
+   <br>
+   &nbsp;&nbsp; The declarations and definitions of these functions/classes
+ can be found in the following files:<br>
+  <br>
+   
+<blockquote>Go to the file <a href="../SCchapter6.h">SCchapter6.h</a> for
+ function/class declarations   <br>
+   </blockquote>
+     
+<blockquote>Go to the file <a href="../SCchapter6.cpp">SCchapter6.cpp</a>
+ for function/class definitions<br>
+   </blockquote>
+          &nbsp;&nbsp;&nbsp; In the case that an entire program (meaning
+that  a main() function is provided) is presented in the text, we classify
+this  as a driver program. &nbsp;Unlike the functions/classes above, driver
+programs  are complete C++ programs which can be compiled and executed. &nbsp;As
+you  read through the book, you will see that driver programs are often times
+created by using functions/classes which are in the SCchapter files. &nbsp;We
+denote driver programs which are explicitly given in the text of the book
+in <font color="#ff0000">red</font>. &nbsp;In some chapters, we present very
+few driver programs explicitly in the text, however we provide some example
+driver programs which demonstrate how to use the functions/classes with in
+SCchapter files. &nbsp;Such driver programs are denoted in black.<br>
+     <br>
+  &nbsp;<font size="+1"> </font>  
+<table border="1" width="100%" nosave="">
+   <tbody>
+      <tr>
+   <td><font size="+1">Section 6.1.4: Program to demonstrate the use of the 
+ Thomas Algorithm routine</font></td>
+    <td><font size="+1"><a href="chapter6c0.cpp">chapter6c0.cpp</a></font></td>
+   </tr>
+    <tr>
+   <td><font size="+1">Section 6.1.5: MPI - Program to demonstrate the use
+ of the parallel Thomas Algorithm routine</font></td>
+    <td><font size="+1"><a href="chapter6c1P.cpp">chapter6c1P.cpp</a></font></td>
+   </tr>
+         
+  </tbody>  
+</table>
+    <font size="+1"><br>
+  &nbsp; </font><br>
+  &nbsp; <br>
+  &nbsp; <br>
+  &nbsp; <br>
+  &nbsp; <br>
+  <br>
+ <br>
+</body>
+</html>

@@ -1,0 +1,6 @@
+/home/noh/Desktop/Program/GIT/Testing_C_programs/C++_Stuff/src/CMakeFiles/rebuild_cache.dir
+/home/noh/Desktop/Program/GIT/Testing_C_programs/C++_Stuff/src/CMakeFiles/edit_cache.dir
+/home/noh/Desktop/Program/GIT/Testing_C_programs/C++_Stuff/src/CMakeFiles/main.dir
+/home/noh/Desktop/Program/GIT/Testing_C_programs/C++_Stuff/src/src/CMakeFiles/edit_cache.dir
+/home/noh/Desktop/Program/GIT/Testing_C_programs/C++_Stuff/src/src/CMakeFiles/rebuild_cache.dir
+/home/noh/Desktop/Program/GIT/Testing_C_programs/C++_Stuff/src/src/CMakeFiles/src.dir

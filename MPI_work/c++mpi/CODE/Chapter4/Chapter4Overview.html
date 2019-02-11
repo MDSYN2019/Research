@@ -1,0 +1,178 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+                    
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+                    
+  <meta name="GENERATOR"
+ content="Mozilla/4.79 [en] (X11; U; IRIX 6.5 IP32) [Netscape]">
+  <title></title>
+</head>
+  <body>
+          
+<center><font size="+3"><br>
+  Parallel Scientific Computing in C++ and MPI</font>  <br>
+    <font size="+3">Chapter 4 Overview</font></center>
+          
+<p><br>
+    <br>
+     </p>
+       
+<h4><font size="+2">Book Chapter Introduction</font></h4>
+       
+<blockquote>            
+  <p>In this chapter we apply the approximation theory we presented in chapter
+  3 to find solutions of linear and nonlinear equations and to perform integration
+  of general functions. &nbsp;Both subjects are classical, but they serve
+as  basic tools in scientific computing operations and in solving systems
+of ordinary and partial differential equations. &nbsp;With regards to root
+finding, we consider both scalar as well as systems of nonlinear equations.
+&nbsp;We present different versions of the Newton-Raphson method, the steepest
+descent method, and the conjugate gradient method; we will revisit the latter
+in chapter 9. &nbsp;With regards to numerical integration we present some
+basic quadrature approaches, but we also consider advanced quadrature rules
+with singular integrands or in unbounded domains.<br>
+      </p>
+               
+  <p>On the programming side, we first introduce the concept of passing a
+  function to a function; in the previous chapter we were passing variables.
+  &nbsp;This allows an easy implementation of recursion, which is so often
+ encountered in scientific computing. We offer several C++ examples from
+root  finding and numerical integration applications that make use of <i>recursion,</i>
+  and show an effective use of <i>classes</i> and <i>overloaded operators.</i>
+  We also address parallel programming with emphasis on domain decomposition,
+  specifically the concept of <i>reduction operations.</i>&nbsp; We introduce
+  the MPI commands <i>MPI_Reduce</i> and <i>MPI_Allreduce</i> for accomplishing
+  reduction operations among a collection of processes.<br>
+      </p>
+    </blockquote>
+      
+<div align="left">   
+<h4><br>
+  </h4>
+   
+<h4><font size="+2">SCchapter4 Introduction and Chapter 4 Driver Programs</font></h4>
+   &nbsp;&nbsp;&nbsp; Within the text, there are several places where the 
+<i>software suite</i> is referenced. &nbsp;In some cases the code is explicitly 
+placed within the text, and at other times within the text we merely alert 
+you that the software is available on this CD. &nbsp;As you read through Chapter
+4, you will find that the following function/classes were discussed. <br>
+        <br>
+  </div>
+   
+<blockquote>      
+  <ul>
+      <li>  Section 4.1: double SquareRoot(double value, double guess, int
+ interation) function definition</li>
+      <li> Section 4.1.4: double NewtonRaphson(double x0, double (*func)(double), 
+ double (*func_der)(double), int max_iter, int multiplicity) function definition</li>
+      <li> Section 4.1.4: double NewtonRaphson(double x0, double (*func)(double), 
+ double (*func_der)(double), int max_iter) function definition</li>
+      <li> Section 4.1.4: double NewtonRaphson(double x0, double (*func)(double), 
+ double(*func_der)(double),double *(func_secondder)(double), int max_iter, 
+ int multiplicity) function definition</li>
+      <li> Section 4.1.7: SCVector ConjugateGradient(SCMatrix A, SCVector 
+b, SCVector x0) function definition</li>
+      <li> Section 4.2.1: double MidpointRule(int level, double xleft, double
+ xright, double (*func)(double)) function definition</li>
+      <li> Section 4.2.1: double TrapezoidRule(int level, double xleft, double
+ xright, double (*func)(double)) function definition</li>
+      <li> Section 4.2.1: double Romberg(int m, int k, double xleft, double
+ xright, double (*func)(double)) function definition</li>
+      <li> Section 4.2.2: double JacobiPoly(int degree, double x, double
+alpha,  double beta) function definition</li>
+      <li> Section 4.2.2: double JacobiPolyDerivative(int degree, double
+x,  double alpha, double beta) function definition</li>
+      <li> Section 4.2.2: void JacobiZeros(int degree, double *z, double
+alpha,  double beta) function definition</li>
+      <li> Section 4.2.2: void JacobiZW(int degree, double *z, double *w, 
+double alpha, double beta) function definition</li>
+      <li> Section 4.2.2: double LaguarrePoly(int degree, double x, double 
+alpha, double beta) function definition</li>
+      <li> Section 4.2.2: double LaguarrePolyDerivative(int degree, double 
+x, double alpha, double beta) function definition</li>
+      <li> Section 4.2.2: void LaguarreZeros(int degree, double *z, double 
+alpha, double beta) function definition</li>
+      <li> Section 4.2.2: void Laguarre ZW(int degree, double *z, double
+*w,  double alpha, double beta) function definition</li>
+      <li> Section 4.2.2: double HermitePoly(int degree, double x, double 
+alpha, double beta) function definition</li>
+      <li> Section 4.2.2: double HermitePolyDerivative(int degree, double 
+x, double alpha, double beta) function definition</li>
+      <li> Section 4.2.2: void HermiteZeros(int degree, double *z, double 
+alpha, double beta) function definition</li>
+      <li> Section 4.2.2: void HermiteZW(int degree, double *z, double *w, 
+double alpha, double beta) function definition</li>
+       
+  </ul>
+  </blockquote>
+   <br>
+   &nbsp;&nbsp; The declarations and definitions of these functions/classes
+ can be found in the following files:<br>
+  <br>
+   
+<blockquote>Go to the file <a href="../SCchapter4.h">SCchapter4.h</a> for
+ function/class declarations   <br>
+   </blockquote>
+     
+<blockquote>Go to the file <a href="../SCchapter4.cpp">SCchapter4.cpp</a>
+ for function/class definitions<br>
+   </blockquote>
+          &nbsp;&nbsp;&nbsp; In the case that an entire program (meaning
+that  a main() function is provided) is presented in the text, we classify
+this  as a driver program. &nbsp;Unlike the functions/classes above, driver
+programs  are complete C++ programs which can be compiled and executed. &nbsp;As
+you  read through the book, you will see that driver programs are often times
+created by using functions/classes which are in the SCchapter files. &nbsp;We
+denote driver programs which are explicitly given in the text of the book
+in <font color="#ff0000">red</font>. &nbsp;In some chapters, we present very
+few driver programs explicitly in the text, however we provide some example
+driver programs which demonstrate how to use the functions/classes with in
+SCchapter files. &nbsp;Such driver programs are denoted in black.<br>
+  <br>
+  <font size="+1">&nbsp;  </font>  
+<table border="1" width="100%" nosave="">
+    <tbody>
+       <tr>
+    <td><font size="+1" color="#ff0000">Section 4.1.4: Newton-Raphson root
+ finding with function passing</font></td>
+     <td><font size="+1"><a href="chapter4c0.cpp">chapter4c0.cpp</a></font></td>
+    </tr>
+     <tr>
+    <td><font size="+1" color="#ff0000">Section 4.1.7: Conjugate Gradient 
+example  program</font></td>
+     <td><font size="+1"><a href="chapter4c1.cpp">chapter4c1.cpp</a></font></td>
+    </tr>
+     <tr>
+    <td><font size="+1">Section 4.2.1: Example program using the Midpoint,
+ Trapezoidal,  and Simpson's rules</font></td>
+     <td><font size="+1"><a href="chapter4c2.cpp">chapter4c2.cpp</a></font></td>
+    </tr>
+     <tr>
+    <td><font size="+1">Section 4.2.1: Example program which passes a function
+  to the Trapezoidal Rule function</font></td>
+     <td><font size="+1"><a href="chapter4c3.cpp">chapter4c3.cpp</a></font></td>
+    </tr>
+     <tr>
+    <td><font size="+1">Section 4.2.2: Example program for computing the
+zeros   and weights for Legendre, Hermite, and Laguerre quadrature</font></td>
+     <td><font size="+1"><a href="chapter4c4.cpp">chapter4c4.cpp</a></font></td>
+    </tr>
+     <tr>
+    <td><font size="+1" color="#ff0000">Section 4.3: MPI - Program demonstrating 
+ the use of MPI_Reduce</font></td>
+     <td><font size="+1"><a href="chapter4c5P.cpp">chapter4c5P.cpp</a></font></td>
+    </tr>
+             
+  </tbody>   
+</table>
+      <br>
+  <br>
+  <br>
+   <br>
+   <br>
+  <br>
+ <br>
+</body>
+</html>

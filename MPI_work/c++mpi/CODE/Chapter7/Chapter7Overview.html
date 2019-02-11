@@ -1,0 +1,138 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+                    
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+                    
+  <meta name="GENERATOR"
+ content="Mozilla/4.79 [en] (X11; U; IRIX 6.5 IP32) [Netscape]">
+  <title></title>
+</head>
+  <body>
+          
+<center><font size="+3"><br>
+   Parallel Scientific Computing in C++ and MPI</font>  <br>
+    <font size="+3">Chapter 7 Overview</font></center>
+          
+<p><br>
+     <br>
+     </p>
+       
+<h4><font size="+2">Book Chapter Introduction</font></h4>
+       
+<blockquote>In this chapter we present discretizations for mixed initial
+value/boundary value problems (IVP/BVP) as well as relaxation iterative solvers
+associated with such discretizations. &nbsp;The analogy between iterative
+procedures and equations of evolution, especially of parabolic type (diffusion),
+was realized about two centuries ago, but a rigorous connection was not established
+  until the mid 1950s.<br>
+      <br>
+    In the following, we first consider various mixed discretizations, and
+ subsequently  we derive some of the most popular iterative solvers. Our
+emphasis  will be  on parallel computing: <i>A good algorithm is not simply
+the one  that converges  faster but also the one that is parallelizable.</i>
+The Jacobi  algorithm is such an example; forgotten for years in favor of
+the Gauss-Seidel  algorithm,  which converges twice as fast for about the
+same computational  work, it was  re-discovered in the last two decades as
+it is trivially parallelizable,&nbsp;   and today is used mostly&nbsp; as
+a preconditioner for multigrid methods.   &nbsp;The Gauss-Seidel algorithm,
+although faster on a serial computer, is  not parallelizable unless a special
+multi-color algorithm is employed, as  we explain in section 7.2.4. &nbsp;Based
+on these two basic algorithms, we  present the multigrid method that exploits
+their good convergence properties   but in a smart adaptive way.<br>
+      <br>
+    On the parallel computing side, we introduce three new commands: <i>MPI_Gather,</i>
+    <i>MPI_Allgather,</i> and <i>MPI_Scatter.</i>&nbsp; Both <i>MPI_Gather</i>
+  and <i>MPI_Allgather</i> are used for gathering information from a collection
+  of processes. &nbsp;<i>MPI_Scatter</i> is used to scatter data from one
+process  to a collection of processes. &nbsp;In addition to providing syntax
+and usage  information, we present the applicability of the gathering functions
+ in the  parallel implementation of the Jacobi method.<br>
+    </blockquote>
+    <br>
+     
+<div align="left">    
+<h4><font size="+2">SCchapter7 Introduction and Chapter 7 Driver Programs</font></h4>
+    &nbsp;&nbsp;&nbsp; Within the text, there are several places where the
+ <i>software suite</i> is referenced. &nbsp;In some cases the code is explicitly
+ placed within the text, and at other times within the text we merely alert
+ you that the software is available on this CD. &nbsp;As you read through
+Chapter 7, you will find that the following function/classes were discussed.
+<br>
+     </div>
+          
+<h4> </h4>
+        <br>
+     
+<blockquote>         
+  <ul>
+       <li> Section 7.1.4: void Diffusion_EF_CentralDifference(int N, double 
+ DN, double *uold, double *unew) function definition</li>
+       <li> Section 7.1.4: void Diffusion_EB_CentralDifference(int N, double 
+ DN, double *uold, double *unew) function definition</li>
+       <li> Section 7.2.1: int Diffusion_Jacobi(int N, double dx, double
+dt,  double **A, double **q, double abstol) function definition</li>
+              <li> Section 7.2.2: int Jacobi_P(int mynode, int numnodes,
+int N, double  **A, double *x, double *b, double abstol) function definition</li>
+       <li> Section 7.2.3: int Diffusion_GaussSeidel(int N, double dx, double 
+ dt, double **A, double **q, double abstol) function definition</li>
+       <li>Section 7.2.3: void GaussSeidel(int N, double **A, double *x,
+double  *b, int iterations) function definition</li>
+       <li>Section 7.2.5: void SOR(double omega, int N, double **A, double
+ *x, double *b, double abstol) function definition</li>
+           
+  </ul>
+   </blockquote>
+    <br>
+   <br>
+   &nbsp;&nbsp; The declarations and definitions of these functions/classes 
+ can be found in the following files:<br>
+   <br>
+     
+<blockquote>Go to the file <a href="../SCchapter7.h">SCchapter7.h</a> for 
+ function/class declarations   <br>
+    </blockquote>
+       
+<blockquote>Go to the file <a href="../SCchapter7.cpp">SCchapter7.cpp</a> 
+ for function/class definitions<br>
+    </blockquote>
+           &nbsp;&nbsp;&nbsp; In the case that an entire program (meaning 
+that  a main() function is provided) is presented in the text, we classify 
+this  as a driver program. &nbsp;Unlike the functions/classes above, driver 
+programs  are complete C++ programs which can be compiled and executed. &nbsp;As 
+you  read through the book, you will see that driver programs are often times 
+created by using functions/classes which are in the SCchapter files. &nbsp;We 
+denote driver programs which are explicitly given in the text of the book 
+in <font color="#ff0000">red</font>. &nbsp;In some chapters, we present very 
+few driver programs explicitly in the text, however we provide some example 
+driver programs which demonstrate how to use the functions/classes with in 
+SCchapter files. &nbsp;Such driver programs are denoted in black.<br>
+      <br>
+        
+<table border="1" width="100%" nosave="">
+    <tbody>
+       <tr>
+    <td><font size="+1">Section 7.2.1: Program to demonstrate the use of
+the   Diffusion_Jacobi routine</font></td>
+     <td><font size="+1"><a href="chapter7c0.cpp">chapter7c0.cpp</a></font></td>
+    </tr>
+     <tr>
+    <td><font size="+1">Section 7.2.2: MPI - Program to demonstrate the use 
+ of the parallel Diffusion_Jacobi routine</font></td>
+     <td><font size="+1"><a href="chapter7c1P.cpp">chapter7c1P.cpp</a></font></td>
+    </tr>
+     <tr>
+    <td><font size="+1">Section 7.2.2: MPI - Program to demonstrate the use 
+ of the parallel Jacobi_P routine</font></td>
+     <td><font size="+1"><a href="chapter7c2P.cpp">chapter7c2P.cpp</a></font></td>
+    </tr>
+             
+  </tbody>   
+</table>
+     <br>
+   <br>
+  <br>
+ <br>
+</body>
+</html>

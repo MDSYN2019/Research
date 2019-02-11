@@ -1,0 +1,120 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+                    
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+                    
+  <meta name="GENERATOR"
+ content="Mozilla/4.79 [en] (X11; U; IRIX 6.5 IP32) [Netscape]">
+  <title></title>
+</head>
+  <body>
+          
+<center><font size="+3"><br>
+  Parallel Scientific Computing in C++ and MPI</font>  <br>
+    <font size="+3">Chapter 9 Overview</font></center>
+          
+<p><br>
+     <br>
+     </p>
+       
+<h4><font size="+2">Book Chapter Introduction</font></h4>
+       
+<blockquote>We have already discussed how to solve tridiagonal linear systems
+  of equations using direct solvers (the Thomas algorithm) in chapter 6 and
+  some iterative solvers (Jacobi, Gauss-Seidel, SOR and multigrid) in chapter
+  7. &nbsp;We have also discussed solutions of nonlinear and linear systems
+  and have introduced the conjugate gradient method in chapter 4. &nbsp;In
+ the current chapter we revisit this subject and present general algorithms
+ for the <i>direct</i> and <i>iterative</i> solution of large linear systems.
+ &nbsp;We start with the classical Gaussian &nbsp;elimination (which is a
+fast solver!) and then proceed with more sophisticated solvers and preconditioners
+ for symmetric and non-symmetric systems.<br>
+      <br>
+    In parallel computing, we introduce the broadcasting command <i>MPI_Bcast,</i>
+  and demonstrate its usefulness in the context of Gaussian elimination.&nbsp;
+  In addition, we reiterate the use of <i>MPI_Send,</i> <i>MPI_Recv,</i>
+  <i>MPI_Allgather,</i>   and <i>MPI_Allreduce</i> through example implementations
+of algorithms presented   in this chapter.<br>
+      <br>
+    </blockquote>
+      
+<div align="left">   
+<h4><font size="+2">SCchapter9 Introduction and Chapter 9 Driver Programs</font></h4>
+   &nbsp;&nbsp;&nbsp; Within the text, there are several places where the 
+<i>software suite</i> is referenced. &nbsp;In some cases the code is explicitly 
+placed within the text, and at other times within the text we merely alert 
+you that the software is available on this CD. &nbsp;As you read through Chapter
+9, you will find that the following function/classes were discussed. <br>
+        <br>
+  </div>
+   
+<blockquote>      
+  <ul>
+      <li>  Section 9.1.2: void GaussElimination(SCMatrix &amp;A, SCVector 
+&amp;b, int pivotflag) function definition</li>
+      <li> Section 9.3.1: void Hessenberg(SCMatrix &amp;A) function definition</li>
+      <li> Section 9.5.1: void ModifiedArnoldi(int m, const SCMatrix &amp;A,
+ SCMatrix &amp;H, SCMatrix &amp;V) function definition</li>
+      <li> Section 9.5.3: void GMRES(int m, const SCMatrix &amp;A, const
+SCVector  &amp;b, SCVector &amp;x) function definition</li>
+       
+  </ul>
+  </blockquote>
+   <br>
+  &nbsp;&nbsp;&nbsp; The declarations and definitions of these functions/classes
+ can be found in the following files:<br>
+   <br>
+     
+<blockquote>Go to the file <a href="../SCchapter9.h">SCchapter9.h</a> for
+ function/class declarations   <br>
+   </blockquote>
+     
+<blockquote>Go to the file <a href="../SCchapter9.cpp">SCchapter9.cpp</a>
+ for function/class definitions<br>
+   </blockquote>
+          &nbsp;&nbsp;&nbsp; In the case that an entire program (meaning
+that  a main() function is provided) is presented in the text, we classify
+this  as a driver program. &nbsp;Unlike the functions/classes above, driver
+programs  are complete C++ programs which can be compiled and executed. &nbsp;As
+you  read through the book, you will see that driver programs are often times
+created by using functions/classes which are in the SCchapter files. &nbsp;We
+denote driver programs which are explicitly given in the text of the book
+in <font color="#ff0000">red</font>. &nbsp;In some chapters, we present very
+few driver programs explicitly in the text, however we provide some example
+driver programs which demonstrate how to use the functions/classes with in
+SCchapter files. &nbsp;Such driver programs are denoted in black.<br>
+     <br>
+  &nbsp;<font size="+1"> </font>  
+<table border="1" width="100%" nosave="">
+   <tbody>
+      <tr>
+   <td><font size="+1" color="#ff0000">Section 9.1.4: MPI - Program demonstrating
+ parallel Gaussian elimination</font></td>
+    <td><font size="+1"><a href="chapter9c0P.cpp">chapter9c0P.cpp</a></font></td>
+   </tr>
+    <tr>
+   <td><font size="+1" color="#ff0000">Section 9.1.6: Program demonstrating
+ cyclic reduction for triadiagonal systems</font></td>
+    <td><font size="+1"><a href="chapter9c1.cpp">chapter9c1.cpp</a></font></td>
+   </tr>
+    <tr>
+   <td><font size="+1" color="#ff0000">Section 9.1.6: MPI - Program demonstrating
+ parallel cyclic reduction for triadiagonal systems</font></td>
+    <td><font size="+1"><a href="chapter9c2P.cpp">chapter9c2P.cpp</a></font></td>
+   </tr>
+    <tr>
+   <td><font size="+1" color="#ff0000">Section 9.4.4: MPI - Program demonstrating
+ the parallel preconditioned conjugate gradient method (PCGM)</font></td>
+    <td><font size="+1"><a href="chapter9c3P.cpp">chapter9c3P.cpp</a></font></td>
+   </tr>
+         
+  </tbody>  
+</table>
+    <br>
+  &nbsp; <br>
+  <br>
+ <br>
+</body>
+</html>

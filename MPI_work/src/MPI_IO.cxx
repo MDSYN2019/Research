@@ -3,8 +3,8 @@
 #include <vector>
 #include <mpi.h>
 
-
 // cppunit tests
+
 
 #include <cppunit/extensions/TestFactoryRegistry.h>
 #include <cppunit/CompilerOutputter.h>
@@ -29,6 +29,14 @@ void MPIInput::MPI_start() {
   MPI_Comm_size(MPI_COMM_WORLD, &p);  
 }
 
+/*
+  Scalability
+
+  Our parallel matrix-vector mulitplication program doesn't come close 
+  obtaining linear speedup for small n and large p. 
+
+ */
+
 void MPIInput::bubbleSort(int a[], int n) {
    // --  bubble sort variables --
   int temp;
@@ -38,6 +46,27 @@ void MPIInput::bubbleSort(int a[], int n) {
 	temp = a[i];
 	a[i] = a[i+1];
 	a[i+1] = temp;
+      }
+    }
+  }
+}
+
+void oddEvenSort(int a[], int n) {
+  int phase;
+  for (int phase = 0; phase < n; phase++) {
+    
+  }
+}
+
+void MPIInput::bubbleSort(int a[], int n) {
+   // --  bubble sort variables --
+  int temp;
+  for (int list_length = n; list_length >= 2; list_length--) {
+    for (int i = 0; i < list_length - 1 ; i++) {
+      if (a[i] > a[i+1]) {
+  	temp = a[i];
+  	a[i] = a[i+1];
+  	a[i+1] = temp;
       }
     }
   }

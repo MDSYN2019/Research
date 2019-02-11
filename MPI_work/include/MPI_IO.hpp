@@ -11,6 +11,7 @@
 #include <iomanip>
 #include <vector>
 #include <mpi.h>
+
 #include <cppunit/extensions/TestFactoryRegistry.h>
 #include <cppunit/CompilerOutputter.h>
 #include <cppunit/ui/text/TestRunner.h>
@@ -26,8 +27,9 @@ public:
   void MPIStart();
   void getData();
   void bubbleSort();
+  void oddEvenSort();
   virtual ~MPIInput();
-
+  
 private:
   int* n_ptr;
   int source = 0;
@@ -35,9 +37,7 @@ private:
   int tag;
   int my_rank;
   int p;
-   
-  //
-  
+  //  
   float* a_ptr;
   float* b_ptr;
   MPI_Status status;

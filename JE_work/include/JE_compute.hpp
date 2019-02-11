@@ -1,5 +1,6 @@
 #ifndef __JE__
 #define __JE__
+
 #include <vector>
 #include <string>
 #include <fstream>
@@ -41,6 +42,7 @@ typedef std::vector<std::string>::const_iterator stringIter; /*!< String iterato
 
 //! 
 /*! The main class */  
+
 class JarzynskiFreeEnergy {  
 public:
   JarzynskiFreeEnergy(); /*!< Default Constructor */ 
@@ -57,7 +59,6 @@ public:
   double JEprocessVector(int, double (JarzynskiFreeEnergy::*f) (std::vector<double> *VectorInput), std::vector<double> *JEVector); /*< functor which can take a JE algorithm then processing it accordingly */
   double alpha(double, double, double); /*< */   
 private:
-
   //! /
   /*! Scientific constants used in this work */
   double BOLTZMANN = 0.0019872041; /*< units for the boltzmann constant are in kcal mol^-1 */
@@ -72,13 +73,11 @@ private:
   double z; /*< z coordinate */ 
   double bilayerCOM; /*< Bilayer COM z coordinate */
   int number; /*< Number */
-
   //! 
   /*! For the purpose of IO of files */
   std::string filename;
   std::string line;
   std::ifstream myfile;  
-
   //!
   /*! STL containers  */
   std::vector<int> lineNumberVector; /*< Index vector */
@@ -88,7 +87,6 @@ private:
   std::vector<double> workVector; /*< Work vector */   
   std::vector<double> JERawVector; /*< Storing the work for the raw JE interpreter */ 
   std::vector<double> JETaylorVector; /*< Storing the work ffor the taylor series JE interpreter */
-
   tupleList JERawCoordinateBin; /*< Vector for storing raw JE tuples */
   tupleList JETaylorCoordinateBin; /*< Vector for storing taylor series JE tuples */
 };

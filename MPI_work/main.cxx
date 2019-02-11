@@ -56,10 +56,9 @@ typedef struct {
 } arraySend;
 
 
-void Get_data4(float*  a_ptr, float*  b_ptr, int* n_ptr , int my_rank) {
+void MPIGetData(float*  a_ptr, float*  b_ptr, int* n_ptr , int my_rank) {
     char  buffer[100];  /* Store data in buffer        */
-    int   position;     /* Keep track of where data is */    
-                        /*     in the buffer           */
+    int   position;     /* Keep track of where data is */                            /*     in the buffer           */
     if (my_rank == 0){
       std::cout << "Enter a, b, and n\n";
         scanf("%f %f %d", a_ptr, b_ptr, n_ptr);
@@ -90,7 +89,6 @@ void Get_data4(float*  a_ptr, float*  b_ptr, int* n_ptr , int my_rank) {
         MPI_Unpack(buffer, 100, &position, n_ptr, 1, MPI_INT, MPI_COMM_WORLD);
     }
 } /* Get_data4 */
-
 
 
 void Build_mpi_type ( double* a_p,  double* b_p, int* n_p, myStruct* stct, MPI_Datatype* input_mpi_t_p) {
@@ -125,22 +123,21 @@ void Get_Input(int my_rank, int comm_sz,  double* a_p,  double* b_p, int* n_p, m
 std::vector<int> bb;
 myStruct exampleDatatype;
 
- double a;
- double b;
+double a;
+double b;
 int c;
 
 int main(int argc, char** argv) {
 
   int my_rank, comm_sz;
-
   MPI_Init(NULL, NULL);
   MPI_Comm_size(MPI_COMM_WORLD, &comm_sz);
   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
 
   std::cout << "Enter a, b and n \n";
   scanf("%lf %lf %d", &a, &b, &c);
- 
   Get_Input(0, comm_sz, &a, &b, &c, &exampleDatatype);
+
   for (int q = 1; q < comm_sz; q++) {
     std::cout << q << " " << exampleDatatype.a << " " << exampleDatatype.b << " " << exampleDatatype.c << std::endl;
   }

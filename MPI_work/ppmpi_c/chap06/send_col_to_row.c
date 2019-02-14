@@ -9,6 +9,8 @@
  * See Chap 6., pp. 98 & ff in PPMPI
  */
 #include <stdio.h>
+
+#include <iostream>
 #include "mpi.h"
 
 main(int argc, char* argv[]) {

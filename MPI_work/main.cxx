@@ -6,30 +6,22 @@
 #include <cmath>
 #include <array>
 #include <cassert>
-
-// Custom headers
-
 #include "mpi.h"
+
+// gsl libraries
+
 #include <gsl/gsl_errno.h>
 #include <gsl/gsl_spline.h>
+
 #include "MPI_IO.hpp"
 
-//#include "MPI_broadcast.hpp"
-//#include "MPI_functions.hpp"
-
-/*
-  
- */
+template <int m1, int l1, int t1, int m2, nt l2, int t2>
+Physical<m1+m2,l1+l2,t1+t2> operator*(Physical<m1, l1, t1> lhs, Physical<m2, l2, t2> rhs) {
+  return Physical<m1+m2, l1+l2, t1+t2>::unit*lhs.value()*rhs.value();
+}
 
 template <class T> class placeHolder {
 public:
-  /*
-    The role of any construct is to ensure that the object is correcltl
-    initialized. 
-
-    For the constructor to take a size, we will allocate the given amount 
-
-   */
   placeHolder() { create(); }
   explicit placeHolder(std::size_t n, const T& val = T()) {create(n, val);}  
   // iterators
@@ -78,7 +70,8 @@ void MPIGetData(float*  a_ptr, float*  b_ptr, int* n_ptr , int my_rank) {
     }
 }
 
-void Build_mpi_type ( double* a_p,  double* b_p, int* n_p, myStruct* stct, MPI_Datatype* input_mpi_t_p) {
+
+void Build_mpi_type (double* a_p,  double* b_p, int* n_p, myStruct* stct, MPI_Datatype* input_mpi_t_p) {
   int array_of_blocklengths[3] = {1,1,1};
   MPI_Datatype array_of_types[3] = {MPI_DOUBLE, MPI_DOUBLE, MPI_INT};
   MPI_Aint array_of_displacements[3] = {0};

@@ -158,3 +158,11 @@ void JarzynskiFreeEnergy::read(std::string input) {
   std::cout << "The number of lines in file:" << " " << nLines << " " << std::endl;
 }
 
+
+// Friend functions - has access to the private variables 
+
+void MPI_vec_send() {
+}
+
+void MPI_parameter_send() {
+}

@@ -125,7 +125,6 @@ double JarzynskiFreeEnergy::JETaylor(std::vector<double> *JEVector) {
   /*! Store the squared work values */
   squaredRawVector.resize(RawVector.size());
   std::transform(RawVector.begin(), RawVector.end(), squaredRawVector.begin(), computeSquare);
-  
   double AvWork = std::accumulate(RawVector.begin(), RawVector.end(), 0.0)/ RawVector.size(); /*!< Average work */   
   double squaredAvWork = std::accumulate(squaredRawVector.begin(), squaredRawVector.end(), 0.0)/ squaredRawVector.size(); /*!< Average squared work */
 
@@ -184,8 +183,7 @@ void MPI_setup::MPI_parameter_stuct_constructor() {
   int array_of_blocklengths[2] = {1,1};
   MPI_Datatype array_of_types[2] = {MPI_DOUBLE, MPI_DOUBLE};
   MPI_Aint array_of_displacements[2] = {0};
-  MPI_Aint BM_addr, T_addr;
-		     
+  MPI_Aint BM_addr, T_addr;	     
   MPI_Get_address(&A.BM, &BM_addr);
   MPI_Get_address(&A.T, &T_addr);
   // TODO
@@ -195,10 +193,16 @@ void MPI_setup::MPI_parameter_stuct_constructor() {
 }
 
 void MPI_setup::MPI_data_send(JarzynskiFreeEnergy& serialClass) {
-  double max_z = *max_element(JarzynskiFreeEnergy.coordinateZVector.begin(), JarzynskiFreeEnergy.coordinateZVector.end()); //!< Define minimum z coordinate                                
-  double min_z = *min_element(JarzynskiFreeEnergy.coordinateZVector.begin(), JarzynskiFreeEnergy.coordinateZVector.end()); //!< Define maximum z coordinate          
+  double max_z = *max_element(serialClass.coordinateZVector.begin(), serialClass.coordinateZVector.end()); //!< Define minimum z coordinate                                
+  double min_z = *min_element(serialClass.coordinateZVector.begin(), serialClass.coordinateZVector.end()); //!< Define maximum z coordinate          
   //! We want to accumulate the values via the bins: */                   
+  /*
+    Need to divide the length of the vector into comm_sz to make sure the vector 
+    is divided for each ..node? 
+  */
+
   if (my_rank == 0) {
     // This is a bit tricky - I will need to make sure that the vector is divided equally
+    // TODO
   }
 }

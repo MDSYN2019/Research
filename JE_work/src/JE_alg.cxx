@@ -163,34 +163,35 @@ void JarzynskiFreeEnergy::read(std::string input) {
 
 // Friend functions - has access to the private variables 
 
-/*
 
- At the moment, these friend functions can have access to the data after
- running the serial program once 
+struct {
+  double BM;
+  double T; 
+} parameterData; 
+// Make an alias 
+typedef parameterData experimentParameter ;
 
-*/
 
 void MPI_vec_send() {
   
 }
 
-void MPI_parameter_send() {
-  int array_of_blocklengths[3] = {1,1};
-  MPI_Datatype array_of_types[3] = {MPI_DOUBLE, MPI_DOUBLE};
-  MPI_Aint array_of_displacements[3] = {0};
-  MPI_Aint a_addr, b_addr, n_addr;
-
-  (*stct).a = *a_p;
-  (*stct).b = *b_p;
+void MPI_parameter_stuct_constructor() {
+  experimentParameter parameters;
+  parameters.BM = BOLTZMANN; 
+  parameters.T = Temperature;
+  
+  // Define parameters for storing the variables 
+  int array_of_blocklengths[2] = {1,1};
+  MPI_Datatype array_of_types[2] = {MPI_DOUBLE, MPI_DOUBLE};
+  MPI_Aint array_of_displacements[2] = {0};
+  MPI_Aint BM_addr, T_addr;
 		     
-  MPI_Get_address(&stct->a, &a_addr);
-  MPI_Get_address(&stct->b, &b_addr);
-
+  MPI_Get_address(&A.BM, &BM_addr);
+  MPI_Get_address(&A.T, &T_addr);
   // TODO
-  array_of_displacements[1] = b_addr - a_addr;
-  array_of_displacements[2] = n_addr - a_addr;
-
-  MPI_Type_create_struct(3, array_of_blocklengths, array_of_displacements, array_of_types, input_mpi_t_p);
+  array_of_displacements[1] = T_addr - BM_addr;
+  MPI_Type_create_struct(2, array_of_blocklengths, array_of_displacements, array_of_types, input_mpi_t_p);
   MPI_Type_commit(input_mpi_t_p);
 }
 

@@ -40,6 +40,11 @@ typedef std::vector<int>::iterator intIter; /*!< Integer iterator */
 typedef std::vector<double>::iterator doubleIter; /*!< Double iterator */ 
 typedef std::vector<std::string>::const_iterator stringIter; /*!< String iterator */
 
+extern struct {
+  double BM;
+  double T; 
+} parameterData;
+
 //! 
 /*! The main class */  
 
@@ -48,23 +53,22 @@ public:
   JarzynskiFreeEnergy(); /*!< Default Constructor */ 
   JarzynskiFreeEnergy(int, double); /*!< Default Constructor with parameters */ 
   ~JarzynskiFreeEnergy(); /*!< Destructor */ 
-
   void vecProcess();
   void resetIndex();
   void read(std::string input);  
-
   /*! Free energy calculation functions from work distribution */
   double JERaw(std::vector<double> *JEVector); /*< Raw JE interpreter */
   double JETaylor(std::vector<double> *JEVector); /*< Taylor Series (Second term) JE interpreter */  
   double JEprocessVector(int, double (JarzynskiFreeEnergy::*f) (std::vector<double> *VectorInput), std::vector<double> *JEVector); /*< functor which can take a JE algorithm then processing it accordingly */
   double alpha(double, double, double); /*< */   
+  // friend functions to take care of the MPI implementation
   friend void MPI_setup();
   friend void MPI_vec_send();
-  friend void MPI_parameter_send();
+  friend void MPI_parameter_stuct_constructor();
 private:
   //! /
   /*! Scientific constants used in this work */
-  const double BOLTZMANN = 0.0019872041; /*< units for the boltzmann constant are in kcal mol^-1 */
+  double BOLTZMANN = 0.0019872041; /*< units for the boltzmann constant are in kcal mol^-1 */
   double Temperature; /*< Temperature */
   int numberOfPullFiles; /*< The number of work files to compute the free energy values with */
   

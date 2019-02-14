@@ -2,7 +2,7 @@
   ---------------------------------------------------------------------------------
   | Jarzynski-Equality Algorithm based on multiple implementations/corrections    |
   |                                                                               | 
-  | VERSION: 0.0.2                                                                |  
+  | VERSION: 0.0.3                                                                |  
   ---------------------------------------------------------------------------------
 
   This work directly implements work that was published in the following publications:
@@ -53,6 +53,7 @@ class JarzynskiFreeEnergy {
 public:
   JarzynskiFreeEnergy(); /*!< Default Constructor */ 
   JarzynskiFreeEnergy(int, double); /*!< Default Constructor with parameters */ 
+  JarzynskiFreeEnergy(const JarzynskiFreeEnergy& J); /*< Copy constructor */
   ~JarzynskiFreeEnergy(); /*!< Destructor */ 
   void vecProcess();
   void resetIndex();
@@ -102,15 +103,19 @@ public:
   MPI_setup();
   MPI_setup(int*, int*);
   ~MPI_setup();
-  
   void MPI_vec_send();
   void MPI_parameter_stuct_constructor();
   void MPI_data_send();
+  friend class JarzynskiFreeEnergy;
 private:
   experimentParameter parameters;
-  
-
+  std::vector<int> lineNumberVectorSplit; /*< Index vector */
+  std::vector<double> coordinateZVectorSplit; /*< z coordinates vector */
+  std::vector<double> bilayerCOMVectorSplit; /*< Bilayer COM vector */
+  std::vector<double> forceVectorSplit; /*< Force vector */
+  std::vector<double> workVectorSplit; /*< Work vector */   
+  std::vector<double> JERawVectorSplit; /*< Storing the work for the raw JE interpreter */ 
+  std::vector<double> JETaylorVectorSplit; /*< Storing the work ffor the taylor series JE interpreter */
 };
-
 
 #endif 

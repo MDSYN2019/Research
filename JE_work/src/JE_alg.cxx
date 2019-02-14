@@ -194,7 +194,10 @@ void MPI_setup::MPI_parameter_stuct_constructor() {
   MPI_Type_commit(input_mpi_t_p);
 }
 
-void MPI_setup::MPI_data_send() {
+void MPI_setup::MPI_data_send(JarzynskiFreeEnergy& serialClass) {
+  double max_z = *max_element(JarzynskiFreeEnergy.coordinateZVector.begin(), JarzynskiFreeEnergy.coordinateZVector.end()); //!< Define minimum z coordinate                                
+  double min_z = *min_element(JarzynskiFreeEnergy.coordinateZVector.begin(), JarzynskiFreeEnergy.coordinateZVector.end()); //!< Define maximum z coordinate          
+  //! We want to accumulate the values via the bins: */                   
   if (my_rank == 0) {
     // This is a bit tricky - I will need to make sure that the vector is divided equally
   }

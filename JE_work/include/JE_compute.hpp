@@ -58,12 +58,13 @@ public:
   double JETaylor(std::vector<double> *JEVector); /*< Taylor Series (Second term) JE interpreter */  
   double JEprocessVector(int, double (JarzynskiFreeEnergy::*f) (std::vector<double> *VectorInput), std::vector<double> *JEVector); /*< functor which can take a JE algorithm then processing it accordingly */
   double alpha(double, double, double); /*< */   
+  friend void MPI_setup();
   friend void MPI_vec_send();
   friend void MPI_parameter_send();
 private:
   //! /
   /*! Scientific constants used in this work */
-  double BOLTZMANN = 0.0019872041; /*< units for the boltzmann constant are in kcal mol^-1 */
+  const double BOLTZMANN = 0.0019872041; /*< units for the boltzmann constant are in kcal mol^-1 */
   double Temperature; /*< Temperature */
   int numberOfPullFiles; /*< The number of work files to compute the free energy values with */
   

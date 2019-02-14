@@ -36,6 +36,9 @@
 
 #include "JE_compute.hpp"
 
+/*! MPI */
+#include "mpi.h"
+
 static inline double computeSquare (double x) { return x*x;} // function for squaring the elements in a vector
 
 JarzynskiFreeEnergy::JarzynskiFreeEnergy() {
@@ -50,9 +53,7 @@ double JarzynskiFreeEnergy::JEprocessVector(int position, double (JarzynskiFreeE
   doubleIter diterator; /*!< Integer iterator */ 
   JarzynskiFreeEnergy sample; /*!< Instance of the class to get the function method */  
   JEVector->clear(); /*!< Empty vector before doing mean calculations - as we are working with a pointer to a vector, and not creating a copy each time, this is required */
-
   for (diterator = coordinateZVector.begin(); diterator <= coordinateZVector.end(); ++diterator, ++work_index) { 
-
     if (*diterator > position - 0.5 && *diterator < position + 0.5) { /*!< If the work values are within an angstrom range, add to vector */  
       JEVector->push_back((workVector[work_index])); /*!< store work values */ 
     }
@@ -62,8 +63,8 @@ double JarzynskiFreeEnergy::JEprocessVector(int position, double (JarzynskiFreeE
 }
 
 void JarzynskiFreeEnergy::vecProcess() {
-  /*! This function uses the boost::tuple and create a vector of tuples; it stores the free energy values with the first index storing the coordinate value where we base the search. The second and third elements store the minimum and maximum range from which the work distribution was analyzed. Finally, the last element stores the free energy values. */
-
+  /*! This function uses the boost::tuple and create a vector of tuples; it stores the free energy values with the first index storing the coordinate value where we base the search. The second and third elements store the minimum and maximum range from which the work distribution was analyzed. Finally, the last element stores the free energy values. 
+*/
   double max_z = *max_element(coordinateZVector.begin(), coordinateZVector.end()); //!< Define minimum z coordinate                                
   double min_z = *min_element(coordinateZVector.begin(), coordinateZVector.end()); //!< Define maximum z coordinate          
   //! We want to accumulate the values via the bins: */                                                                                                     
@@ -99,7 +100,7 @@ double JarzynskiFreeEnergy::JERaw(std::vector<double> *JEVector) {
   /** The Raw Jarzynski Equality computer */
   std::vector<double> RawVector; /**< Vector to copy the value into, as to not change the values of the elements inside the vector pointer */
   double G; /*!< Free energy (Gibbs) */
-  double Beta = 1.0 / (BOLTZMANN * 303); /**< Boltzmann Factor, at 303K */
+  double Beta = 1.0 / (BOLTZMANN * 303); /**< Boltzmann >Factor, at 303K */
   doubleIter workIterator; /**< iterator for vector */
   
   for (workIterator = JEVector->begin(); workIterator != JEVector->end(); ++workIterator) {
@@ -142,9 +143,11 @@ void JarzynskiFreeEnergy::read(std::string input) {
     std::cout << "Cannot open files" << std::endl;     
     exit(1);
   }
+
   else {	
     std::cout << "Successfully read. Opening file:" << " " << input << std::endl;	
   }
+  
   while (myFile >> number >> z >> bilayerCOM >> force >> work) {
     lineNumberVector.push_back(number); /*!< Line index */
     coordinateZVector.push_back(z); /*!< z coordinates of the Nanoparticle/molecule */
@@ -152,7 +155,6 @@ void JarzynskiFreeEnergy::read(std::string input) {
     forceVector.push_back(force); /*!< Force values */
     workVector.push_back(work); /*!< Work values */
     nLines++; /*!< Add index for next line */ 
-    
   }
   myFile.close();
   std::cout << "The number of lines in file:" << " " << nLines << " " << std::endl;
@@ -161,8 +163,39 @@ void JarzynskiFreeEnergy::read(std::string input) {
 
 // Friend functions - has access to the private variables 
 
+/*
+
+ At the moment, these friend functions can have access to the data after
+ running the serial program once 
+
+*/
+
 void MPI_vec_send() {
+  
 }
 
 void MPI_parameter_send() {
+  int array_of_blocklengths[3] = {1,1};
+  MPI_Datatype array_of_types[3] = {MPI_DOUBLE, MPI_DOUBLE};
+  MPI_Aint array_of_displacements[3] = {0};
+  MPI_Aint a_addr, b_addr, n_addr;
+
+  (*stct).a = *a_p;
+  (*stct).b = *b_p;
+		     
+  MPI_Get_address(&stct->a, &a_addr);
+  MPI_Get_address(&stct->b, &b_addr);
+
+  // TODO
+  array_of_displacements[1] = b_addr - a_addr;
+  array_of_displacements[2] = n_addr - a_addr;
+
+  MPI_Type_create_struct(3, array_of_blocklengths, array_of_displacements, array_of_types, input_mpi_t_p);
+  MPI_Type_commit(input_mpi_t_p);
+}
+
+void MPI_setup(int* my_rank, int* p) {
+  MPI_Init(NULL, NULL);
+  MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
+  MPI_Comm_size(MPI_COMM_WORLD, &p);
 }

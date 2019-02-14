@@ -45,6 +45,8 @@ extern struct {
   double T; 
 } parameterData;
 
+typedef parameterData experimentParameter;
+
 //! 
 /*! The main class */  
 
@@ -62,9 +64,7 @@ public:
   double JEprocessVector(int, double (JarzynskiFreeEnergy::*f) (std::vector<double> *VectorInput), std::vector<double> *JEVector); /*< functor which can take a JE algorithm then processing it accordingly */
   double alpha(double, double, double); /*< */   
   // friend functions to take care of the MPI implementation
-  friend void MPI_setup();
-  friend void MPI_vec_send();
-  friend void MPI_parameter_stuct_constructor();
+  friend class MPI_setup;
 private:
   //! /
   /*! Scientific constants used in this work */
@@ -97,5 +97,20 @@ private:
   tupleList JERawCoordinateBin; /*< Vector for storing raw JE tuples */
   tupleList JETaylorCoordinateBin; /*< Vector for storing taylor series JE tuples */
 };
+
+class MPI_setup {
+public:
+  MPI_setup();
+  MPI_setup(int*, int*);
+  ~MPI_setup();
+  
+  void MPI_vec_send();
+  void MPI_parameter_stuct_constructor();
+private:
+  experimentParameter parameters;
+  
+
+};
+
 
 #endif 

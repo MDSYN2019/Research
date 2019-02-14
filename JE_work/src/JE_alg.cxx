@@ -162,21 +162,26 @@ void JarzynskiFreeEnergy::read(std::string input) {
 
 
 // Friend functions - has access to the private variables 
-
-
 struct {
   double BM;
   double T; 
 } parameterData; 
 // Make an alias 
+
 typedef parameterData experimentParameter ;
 
+class MPI_setup {
 
-void MPI_vec_send() {
-  
+
+};
+
+void MPI_setup::MPI_setup(int* my_rank, int* p) {
+  MPI_Init(NULL, NULL);
+  MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
+  MPI_Comm_size(MPI_COMM_WORLD, &p);
 }
 
-void MPI_parameter_stuct_constructor() {
+void MPI_setup::MPI_parameter_stuct_constructor() {
   experimentParameter parameters;
   parameters.BM = BOLTZMANN; 
   parameters.T = Temperature;
@@ -195,8 +200,3 @@ void MPI_parameter_stuct_constructor() {
   MPI_Type_commit(input_mpi_t_p);
 }
 
-void MPI_setup(int* my_rank, int* p) {
-  MPI_Init(NULL, NULL);
-  MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
-  MPI_Comm_size(MPI_COMM_WORLD, &p);
-}

@@ -1,4 +1,3 @@
-
   /*!
   ---------------------------------------------------------------------------------
   | Jarzynski-Equality Algorithm based on multiple implementations/corrections    |
@@ -106,6 +105,7 @@ public:
   
   void MPI_vec_send();
   void MPI_parameter_stuct_constructor();
+  void MPI_data_send();
 private:
   experimentParameter parameters;
   

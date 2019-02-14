@@ -170,11 +170,6 @@ struct {
 
 typedef parameterData experimentParameter ;
 
-class MPI_setup {
-
-
-};
-
 void MPI_setup::MPI_setup(int* my_rank, int* p) {
   MPI_Init(NULL, NULL);
   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
@@ -185,7 +180,6 @@ void MPI_setup::MPI_parameter_stuct_constructor() {
   experimentParameter parameters;
   parameters.BM = BOLTZMANN; 
   parameters.T = Temperature;
-  
   // Define parameters for storing the variables 
   int array_of_blocklengths[2] = {1,1};
   MPI_Datatype array_of_types[2] = {MPI_DOUBLE, MPI_DOUBLE};
@@ -200,3 +194,8 @@ void MPI_setup::MPI_parameter_stuct_constructor() {
   MPI_Type_commit(input_mpi_t_p);
 }
 
+void MPI_setup::MPI_data_send() {
+  if (my_rank == 0) {
+    // This is a bit tricky - I will need to make sure that the vector is divided equally
+  }
+}

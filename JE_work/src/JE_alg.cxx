@@ -180,6 +180,7 @@ void MPI_setup::MPI_parameter_stuct_constructor() {
   parameters.BM = BOLTZMANN; 
   parameters.T = Temperature;
   // Define parameters for storing the variables 
+  // new
   int array_of_blocklengths[2] = {1,1};
   MPI_Datatype array_of_types[2] = {MPI_DOUBLE, MPI_DOUBLE};
   MPI_Aint array_of_displacements[2] = {0};

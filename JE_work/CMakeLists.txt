@@ -31,6 +31,11 @@ set(Boost_USE_STATIC_LIBS ON)
 set(Boost_USE_MULTITHREADED ON)  
 set(Boost_USE_STATIC_RUNTIME OFF) 
 find_package(Boost) 
+find_package(MPI REQUIRED)
+if (MPI_FOUND)
+  include_directories(${MPI_INCLUDE_PATH})
+endif()
+
 if(Boost_FOUND)
   include_directories (${Boost_INCLUDE_DIRS})
 endif()
@@ -62,9 +67,17 @@ set(MATH "${MATH} -lm")
 #MESSAGE(STATUS "LINK LIBRARIES ${OpenCV_LIBS}")
 
 # add the executable
-if(Boost_FOUND)
-  include_directories (${Boost_INCLUDE_DIRS})
-  add_executable (JE main.cxx)
-  target_link_libraries (JE  ${EXTRA_LIBS} ${BOOST_LIBRARIES} ${Boost_LIBRARIES} ${MATH} ${EIGEN3_INCLUDE_DIR} Eigen3::Eigen)
+
+include_directories (${Boost_INCLUDE_DIRS})
+add_executable (JE main.cxx)
+target_link_libraries (JE  ${EXTRA_LIBS} ${BOOST_LIBRARIES} ${Boost_LIBRARIES} ${MATH} ${EIGEN3_INCLUDE_DIR} ${MPI_LIBRARIES} Eigen3::Eigen)
+
+if(MPI_COMPILE_FLAGS)
+  set_target_properties(JE PROPERTIES
+    COMPILE_FLAGS "${MPI_COMPILE_FLAGS}")
 endif()
 
+if(MPI_LINK_FLAGS)
+  set_target_properties(JE PROPERTIES
+    LINK_FLAGS "${MPI_LINK_FLAGS}")
+endif()

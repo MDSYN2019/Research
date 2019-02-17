@@ -106,7 +106,7 @@ public:
   void MPI_vec_send();
   void MPI_parameter_stuct_constructor();
   void MPI_data_send();
-  friend class JarzynskiFreeEnergy;
+  friend class JarzynskiFreeEnergy : public JarzynskiFreeEnergy; // MPI class inherits from the Jarzynski equality class 
 private:
   experimentParameter parameters;
   std::vector<int> lineNumberVectorSplit; /*< Index vector */

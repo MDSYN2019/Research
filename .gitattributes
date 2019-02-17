@@ -1,0 +1,2 @@
+*.cxx linguist-language=C++
+*.py linguist-language=python

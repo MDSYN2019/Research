@@ -1,1 +1,0 @@
-/usr/bin/c++   -std=c++11  -rdynamic -pthread CMakeFiles/JE.dir/main.o  -o JE  -L/home/oohnohnoh1/Desktop/GIT/PhD_work/JE_work/build/src  -L/usr/lib/x86_64-linux-gnu/openmpi/lib -Wl,-rpath,/usr/lib/x86_64-linux-gnu/openmpi/lib src/libsrc.a -lm /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi_cxx.so -lmpi 

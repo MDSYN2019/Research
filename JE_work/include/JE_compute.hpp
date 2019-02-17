@@ -30,6 +30,7 @@
 #include <iostream>
 #include "boost/tuple/tuple.hpp"
 #include "boost/tuple/tuple_io.hpp"
+#include "mpi.h"
 
 //!
 /*! STL iterators -  typedefs for iterators, and typedef for vectors and tuples */  
@@ -39,12 +40,12 @@ typedef std::vector<int>::iterator intIter; /*!< Integer iterator */
 typedef std::vector<double>::iterator doubleIter; /*!< Double iterator */ 
 typedef std::vector<std::string>::const_iterator stringIter; /*!< String iterator */
 
-extern struct {
+// structs cannot be externed 
+typedef struct {
   double BM;
   double T; 
 } parameterData;
 
-typedef parameterData experimentParameter;
 
 //! 
 /*! The main class */  
@@ -101,14 +102,15 @@ private:
 class MPI_setup {
 public:
   MPI_setup();
-  MPI_setup(int*, int*);
+  //  MPI_setup(int*, int*);
   ~MPI_setup();
   void MPI_vec_send();
-  void MPI_parameter_stuct_constructor();
-  void MPI_data_send();
-  friend class JarzynskiFreeEnergy : public JarzynskiFreeEnergy; // MPI class inherits from the Jarzynski equality class 
+  void MPI_parameter_stuct_constructor(MPI_Datatype*);
+  void MPI_data_send(JarzynskiFreeEnergy*);
+  friend class JarzynskiFreeEnergy; // MPI class inherits from the Jarzynski equality class 
 private:
-  experimentParameter parameters;
+  int my_rank, p; // MPI address and total p size 
+  parameterData parameters;
   std::vector<int> lineNumberVectorSplit; /*< Index vector */
   std::vector<double> coordinateZVectorSplit; /*< z coordinates vector */
   std::vector<double> bilayerCOMVectorSplit; /*< Bilayer COM vector */

@@ -159,43 +159,34 @@ void JarzynskiFreeEnergy::read(std::string input) {
   std::cout << "The number of lines in file:" << " " << nLines << " " << std::endl;
 }
 
+// MPI class 
 
-// Friend functions - has access to the private variables 
-struct {
-  double BM;
-  double T; 
-} parameterData; 
-// Make an alias 
-
-typedef parameterData experimentParameter ;
-
-void MPI_setup::MPI_setup(int* my_rank, int* p) {
+MPI_setup::MPI_setup() { // Default constructor for MPI
   MPI_Init(NULL, NULL);
   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
   MPI_Comm_size(MPI_COMM_WORLD, &p);
 }
 
-void MPI_setup::MPI_parameter_stuct_constructor() {
-  experimentParameter parameters;
-  parameters.BM = BOLTZMANN; 
-  parameters.T = Temperature;
+void MPI_setup::MPI_parameter_stuct_constructor(MPI_Datatype* input_mpi_t_p) {
+  parameterData parameters;
+  parameters.BM = 0.0019872041; /*< units for the boltzmann constant are in kcal mol^-1 */; 
+  parameters.T = 303;
   // Define parameters for storing the variables 
   // new
   int array_of_blocklengths[2] = {1,1};
   MPI_Datatype array_of_types[2] = {MPI_DOUBLE, MPI_DOUBLE};
   MPI_Aint array_of_displacements[2] = {0};
   MPI_Aint BM_addr, T_addr;	     
-  MPI_Get_address(&A.BM, &BM_addr);
-  MPI_Get_address(&A.T, &T_addr);
-  // TODO
+  MPI_Get_address(&parameters.BM, &BM_addr);
+  MPI_Get_address(&parameters.T, &T_addr);
   array_of_displacements[1] = T_addr - BM_addr;
   MPI_Type_create_struct(2, array_of_blocklengths, array_of_displacements, array_of_types, input_mpi_t_p);
   MPI_Type_commit(input_mpi_t_p);
 }
 
-void MPI_setup::MPI_data_send(JarzynskiFreeEnergy& serialClass) {
-  double max_z = *max_element(serialClass.coordinateZVector.begin(), serialClass.coordinateZVector.end()); //!< Define minimum z coordinate                                
-  double min_z = *min_element(serialClass.coordinateZVector.begin(), serialClass.coordinateZVector.end()); //!< Define maximum z coordinate          
+void MPI_setup::MPI_data_send(JarzynskiFreeEnergy* serialClass) {
+  double max_z = *max_element(serialClass->coordinateZVector.begin(), serialClass->coordinateZVector.end()); //!< Define minimum z coordinate        
+  double min_z = *min_element(serialClass->coordinateZVector.begin(), serialClass->coordinateZVector.end()); //!< Define maximum z coordinate
   //! We want to accumulate the values via the bins: */                   
   /*
     Need to divide the length of the vector into comm_sz to make sure the vector 

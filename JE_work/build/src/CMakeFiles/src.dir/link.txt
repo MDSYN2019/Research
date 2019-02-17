@@ -1,2 +1,0 @@
-/usr/bin/ar qc libsrc.a  CMakeFiles/src.dir/JE_alg.o
-/usr/bin/ranlib libsrc.a

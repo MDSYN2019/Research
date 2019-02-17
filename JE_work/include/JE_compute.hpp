@@ -99,7 +99,7 @@ private:
   tupleList JETaylorCoordinateBin; /*< Vector for storing taylor series JE tuples */
 };
 
-class MPI_setup {
+class MPI_setup : public JarzynskiFreeEnergy {
 public:
   MPI_setup();
   //  MPI_setup(int*, int*);

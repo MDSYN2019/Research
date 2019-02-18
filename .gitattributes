@@ -10,3 +10,4 @@
 *.hh text diff=cpp
 *.3 linguist-documentation
 *.1 linguist-documentation
+*.3 linguist-language=text

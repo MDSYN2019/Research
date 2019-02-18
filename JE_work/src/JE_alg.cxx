@@ -42,11 +42,8 @@
 
 static inline double computeSquare (double x) { return x*x;} // function for squaring the elements in a vector
 
-JarzynskiFreeEnergy::JarzynskiFreeEnergy() {
-} 
-
-JarzynskiFreeEnergy::~JarzynskiFreeEnergy() {
-}
+JarzynskiFreeEnergy::JarzynskiFreeEnergy() {} 
+JarzynskiFreeEnergy::~JarzynskiFreeEnergy() {}
 
 double JarzynskiFreeEnergy::JEprocessVector(int position, double (JarzynskiFreeEnergy::*f) (std::vector<double> *VectorInput), std::vector<double> *JEVector) { 
   /*!< Compute free energies with algorithm plugged in from JarzynskiFreeEnergy::*f, with the work values from std::vector<double> *VectorInput  */ 
@@ -65,12 +62,14 @@ double JarzynskiFreeEnergy::JEprocessVector(int position, double (JarzynskiFreeE
 void JarzynskiFreeEnergy::vecProcess() {
   /*! This function uses the boost::tuple and create a vector of tuples; it stores the free energy values with the first index storing the coordinate value where we base the search. The second and third elements store the minimum and maximum range from which the work distribution was analyzed. Finally, the last element stores the free energy values. 
 */
-  double max_z = *max_element(coordinateZVector.begin(), coordinateZVector.end()); //!< Define minimum z coordinate                                
-  double min_z = *min_element(coordinateZVector.begin(), coordinateZVector.end()); //!< Define maximum z coordinate          
+  double maxZ = *max_element(coordinateZVector.begin(), coordinateZVector.end()); //!< Define minimum z coordinate                                
+  double minZ = *min_element(coordinateZVector.begin(), coordinateZVector.end()); //!< Define maximum z coordinate          
   //! We want to accumulate the values via the bins: */                                                                                                     
-  for (int index = 0; index < max_z; ++index) {
+  for (int index = 0; index < maxZ; ++index) {
+
     tuple JERawVal{index, index - 0.5, index + 0.5, JEprocessVector(index, &JarzynskiFreeEnergy::JERaw, &JERawVector)}; //!< Make bins for storing the work values between i - 0.5 and i + 0.5 - i.e. a 1 angstrom interval, using the raw JE interpreter  
     tuple JETaylorVal{index, index - 0.5, index + 0.5, JEprocessVector(index, &JarzynskiFreeEnergy::JETaylor, &JETaylorVector)}; //!< Make bins for storing the work values between i - 0.5 and i + 0.5 - i.e. a 1 angstrom interval, using the taylor series JE interpreter 
+    
     JERawCoordinateBin.push_back(JERawVal); //!< Store free energy values from JERaw algorithm  
     JETaylorCoordinateBin.push_back(JETaylorVal); //!< Push back values in each 
   }
@@ -101,14 +100,15 @@ void JarzynskiFreeEnergy::resetIndex(){
 
 double JarzynskiFreeEnergy::JERaw(std::vector<double> *JEVector) {
   /** The Raw Jarzynski Equality computer */
-  std::vector<long double> RawVector; /**< Vector to copy the value into, as to not change the values of the elements inside the vector pointer */
+  std::vector<double> RawVector; /**< Vector to copy the value into, as to not change the values of the elements inside the vector pointer */
   double G; /*!< Free energy (Gibbs) */
   double Beta = 1 / (-BOLTZMANN * 303); /**< Boltzmann >Factor, at 303K */
   doubleIter workIterator; /**< iterator for vector */
   for (workIterator = JEVector->begin(); workIterator != JEVector->end(); ++workIterator) {
     RawVector.push_back(exp(*workIterator * Beta));
   }
-  G = log(std::accumulate(RawVector.begin(), RawVector.end(), 0.0)) / RawVector.size() * Beta; /*!< compute the raw JE */
+  
+  G = log(std::accumulate(RawVector.begin(), RawVector.end(), 0.0)) * Beta; /*!< compute the raw JE */
   return G; 
 }
 
@@ -172,14 +172,17 @@ void MPI_setup::MPI_parameter_struct_constructor(MPI_Datatype* input_mpi_t_p) {
   parameterData parameters;
   parameters.BM = 0.0019872041; /*< units for the boltzmann constant are in kcal mol^-1 */; 
   parameters.T = 303;
+
   // Define parameters for storing the variables 
-  // new
+
   int array_of_blocklengths[2] = {1,1};
   MPI_Datatype array_of_types[2] = {MPI_DOUBLE, MPI_DOUBLE};
   MPI_Aint array_of_displacements[2] = {0};
   MPI_Aint BM_addr, T_addr;	     
+
   MPI_Get_address(&parameters.BM, &BM_addr);
   MPI_Get_address(&parameters.T, &T_addr);
+
   array_of_displacements[1] = T_addr - BM_addr;
   MPI_Type_create_struct(2, array_of_blocklengths, array_of_displacements, array_of_types, input_mpi_t_p);
   MPI_Type_commit(input_mpi_t_p);

@@ -97,7 +97,6 @@ int main(int argc, char *argv[]) {
     path = pullDirectory + "/" + std::string(*i);
     std::cout << "Reading pull files from directory:" << path << std::endl;
     FE.read(path);
-
   }   
 
   FE.vecProcess(); // Compute the JE interpreters

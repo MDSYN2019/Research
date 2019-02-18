@@ -99,7 +99,7 @@ private:
   tupleList JETaylorCoordinateBin; /*< Vector for storing taylor series JE tuples */
 };
 
-class MPI_setup : public JarzynskiFreeEnergy {
+class MPI_setup : public JarzynskiFreeEnergy { // Make sure we inherit from the JarzynskiFreeEnergy 
 public:
   MPI_setup();
   //  MPI_setup(int*, int*);
@@ -107,6 +107,7 @@ public:
   void MPI_vec_send();
   void MPI_parameter_stuct_constructor(MPI_Datatype*);
   void MPI_data_send(JarzynskiFreeEnergy*);
+  void MPI_parameter_broadcast(); 
   friend class JarzynskiFreeEnergy; // MPI class inherits from the Jarzynski equality class 
 private:
   int my_rank, p; // MPI address and total p size 

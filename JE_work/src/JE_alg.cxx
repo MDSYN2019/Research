@@ -127,7 +127,6 @@ double JarzynskiFreeEnergy::JETaylor(std::vector<double> *JEVector) {
   std::transform(RawVector.begin(), RawVector.end(), squaredRawVector.begin(), computeSquare);
   double AvWork = std::accumulate(RawVector.begin(), RawVector.end(), 0.0)/ RawVector.size(); /*!< Average work */   
   double squaredAvWork = std::accumulate(squaredRawVector.begin(), squaredRawVector.end(), 0.0)/ squaredRawVector.size(); /*!< Average squared work */
-
   G = AvWork - (RawVector.size() / RawVector.size() -1) * (Beta / 2) * (squaredAvWork - AvWork* AvWork); /*!< Taylor series interpreter */
   return G;
 }
@@ -184,14 +183,23 @@ void MPI_setup::MPI_parameter_stuct_constructor(MPI_Datatype* input_mpi_t_p) {
   MPI_Type_commit(input_mpi_t_p);
 }
 
+
+void MPI_setup::MPI_parameter_broadcast() {
+
+}
+
+
+
+
 void MPI_setup::MPI_data_send(JarzynskiFreeEnergy* serialClass) {
-  double max_z = *max_element(serialClass->coordinateZVector.begin(), serialClass->coordinateZVector.end()); //!< Define minimum z coordinate        
-  double min_z = *min_element(serialClass->coordinateZVector.begin(), serialClass->coordinateZVector.end()); //!< Define maximum z coordinate
-  //! We want to accumulate the values via the bins: */                   
-  /*
-    Need to divide the length of the vector into comm_sz to make sure the vector 
-    is divided for each ..node? 
-  */
+  // double max_z = *max_element(serialClass->coordinateZVector.begin(), serialClass->coordinateZVector.end()); //!< Define minimum z coordinate     
+  //  double min_z = *min_element(serialClass->coordinateZVector.begin(), serialClass->coordinateZVector.end()); //!< Define maximum z coordinate
+  // Make a copy of the coordinate and workvector vector, so that we do not touch the original vector
+  workVectorSplit.assign(serialClass->workVector.begin(), serialClass->workVector.end());
+  coordinateZVectorSplit.assign(serialClass->coordinateZVector.begin(), serialClass->coordinateZVector.end());  
+
+  int subvec_size = workVecctorSplit.size() / p;
+  std::cout << "For this MPI code, we are splitting the vector into " << subvec_size << "chunks"  << std::endl;
 
   if (my_rank == 0) {
     // This is a bit tricky - I will need to make sure that the vector is divided equally

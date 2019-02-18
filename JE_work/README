@@ -6,7 +6,7 @@ found in main.cxx.
 The work files can be found in the /data/ folder. The most important columns are column 2 and the last column (starting index 1), which represents
 the reaction coordinate and the work values computed using LAMMPS.
 
-Please contact me at Sangyoung123@googlemail.com for more information
+Please contact me at sangyoung123@googlemail.com for more information
 
 Thanks
 

@@ -188,9 +188,6 @@ void MPI_setup::MPI_parameter_broadcast() {
 
 }
 
-
-
-
 void MPI_setup::MPI_data_send(JarzynskiFreeEnergy* serialClass) {
   // double max_z = *max_element(serialClass->coordinateZVector.begin(), serialClass->coordinateZVector.end()); //!< Define minimum z coordinate     
   //  double min_z = *min_element(serialClass->coordinateZVector.begin(), serialClass->coordinateZVector.end()); //!< Define maximum z coordinate
@@ -204,5 +201,8 @@ void MPI_setup::MPI_data_send(JarzynskiFreeEnergy* serialClass) {
   if (my_rank == 0) {
     // This is a bit tricky - I will need to make sure that the vector is divided equally
     // TODO
+  } else {
+
   }
+
 }

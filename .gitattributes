@@ -8,3 +8,4 @@
 *.h text diff=cpp
 *.h++ text diff=cpp
 *.hh text diff=cpp
+.3 linguist-language=cpp

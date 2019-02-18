@@ -37,6 +37,7 @@
 #include "JE_compute.hpp"
 
 /*! MPI */
+
 #include "mpi.h"
 
 static inline double computeSquare (double x) { return x*x;} // function for squaring the elements in a vector
@@ -57,7 +58,6 @@ double JarzynskiFreeEnergy::JEprocessVector(int position, double (JarzynskiFreeE
     if (*diterator > position - 0.5 && *diterator < position + 0.5) { /*!< If the work values are within an angstrom range, add to vector */  
       JEVector->push_back((workVector[work_index])); /*!< store work values */ 
     }
-
   }
   return (sample.*f)(JEVector); /*!< Assess the free energy with the function as pointed to by sample.f* */ 
 }
@@ -68,22 +68,25 @@ void JarzynskiFreeEnergy::vecProcess() {
   double max_z = *max_element(coordinateZVector.begin(), coordinateZVector.end()); //!< Define minimum z coordinate                                
   double min_z = *min_element(coordinateZVector.begin(), coordinateZVector.end()); //!< Define maximum z coordinate          
   //! We want to accumulate the values via the bins: */                                                                                                     
-  for (int i = 0; i < max_z; ++i) {
-    tuple JERawVal{i, i - 0.5, i + 0.5, JEprocessVector(i, &JarzynskiFreeEnergy::JERaw, &JERawVector)}; //!< Make bins for storing the work values between i - 0.5 and i + 0.5 - i.e. a 1 angstrom interval, using the raw JE interpreter  
-    
-    tuple JETaylorVal{i, i - 0.5, i + 0.5, JEprocessVector(i, &JarzynskiFreeEnergy::JETaylor, &JETaylorVector)}; //!< Make bins for storing the work values between i - 0.5 and i + 0.5 - i.e. a 1 angstrom interval, using the taylor series JE interpreter 
+  for (int index = 0; index < max_z; ++index) {
+    tuple JERawVal{index, index - 0.5, index + 0.5, JEprocessVector(index, &JarzynskiFreeEnergy::JERaw, &JERawVector)}; //!< Make bins for storing the work values between i - 0.5 and i + 0.5 - i.e. a 1 angstrom interval, using the raw JE interpreter  
+    tuple JETaylorVal{index, index - 0.5, index + 0.5, JEprocessVector(index, &JarzynskiFreeEnergy::JETaylor, &JETaylorVector)}; //!< Make bins for storing the work values between i - 0.5 and i + 0.5 - i.e. a 1 angstrom interval, using the taylor series JE interpreter 
     JERawCoordinateBin.push_back(JERawVal); //!< Store free energy values from JERaw algorithm  
     JETaylorCoordinateBin.push_back(JETaylorVal); //!< Push back values in each 
   }
+
   std::cout << " RAW JE interpreter results" << std::endl;
   std::cout << " Columns: Coordinate, Coordinate range min, Coordinate range max, Free Energy (Kcal mol)" << std::endl;
-  for (tupleList::const_iterator i = JERawCoordinateBin.begin(); i != JERawCoordinateBin.end(); ++i) {
-    std::cout << "Bin Center: " << i->get<0>() << " " << i->get<1>()  << " " << i->get<2>() << " " << std::fixed << std::setprecision(5) << i->get<3>() << std::endl; //! Print out to 5 decimal places 
+
+  for (tupleList::const_iterator index = JERawCoordinateBin.begin(); index != JERawCoordinateBin.end(); ++index) {
+    std::cout << "Bin Center: " << index->get<0>() << " " << index->get<1>()  << " " << index->get<2>() << " " << std::fixed << std::setprecision(5) << index->get<3>() << std::endl; //! Print out to 5 decimal places 
   }
+
   std::cout << " Taylor Series JE interpreter results" << std::endl;
   std::cout << " Columns: Coordinate, Coordinate range min, Coordinate range max, Free Energy (Kcal mol)" << std::endl;
-  for (tupleList::const_iterator i = JETaylorCoordinateBin.begin(); i != JETaylorCoordinateBin.end(); ++i) {
-    std::cout << "Bin Center: " << i->get<0>() << " " << i->get<1>()  << " " << i->get<2>() << " " << std::fixed << std::setprecision(5) << i->get<3>() << std::endl; //! Print out to 5 decimal places 
+
+  for (tupleList::const_iterator index = JETaylorCoordinateBin.begin(); index != JETaylorCoordinateBin.end(); ++index) {
+    std::cout << "Bin Center: " << index->get<0>() << " " << index->get<1>()  << " " << index->get<2>() << " " << std::fixed << std::setprecision(5) << index->get<3>() << std::endl; //! Print out to 5 decimal places 
   }
 }
 
@@ -98,14 +101,14 @@ void JarzynskiFreeEnergy::resetIndex(){
 
 double JarzynskiFreeEnergy::JERaw(std::vector<double> *JEVector) {
   /** The Raw Jarzynski Equality computer */
-  std::vector<double> RawVector; /**< Vector to copy the value into, as to not change the values of the elements inside the vector pointer */
+  std::vector<long double> RawVector; /**< Vector to copy the value into, as to not change the values of the elements inside the vector pointer */
   double G; /*!< Free energy (Gibbs) */
-  double Beta = 1.0 / (BOLTZMANN * 303); /**< Boltzmann >Factor, at 303K */
+  double Beta = 1 / (-BOLTZMANN * 303); /**< Boltzmann >Factor, at 303K */
   doubleIter workIterator; /**< iterator for vector */
   for (workIterator = JEVector->begin(); workIterator != JEVector->end(); ++workIterator) {
-    RawVector.push_back(*workIterator);
+    RawVector.push_back(exp(*workIterator * Beta));
   }
-  G = log(std::accumulate(RawVector.begin(), RawVector.end(), 0.0) / RawVector.size()) / -Beta; /*!< compute the raw JE */
+  G = log(std::accumulate(RawVector.begin(), RawVector.end(), 0.0)) / RawVector.size() * Beta; /*!< compute the raw JE */
   return G; 
 }
 
@@ -136,14 +139,12 @@ void JarzynskiFreeEnergy::read(std::string input) {
   std::ifstream myFile;
   myFile.open(input, std::ifstream::in);
   std::cout << myFile.is_open() << std::endl;
-
   if (myFile.is_open() == 0) {    
     std::cout << "Cannot open files" << std::endl;     
     exit(1);
-  }
-
-  else {	
+  } else {	
     std::cout << "Successfully read. Opening file:" << " " << input << std::endl;	
+    std::cout << std::endl;
   }
   
   while (myFile >> number >> z >> bilayerCOM >> force >> work) {
@@ -154,9 +155,12 @@ void JarzynskiFreeEnergy::read(std::string input) {
     workVector.push_back(work); /*!< Work values */
     nLines++; /*!< Add index for next line */ 
   }
+
   myFile.close();
   std::cout << "The number of lines in file:" << " " << nLines << " " << std::endl;
+  std::cout << std::endl;
 }
+
 // MPI class 
 MPI_setup::MPI_setup() { // Default constructor for MPI
   MPI_Init(NULL, NULL);

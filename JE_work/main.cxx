@@ -61,12 +61,11 @@ int main(int argc, char *argv[]) {
   std::string filenameString = argv[1]; // Pull file names
   std::string pullDirectory = argv[2]; // Directory for where the pull files are in the computer
   int numberOfFiles = atoi(argv[3]); // Number of pull filenameString
-  
   try {
+
     if (argc <= 0 || argc < 3 || argc > 3) {
       throw std::invalid_argument("received the wrong amount of input parameters");
     }
-    
   }  catch(const std::invalid_argument& e) {
     std::cout << "Usage: filename directory numberoffiles" << std::endl;
     std::cout << "Aborting Program..";

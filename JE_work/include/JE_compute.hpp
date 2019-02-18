@@ -65,6 +65,7 @@ public:
   double alpha(double, double, double); /*< */   
   // friend functions to take care of the MPI implementation
   friend class MPI_setup;
+  friend class JEunitTest;
 private:
   //! /
   /*! Scientific constants used in this work */
@@ -119,5 +120,10 @@ private:
   std::vector<double> JERawVectorSplit; /*< Storing the work for the raw JE interpreter */ 
   std::vector<double> JETaylorVectorSplit; /*< Storing the work ffor the taylor series JE interpreter */
 };
+
+class JEunitTest  { // Make sure we inherit from the JarzynskiFreeEnergy 
+
+};
+
 
 #endif 

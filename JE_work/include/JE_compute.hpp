@@ -1,4 +1,4 @@
-1  /*!
+  /*!
   ---------------------------------------------------------------------------------
   | Jarzynski-Equality Algorithm based on multiple implementations/corrections    |
   |                                                                               | 
@@ -105,7 +105,7 @@ public:
   //  MPI_setup(int*, int*);
   ~MPI_setup();
   void MPI_vec_send();
-  void MPI_parameter_stuct_constructor(MPI_Datatype*);
+  void MPI_parameter_struct_constructor(MPI_Datatype*);
   void MPI_data_send(JarzynskiFreeEnergy*);
   void MPI_parameter_broadcast(); 
   friend class JarzynskiFreeEnergy; // MPI class inherits from the Jarzynski equality class 
@@ -120,10 +120,10 @@ private:
   std::vector<double> JERawVectorSplit; /*< Storing the work for the raw JE interpreter */ 
   std::vector<double> JETaylorVectorSplit; /*< Storing the work ffor the taylor series JE interpreter */
 };
-
+/*
 class JEunitTest  { // Make sure we inherit from the JarzynskiFreeEnergy 
 
 };
-
+*/
 
 #endif 

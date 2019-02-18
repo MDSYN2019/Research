@@ -57,33 +57,32 @@ Abbreviation: JE - Jarzynski Equalily
 #include "JE_compute.hpp"
 
 int main(int argc, char *argv[]) {
-
   std::string filenameString = argv[1]; // Pull file names
   std::string pullDirectory = argv[2]; // Directory for where the pull files are in the computer
   int numberOfFiles = atoi(argv[3]); // Number of pull filenameString
+  std::cout << filenameString << " " << pullDirectory << " " << numberOfFiles << " " << argc << " " << std::endl;
+  
   try {
-
-    if (argc <= 0 || argc < 3 || argc > 3) {
+    if (argc <= 0 || argc > 4) {
       throw std::invalid_argument("received the wrong amount of input parameters");
     }
-  }  catch(const std::invalid_argument& e) {
+  } catch(const std::invalid_argument& e) {
     std::cout << "Usage: filename directory numberoffiles" << std::endl;
-    std::cout << "Aborting Program..";
+    std::cout << "Aborting Program, due to error:" << e.what() << " "  << std::endl;
     exit(1);
   }
+
   
   JarzynskiFreeEnergy FE; // Class instance  
 
   int index = 0;
-
   std::string filename;
   std::string path;
   std::vector<std::string> traj;
 
   FE.resetIndex();  
 
-  for (int i = 0; i < numberOfFiles; i++) {     
-
+  for (int i = 0; i <= numberOfFiles; i++) {     
     index = i + 1; // Filename index
     auto b = std::to_string(index);
     filename = filenameString + "." + b; // Concatenate string  

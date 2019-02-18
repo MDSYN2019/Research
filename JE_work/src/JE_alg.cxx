@@ -102,11 +102,10 @@ double JarzynskiFreeEnergy::JERaw(std::vector<double> *JEVector) {
   double G; /*!< Free energy (Gibbs) */
   double Beta = 1.0 / (BOLTZMANN * 303); /**< Boltzmann >Factor, at 303K */
   doubleIter workIterator; /**< iterator for vector */
-  
   for (workIterator = JEVector->begin(); workIterator != JEVector->end(); ++workIterator) {
-    RawVector.push_back(exp( (*workIterator) * -Beta ));
+    RawVector.push_back(*workIterator);
   }
-  G = log (std::accumulate(RawVector.begin(), RawVector.end(), 0.0) / RawVector.size() ) / -Beta; /*!< compute the raw JE */
+  G = log(std::accumulate(RawVector.begin(), RawVector.end(), 0.0) / RawVector.size()) / -Beta; /*!< compute the raw JE */
   return G; 
 }
 
@@ -123,6 +122,7 @@ double JarzynskiFreeEnergy::JETaylor(std::vector<double> *JEVector) {
     RawVector.push_back(*workIterator);
   }  
   /*! Store the squared work values */
+
   squaredRawVector.resize(RawVector.size());
   std::transform(RawVector.begin(), RawVector.end(), squaredRawVector.begin(), computeSquare);
   double AvWork = std::accumulate(RawVector.begin(), RawVector.end(), 0.0)/ RawVector.size(); /*!< Average work */   
@@ -157,16 +157,14 @@ void JarzynskiFreeEnergy::read(std::string input) {
   myFile.close();
   std::cout << "The number of lines in file:" << " " << nLines << " " << std::endl;
 }
-
 // MPI class 
-
 MPI_setup::MPI_setup() { // Default constructor for MPI
   MPI_Init(NULL, NULL);
   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
   MPI_Comm_size(MPI_COMM_WORLD, &p);
 }
 
-void MPI_setup::MPI_parameter_stuct_constructor(MPI_Datatype* input_mpi_t_p) {
+void MPI_setup::MPI_parameter_struct_constructor(MPI_Datatype* input_mpi_t_p) {
   parameterData parameters;
   parameters.BM = 0.0019872041; /*< units for the boltzmann constant are in kcal mol^-1 */; 
   parameters.T = 303;
@@ -183,26 +181,19 @@ void MPI_setup::MPI_parameter_stuct_constructor(MPI_Datatype* input_mpi_t_p) {
   MPI_Type_commit(input_mpi_t_p);
 }
 
-
+/*
 void MPI_setup::MPI_parameter_broadcast() {
-
 }
-
+*/
 void MPI_setup::MPI_data_send(JarzynskiFreeEnergy* serialClass) {
   // double max_z = *max_element(serialClass->coordinateZVector.begin(), serialClass->coordinateZVector.end()); //!< Define minimum z coordinate     
   //  double min_z = *min_element(serialClass->coordinateZVector.begin(), serialClass->coordinateZVector.end()); //!< Define maximum z coordinate
   // Make a copy of the coordinate and workvector vector, so that we do not touch the original vector
   workVectorSplit.assign(serialClass->workVector.begin(), serialClass->workVector.end());
   coordinateZVectorSplit.assign(serialClass->coordinateZVector.begin(), serialClass->coordinateZVector.end());  
-
-  int subvec_size = workVecctorSplit.size() / p;
-  std::cout << "For this MPI code, we are splitting the vector into " << subvec_size << "chunks"  << std::endl;
-
+  //  int subvec_size = workVecctorSplit.size() / p;
+  // std::cout << "For this MPI code, we are splitting the vector into " << subvec_size << "chunks"  << std::endl;
   if (my_rank == 0) {
     // This is a bit tricky - I will need to make sure that the vector is divided equally
-    // TODO
-  } else {
-
-  }
-
+  } 
 }

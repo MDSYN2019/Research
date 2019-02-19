@@ -1,3 +1,15 @@
+
+/*!
+---------------------------------------------------------------------------------
+| Jarzynski-Equality Algorithm based on multiple implementations/corrections    |
+|                                                                               | 
+| VERSION: 0.0.3                                                                |  
+---------------------------------------------------------------------------------
+
+Initialzation of the template defined in the header 
+
+*/
+
 #include <iostream>
 #include <iomanip>
 #include <fstream>
@@ -83,7 +95,6 @@ void JarzynskiFreeEnergy::vecProcess() {
 
   std::cout << " Taylor Series JE interpreter results" << std::endl;
   std::cout << " Columns: Coordinate, Coordinate range min, Coordinate range max, Free Energy (Kcal mol)" << std::endl;
-
   for (tupleList::const_iterator index = JETaylorCoordinateBin.begin(); index != JETaylorCoordinateBin.end(); ++index) {
     std::cout << "Bin Center: " << index->get<0>() << " " << index->get<1>()  << " " << index->get<2>() << " " << std::fixed << std::setprecision(5) << index->get<3>() << std::endl; //! Print out to 5 decimal places 
   }
@@ -161,7 +172,8 @@ void JarzynskiFreeEnergy::read(std::string input) {
   std::cout << std::endl;
 }
 
-// MPI class 
+/*!<  MPI class - Sending the datatypes and vectors  */
+
 MPI_setup::MPI_setup() { // Default constructor for MPI
   MPI_Init(NULL, NULL);
   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
@@ -188,19 +200,13 @@ void MPI_setup::MPI_parameter_struct_constructor(MPI_Datatype* input_mpi_t_p) {
   MPI_Type_commit(input_mpi_t_p);
 }
 
-/*
-void MPI_setup::MPI_parameter_broadcast() {
-}
-*/
-void MPI_setup::MPI_data_send(JarzynskiFreeEnergy* serialClass) {
-  // double max_z = *max_element(serialClass->coordinateZVector.begin(), serialClass->coordinateZVector.end()); //!< Define minimum z coordinate     
-  //  double min_z = *min_element(serialClass->coordinateZVector.begin(), serialClass->coordinateZVector.end()); //!< Define maximum z coordinate
-  // Make a copy of the coordinate and workvector vector, so that we do not touch the original vector
+
+void MPI_setup::MPI_data_bcast(JarzynskiFreeEnergy* serialClass) {
+  
   workVectorSplit.assign(serialClass->workVector.begin(), serialClass->workVector.end());
   coordinateZVectorSplit.assign(serialClass->coordinateZVector.begin(), serialClass->coordinateZVector.end());  
-  //  int subvec_size = workVecctorSplit.size() / p;
-  // std::cout << "For this MPI code, we are splitting the vector into " << subvec_size << "chunks"  << std::endl;
-  if (my_rank == 0) {
-    // This is a bit tricky - I will need to make sure that the vector is divided equally
-  } 
+
+  MPI_Bcast(&workVectorSplit[0], workVectorSplit.size(), MPI_DOUBLE, 0, MPI_COMM_WORLD);
+  MPI_Bcast(&coordinateZVectorSplit[0], coordinateZVectorSplit.size(), MPI_DOUBLE, 0, MPI_COMM_WORLD);
+
 }

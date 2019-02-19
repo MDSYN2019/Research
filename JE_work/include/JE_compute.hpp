@@ -20,6 +20,8 @@
   Abbreviation: JE - Jarzynski Equality
 
   */
+
+
 #ifndef __JE__
 #define __JE__
 
@@ -67,7 +69,6 @@ public:
   friend class MPI_setup;
   friend class JEunitTest;
 private:
-  //! /
   /*! Scientific constants used in this work */
   double BOLTZMANN = 0.0019872041; /*< units for the boltzmann constant are in kcal mol^-1 */
   double Temperature; /*< Temperature */
@@ -120,10 +121,5 @@ private:
   std::vector<double> JERawVectorSplit; /*< Storing the work for the raw JE interpreter */ 
   std::vector<double> JETaylorVectorSplit; /*< Storing the work ffor the taylor series JE interpreter */
 };
-/*
-class JEunitTest  { // Make sure we inherit from the JarzynskiFreeEnergy 
-
-};
-*/
 
 #endif 

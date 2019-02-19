@@ -100,6 +100,14 @@ private:
   tupleList JETaylorCoordinateBin; /*< Vector for storing taylor series JE tuples */
 };
 
+class JarzynskiFreeEnergyTest : public CppUnit:TestCase, public JarzynskiFreeEnergy  { // Multiple inheritance - might be an issue 
+public:
+  // Might need some thinking regarding the constructors 
+  void vectorTest();
+  // Do I need any private variables for this class?
+};
+
+  
 class MPI_setup : public JarzynskiFreeEnergy { // Make sure we inherit from the JarzynskiFreeEnergy 
 public:
   MPI_setup();

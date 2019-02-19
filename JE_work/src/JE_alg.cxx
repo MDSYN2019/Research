@@ -52,6 +52,10 @@ Initialzation of the template defined in the header
 
 #include "mpi.h"
 
+/*! Unit Testing modules */
+
+#include <cppunit/ui/text/TestRunner.h>
+
 static inline double computeSquare (double x) { return x*x;} // function for squaring the elements in a vector
 
 JarzynskiFreeEnergy::JarzynskiFreeEnergy() {} 

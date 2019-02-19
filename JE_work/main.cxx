@@ -57,11 +57,12 @@ Abbreviation: JE - Jarzynski Equalily
 #include "JE_compute.hpp"
 
 int main(int argc, char *argv[]) {
+
   std::string filenameString = argv[1]; // Pull file names
   std::string pullDirectory = argv[2]; // Directory for where the pull files are in the computer
   int numberOfFiles = atoi(argv[3]); // Number of pull filenameString
   std::cout << filenameString << " " << pullDirectory << " " << numberOfFiles << " " << argc << " " << std::endl;
-  
+
   try {
     if (argc <= 0 || argc > 4) {
       throw std::invalid_argument("received the wrong amount of input parameters");
@@ -72,33 +73,30 @@ int main(int argc, char *argv[]) {
     exit(1);
   }
 
-  
   JarzynskiFreeEnergy FE; // Class instance  
 
-  int index = 0;
+  int fileIndex = 0;
+
   std::string filename;
   std::string path;
   std::vector<std::string> traj;
 
   FE.resetIndex();  
-
-  for (int i = 0; i <= numberOfFiles; i++) {     
-    index = i + 1; // Filename index
-    auto b = std::to_string(index);
+  for (int index = 0; index < numberOfFiles; i++) {     
+    fileIndex = index + 1; // Filename index
+    auto b = std::to_string(fileIndex);
     filename = filenameString + "." + b; // Concatenate string  
     traj.push_back(filename); // store the filesname    
-
   }
   
   // Loop through all the filesnames and work through them 
+  for (std::vector<std::string>::const_iterator index = traj.begin(); index != traj.end(); ++index) {
 
-  for (std::vector<std::string>::const_iterator i = traj.begin(); i != traj.end(); ++i) {
-
-    path = pullDirectory + "/" + std::string(*i);
+    path = pullDirectory + "/" + std::string(*index);
     std::cout << "Reading pull files from directory:" << path << std::endl;
     FE.read(path);
-  }   
-
+  }
+  
   FE.vecProcess(); // Compute the JE interpreters
 
   return 0;

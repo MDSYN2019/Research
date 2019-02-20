@@ -47,7 +47,6 @@ typedef struct {
   double T; 
 } parameterData;
 
-
 //! 
 /*! The main class */  
 
@@ -73,7 +72,6 @@ private:
   double BOLTZMANN = 0.0019872041; /*< units for the boltzmann constant are in kcal mol^-1 */
   double Temperature; /*< Temperature */
   int numberOfPullFiles; /*< The number of work files to compute the free energy values with */
-  
   int index = 0;
   int nLines = 0;    
   int numberOfTrajectories = 0;  
@@ -107,7 +105,6 @@ public:
   // Do I need any private variables for this class?
 };
 
-  
 class MPI_setup : public JarzynskiFreeEnergy { // Make sure we inherit from the JarzynskiFreeEnergy 
 public:
   MPI_setup();

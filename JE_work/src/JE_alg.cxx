@@ -57,7 +57,6 @@ Initialzation of the template defined in the header
 #include <cppunit/ui/text/TestRunner.h>
 
 static inline double computeSquare (double x) { return x*x;} // function for squaring the elements in a vector
-
 JarzynskiFreeEnergy::JarzynskiFreeEnergy() {} 
 JarzynskiFreeEnergy::~JarzynskiFreeEnergy() {}
 
@@ -203,7 +202,6 @@ void MPI_setup::MPI_parameter_struct_constructor(MPI_Datatype* input_mpi_t_p) {
   MPI_Type_create_struct(2, array_of_blocklengths, array_of_displacements, array_of_types, input_mpi_t_p);
   MPI_Type_commit(input_mpi_t_p);
 }
-
 
 void MPI_setup::MPI_data_bcast(JarzynskiFreeEnergy* serialClass) {
   

@@ -17,7 +17,7 @@
 
 template <int m1, int l1, int t1, int m2, nt l2, int t2>
 Physical<m1+m2,l1+l2,t1+t2> operator*(Physical<m1, l1, t1> lhs, Physical<m2, l2, t2> rhs) {
-  return Physical<m1+m2, l1+l2, t1+t2>::unit*lhs.value()*rhs.value();
+  return Physical<m1+m2, l1+l2, t1+t2>::unit*lhs.value() * rhs.value();
 }
 
 template <class T> class placeHolder {
@@ -77,9 +77,13 @@ void Build_mpi_type (double* a_p,  double* b_p, int* n_p, myStruct* stct, MPI_Da
   MPI_Aint array_of_displacements[3] = {0};
   MPI_Aint a_addr, b_addr, n_addr;
 
-  (*stct).a = *a_p;
-  (*stct).b = *b_p;
-  (*stct).c = *n_p;
+  stct->.a = *a_p;
+  stct->.b = *b_p;
+  stct->c = *n_p;
+
+
+  //(*stct).b = *b_p;
+  //(*stct).c = *n_p;
   
   MPI_Get_address(&stct->a, &a_addr);
   MPI_Get_address(&stct->b, &b_addr);

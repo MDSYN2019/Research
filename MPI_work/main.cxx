@@ -43,34 +43,45 @@ float A[10][10];
 
 
 /*
+
 Other derived types
 
 If the data to be transmitted consists of a subset of the entries in an array, 
 we shouldn't need to provide such detailed information ince all the information
 have the same basic type
 
-MPI provides 
-
- */
-
-if (my_rank == 0) {
-  MPI_Send(&(A[2][0]), 10, MPI_FLOAT, 1, 0, MPI_COMM_WORLD);
- } else {
-  MPI_Recv(&(A[2][0]), 10, MPI_FLOAT, 0, 0, MPI_COMM_WORLD, &status);
- }
-  
-/*
-
 If we wish to send the third column of A, this won't work, since A[0][2] ...
 aren't stored in contiguous memory locations. 
 
 However, we can use MPI_type_vector to create a derived datatype, since the 
 
- */
-MPI_Type_vector(10, 1, 10, MPI_FLOAT, &column_mpi_t);
-MPI_Type_commit(&commit_mpi_t);
-MPI_Datatype input_mpi_t;  
+*/
 
+
+
+
+MPI_Datatype newMPIDT2;  
+
+MPI_Type_vector(10, 1, 10, MPI_FLOAT, &newMPIDT2);
+MPI_Type_commit(&newMPIDT2);
+
+if (my_rank == 0) {
+  MPI_Send(&A[0][2], 1, column_mpi_t, 1, 0, MPI_COMM_WORLD);
+ } else {
+  MPI_Recv(&(A[0][2]), 1, column_mpi_t, 0, 0, MPI_COMM_WORLD, &status);
+ }
+
+// TODO
+MPI_Group group_world;
+MPI_Group first_row_group;
+MPI_Comm first_row_comm;
+
+/*
+
+It is fairly expensive to build a derived datatype. So applications that make use of derived 
+datatypes typically use the types many times
+
+ */
 
 void MPIGetData(float*  a_ptr, float*  b_ptr, int* n_ptr , int my_rank) {
     char  buffer[100];  /* Store data in buffer        */

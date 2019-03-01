@@ -65,6 +65,7 @@ make use of derived datatypes typically use the types many times.
 
 
 class mpiMatrixMultiplication {
+
   /*
 
     A communicator is a collection of processes that can send 
@@ -75,6 +76,7 @@ class mpiMatrixMultiplication {
 
     c_{ij} = a_{i,0}b_{0,j} + a_{i,1}b_{1,j} + a_{i,n-1}b_{n-1,j}
    */
+  
 public:
   
   
@@ -86,6 +88,35 @@ MPI_Datatype newMPIDT2;
 
 MPI_Type_vector(10, 1, 10, MPI_FLOAT, &newMPIDT2);
 MPI_Type_commit(&newMPIDT2);
+
+/* 
+   newMPIDT2 can be used to send any column of A. If we want to send the jth column of A,
+   j = 0, 1, 2, 3, ..9, we simply call the communcation routine with the first argument 
+   &(A[0][j]). 
+
+   Also note that in fact column_mpi_t can be used to send any column of any 10 x 10 
+   matrix of floats, since the stride and element type will be the same. 
+
+  => Type Matching 
+
+  At this point it is natural to ask, what are the rules for matching MPI datatypes
+  For example, suppose a program contains the following code --> (2)
+
+  
+*/
+
+// (2)
+
+if (my_rank == 0) {
+  MPI_Send(message, send_count, send_mpi_t, 1, 0, MPI_COMM_WORLD);
+ } else if (my_rank == 1) {
+  MPI_Recv(message, recv_count, recv_mpi_t, 0, 0, MPI_COMM_WORLD, &status);
+ }
+   
+
+
+
+// --
 
 if (my_rank == 0) {
   MPI_Send(&A[0][2], 1, column_mpi_t, 1, 0, MPI_COMM_WORLD);

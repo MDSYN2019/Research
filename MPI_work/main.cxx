@@ -75,13 +75,30 @@ class mpiMatrixMultiplication {
 
 
     c_{ij} = a_{i,0}b_{0,j} + a_{i,1}b_{1,j} + a_{i,n-1}b_{n-1,j}
-   */
-  
+   */  
 public:
-  
-  
 private:
+};
 
+/*
+  An alternative approach to grouping data is provided by the MPI functions
+  MPI_Pack and MPI_Unpack. 
+
+  MPI_Pack allows one to explicitily store noncontiguous 
+  data in contigous memory locations, 
+
+  MPI_Unpack can be used to copy data from a contiguous buffer into 
+  noncontiguous memory locations. 
+ */
+
+class PackUnPack {
+public:
+  void getData{
+  }
+private:
+  //
+protected:
+  //
 };
 
 MPI_Datatype newMPIDT2;  

@@ -54,11 +54,33 @@ If we wish to send the third column of A, this won't work, since A[0][2] ...
 aren't stored in contiguous memory locations. 
 
 However, we can use MPI_type_vector to create a derived datatype, since the 
+displacement of succesive elements of the derived types is constant
+- A[1][2] is displaced 10 floats beyond A[0][2], A[2][2] 
+
+It is fairly expensive to build a derived datatype. So applications that
+make use of derived datatypes typically use the types many times.
+
 
 */
 
 
+class mpiMatrixMultiplication {
+  /*
 
+    A communicator is a collection of processes that can send 
+    messages to each other. A topology is a structure imposed 
+    on the processes in a communicator that allow the processes
+    in different ways 
+
+
+    c_{ij} = a_{i,0}b_{0,j} + a_{i,1}b_{1,j} + a_{i,n-1}b_{n-1,j}
+   */
+public:
+  
+  
+private:
+
+};
 
 MPI_Datatype newMPIDT2;  
 

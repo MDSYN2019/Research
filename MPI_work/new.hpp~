@@ -1,0 +1,28 @@
+#ifndef __placeholder__
+#define __placeholder__
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <cassert>
+#include <cmath>
+#include <array>
+#include <cassert> 
+#include <deque>
+
+#include "mpi.h"
+
+
+class InitiateVectorMethod {
+public:
+  InitiateVectorMethod() {};
+  virtual ~InitiateVectorMethod() {};
+  // Void methods
+  void setup(int* ); 
+ 
+private:
+  int my_rank, comm_sz;                                                                                                                               std::std
+};
+
+#endif
+

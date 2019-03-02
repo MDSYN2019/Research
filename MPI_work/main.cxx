@@ -101,7 +101,6 @@ protected:
 };
 
 MPI_Datatype newMPIDT2;  
-
 MPI_Type_vector(10, 1, 10, MPI_FLOAT, &newMPIDT2);
 MPI_Type_commit(&newMPIDT2);
 
@@ -117,8 +116,6 @@ MPI_Type_commit(&newMPIDT2);
 
   At this point it is natural to ask, what are the rules for matching MPI datatypes
   For example, suppose a program contains the following code --> (2)
-
-  
 */
 
 // (2)

@@ -26,6 +26,7 @@ public:
 private:
   int my_rank, comm_sz;
   std::deque<ItemType> A;
+  int var1, var2;
 };
 
 #endif

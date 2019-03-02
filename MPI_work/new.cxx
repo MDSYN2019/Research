@@ -10,7 +10,10 @@
 #include "new.hpp"
 
 template <class ItemType>
-InitiateVectorMethod::InitiateVectorMethod(int input1, int input2) {
+InitiateVectorMethod::InitiateVectorMethod(int* input1, int* input2) {
+  var1 = *input1;
+  var2 = *input2; 
+  
   MPI_Init(NULL, NULL); 
   MPI_Comm_size(MPI_COMM_WORLD, &comm_sz);                               
   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);  
@@ -21,7 +24,7 @@ InitiateVectorMethod::SendVector() {
   if (my_rank == 0) {
     MPI_Send(, n, MPI_FLOAT, 1, 0, MPI_COMM_WORLD);
   } else {
-    // TODO
+    MPI_Recv(, n, MPI_FLOAT, 0, 0, MPI_COMM_WORLD, &status);
   }
 };
 

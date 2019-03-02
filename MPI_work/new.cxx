@@ -19,6 +19,11 @@ InitiateVectorMethod::InitiateVectorMethod(int* input1, int* input2) {
   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);  
 };
 
+InitiateVectorMethod::~InitiateVectorMethod() {
+  MPI_Finalize();
+}
+
+
 template <class ItemType>
 InitiateVectorMethod::SendVector() {
   if (my_rank == 0) {

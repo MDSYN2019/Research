@@ -29,6 +29,9 @@ public:
   void traits();
   void SendVector();
 private:
+  MPI_Group  group_world;                                                                                                                           
+  MPI_Group  first_row_group;                                                                                                                       
+  MPI_Comm   first_row_comm;       
   int my_rank, comm_sz;
   std::deque<ItemType> A;
   int var1, var2;

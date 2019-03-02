@@ -15,11 +15,13 @@
 template <class ItemType>
 class InitiateVectorMethod {
 public:
-  InitiateVectorMethod() {};
+  InitiateVectorMethod(int, int) {};
   virtual ~InitiateVectorMethod() {};
-  // Void methods
+
+  // void public  methods
   void setup(int* ); 
   void traits();
+  void SendVector();
 
 private:
   int my_rank, comm_sz;

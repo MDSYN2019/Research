@@ -10,10 +10,19 @@
 #include "new.hpp"
 
 template <class ItemType>
-InitiateVectorMethod::InitiateVectorMethod() {
+InitiateVectorMethod::InitiateVectorMethod(int input1, int input2) {
   MPI_Init(NULL, NULL); 
   MPI_Comm_size(MPI_COMM_WORLD, &comm_sz);                               
   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);  
+};
+
+template <class ItemType>
+InitiateVectorMethod::SendVector() {
+  if (my_rank == 0) {
+    MPI_Send(, n, MPI_FLOAT, 1, 0, MPI_COMM_WORLD);
+  } else {
+    // TODO
+  }
 };
 
 template <class ItemType>
@@ -31,7 +40,7 @@ InitiateVectorMethod::trait() {
     static inline MPI_Datatype get_type(ItemType&& raw);
     static inline size_t get_size(ItemType& raw);
     static inline element_addr_type get_addr(ItemType& raw);
-
   }
+  
 };
 

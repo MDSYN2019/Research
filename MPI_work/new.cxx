@@ -7,6 +7,7 @@
 #include <array>
 #include <cassert> 
 #include "mpi.h"
+
 #include "new.hpp"
 
 template <class ItemType>
@@ -35,7 +36,6 @@ InitiateVectorMethod::SendVector() {
 
 template <class ItemType>
 InitiateVectorMethod::setup() {
-
 };
 
 template <class ItemType>

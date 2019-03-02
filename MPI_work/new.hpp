@@ -16,6 +16,38 @@
 #include <cppunit/extensions/TestFactoryRegistry.h>
 #include <cppunit/ui/text/TestRunner.h>
 
+// TODO : Testing 
+MPI_Datatype getType(std::string* inputString) { 
+  switch (inputString) {
+  case 'i':
+    return MPI_INT;
+    break;
+  case 'f':
+    return MPI_FLOAT;
+    break;
+  case 'j':
+    return MPI_UNSIGNED;
+    break;
+  case 'd':
+    return MPI_DOUBLE;
+    break;
+  case 'c':
+    return MPI_CHAR;
+    break;
+  case 's':
+    return MPI_SHORT;
+    break;
+  case 'l':
+    return MPI_LONG;
+    break;
+  case 'm':
+    return MPI_UNSIGNED_LONG;
+    break;
+  case 'b':
+    return MPI_BYTE;
+    break;
+  }
+}
 
 template <class ItemType>
 class InitiateVectorMethod {

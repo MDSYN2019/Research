@@ -12,6 +12,11 @@
 
 #include "mpi.h"
 
+#include <cppunit/CompilerOutputter.h>
+#include <cppunit/extensions/TestFactoryRegistry.h>
+#include <cppunit/ui/text/TestRunner.h>
+
+
 template <class ItemType>
 class InitiateVectorMethod {
 public:
@@ -28,6 +33,17 @@ private:
   std::deque<ItemType> A;
   int var1, var2;
   
+};
+
+class VectorMethodTest : public CppUnit::TestFixture {
+private: // Need to check if this is indeed private 
+  CPPUNIT_TEST_SUITE();
+  CPPUNIT_TEST();
+  CPPUNIT_TEST_SUITE_END();  
+public:
+  void setUp();
+  void tearDown();
+  void testConstructor();
 };
 
 #endif

@@ -37,16 +37,27 @@ void Trap::computeTrapezium() {
   integral = integral * h;
 }
 
-MPITrap::MPITrap() {}
-MPITrap::~MPITrap() {}
+MPITrap::MPITrap() {
+
+  MPI_Init(&argc, &argv);
+  MPI_Comm_rank(MPI_COMM_WORLD, &my_rank); // allocate rank to address of my_rank 
+  MPI_Comm_size(MPI_COMM_WORLD, &p); // allocate size to p    
+
+}
+
+MPITrap::~MPITrap() {
+  MPI_Finalize();
+}
 
 void MPITrap::Trap() {
   integral = ((float)(local_a) + (float)(local_b)) / 2.0;
   x = local_a;
 
-  for () {
-
+  for (unsigned int i = 1; i <= local_n-1; i++) {
+    x = x + h;
+    integral = integral + (float)(x);
   }
+  integral = integral * h;
 }
 
 

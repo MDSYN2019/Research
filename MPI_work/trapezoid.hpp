@@ -36,7 +36,7 @@ public:
   void Trap();
   
 private:
-  int my_rank;
+  int my_rank; // used in constructor 
   int p;
   float local_a;
   float local_b;

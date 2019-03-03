@@ -19,9 +19,11 @@ Trap::Trap() {}
 Trap::~Trap() {}
 
 void Trap::read() {
+  
   std::cout << "Please input Values:" << std::endl;
   std::cin >> a >> b >> n;
   std::cout << a << b << n << std::endl;
+
 }
 
 void Trap::computeTrapezium() {
@@ -31,9 +33,20 @@ void Trap::computeTrapezium() {
   for (unsigned int i = 1; i <= n -1; i++) {
     x = x + h;
     integral = integral + (float)(x);
-  }
-  
+  }  
   integral = integral * h;
+}
+
+MPITrap::MPITrap() {}
+MPITrap::~MPITrap() {}
+
+void MPITrap::Trap() {
+  integral = ((float)(local_a) + (float)(local_b)) / 2.0;
+  x = local_a;
+
+  for () {
+
+  }
 }
 
 

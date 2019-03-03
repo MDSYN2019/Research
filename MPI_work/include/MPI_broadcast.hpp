@@ -34,7 +34,6 @@ private:
 class MPI_BC {
 public:
   MPI_BC(); // Default constructor 
-  explicit MPI_BC(std::size_t n,   ); 
   // MPI_BC(int); // Custom constructor 
   virtual ~MPI_BC();   
   void packData(); // Using MPI_Pack/MPI_unpack

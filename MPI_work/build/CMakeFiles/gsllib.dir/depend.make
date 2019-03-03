@@ -3,11 +3,13 @@
 
 CMakeFiles/gsllib.dir/main.o: ../include/MPI_IO.hpp
 CMakeFiles/gsllib.dir/main.o: ../main.cxx
-CMakeFiles/gsllib.dir/main.o: /usr/local/include/gsl/gsl_errno.h
-CMakeFiles/gsllib.dir/main.o: /usr/local/include/gsl/gsl_interp.h
-CMakeFiles/gsllib.dir/main.o: /usr/local/include/gsl/gsl_spline.h
-CMakeFiles/gsllib.dir/main.o: /usr/local/include/gsl/gsl_types.h
-CMakeFiles/gsllib.dir/main.o: /usr/local/include/mpi.h
-CMakeFiles/gsllib.dir/main.o: /usr/local/include/mpicxx.h
-CMakeFiles/gsllib.dir/main.o: /usr/local/include/mpio.h
+CMakeFiles/gsllib.dir/main.o: ../trapezoid.hpp
+CMakeFiles/gsllib.dir/main.o: /home/oohnohnoh1/anaconda3/include/gsl/gsl_errno.h
+CMakeFiles/gsllib.dir/main.o: /home/oohnohnoh1/anaconda3/include/gsl/gsl_inline.h
+CMakeFiles/gsllib.dir/main.o: /home/oohnohnoh1/anaconda3/include/gsl/gsl_interp.h
+CMakeFiles/gsllib.dir/main.o: /home/oohnohnoh1/anaconda3/include/gsl/gsl_spline.h
+CMakeFiles/gsllib.dir/main.o: /home/oohnohnoh1/anaconda3/include/gsl/gsl_types.h
+CMakeFiles/gsllib.dir/main.o: /home/oohnohnoh1/anaconda3/include/mpi.h
+CMakeFiles/gsllib.dir/main.o: /home/oohnohnoh1/anaconda3/include/mpicxx.h
+CMakeFiles/gsllib.dir/main.o: /home/oohnohnoh1/anaconda3/include/mpio.h
 

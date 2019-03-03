@@ -3,11 +3,13 @@
 
 CMakeFiles/gsllib.dir/main.o
  ../include/MPI_IO.hpp
- /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/main.cxx
- /usr/local/include/gsl/gsl_errno.h
- /usr/local/include/gsl/gsl_interp.h
- /usr/local/include/gsl/gsl_spline.h
- /usr/local/include/gsl/gsl_types.h
- /usr/local/include/mpi.h
- /usr/local/include/mpicxx.h
- /usr/local/include/mpio.h
+ /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/main.cxx
+ /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/trapezoid.hpp
+ /home/oohnohnoh1/anaconda3/include/gsl/gsl_errno.h
+ /home/oohnohnoh1/anaconda3/include/gsl/gsl_inline.h
+ /home/oohnohnoh1/anaconda3/include/gsl/gsl_interp.h
+ /home/oohnohnoh1/anaconda3/include/gsl/gsl_spline.h
+ /home/oohnohnoh1/anaconda3/include/gsl/gsl_types.h
+ /home/oohnohnoh1/anaconda3/include/mpi.h
+ /home/oohnohnoh1/anaconda3/include/mpicxx.h
+ /home/oohnohnoh1/anaconda3/include/mpio.h

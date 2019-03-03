@@ -15,8 +15,18 @@ vector
 -
 mpi.h
 -
+cppunit/extensions/TestFactoryRegistry.h
+-
+cppunit/CompilerOutputter.h
+-
+cppunit/ui/text/TestRunner.h
+-
+cppunit/TestFixture.h
+-
+cppunit/extensions/HelperMacros.h
+-
 
-/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/main.cxx
+/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/main.cxx
 iostream
 -
 iomanip
@@ -31,16 +41,38 @@ cmath
 -
 array
 -
-mpi.h
-/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/mpi.h
+cassert
+-
 gsl/gsl_errno.h
 -
 gsl/gsl_spline.h
 -
 MPI_IO.hpp
-/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/MPI_IO.hpp
+/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/MPI_IO.hpp
+trapezoid.hpp
+/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/trapezoid.hpp
 
-/usr/local/include/gsl/gsl_errno.h
+/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/trapezoid.hpp
+iostream
+-
+iomanip
+-
+vector
+-
+string
+-
+cassert
+-
+cmath
+-
+array
+-
+cassert
+-
+mpi.h
+/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/mpi.h
+
+/home/oohnohnoh1/anaconda3/include/gsl/gsl_errno.h
 stdio.h
 -
 errno.h
@@ -48,37 +80,35 @@ errno.h
 gsl/gsl_types.h
 -
 
-/usr/local/include/gsl/gsl_interp.h
+/home/oohnohnoh1/anaconda3/include/gsl/gsl_inline.h
+
+/home/oohnohnoh1/anaconda3/include/gsl/gsl_interp.h
 stdlib.h
+-
+gsl/gsl_inline.h
 -
 gsl/gsl_types.h
 -
 
-/usr/local/include/gsl/gsl_spline.h
+/home/oohnohnoh1/anaconda3/include/gsl/gsl_spline.h
 stdlib.h
 -
 gsl/gsl_interp.h
 -
 
-/usr/local/include/gsl/gsl_types.h
+/home/oohnohnoh1/anaconda3/include/gsl/gsl_types.h
 
-/usr/local/include/mpi.h
-stddef.h
--
-cstdint
--
-stdint.h
--
+/home/oohnohnoh1/anaconda3/include/mpi.h
 mpio.h
-/usr/local/include/mpio.h
+/home/oohnohnoh1/anaconda3/include/mpio.h
 mpicxx.h
-/usr/local/include/mpicxx.h
+/home/oohnohnoh1/anaconda3/include/mpicxx.h
 
-/usr/local/include/mpicxx.h
+/home/oohnohnoh1/anaconda3/include/mpicxx.h
 stdio.h
 -
 
-/usr/local/include/mpio.h
+/home/oohnohnoh1/anaconda3/include/mpio.h
 mpi.h
-/usr/local/include/mpi.h
+/home/oohnohnoh1/anaconda3/include/mpi.h
 

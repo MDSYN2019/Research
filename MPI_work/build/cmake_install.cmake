@@ -1,4 +1,4 @@
-# Install script for directory: /home/noh/Desktop/WIP/GIT/PhD_work/MPI_work
+# Install script for directory: /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/src/cmake_install.cmake")
+  include("/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build/src/cmake_install.cmake")
 
 endif()
 
@@ -51,5 +51,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

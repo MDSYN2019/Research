@@ -16,41 +16,9 @@
 #include <cppunit/extensions/TestFactoryRegistry.h>
 #include <cppunit/ui/text/TestRunner.h>
 
-// TODO : Testing 
-MPI_Datatype getType(std::string* inputString) { 
-  switch (inputString) {
-  case 'i':
-    return MPI_INT;
-    break;
-  case 'f':
-    return MPI_FLOAT;
-    break;
-  case 'j':
-    return MPI_UNSIGNED;
-    break;
-  case 'd':
-    return MPI_DOUBLE;
-    break;
-  case 'c':
-    return MPI_CHAR;
-    break;
-  case 's':
-    return MPI_SHORT;
-    break;
-  case 'l':
-    return MPI_LONG;
-    break;
-  case 'm':
-    return MPI_UNSIGNED_LONG;
-    break;
-  case 'b':
-    return MPI_BYTE;
-    break;
-  }
-}
-
 template <class ItemType>
 class InitiateVectorMethod {
+
 public:
   InitiateVectorMethod(int, int) {};
   virtual ~InitiateVectorMethod() {};
@@ -60,10 +28,14 @@ public:
   void setup(int*); 
   void traits();
   void SendVector();
+  void GetData();
+  
 private:
-  MPI_Group  group_world;                                                                                                                           
-  MPI_Group  first_row_group;                                                                                                                       
-  MPI_Comm   first_row_comm;       
+  MPI_Group  group_world;  
+  MPI_Group  first_row_group;                                        
+  MPI_Comm   first_row_comm;
+  MPI_Status status;
+  
   int my_rank, comm_sz;
   std::deque<ItemType> A;
   int var1, var2;

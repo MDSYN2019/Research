@@ -1,1 +1,1 @@
-add_library(src Mat.cxx)
+add_library(src MPI_broadcast.cxx trapezoid.cxx)

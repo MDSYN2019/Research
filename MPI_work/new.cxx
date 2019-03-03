@@ -12,6 +12,7 @@
 
 template <class ItemType>
 InitiateVectorMethod::InitiateVectorMethod(int* input1, int* input2) {
+
   var1 = *input1;
   var2 = *input2; 
   
@@ -24,6 +25,10 @@ InitiateVectorMethod::~InitiateVectorMethod() {
   MPI_Finalize();
 }
 
+template <class ItemType>
+void InitiateVectorMethod::GetData() {
+
+}
 
 template <class ItemType>
 InitiateVectorMethod::SendVector() {
@@ -35,11 +40,11 @@ InitiateVectorMethod::SendVector() {
 };
 
 template <class ItemType>
-InitiateVectorMethod::setup() {
+void InitiateVectorMethod<ItemType>::setup() {
 };
 
 template <class ItemType>
-InitiateVectorMethod::trait() {
+void InitiateVectorMethod<ItemType>::trait() {
   struct mpi_type_traits {
 
     typedef ItemType element_type;

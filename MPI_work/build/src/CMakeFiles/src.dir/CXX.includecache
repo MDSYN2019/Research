@@ -6,16 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../include/MPI_IO.hpp
-iostream
--
-iomanip
--
-vector
--
-mpi.h
--
-
 ../include/MPI_broadcast.hpp
 iostream
 -
@@ -28,19 +18,27 @@ mpi.h
 numeric
 -
 
-/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/src/MPI_IO.cxx
+../include/trapezoid.hpp
 iostream
 -
 iomanip
 -
 vector
 -
-mpi.h
+string
 -
-MPI_IO.hpp
-/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/src/MPI_IO.hpp
+cassert
+-
+cmath
+-
+array
+-
+cassert
+-
+mpi.h
+../include/mpi.h
 
-/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/src/MPI_broadcast.cxx
+/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/src/MPI_broadcast.cxx
 iostream
 -
 iomanip
@@ -56,27 +54,45 @@ iterator
 numeric
 -
 mpi.h
-/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/src/mpi.h
+/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/src/mpi.h
 MPI_broadcast.hpp
-/home/noh/Desktop/WIP/GIT/PhD_work/MPI_work/src/MPI_broadcast.hpp
+/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/src/MPI_broadcast.hpp
 
-/usr/local/include/mpi.h
-stddef.h
+/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/src/trapezoid.cxx
+iostream
 -
-cstdint
+iomanip
 -
-stdint.h
+vector
 -
+string
+-
+sstream
+-
+cassert
+-
+cmath
+-
+array
+-
+cassert
+-
+mpi.h
+/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/src/mpi.h
+trapezoid.hpp
+/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/src/trapezoid.hpp
+
+/home/oohnohnoh1/anaconda3/include/mpi.h
 mpio.h
-/usr/local/include/mpio.h
+/home/oohnohnoh1/anaconda3/include/mpio.h
 mpicxx.h
-/usr/local/include/mpicxx.h
+/home/oohnohnoh1/anaconda3/include/mpicxx.h
 
-/usr/local/include/mpicxx.h
+/home/oohnohnoh1/anaconda3/include/mpicxx.h
 stdio.h
 -
 
-/usr/local/include/mpio.h
+/home/oohnohnoh1/anaconda3/include/mpio.h
 mpi.h
-/usr/local/include/mpi.h
+/home/oohnohnoh1/anaconda3/include/mpi.h
 

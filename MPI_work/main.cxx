@@ -6,7 +6,7 @@
 #include <cmath>
 #include <array>
 #include <cassert>
-#include "mpi.h"
+//#include "mpi.h"
 
 // gsl libraries
 
@@ -14,12 +14,16 @@
 #include <gsl/gsl_spline.h>
 
 #include "MPI_IO.hpp"
+#include "trapezoid.hpp"
 
+/*
 template <int m1, int l1, int t1, int m2, nt l2, int t2>
 Physical<m1+m2,l1+l2,t1+t2> operator*(Physical<m1, l1, t1> lhs, Physical<m2, l2, t2> rhs) {
   return Physical<m1+m2, l1+l2, t1+t2>::unit*lhs.value() * rhs.value();
 }
+*/
 
+/*
 template <class T> class placeHolder {
 public:
   placeHolder() { create(); }
@@ -32,6 +36,7 @@ public:
   typedef T& reference;
   typedef const T& const_reference;
 };
+*/
 
 typedef struct {
   double a;
@@ -40,112 +45,6 @@ typedef struct {
 } myStruct;
 
 float A[10][10];
-
-
-/*
-
-Other derived types
-
-If the data to be transmitted consists of a subset of the entries in an array, 
-we shouldn't need to provide such detailed information ince all the information
-have the same basic type
-
-If we wish to send the third column of A, this won't work, since A[0][2] ...
-aren't stored in contiguous memory locations. 
-
-However, we can use MPI_type_vector to create a derived datatype, since the 
-displacement of succesive elements of the derived types is constant
-- A[1][2] is displaced 10 floats beyond A[0][2], A[2][2] 
-
-It is fairly expensive to build a derived datatype. So applications that
-make use of derived datatypes typically use the types many times.
-
-
-*/
-
-
-class mpiMatrixMultiplication {
-
-  /*
-
-    A communicator is a collection of processes that can send 
-    messages to each other. A topology is a structure imposed 
-    on the processes in a communicator that allow the processes
-    in different ways 
-
-
-    c_{ij} = a_{i,0}b_{0,j} + a_{i,1}b_{1,j} + a_{i,n-1}b_{n-1,j}
-   */  
-public:
-private:
-};
-
-/*
-  An alternative approach to grouping data is provided by the MPI functions
-  MPI_Pack and MPI_Unpack. 
-
-  MPI_Pack allows one to explicitily store noncontiguous 
-  data in contigous memory locations, 
-
-  MPI_Unpack can be used to copy data from a contiguous buffer into 
-  noncontiguous memory locations. 
- */
-
-class PackUnPack {
-public:
-  void getData();
-private:
-  //
-protected:
-  //
-};
-
-MPI_Datatype newMPIDT2;  
-MPI_Type_vector(10, 1, 10, MPI_FLOAT, &newMPIDT2);
-MPI_Type_commit(&newMPIDT2);
-
-/* 
-   newMPIDT2 can be used to send any column of A. If we want to send the jth column of A,
-   j = 0, 1, 2, 3, ..9, we simply call the communcation routine with the first argument 
-   &(A[0][j]). 
-
-   Also note that in fact column_mpi_t can be used to send any column of any 10 x 10 
-   matrix of floats, since the stride and element type will be the same. 
-
-  => Type Matching 
-
-  At this point it is natural to ask, what are the rules for matching MPI datatypes
-  For example, suppose a program contains the following code --> (2)
-*/
-
-// (2)
-
-if (my_rank == 0) {
-  MPI_Send(message, send_count, send_mpi_t, 1, 0, MPI_COMM_WORLD);
- } else if (my_rank == 1) {
-  MPI_Recv(message, recv_count, recv_mpi_t, 0, 0, MPI_COMM_WORLD, &status);
-
- }
-  
-// --
-
-if (my_rank == 0) {
-  MPI_Send(&A[0][2], 1, column_mpi_t, 1, 0, MPI_COMM_WORLD);
- } else {
-  MPI_Recv(&(A[0][2]), 1, column_mpi_t, 0, 0, MPI_COMM_WORLD, &status);
- }
-
-// TODO
-MPI_Group group_world;
-MPI_Group first_row_group;
-MPI_Comm first_row_comm;
-
-/*
-
-It is fairly expensive to build a derived datatype. So applications that make use of derived 
-datatypes typically use the types many times
-
- */
 
 void MPIGetData(float*  a_ptr, float*  b_ptr, int* n_ptr , int my_rank) {
     char  buffer[100];  /* Store data in buffer        */
@@ -185,8 +84,8 @@ void Build_mpi_type (double* a_p,  double* b_p, int* n_p, myStruct* stct, MPI_Da
   MPI_Aint array_of_displacements[3] = {0};
   MPI_Aint a_addr, b_addr, n_addr;
 
-  stct->.a = *a_p;
-  stct->.b = *b_p;
+  stct->a = *a_p;
+  stct->b = *b_p;
   stct->c = *n_p;
 
 
@@ -229,17 +128,15 @@ int main(int argc, char** argv) {
   Get_Input(0, comm_sz, &a, &b, &c, &exampleDatatype);
 
   for (unsigned int q = 1; q < comm_sz; q++) {
-
     std::cout << q << " " << exampleDatatype.a << " " << exampleDatatype.b << " " << exampleDatatype.c << std::endl;
-
   }
 
   
   MPI_Finalize();
 
-
+  /*
   int idfdf;
-   double xi, yi, x[10], y[10];
+  double xi, yi, x[10], y[10];
 
   std::cout << "#m=0,S=17\n";
 
@@ -264,6 +161,7 @@ int main(int argc, char** argv) {
 
   gsl_spline_free (spline);
   gsl_interp_accel_free (acc);
+  */
   
   return 0;
 }

@@ -1,2 +1,2 @@
-/home/noh/anaconda3/bin/ar qc libgsllib.a  CMakeFiles/gsllib.dir/main.o
-/home/noh/anaconda3/bin/ranlib libgsllib.a
+/usr/bin/ar qc libgsllib.a  CMakeFiles/gsllib.dir/main.o
+/usr/bin/ranlib libgsllib.a

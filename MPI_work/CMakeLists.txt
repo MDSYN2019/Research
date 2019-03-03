@@ -34,6 +34,8 @@ set(Boost_USE_STATIC_LIBS ON)
 set(Boost_USE_MULTITHREADED ON)  
 set(Boost_USE_STATIC_RUNTIME OFF) 
 
+find_package(MPI REQUIRED)
+include_directories(${MPI_INCLUDE_PATH})
 #find_package(GSL)
 #include_directories(${GSL_INCLUDE_DIR})
 
@@ -65,7 +67,18 @@ target_include_directories(MPI_EX PRIVATE ${MPI_CXX_INCLUDE_PATH})
 ADD_LIBRARY(gsllib 
     main.cxx
 )
+
 target_link_libraries(gsllib -L/home/noh/anaconda3/pkgs/gsl-2.1-2/lib/)
 target_link_libraries(gsllib libgsl.a)
 target_link_libraries(gsllib libgslcblas.a)
 target_link_libraries(MPI_EX ${EXTRA_LIBS} ${Boost_LIBRARIES} ${MATH} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB} gsllib)
+
+if(MPI_COMPILE_FLAGS)
+  set_target_properties(MPI_EX PROPERTIES
+    COMPILE_FLAGS "${MPI_COMPILE_FLAGS}")
+endif()
+
+if(MPI_LINK_FLAGS)
+  set_target_properties(MPI_EX PROPERTIES
+    LINK_FLAGS "${MPI_LINK_FLAGS}")
+endif()

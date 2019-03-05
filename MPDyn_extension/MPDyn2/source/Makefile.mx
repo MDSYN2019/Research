@@ -1,0 +1,39 @@
+########################################
+##
+## written by W. Shinoda
+##
+########################################
+
+## 5) for PGI compiler
+#FC     = pgf90
+#CC     = pgcc
+FC = mpif90
+CC = mpicc
+#FFLAGS = -w -fastsse -Mfree -DPCC -DPUBFFT -DCUBIC
+#LFLAGS = -w -fastsse -Mfree -DPCC -DPUBFFT -DCUBIC
+#PFLAGS = -w -fastsse -Mfree -DPCC -DPUBFFT -DCUBIC
+#FFLAGS = -I/opt/mpich-mx/include/f90choice -w -Mpreprocess -DLINUX -DPARA -O2 -fastsse -Mfree -DPCC -DPUBFFT -DCUBIC -lm -lmpich -L/opt/mx/lib/ -L/opt/mpich-mx/lib/ -L/opt/mpich-mx/lib -lmpichf90 -lmpich -Wl,-rpath,/opt/mx/lib64,-rpath,/opt/mx/lib -L/opt/mx/lib64 -L/opt/mx/lib/ -lmyriexpress -lpthread -lrt
+#LFLAGS = -I/opt/mpich-mx/include/f90choice -w -Mpreprocess -DLINUX -DPARA -O2 -fastsse -Mfree -DPCC -DPUBFFT -DCUBIC -lm -lmpich -L/opt/mx/lib/ -L/opt/mpich-mx/lib/ -L/opt/mpich-mx/lib -lmpichf90 -lmpich -Wl,-rpath,/opt/mx/lib64,-rpath,/opt/mx/lib -L/opt/mx/lib64 -L/opt/mx/lib/ -lmyriexpress -lpthread -lrt
+#PFLAGS =   -I/opt/mpich-mx/include/f90choice -w -Mpreprocess -DLINUX -DPARA -O2 -fastsse -Mfree -DPCC -DPUBFFT -DCUBIC -lm -lmpich -L/opt/mx/lib/ -L/opt/mpich-mx/lib/ -L/opt/mpich-mx/lib -lmpichf90 -lmpich -Wl,-rpath,/opt/mx/lib64,-rpath,/opt/mx/lib -L/opt/mx/lib64 -L/opt/mx/lib/ -lmyriexpress -lpthread -lrt
+##FFLAGS = -fast -fastsse -Mfree -I/opt/mpich-mx/include/f90choice -L/opt/mpich-mx/lib -lmpichf90 -lmpich -Wl,-rpath,/opt/mx/lib64,-rpath,/opt/mx/lib -L/opt/mx/lib64 -L/opt/mx/lib/ -lmyriexpress -lpthread -lrt -Mpreprocess -DPCC -DPUBFFT -DCUBIC -DCOMPRESS -DSURF
+##LFLAGS = -fast -fastsse -Mfree -I/opt/mpich-mx/include/f90choice -L/opt/mpich-mx/lib -lmpichf90 -lmpich -Wl,-rpath,/opt/mx/lib64,-rpath,/opt/mx/lib -L/opt/mx/lib64 -L/opt/mx/lib/ -lmyriexpress -lpthread -lrt -Mpreprocess -DPCC -DPUBFFT -DCUBIC -DCOMPRESS -DSURF
+##PFLAGS = -fast -fastsse -Mfree -I/opt/mpich-mx/include/f90choice -L/opt/mpich-mx/lib -lmpichf90 -lmpich -Wl,-rpath,/opt/mx/lib64,-rpath,/opt/mx/lib -L/opt/mx/lib64 -L/opt/mx/lib/ -lmyriexpress -lpthread -lrt -Mpreprocess -DPCC -DPUBFFT -DCUBIC -DCOMPRESS -DSURF
+FFLAGS = -fastsse -L/opt/mpich-mx/lib -lmpich -L/opt/mx/lib64 -Mpreprocess -DCUBIC -DPCC -DPUBFFT -DCOMPRESS -DSURF
+LFLAGS = -fastsse -L/opt/mpich-mx/lib -lmpich -L/opt/mx/lib64 -Mpreprocess -DCUBIC 
+PFLAGS = -fastsse -L/opt/mpich-mx/lib -lmpich -L/opt/mx/lib64 -Mpreprocess -DCUBIC -DPCC -DPUBFFT -DCOMPRESS -DSURF
+#SFLAGA = -L/opt/intel/mkl61/lib/32/ -lmkl_lapack -lmkl_ia32 -lguide -lpthread
+#PFLAGA = -L/opt/intel/mkl61/lib/32/ -lmkl_lapack -lmkl_ia32 -lguide -lpthread
+SFLAGA = 
+PFLAGA = 
+PFC    = mpif90
+DEFINES = -DLINUX -DPARA
+OPT =# -O2
+CFLAGS = -Wall $(DEFINES)
+LIB_PATH  = #-L/opt/mx/lib/ -L/opt/mpich-mx/lib/
+LIBS = -lm #-lmpich
+
+
+include make.mx
+#include make.pgi.mpdyn
+
+#< end of Makefile>

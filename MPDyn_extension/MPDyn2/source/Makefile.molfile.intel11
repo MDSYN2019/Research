@@ -1,0 +1,22 @@
+########################################
+##
+## written by W. Shinoda
+##
+########################################
+
+## 5) for Intel compiler ver 11.0
+FC     = ifort
+CC     = icc
+#$FFLAGS = -w -static -O3 -tpp7 -ipo -tune pn4 -pad -cpp -DPCC -DPUBFFT -DCUBIC -DSCINT
+FFLAGS = -w -i-static -O2 -assume buffered_io -tpp7 -unroll -pc64 -tune pn4 -pad -cpp -DPCC -DPUBFFT -DCUBIC -DSCINT -DCOMPRESS -DSURF -DMOLFILE -DXPLOR
+LFLAGS = -i-static
+PFLAGS = -w -i-static -O2 -assume buffered_io -tpp7 -unroll -pc64 -tune pn4 -pad -cpp -DPCC -DPUBFFT -DCUBIC -DSCINT -DMOLFILE -DXPLOR
+#SFLAGA = -L/opt/intel/mkl61/lib/32/ -lmkl_lapack -lmkl_ia32 -lguide -lpthread
+#PFLAGA = -L/opt/intel/mkl61/lib/32/ -lmkl_lapack -lmkl_ia32 -lguide -lpthread
+SFLAGA = 
+PFLAGA = 
+PFC    = mpif90
+
+include make.molfile.mpdyn
+
+#< end of Makefile>

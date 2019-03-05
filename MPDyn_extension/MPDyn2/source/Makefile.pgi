@@ -1,0 +1,21 @@
+########################################
+##
+## written by W. Shinoda
+##
+########################################
+
+## 5) for PGI compiler
+FC     = pgf90
+CC     = cc
+FFLAGS = -w -fastsse -Mfree -DPCC -DPUBFFT -DCUBIC
+LFLAGS = -w -fastsse -Mfree -DPCC -DPUBFFT -DCUBIC
+PFLAGS = -w -fastsse -Mfree -DPCC -DPUBFFT -DCUBIC
+#SFLAGA = -L/opt/intel/mkl61/lib/32/ -lmkl_lapack -lmkl_ia32 -lguide -lpthread
+#PFLAGA = -L/opt/intel/mkl61/lib/32/ -lmkl_lapack -lmkl_ia32 -lguide -lpthread
+SFLAGA = 
+PFLAGA = 
+PFC    = mpif90
+
+include make.pgi.mpdyn
+
+#< end of Makefile>

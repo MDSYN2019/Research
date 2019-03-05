@@ -1,0 +1,23 @@
+########################################
+##
+## written by W. Shinoda
+##
+########################################
+
+## for Intel compiler ver 11.0
+FC     = ifort
+CC     = icc
+## FFTW installed directory
+#HFFTW   = /opt/fftw/321/intel11.1.046/
+HFFTW   = /usr/local/
+##
+FFLAGS = -w -i-static -O3 -assume buffered_io -tpp7 -unroll -pc64 -tune pn4 -pad -cpp -DPCC -DFFTW -DCUBIC -DSCINT -DCOMPRESS -DSURF -DMOLFILE -DEnergyRep -I$(HFFTW)include/
+LFLAGS = -i-static 
+PFLAGS = -w -i-static -O3 -assume buffered_io -tpp7 -unroll -pc64 -tune pn4 -pad -cpp -DPCC -DFFTW -DCUBIC -DSCINT -DEnergyRep -DMOLFILE 
+SFLAGA = -L$(HFFTW)lib/ 
+PFLAGA = -L$(HFFTW)lib/ 
+PFC    = mpif90
+
+include make.er.mpdyn
+
+#< end of Makefile>

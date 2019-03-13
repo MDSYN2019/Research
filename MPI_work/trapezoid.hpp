@@ -34,6 +34,7 @@ public:
   MPITrap();
   ~MPITrap();
   void Trap();
+  void getData();
   
 private:
   int my_rank; // used in constructor 

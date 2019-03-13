@@ -38,9 +38,9 @@ void Trap::computeTrapezium() {
 
   integral = integral * h;
 }
-
+// S
 MPITrap::MPITrap() {
-  MPI_Init(&argc, &argv);
+  MPI_Init(&argc, &argv); // 
   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank); // allocate rank to address of my_rank 
   MPI_Comm_size(MPI_COMM_WORLD, &p); // allocate size to p    
 }
@@ -58,6 +58,29 @@ void MPITrap::Trap() {
     integral = integral + (float)(x);
   }
   integral = integral * h;
+}
+
+void MPITrap::getData() {
+
+}
+
+void MPITrap::AddIntegral() {
+  if (my_rank == 0) {
+    total = integral;
+    for (int source = 1; source < p; source++) {
+      tag = 0;
+      MPI_Send(a_ptr, 1, MPI_FLOAT, dest, tag, MPI_COMM_WORLD);
+      tag = 1;
+      MPI_Send(b_ptr, 1, MPI_FLOAT, dest, tag, MPI_COMM_WORLD);
+      tag = 2;
+      MPI_Send(n_ptr, 1, MPI_INT, dest, tag, MPI_COMM_WORLD);
+    }
+  } else {
+    MPI_Recv(a_ptr, 1, MPI_FLOAT, source, tag, MPI_COMM_WORLD, &status);
+    tag = 1;
+
+  } // Get data 
+
 }
 
 

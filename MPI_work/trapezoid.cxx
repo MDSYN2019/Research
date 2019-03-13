@@ -78,9 +78,10 @@ void MPITrap::AddIntegral() {
   } else {
     MPI_Recv(a_ptr, 1, MPI_FLOAT, source, tag, MPI_COMM_WORLD, &status);
     tag = 1;
-
+    MPI_Recv(b_ptr, 1, MPI_FLOAT, source, tag, MPI_COMM_WORLD, &status);
+    tag = 2;
+    MPI_Recv(n_ptr, 1, MPI_INT, source, tag, MPI_COMM_WORLD, &status);
   } // Get data 
-
 }
 
 

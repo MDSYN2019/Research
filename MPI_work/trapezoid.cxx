@@ -39,6 +39,7 @@ void Trap::computeTrapezium() {
   integral = integral * h;
 }
 // S
+
 MPITrap::MPITrap() {
   MPI_Init(&argc, &argv); // 
   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank); // allocate rank to address of my_rank 

@@ -1,8 +1,6 @@
 /*  
   Implementation of the trapezium rule  - A form of numerical integration 
 */
-
-
 #ifndef __TRAP__
 #define __TRAP__
 
@@ -16,6 +14,23 @@
 #include <cassert>
 #include "mpi.h"
 
+// A simple string class
+
+class Str {
+public:
+  typedef Vec<char>::size_type size_type;
+  
+};
+
+template <class T> class {
+};
+
+/*
+1. First we called a serial algorithm for solving our problem - we studied the trapezoidal rule
+   for estimating a definite integral 
+
+2. In order to parallelize the serial algorithm, we simply partitioned the data 
+ */
 class Trap {
 public:
   void computeTrapezium();

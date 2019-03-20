@@ -55,11 +55,9 @@ namespace Genfun {
     // Take the definite integral of a function 
     virtual double operator () (GENFUNCTION function) const;
 
-  private:
-    
+  private:    
     class Clockwork;
     std::shared_ptr<Clockwork> c;
-
   };
 }
 #endif

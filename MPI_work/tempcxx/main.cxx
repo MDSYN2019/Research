@@ -46,6 +46,24 @@ typedef struct {
 
 float A[10][10];
 
+/*
+Function Get_data - Reads in the user a, b, and n 
+Input parameters:
+
+1. int my_rank : rank of the current process
+2. int p: number of processes 
+
+Output parameters:
+1. float* a_ptr : pointer to left endpoint a
+2. float* b_ptr : pointer to right endpoint b
+3. int* n_ptr : pointer to number of trapezoids 
+
+ */
+
+void Get_data() {
+  
+}
+
 void MPIGetData(float*  a_ptr, float*  b_ptr, int* n_ptr , int my_rank) {
     char  buffer[100];  /* Store data in buffer        */
     int   position;     /* Keep track of where data is */                            /*     in the buffer           */
@@ -77,7 +95,6 @@ void MPIGetData(float*  a_ptr, float*  b_ptr, int* n_ptr , int my_rank) {
     }
 }
 
-
 void Build_mpi_type (double* a_p,  double* b_p, int* n_p, myStruct* stct, MPI_Datatype* input_mpi_t_p) {
   int array_of_blocklengths[3] = {1,1,1};
   MPI_Datatype array_of_types[3] = {MPI_DOUBLE, MPI_DOUBLE, MPI_INT};
@@ -87,7 +104,6 @@ void Build_mpi_type (double* a_p,  double* b_p, int* n_p, myStruct* stct, MPI_Da
   stct->a = *a_p;
   stct->b = *b_p;
   stct->c = *n_p;
-
 
   //(*stct).b = *b_p;
   //(*stct).c = *n_p;
@@ -130,7 +146,6 @@ int main(int argc, char** argv) {
   for (unsigned int q = 1; q < comm_sz; q++) {
     std::cout << q << " " << exampleDatatype.a << " " << exampleDatatype.b << " " << exampleDatatype.c << std::endl;
   }
-
   
   MPI_Finalize();
 

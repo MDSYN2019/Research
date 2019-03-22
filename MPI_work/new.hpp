@@ -18,7 +18,6 @@
 
 template <class ItemType>
 class InitiateVectorMethod {
-
 public:
   InitiateVectorMethod(int, int) {};
   virtual ~InitiateVectorMethod() {};
@@ -35,11 +34,9 @@ private:
   MPI_Group  first_row_group;                                        
   MPI_Comm   first_row_comm;
   MPI_Status status;
-  
   int my_rank, comm_sz;
   std::deque<ItemType> A;
-  int var1, var2;
-  
+  int var1, var2;  
 };
 
 class VectorMethodTest : public CppUnit::TestFixture {
@@ -54,13 +51,3 @@ public:
 };
 
 #endif
-
-/*
-
-Pack/Unpack
-
-An alternative approach to grouping data is provided by the MPI functions MPI_Pack 
-and MPI_unpack functions. MPI_Pack allows one to explicitly store noncintiguous data in 
-contiguous memory locations 
-
- */

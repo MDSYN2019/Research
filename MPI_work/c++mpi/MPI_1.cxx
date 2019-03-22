@@ -28,10 +28,8 @@ private:
   friend class StringLinkedList;
 };
 
-
 class StringLinkedList {
 public:
-
   StringLinkedList();
   ~StringLinkedList();
   bool empty() const;

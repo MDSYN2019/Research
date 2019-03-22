@@ -21,7 +21,6 @@ time that elapses frm the beginning t the end of the actual atual matrix
 #include "mpi.h"
 #include "MPI_broadcast.hpp"
 
-/*
 
 template <class T> class Vec {
 public:
@@ -51,10 +50,9 @@ public:
   size_type size() const {return limit - data;}
   T& operator[] (size_type i) { return data[i]}
   const T& operator[](size_type i) const {return data[i];}
-
+  
   iterator begin() {return data;}
   const_iterator begin() const {return data;}
-
   iterator_end() {return limit;}
   const_iterator end() {return limit;}
 
@@ -62,7 +60,7 @@ private:
   iterator data; // first the first element of the data
   iterator limit;
 };
-*/
+
 
 std::map<std::string, std::string> typeConvDict; // TODO
 void my_bcast(void* data, int count, MPI_Datatype datatype, int root, MPI_Comm communicator) {

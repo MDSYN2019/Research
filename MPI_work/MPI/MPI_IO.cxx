@@ -37,6 +37,7 @@ void MPIInput::MPI_start() {
 
  */
 
+
 void MPIInput::I_send() {
   int power_2_stage;
 

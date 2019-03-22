@@ -7,9 +7,3 @@ src/CMakeFiles/src.dir/MPI_broadcast.o: /home/oohnohnoh1/anaconda3/include/mpi.h
 src/CMakeFiles/src.dir/MPI_broadcast.o: /home/oohnohnoh1/anaconda3/include/mpicxx.h
 src/CMakeFiles/src.dir/MPI_broadcast.o: /home/oohnohnoh1/anaconda3/include/mpio.h
 
-src/CMakeFiles/src.dir/trapezoid.o: ../include/trapezoid.hpp
-src/CMakeFiles/src.dir/trapezoid.o: ../src/trapezoid.cxx
-src/CMakeFiles/src.dir/trapezoid.o: /home/oohnohnoh1/anaconda3/include/mpi.h
-src/CMakeFiles/src.dir/trapezoid.o: /home/oohnohnoh1/anaconda3/include/mpicxx.h
-src/CMakeFiles/src.dir/trapezoid.o: /home/oohnohnoh1/anaconda3/include/mpio.h
-

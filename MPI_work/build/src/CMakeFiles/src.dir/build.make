@@ -81,43 +81,17 @@ src/CMakeFiles/src.dir/MPI_broadcast.o.provides: src/CMakeFiles/src.dir/MPI_broa
 src/CMakeFiles/src.dir/MPI_broadcast.o.provides.build: src/CMakeFiles/src.dir/MPI_broadcast.o
 
 
-src/CMakeFiles/src.dir/trapezoid.o: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/trapezoid.o: ../src/trapezoid.cxx
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/src.dir/trapezoid.o"
-	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/src.dir/trapezoid.o -c /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/src/trapezoid.cxx
-
-src/CMakeFiles/src.dir/trapezoid.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/src.dir/trapezoid.i"
-	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/src/trapezoid.cxx > CMakeFiles/src.dir/trapezoid.i
-
-src/CMakeFiles/src.dir/trapezoid.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/src.dir/trapezoid.s"
-	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/src/trapezoid.cxx -o CMakeFiles/src.dir/trapezoid.s
-
-src/CMakeFiles/src.dir/trapezoid.o.requires:
-
-.PHONY : src/CMakeFiles/src.dir/trapezoid.o.requires
-
-src/CMakeFiles/src.dir/trapezoid.o.provides: src/CMakeFiles/src.dir/trapezoid.o.requires
-	$(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/trapezoid.o.provides.build
-.PHONY : src/CMakeFiles/src.dir/trapezoid.o.provides
-
-src/CMakeFiles/src.dir/trapezoid.o.provides.build: src/CMakeFiles/src.dir/trapezoid.o
-
-
 # Object files for target src
 src_OBJECTS = \
-"CMakeFiles/src.dir/MPI_broadcast.o" \
-"CMakeFiles/src.dir/trapezoid.o"
+"CMakeFiles/src.dir/MPI_broadcast.o"
 
 # External object files for target src
 src_EXTERNAL_OBJECTS =
 
 src/libsrc.a: src/CMakeFiles/src.dir/MPI_broadcast.o
-src/libsrc.a: src/CMakeFiles/src.dir/trapezoid.o
 src/libsrc.a: src/CMakeFiles/src.dir/build.make
 src/libsrc.a: src/CMakeFiles/src.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libsrc.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libsrc.a"
 	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build/src && $(CMAKE_COMMAND) -P CMakeFiles/src.dir/cmake_clean_target.cmake
 	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/src.dir/link.txt --verbose=$(VERBOSE)
 
@@ -127,7 +101,6 @@ src/CMakeFiles/src.dir/build: src/libsrc.a
 .PHONY : src/CMakeFiles/src.dir/build
 
 src/CMakeFiles/src.dir/requires: src/CMakeFiles/src.dir/MPI_broadcast.o.requires
-src/CMakeFiles/src.dir/requires: src/CMakeFiles/src.dir/trapezoid.o.requires
 
 .PHONY : src/CMakeFiles/src.dir/requires
 

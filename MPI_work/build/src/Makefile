@@ -140,21 +140,6 @@ MPI_broadcast.s:
 	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_broadcast.s
 .PHONY : MPI_broadcast.s
 
-# target to build an object file
-trapezoid.o:
-	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/trapezoid.o
-.PHONY : trapezoid.o
-
-# target to preprocess a source file
-trapezoid.i:
-	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/trapezoid.i
-.PHONY : trapezoid.i
-
-# target to generate assembly for a file
-trapezoid.s:
-	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/trapezoid.s
-.PHONY : trapezoid.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -167,9 +152,6 @@ help:
 	@echo "... MPI_broadcast.o"
 	@echo "... MPI_broadcast.i"
 	@echo "... MPI_broadcast.s"
-	@echo "... trapezoid.o"
-	@echo "... trapezoid.i"
-	@echo "... trapezoid.s"
 .PHONY : help
 
 

@@ -21,6 +21,48 @@ time that elapses frm the beginning t the end of the actual atual matrix
 #include "mpi.h"
 #include "MPI_broadcast.hpp"
 
+// Trying to get this vector understood
+
+template <class T> class Vec {
+public:
+  typedef T* iterator;
+  typedef const T* const_iterator;
+  typedef size_t size_type;
+  typedef T value_type;
+  typedef std::ptrdiff_T difference_type;
+  typedef T& reference;
+  typedef const T& const_reference;
+  template <class T>
+  Vec<T>& Vec<T>::operator=(const Vec& rhs) {
+   // check for self-assignment
+    if (&rhs != this) {
+      // free the array in the left hand side
+      uncreate();
+      create (rhs.begin(), rhs.end());
+    }
+    return *this;
+  }
+  
+  &Vec operator=(const Vec&);
+  Vec() {create();}
+  // we'll assume that one of our utiity functions will handle the allocation and copy so that the copy constucorr can forward its wworkd to taht function
+  Vec(const Vec& v){(create(v.begin(), v.end()));} // copy constructor
+  explicit Vec(std::size_t n, const T& val = T()) {create(n,val);} // this explicit constructor takes a size_type and a value - this will allocate neough mempry of type T of number n, and initialize it with the values val 
+  size_type size() const {return limit - data;}
+  T& operator[] (size_type i) { return data[i]}
+  const T& operator[](size_type i) const {return data[i];}
+  
+  iterator begin() {return data;}
+  const_iterator begin() const {return data;}
+  iterator_end() {return limit;}
+  const_iterator end() {return limit;}
+
+private:
+  iterator data; // first the first element of the data
+  iterator limit;
+};
+
+
 std::map<std::string, std::string> typeConvDict; // TODO
 void my_bcast(void* data, int count, MPI_Datatype datatype, int root, MPI_Comm communicator) {
   int world_rank;
@@ -48,11 +90,28 @@ MPI_BC::MPI_BC() {
   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
 } // constructor 
 
+/*
+
+MPI_BC::MPI_BC::operator=(const MPI_BC& rhs) {
+  if (this == &rhs) return *this;
+  copy (rhs);
+  return *this;
+}
+
+*/
 
 MPI_BC::~MPI_BC() {
   MPI_Finalize();
 } // destructor 
 
+/*
+void MPI_BC::InitializeVec(int lenOfVec) {
+  vectorOfBlockLengths = std::vector<int>(lenOfVec);
+  MPItype = std::vector<int>(lenOfVec);
+  MPIDatatype = std::vector<MPI_Datatype>(lenOfVec);
+  MPIdisplacements = std::vector<MPI_Aint>(lenOfVec);
+}
+*/
 
 void MPI_BC::parallelAllocateVec(double* aa, double* bb, int lenOfVec, std::vector<int>* vecpart, MPI_Datatype* input_mpi_t_p) {
   std::iota(MPItype.begin(), MPItype.end(), 1); // Vector allocation of types
@@ -65,6 +124,10 @@ void MPI_BC::parallelAllocateVec(double* aa, double* bb, int lenOfVec, std::vect
   MPI_Type_commit(input_mpi_t_p);
   finish = MPI_Wtime();
  
+}
+
+
+void MPI_BC::packData() {
 }
 
 
@@ -129,30 +192,8 @@ void MPI_BC::Send(float a, float b, int n, int dest) {
    MPI_Send(&n, 1, MPI_INT, dest, 2, MPI_COMM_WORLD);
 } /* Send */
 
-
-void MPI_BC::broadcast_input() { // input, input, input, output, output
-
-  if (my_rank == 0) {
-    std::cout << "Enter a, b and n \n";
-    scanf("%lf %lf %d", a_p, b_p, n_p); 
-  }
-
-  MPI_Bcast(a_p, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
-  MPI_Bcast(b_p, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
-  MPI_Bcast(n_p, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+void MPI_BC::Receive(float* a_ptr, float* b_ptr, int* n_ptr, int   source) {
   
-  // Get Input
-}
-
-
-void MPI_BC::broadcast_vector() { // input, input, input, output, output
-  std::vector<int> v = {7, 5, 16, 8};
-  int* vecData = v.data();  
-  MPI_Bcast(vecData, v.size(), MPI_INT, 0, MPI_COMM_WORLD);
-}
-
-
-void MPI_BC::Receive(float* a_ptr, float* b_ptr, int* n_ptr, int   source) {  
   MPI_Recv(a_ptr, 1, MPI_FLOAT, source, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
   MPI_Recv(b_ptr, 1, MPI_FLOAT, source, 1, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
   MPI_Recv(n_ptr, 1, MPI_INT, source, 2, MPI_COMM_WORLD, MPI_STATUS_IGNORE);

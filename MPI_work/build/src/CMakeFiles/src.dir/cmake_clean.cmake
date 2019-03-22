@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/src.dir/MPI_broadcast.o"
-  "CMakeFiles/src.dir/trapezoid.o"
   "libsrc.pdb"
   "libsrc.a"
 )

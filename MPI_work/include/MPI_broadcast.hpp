@@ -39,12 +39,18 @@ public:
   void packData(); // Using MPI_Pack/MPI_unpack
   void time_ellapsed(); // Total time for the MPI program to execute
 
+  void broadcast_input(); // broadcasting values
+  void broadcast_vector(); // broadcasting vector
+  
   void buildMpiType(double*, double*, int*, MPI_Datatype*); // Allocates the data type into a struct and broadcasts it 
   void Send(float, float, int, int); // Standard send/receive pair 
   void Receive(float*, float*, int*, int); // Standard send/receive pair 
   // void GetData(float*, float*, int*, int, int); // WIP
   void parallelAllocateVec(double*, double*, int, std::vector<int>*, MPI_Datatype*);
 private:
+  float* a_p;
+  float* b_p;
+  int* n_p;
   int my_rank, comm_sz;
   int lenOfVec;
   int* pointerToArray;

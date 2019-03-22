@@ -21,6 +21,7 @@ time that elapses frm the beginning t the end of the actual atual matrix
 #include "mpi.h"
 #include "MPI_broadcast.hpp"
 
+// Trying to get this vector understood
 
 template <class T> class Vec {
 public:

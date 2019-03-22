@@ -1,4 +1,4 @@
-/*
+1;5202;0c/*
   One obvious problem with our program is its lack of generality. The function, 
   f(x), and the input data, a, b, n, are hardwired. So if we want to change any 
   of these, we must edit and recompule the program. 
@@ -28,6 +28,8 @@ public:
   void getData();
   void bubbleSort();
   void oddEvenSort();
+  void I_send();
+
   virtual ~MPIInput();
   
 private:
@@ -37,6 +39,7 @@ private:
   int tag;
   int my_rank;
   int p;
+  int stage;
   //  
   float* a_ptr;
   float* b_ptr;

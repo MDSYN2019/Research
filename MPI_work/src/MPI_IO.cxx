@@ -37,6 +37,23 @@ void MPIInput::MPI_start() {
 
  */
 
+
+void MPIInput::I_send() {
+  int power_2_stage;
+
+  // 2^stage = 1 << stage
+  power_2_stage = 1 << stage;
+
+  if (my_rank < power_2_stage) {
+    *dest_ptr = my_rank + power_2_stage;
+
+    if (*dest_ptr >= p) return 0;
+    else return 1;  
+  }
+  
+}
+
+
 void MPIInput::bubbleSort(int a[], int n) {
    // --  bubble sort variables --
   int temp;
@@ -51,12 +68,6 @@ void MPIInput::bubbleSort(int a[], int n) {
   }
 }
 
-void oddEvenSort(int a[], int n) {
-  int phase;
-  for (int phase = 0; phase < n; phase++) {
-    
-  }
-}
 
 void MPIInput::bubbleSort(int a[], int n) {
    // --  bubble sort variables --

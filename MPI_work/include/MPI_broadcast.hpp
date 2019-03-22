@@ -56,6 +56,7 @@ private:
   int* pointerToArray;
   double start, finish; // integers for measuring the start and finish of the function called from this class
   MPI_Aint aint; // What does MPI_Aint mean?
+  MPI_Status status;
   std::vector<int> vectorOfBlockLengths;
   std::vector<int> MPItype;
   std::vector<MPI_Datatype> MPIDatatype;

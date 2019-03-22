@@ -69,8 +69,6 @@ void MPI_BC::parallelAllocateVec(double* aa, double* bb, int lenOfVec, std::vect
 
 
 void MPI_BC::buildMpiType(double* a_p, double* b_p, int* n_p, MPI_Datatype* input_mpi_t_p) {
-
-
   /*  
     A derived datatype can bbe used to represent any collection 
     of data items by storing both the types of items and their 
@@ -147,8 +145,15 @@ void MPI_BC::broadcast_input() { // input, input, input, output, output
 
 void MPI_BC::broadcast_vector() { // input, input, input, output, output
   std::vector<int> v = {7, 5, 16, 8};
-  int* vecData = v.data();  
-  MPI_Bcast(vecData, v.size(), MPI_INT, 0, MPI_COMM_WORLD);
+  int* vecData = v.data();
+  int tag;
+  if (my_rank == 0) {
+    MPI_Bcast(vecData, v.size(), MPI_INT, 0, MPI_COMM_WORLD);
+  }
+  else {
+    MPI_Recv(vecData, v.size(), MPI_INT, 0, 0, MPI_COMM_WORLD, &status); 
+    std::cout << " " << vecData[1] << " "  << " " << my_rank << " " << std::endl; 
+  }
 }
 
 

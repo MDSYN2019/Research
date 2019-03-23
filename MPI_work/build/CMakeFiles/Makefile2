@@ -63,8 +63,8 @@ CMAKE_BINARY_DIR = /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build
 # Target rules for target CMakeFiles/MPI_EX.dir
 
 # All Build rule for target.
-CMakeFiles/MPI_EX.dir/all: src/CMakeFiles/src.dir/all
 CMakeFiles/MPI_EX.dir/all: CMakeFiles/gsllib.dir/all
+CMakeFiles/MPI_EX.dir/all: src/CMakeFiles/src.dir/all
 	$(MAKE) -f CMakeFiles/MPI_EX.dir/build.make CMakeFiles/MPI_EX.dir/depend
 	$(MAKE) -f CMakeFiles/MPI_EX.dir/build.make CMakeFiles/MPI_EX.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build/CMakeFiles --progress-num=1,2 "Built target MPI_EX"

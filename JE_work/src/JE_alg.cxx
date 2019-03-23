@@ -84,23 +84,35 @@ void JarzynskiFreeEnergy::vecProcess() {
 
     tuple JERawVal{index, index - 0.5, index + 0.5, JEprocessVector(index, &JarzynskiFreeEnergy::JERaw, &JERawVector)}; //!< Make bins for storing the work values between i - 0.5 and i + 0.5 - i.e. a 1 angstrom interval, using the raw JE interpreter  
     tuple JETaylorVal{index, index - 0.5, index + 0.5, JEprocessVector(index, &JarzynskiFreeEnergy::JETaylor, &JETaylorVector)}; //!< Make bins for storing the work values between i - 0.5 and i + 0.5 - i.e. a 1 angstrom interval, using the taylor series JE interpreter 
+    tuple JEAlphaVal{index, index - 0.5, index + 0.5, JEprocessVector(index, &JarzynskiFreeEnergy::JEalpha, &JEAlphaVector)}; //!< Make bins for storing the work values between i - 0.5 and i + 0.5 - i.e. a 1 angstrom interval, using the taylor series JE interpreter 
+
+    
     
     JERawCoordinateBin.push_back(JERawVal); //!< Store free energy values from JERaw algorithm  
     JETaylorCoordinateBin.push_back(JETaylorVal); //!< Push back values in each 
+    JEAlphaCoordinateBin.push_back(JEAlphaVal); //!< Push back values in each 
+
   }
 
   std::cout << " RAW JE interpreter results" << std::endl;
   std::cout << " Columns: Coordinate, Coordinate range min, Coordinate range max, Free Energy (Kcal mol)" << std::endl;
 
   for (tupleList::const_iterator index = JERawCoordinateBin.begin(); index != JERawCoordinateBin.end(); ++index) {
-    std::cout << "Bin Center: " << index->get<0>() << " " << index->get<1>()  << " " << index->get<2>() << " " << std::fixed << std::setprecision(5) << index->get<3>() << std::endl; //! Print out to 5 decimal places 
+    std::cout << index->get<0>() << " " << index->get<1>()  << " " << index->get<2>() << " " << std::fixed << std::setprecision(5) << index->get<3>() << std::endl; //! Print out to 5 decimal places 
   }
 
   std::cout << " Taylor Series JE interpreter results" << std::endl;
   std::cout << " Columns: Coordinate, Coordinate range min, Coordinate range max, Free Energy (Kcal mol)" << std::endl;
   for (tupleList::const_iterator index = JETaylorCoordinateBin.begin(); index != JETaylorCoordinateBin.end(); ++index) {
-    std::cout << "Bin Center: " << index->get<0>() << " " << index->get<1>()  << " " << index->get<2>() << " " << std::fixed << std::setprecision(5) << index->get<3>() << std::endl; //! Print out to 5 decimal places 
+    std::cout  << index->get<0>() << " " << index->get<1>()  << " " << index->get<2>() << " " << std::fixed << std::setprecision(5) << index->get<3>() << std::endl; //! Print out to 5 decimal places 
   }
+
+  std::cout << " Alpha Series JE interpreter results" << std::endl;
+  std::cout << " Columns: Coordinate, Coordinate range min, Coordinate range max, Free Energy (Kcal mol)" << std::endl;
+  for (tupleList::const_iterator index = JEAlphaCoordinateBin.begin(); index != JEAlphaCoordinateBin.end(); ++index) {
+    std::cout  << index->get<0>() << " " << index->get<1>()  << " " << index->get<2>() << " " << std::fixed << std::setprecision(5) << index->get<3>() << std::endl; //! Print out to 5 decimal places 
+  }
+  
 }
 
 void JarzynskiFreeEnergy::resetIndex(){
@@ -122,7 +134,7 @@ double JarzynskiFreeEnergy::JERaw(std::vector<double> *JEVector) {
     RawVector.push_back(exp(*workIterator * Beta));
   }
   
-  G = log(std::accumulate(RawVector.begin(), RawVector.end(), 0.0)) * Beta; /*!< compute the raw JE */
+  G = log(std::accumulate(RawVector.begin(), RawVector.end(), 0.0) / RawVector.size()) * ( 1 / Beta); /*!< compute the raw JE */
   return G; 
 }
 
@@ -138,15 +150,43 @@ double JarzynskiFreeEnergy::JETaylor(std::vector<double> *JEVector) {
   for (workIterator = JEVector->begin(); workIterator != JEVector->end(); ++workIterator) {
     RawVector.push_back(*workIterator);
   }  
+
   /*! Store the squared work values */
 
   squaredRawVector.resize(RawVector.size());
   std::transform(RawVector.begin(), RawVector.end(), squaredRawVector.begin(), computeSquare);
   double AvWork = std::accumulate(RawVector.begin(), RawVector.end(), 0.0)/ RawVector.size(); /*!< Average work */   
-  double squaredAvWork = std::accumulate(squaredRawVector.begin(), squaredRawVector.end(), 0.0)/ squaredRawVector.size(); /*!< Average squared work */
-  G = AvWork - (RawVector.size() / RawVector.size() -1) * (Beta / 2) * (squaredAvWork - AvWork* AvWork); /*!< Taylor series interpreter */
+  double squaredAvWork = std::accumulate(squaredRawVector.begin(), squaredRawVector.end(), 0.0)/ squaredRawVector.size(); 
+  G = AvWork - ((RawVector.size() / RawVector.size() - 1) * (Beta / 2) * ((squaredAvWork - (AvWork* AvWork)))); /*!< Taylor series interpreter */
   return G;
 }
+
+double JarzynskiFreeEnergy::JEalpha(std::vector<double> *JEVector) {
+  double G; /*!< Free Energy */
+  double Beta = 1 / (-BOLTZMANN * 303);  /*!< Boltzmann Factor */
+  double Wdiss;
+  double alpha;
+  double B;
+  std::vector<double> RawVectorJE; /*!< Vector to copy the work value into, as to not change the values of the elements inside the vector pointer */ 
+  std::vector<double> RawVector; /*!< Vector to copy the work value into, as to not change the values of the elements inside the vector pointer */ 
+  doubleIter workIterator; /*!< double iterator */
+
+    /*! Store the raw work values from the JEVector */
+  for (workIterator = JEVector->begin(); workIterator != JEVector->end(); ++workIterator) {
+    RawVectorJE.push_back(exp(*workIterator * Beta));
+    RawVector.push_back(*workIterator);
+  }
+  
+  double sum = std::accumulate(RawVector.begin(), RawVector.end(), 0.0);
+  double mean = sum / RawVector.size();
+  double sq_sum = std::inner_product(RawVector.begin(), RawVector.end(), RawVector.begin(), 0.0);
+  Wdiss = 0.5 * Beta * std::sqrt(sq_sum / RawVector.size() - mean * mean);
+  alpha = (log(15.0 * Beta * Wdiss)/log(15.0 * exp(2.0 * Beta * Wdiss) - 1.0));
+  B = Wdiss/(pow(10.0 , alpha));
+  G = log(std::accumulate(RawVectorJE.begin(), RawVectorJE.end(), 0.0) / RawVectorJE.size()) * ( 1 / Beta) - B;
+  return G;
+}
+
 
 void JarzynskiFreeEnergy::read(std::string input) {
   /*! IO - Input the column data values as computed from LAMMPS */
@@ -176,7 +216,7 @@ void JarzynskiFreeEnergy::read(std::string input) {
 }
 
 /*!<  MPI class - Sending the datatypes and vectors  */
-
+/*
 MPI_setup::MPI_setup() { // Default constructor for MPI
   MPI_Init(NULL, NULL);
   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
@@ -185,7 +225,7 @@ MPI_setup::MPI_setup() { // Default constructor for MPI
 
 void MPI_setup::MPI_parameter_struct_constructor(MPI_Datatype* input_mpi_t_p) {
   parameterData parameters;
-  parameters.BM = 0.0019872041; /*< units for the boltzmann constant are in kcal mol^-1 */; 
+  parameters.BM = 0.0019872041; // units for the boltzmann constant are in kcal mol^-1 ; 
   parameters.T = 303;
 
   // Define parameters for storing the variables 
@@ -212,3 +252,4 @@ void MPI_setup::MPI_data_bcast(JarzynskiFreeEnergy* serialClass) {
   MPI_Bcast(&coordinateZVectorSplit[0], coordinateZVectorSplit.size(), MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
 }
+*/

@@ -148,11 +148,11 @@ void MPI_BC::broadcast_vector() { // input, input, input, output, output
   int* vecData = v.data();
   int tag;
   if (my_rank == 0) {
-    MPI_Bcast(vecData, v.size(), MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Bcast(&v, 1, MPI_INT, 0, MPI_COMM_WORLD);
   }
   else {
-    MPI_Recv(vecData, v.size(), MPI_INT, 0, 0, MPI_COMM_WORLD, &status); 
-    std::cout << " " << vecData[1] << " "  << " " << my_rank << " " << std::endl; 
+    MPI_Recv(&v, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, &status); 
+    std::cout << " " << v[1] << " "  << " " << my_rank << " " << std::endl; 
   }
 }
 

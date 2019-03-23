@@ -57,6 +57,8 @@ Initialzation of the template defined in the header
 #include <cppunit/ui/text/TestRunner.h>
 
 static inline double computeSquare (double x) { return x*x;} // function for squaring the elements in a vector
+
+
 JarzynskiFreeEnergy::JarzynskiFreeEnergy() {} 
 JarzynskiFreeEnergy::~JarzynskiFreeEnergy() {}
 
@@ -127,13 +129,19 @@ void JarzynskiFreeEnergy::resetIndex(){
 double JarzynskiFreeEnergy::JERaw(std::vector<double> *JEVector) {
   /** The Raw Jarzynski Equality computer */
   std::vector<double> RawVector; /**< Vector to copy the value into, as to not change the values of the elements inside the vector pointer */
+  std::vector<double> VarVector; /**< Vector to copy the value into, as to not change the values of the elements inside the vector pointer */
+ 
   double G; /*!< Free energy (Gibbs) */
   double Beta = 1 / (-BOLTZMANN * 303); /**< Boltzmann >Factor, at 303K */
   doubleIter workIterator; /**< iterator for vector */
   for (workIterator = JEVector->begin(); workIterator != JEVector->end(); ++workIterator) {
     RawVector.push_back(exp(*workIterator * Beta));
   }
-  
+
+  for (int i = 0; i <= RawVector.size(); i++) {
+    VarVector.push_back((RawVector[i]/RawVector.size()) * ( 1 / Beta));
+  }
+
   G = log(std::accumulate(RawVector.begin(), RawVector.end(), 0.0) / RawVector.size()) * ( 1 / Beta); /*!< compute the raw JE */
   return G; 
 }
@@ -142,6 +150,8 @@ double JarzynskiFreeEnergy::JETaylor(std::vector<double> *JEVector) {
   //! The Taylor Series Jarzynski Equality computer 
   std::vector<double> RawVector; /*!< Vector to copy the work value into, as to not change the values of the elements inside the vector pointer */ 
   std::vector<double> squaredRawVector; /*!< Vector to store the squared work values. */  
+  std::vector<double> VarVector; /**< Vector to copy the value into, as to not change the values of the elements inside the vector pointer */
+ 
   double G; /*!< Free Energy */
   double Beta = 1 / (-BOLTZMANN * 303);  /*!< Boltzmann Factor */
   doubleIter workIterator; /*!< double iterator */
@@ -157,6 +167,11 @@ double JarzynskiFreeEnergy::JETaylor(std::vector<double> *JEVector) {
   std::transform(RawVector.begin(), RawVector.end(), squaredRawVector.begin(), computeSquare);
   double AvWork = std::accumulate(RawVector.begin(), RawVector.end(), 0.0)/ RawVector.size(); /*!< Average work */   
   double squaredAvWork = std::accumulate(squaredRawVector.begin(), squaredRawVector.end(), 0.0)/ squaredRawVector.size(); 
+
+  for (int i = 0; i <= RawVector.size(); i++) {
+    VarVector.push_back((RawVector[i]));
+  }
+
   G = AvWork - ((RawVector.size() / RawVector.size() - 1) * (Beta / 2) * ((squaredAvWork - (AvWork* AvWork)))); /*!< Taylor series interpreter */
   return G;
 }
@@ -169,6 +184,8 @@ double JarzynskiFreeEnergy::JEalpha(std::vector<double> *JEVector) {
   double B;
   std::vector<double> RawVectorJE; /*!< Vector to copy the work value into, as to not change the values of the elements inside the vector pointer */ 
   std::vector<double> RawVector; /*!< Vector to copy the work value into, as to not change the values of the elements inside the vector pointer */ 
+  std::vector<double> VarVector; /*!< Vector to copy the work value into, as to not change the values of the elements inside the vector pointer */ 
+
   doubleIter workIterator; /*!< double iterator */
 
     /*! Store the raw work values from the JEVector */
@@ -180,10 +197,18 @@ double JarzynskiFreeEnergy::JEalpha(std::vector<double> *JEVector) {
   double sum = std::accumulate(RawVector.begin(), RawVector.end(), 0.0);
   double mean = sum / RawVector.size();
   double sq_sum = std::inner_product(RawVector.begin(), RawVector.end(), RawVector.begin(), 0.0);
+
   Wdiss = 0.5 * Beta * std::sqrt(sq_sum / RawVector.size() - mean * mean);
   alpha = (log(15.0 * Beta * Wdiss)/log(15.0 * exp(2.0 * Beta * Wdiss) - 1.0));
   B = Wdiss/(pow(10.0 , alpha));
+
+  for (int i = 0; i <= RawVector.size(); i++) {
+    VarVector.push_back((RawVectorJE[i]));
+  }
+
   G = log(std::accumulate(RawVectorJE.begin(), RawVectorJE.end(), 0.0) / RawVectorJE.size()) * ( 1 / Beta) - B;
+ 
+  
   return G;
 }
 

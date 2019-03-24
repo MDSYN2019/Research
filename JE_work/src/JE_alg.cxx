@@ -56,13 +56,15 @@ Initialzation of the template defined in the header
 
 #include <cppunit/ui/text/TestRunner.h>
 
+
 static inline double computeSquare (double x) { return x*x;} // function for squaring the elements in a vector
 
 
 JarzynskiFreeEnergy::JarzynskiFreeEnergy() {} 
 JarzynskiFreeEnergy::~JarzynskiFreeEnergy() {}
 
-double JarzynskiFreeEnergy::JEprocessVector(int position, double (JarzynskiFreeEnergy::*f) (std::vector<double> *VectorInput), std::vector<double> *JEVector) { 
+double JarzynskiFreeEnergy::JEprocessVector(int position, double (JarzynskiFreeEnergy::*f) (std::vector<double> *VectorInput), std::vector<double> *JEVector) {
+  
   /*!< Compute free energies with algorithm plugged in from JarzynskiFreeEnergy::*f, with the work values from std::vector<double> *VectorInput  */ 
   int work_index = 0;
   doubleIter diterator; /*!< Integer iterator */ 
@@ -84,35 +86,32 @@ void JarzynskiFreeEnergy::vecProcess() {
   //! We want to accumulate the values via the bins: */                                                                                                     
   for (int index = 0; index < maxZ; ++index) {
 
-    tuple JERawVal{index, index - 0.5, index + 0.5, JEprocessVector(index, &JarzynskiFreeEnergy::JERaw, &JERawVector)}; //!< Make bins for storing the work values between i - 0.5 and i + 0.5 - i.e. a 1 angstrom interval, using the raw JE interpreter  
-    tuple JETaylorVal{index, index - 0.5, index + 0.5, JEprocessVector(index, &JarzynskiFreeEnergy::JETaylor, &JETaylorVector)}; //!< Make bins for storing the work values between i - 0.5 and i + 0.5 - i.e. a 1 angstrom interval, using the taylor series JE interpreter 
-    tuple JEAlphaVal{index, index - 0.5, index + 0.5, JEprocessVector(index, &JarzynskiFreeEnergy::JEalpha, &JEAlphaVector)}; //!< Make bins for storing the work values between i - 0.5 and i + 0.5 - i.e. a 1 angstrom interval, using the taylor series JE interpreter 
+    tuple JERawVal{index, index - 0.5, index + 0.5, JEprocessVector(index, &JarzynskiFreeEnergy::JERaw, &JERawVector), JEprocessVector(index, &JarzynskiFreeEnergy::JERawErr, &JERawVector)}; //!< Make bins for storing the work values between i - 0.5 and i + 0.5 - i.e. a 1 angstrom interval, using the raw JE interpreter  
+    tuple JETaylorVal{index, index - 0.5, index + 0.5, JEprocessVector(index, &JarzynskiFreeEnergy::JETaylor, &JETaylorVector), JEprocessVector(index, &JarzynskiFreeEnergy::JETaylorErr, &JETaylorVector)}; //!< Make bins for storing the work values between i - 0.5 and i + 0.5 - i.e. a 1 angstrom interval, using the taylor series JE interpreter 
+    tuple JEAlphaVal{index, index - 0.5, index + 0.5, JEprocessVector(index, &JarzynskiFreeEnergy::JEalpha, &JEAlphaVector), JEprocessVector(index, &JarzynskiFreeEnergy::JEalphaErr, &JEAlphaVector)}; //!< Make bins for storing the work values between i - 0.5 and i + 0.5 - i.e. a 1 angstrom interval, using the taylor series JE interpreter 
 
-    
-    
     JERawCoordinateBin.push_back(JERawVal); //!< Store free energy values from JERaw algorithm  
     JETaylorCoordinateBin.push_back(JETaylorVal); //!< Push back values in each 
     JEAlphaCoordinateBin.push_back(JEAlphaVal); //!< Push back values in each 
-
   }
 
   std::cout << " RAW JE interpreter results" << std::endl;
   std::cout << " Columns: Coordinate, Coordinate range min, Coordinate range max, Free Energy (Kcal mol)" << std::endl;
 
   for (tupleList::const_iterator index = JERawCoordinateBin.begin(); index != JERawCoordinateBin.end(); ++index) {
-    std::cout << index->get<0>() << " " << index->get<1>()  << " " << index->get<2>() << " " << std::fixed << std::setprecision(5) << index->get<3>() << std::endl; //! Print out to 5 decimal places 
+    std::cout << index->get<0>() << " " << index->get<1>()  << " " << index->get<2>() << " " << std::fixed << std::setprecision(5) << index->get<3>() <<  " " << index->get<4>() << std::endl; //! Print out to 5 decimal places 
   }
 
   std::cout << " Taylor Series JE interpreter results" << std::endl;
   std::cout << " Columns: Coordinate, Coordinate range min, Coordinate range max, Free Energy (Kcal mol)" << std::endl;
   for (tupleList::const_iterator index = JETaylorCoordinateBin.begin(); index != JETaylorCoordinateBin.end(); ++index) {
-    std::cout  << index->get<0>() << " " << index->get<1>()  << " " << index->get<2>() << " " << std::fixed << std::setprecision(5) << index->get<3>() << std::endl; //! Print out to 5 decimal places 
+    std::cout  << index->get<0>() << " " << index->get<1>()  << " " << index->get<2>() << " " << std::fixed << std::setprecision(5) << index->get<3>() << " " << index->get<4>() << std::endl; //! Print out to 5 decimal places 
   }
 
   std::cout << " Alpha Series JE interpreter results" << std::endl;
   std::cout << " Columns: Coordinate, Coordinate range min, Coordinate range max, Free Energy (Kcal mol)" << std::endl;
   for (tupleList::const_iterator index = JEAlphaCoordinateBin.begin(); index != JEAlphaCoordinateBin.end(); ++index) {
-    std::cout  << index->get<0>() << " " << index->get<1>()  << " " << index->get<2>() << " " << std::fixed << std::setprecision(5) << index->get<3>() << std::endl; //! Print out to 5 decimal places 
+    std::cout  << index->get<0>() << " " << index->get<1>()  << " " << index->get<2>() << " " << std::fixed << std::setprecision(5) << index->get<3>() << " " <<  index->get<4>() << std::endl; //! Print out to 5 decimal places 
   }
   
 }
@@ -130,7 +129,8 @@ double JarzynskiFreeEnergy::JERaw(std::vector<double> *JEVector) {
   /** The Raw Jarzynski Equality computer */
   std::vector<double> RawVector; /**< Vector to copy the value into, as to not change the values of the elements inside the vector pointer */
   std::vector<double> VarVector; /**< Vector to copy the value into, as to not change the values of the elements inside the vector pointer */
- 
+
+  FE result;
   double G; /*!< Free energy (Gibbs) */
   double Beta = 1 / (-BOLTZMANN * 303); /**< Boltzmann >Factor, at 303K */
   doubleIter workIterator; /**< iterator for vector */
@@ -142,16 +142,54 @@ double JarzynskiFreeEnergy::JERaw(std::vector<double> *JEVector) {
     VarVector.push_back((RawVector[i]/RawVector.size()) * ( 1 / Beta));
   }
 
+  double Varsum = std::accumulate(VarVector.begin(), VarVector.end(), 0.0);
+  double Varmean = Varsum / VarVector.size();
+  double Varsq_sum = std::inner_product(VarVector.begin(), VarVector.end(), VarVector.begin(), 0.0);
+  double stdev = std::sqrt(Varsq_sum / VarVector.size() - Varmean * Varmean);
+ 
   G = log(std::accumulate(RawVector.begin(), RawVector.end(), 0.0) / RawVector.size()) * ( 1 / Beta); /*!< compute the raw JE */
+
+  result.val = G;
+  result.err = stdev;
+
   return G; 
 }
+
+
+double JarzynskiFreeEnergy::JERawErr(std::vector<double> *JEVector) {
+  /** The Raw Jarzynski Equality computer */
+  std::vector<double> RawVector; /**< Vector to copy the value into, as to not change the values of the elements inside the vector pointer */
+  std::vector<double> VarVector; /**< Vector to copy the value into, as to not change the values of the elements inside the vector pointer */
+
+  FE result;
+  double G; /*!< Free energy (Gibbs) */
+  double Beta = 1 / (-BOLTZMANN * 303); /**< Boltzmann >Factor, at 303K */
+  doubleIter workIterator; /**< iterator for vector */
+  for (workIterator = JEVector->begin(); workIterator != JEVector->end(); ++workIterator) {
+    RawVector.push_back(exp(*workIterator * Beta));
+  }
+
+  for (int i = 0; i <= RawVector.size(); i++) {
+    VarVector.push_back((RawVector[i]/RawVector.size()) * ( 1 / Beta));
+  }
+
+  double Varsum = std::accumulate(VarVector.begin(), VarVector.end(), 0.0);
+  double Varmean = Varsum / VarVector.size();
+  double Varsq_sum = std::inner_product(VarVector.begin(), VarVector.end(), VarVector.begin(), 0.0);
+  double stdev = std::sqrt(Varsq_sum / VarVector.size() - Varmean * Varmean);
+ 
+  G = log(std::accumulate(RawVector.begin(), RawVector.end(), 0.0) / RawVector.size()) * ( 1 / Beta); /*!< compute the raw JE */
+
+  return stdev; 
+}
+
 
 double JarzynskiFreeEnergy::JETaylor(std::vector<double> *JEVector) {
   //! The Taylor Series Jarzynski Equality computer 
   std::vector<double> RawVector; /*!< Vector to copy the work value into, as to not change the values of the elements inside the vector pointer */ 
   std::vector<double> squaredRawVector; /*!< Vector to store the squared work values. */  
   std::vector<double> VarVector; /**< Vector to copy the value into, as to not change the values of the elements inside the vector pointer */
- 
+  FE result;
   double G; /*!< Free Energy */
   double Beta = 1 / (-BOLTZMANN * 303);  /*!< Boltzmann Factor */
   doubleIter workIterator; /*!< double iterator */
@@ -172,9 +210,59 @@ double JarzynskiFreeEnergy::JETaylor(std::vector<double> *JEVector) {
     VarVector.push_back((RawVector[i]));
   }
 
+  double Varsum = std::accumulate(VarVector.begin(), VarVector.end(), 0.0);
+  double Varmean = Varsum / VarVector.size();
+  double Varsq_sum = std::inner_product(VarVector.begin(), VarVector.end(), VarVector.begin(), 0.0);
+  double stdev = std::sqrt(Varsq_sum / VarVector.size() - Varmean * Varmean);
+ 
   G = AvWork - ((RawVector.size() / RawVector.size() - 1) * (Beta / 2) * ((squaredAvWork - (AvWork* AvWork)))); /*!< Taylor series interpreter */
+
+  result.val = G;
+  result.err = stdev;
+  
   return G;
 }
+
+
+double JarzynskiFreeEnergy::JETaylorErr(std::vector<double> *JEVector) {
+  //! The Taylor Series Jarzynski Equality computer 
+  std::vector<double> RawVector; /*!< Vector to copy the work value into, as to not change the values of the elements inside the vector pointer */ 
+  std::vector<double> squaredRawVector; /*!< Vector to store the squared work values. */  
+  std::vector<double> VarVector; /**< Vector to copy the value into, as to not change the values of the elements inside the vector pointer */
+  FE result;
+  double G; /*!< Free Energy */
+  double Beta = 1 / (-BOLTZMANN * 303);  /*!< Boltzmann Factor */
+  doubleIter workIterator; /*!< double iterator */
+
+  /*! Store the raw work values from the JEVector */
+  for (workIterator = JEVector->begin(); workIterator != JEVector->end(); ++workIterator) {
+    RawVector.push_back(*workIterator);
+  }  
+
+  /*! Store the squared work values */
+
+  squaredRawVector.resize(RawVector.size());
+  std::transform(RawVector.begin(), RawVector.end(), squaredRawVector.begin(), computeSquare);
+  double AvWork = std::accumulate(RawVector.begin(), RawVector.end(), 0.0)/ RawVector.size(); /*!< Average work */   
+  double squaredAvWork = std::accumulate(squaredRawVector.begin(), squaredRawVector.end(), 0.0)/ squaredRawVector.size(); 
+
+  for (int i = 0; i <= RawVector.size(); i++) {
+    VarVector.push_back((RawVector[i]));
+  }
+
+  double Varsum = std::accumulate(VarVector.begin(), VarVector.end(), 0.0);
+  double Varmean = Varsum / VarVector.size();
+  double Varsq_sum = std::inner_product(VarVector.begin(), VarVector.end(), VarVector.begin(), 0.0);
+  double stdev = std::sqrt(Varsq_sum / VarVector.size() - Varmean * Varmean);
+ 
+  G = AvWork - ((RawVector.size() / RawVector.size() - 1) * (Beta / 2) * ((squaredAvWork - (AvWork* AvWork)))); /*!< Taylor series interpreter */
+
+  result.val = G;
+  result.err = stdev;
+  
+  return stdev;
+}
+
 
 double JarzynskiFreeEnergy::JEalpha(std::vector<double> *JEVector) {
   double G; /*!< Free Energy */
@@ -182,10 +270,12 @@ double JarzynskiFreeEnergy::JEalpha(std::vector<double> *JEVector) {
   double Wdiss;
   double alpha;
   double B;
+  
   std::vector<double> RawVectorJE; /*!< Vector to copy the work value into, as to not change the values of the elements inside the vector pointer */ 
   std::vector<double> RawVector; /*!< Vector to copy the work value into, as to not change the values of the elements inside the vector pointer */ 
   std::vector<double> VarVector; /*!< Vector to copy the work value into, as to not change the values of the elements inside the vector pointer */ 
 
+  FE result;
   doubleIter workIterator; /*!< double iterator */
 
     /*! Store the raw work values from the JEVector */
@@ -203,13 +293,64 @@ double JarzynskiFreeEnergy::JEalpha(std::vector<double> *JEVector) {
   B = Wdiss/(pow(10.0 , alpha));
 
   for (int i = 0; i <= RawVector.size(); i++) {
-    VarVector.push_back((RawVectorJE[i]));
+    VarVector.push_back((RawVectorJE[i]) * (1/Beta) - B);
   }
 
-  G = log(std::accumulate(RawVectorJE.begin(), RawVectorJE.end(), 0.0) / RawVectorJE.size()) * ( 1 / Beta) - B;
- 
+  double Varsum = std::accumulate(VarVector.begin(), VarVector.end(), 0.0);
+  double Varmean = Varsum / VarVector.size();
+  double Varsq_sum = std::inner_product(VarVector.begin(), VarVector.end(), VarVector.begin(), 0.0);
+  double stdev = std::sqrt(Varsq_sum / VarVector.size() - Varmean * Varmean);
   
+  G = log(std::accumulate(RawVectorJE.begin(), RawVectorJE.end(), 0.0) / RawVectorJE.size()) * ( 1 / Beta) - B;
+  result.val = G;
+  result.err = stdev;
   return G;
+}
+
+
+double JarzynskiFreeEnergy::JEalphaErr(std::vector<double> *JEVector) {
+  double G; /*!< Free Energy */
+  double Beta = 1 / (-BOLTZMANN * 303);  /*!< Boltzmann Factor */
+  double Wdiss;
+  double alpha;
+  double B;
+  
+  std::vector<double> RawVectorJE; /*!< Vector to copy the work value into, as to not change the values of the elements inside the vector pointer */ 
+  std::vector<double> RawVector; /*!< Vector to copy the work value into, as to not change the values of the elements inside the vector pointer */ 
+  std::vector<double> VarVector; /*!< Vector to copy the work value into, as to not change the values of the elements inside the vector pointer */ 
+
+  FE result;
+  doubleIter workIterator; /*!< double iterator */
+
+    /*! Store the raw work values from the JEVector */
+  for (workIterator = JEVector->begin(); workIterator != JEVector->end(); ++workIterator) {
+    RawVectorJE.push_back(exp(*workIterator * Beta));
+    RawVector.push_back(*workIterator);
+  }
+  
+  double sum = std::accumulate(RawVector.begin(), RawVector.end(), 0.0);
+  double mean = sum / RawVector.size();
+  double sq_sum = std::inner_product(RawVector.begin(), RawVector.end(), RawVector.begin(), 0.0);
+
+  Wdiss = 0.5 * Beta * std::sqrt(sq_sum / RawVector.size() - mean * mean);
+  alpha = (log(15.0 * Beta * Wdiss)/log(15.0 * exp(2.0 * Beta * Wdiss) - 1.0));
+  B = Wdiss/(pow(10.0 , alpha));
+
+  for (int i = 0; i <= RawVector.size(); i++) {
+    VarVector.push_back((RawVectorJE[i]) * (1/Beta) - B);
+  }
+
+  double Varsum = std::accumulate(VarVector.begin(), VarVector.end(), 0.0);
+  double Varmean = Varsum / VarVector.size();
+  double Varsq_sum = std::inner_product(VarVector.begin(), VarVector.end(), VarVector.begin(), 0.0);
+  double stdev = std::sqrt(Varsq_sum / VarVector.size() - Varmean * Varmean);
+  
+  G = log(std::accumulate(RawVectorJE.begin(), RawVectorJE.end(), 0.0) / RawVectorJE.size()) * ( 1 / Beta) - B;
+
+  result.val = G;
+  result.err = stdev;
+
+  return stdev;
 }
 
 

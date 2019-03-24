@@ -35,8 +35,8 @@
 
 //!
 /*! STL iterators -  typedefs for iterators, and typedef for vectors and tuples */  
-typedef boost::tuple<int, double, double, double> tuple; /*!< Boost-constructed tuple to store the index, center point in reaction coordinate, lower bound, upper bound and the free energy value */ 
-typedef std::vector<boost::tuple<int, double, double, double> > tupleList; /*!< Vector of the boost::tuple */  
+typedef boost::tuple<int, double, double, double, double> tuple; /*!< Boost-constructed tuple to store the index, center point in reaction coordinate, lower bound, upper bound and the free energy value */ 
+typedef std::vector<boost::tuple<int, double, double, double, double> > tupleList; /*!< Vector of the boost::tuple */  
 typedef std::vector<int>::iterator intIter; /*!< Integer iterator */ 
 typedef std::vector<double>::iterator doubleIter; /*!< Double iterator */ 
 typedef std::vector<std::string>::const_iterator stringIter; /*!< String iterator */
@@ -46,6 +46,11 @@ typedef struct {
   double BM;
   double T; 
 } parameterData;
+
+typedef struct {
+double val;
+double err;
+} FE;
 
 //! 
 /*! The main class */  
@@ -62,11 +67,16 @@ public:
   /*! Free energy calculation functions from work distribution */
   double JERaw(std::vector<double> *JEVector); /*< Raw JE interpreter */
   double JETaylor(std::vector<double> *JEVector); /*< Taylor Series (Second term) JE interpreter */  
+  double JEalpha(std::vector<double> *JEVector); /*< Taylor Series (Second term) JE interpreter */  
+  double JERawErr(std::vector<double> *JEVector); /*< Raw JE interpreter */
+  double JETaylorErr(std::vector<double> *JEVector); /*< Taylor Series (Second term) JE interpreter */  
+  double JEalphaErr(std::vector<double> *JEVector); /*< Taylor Series (Second term) JE interpreter */  
+
   double JEprocessVector(int, double (JarzynskiFreeEnergy::*f) (std::vector<double> *VectorInput), std::vector<double> *JEVector); /*< functor which can take a JE algorithm then processing it accordingly */
   double alpha(double, double, double); /*< */   
   // friend functions to take care of the MPI implementation
   friend class MPI_setup;
-  friend class JEunitTest;
+  //friend class JEunitTest;
 private:
   /*! Scientific constants used in this work */
   double BOLTZMANN = 0.0019872041; /*< units for the boltzmann constant are in kcal mol^-1 */
@@ -94,16 +104,22 @@ private:
   std::vector<double> workVector; /*< Work vector */   
   std::vector<double> JERawVector; /*< Storing the work for the raw JE interpreter */ 
   std::vector<double> JETaylorVector; /*< Storing the work ffor the taylor series JE interpreter */
+  std::vector<double> JEAlphaVector; /*< Storing the work ffor the taylor series JE interpreter */
+
   tupleList JERawCoordinateBin; /*< Vector for storing raw JE tuples */
   tupleList JETaylorCoordinateBin; /*< Vector for storing taylor series JE tuples */
+  tupleList JEAlphaCoordinateBin; /*< Vector for storing taylor series JE tuples */
+
 };
 
+/*
 class JarzynskiFreeEnergyTest : public CppUnit:TestCase, public JarzynskiFreeEnergy  { // Multiple inheritance - might be an issue 
 public:
   // Might need some thinking regarding the constructors 
   void vectorTest();
   // Do I need any private variables for this class?
 };
+*/
 
 class MPI_setup : public JarzynskiFreeEnergy { // Make sure we inherit from the JarzynskiFreeEnergy 
 public:

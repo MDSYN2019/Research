@@ -11,7 +11,7 @@
 MPI_BC AA;
 
 int main () {
+  AA.add_vector();
   AA.broadcast_vector();
-  
-
+  return 0;
 }

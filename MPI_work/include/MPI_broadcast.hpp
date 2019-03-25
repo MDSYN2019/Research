@@ -41,7 +41,7 @@ public:
 
   void broadcast_input(); // broadcasting values
   void broadcast_vector(); // broadcasting vector
-  
+  void add_vector();
   void buildMpiType(double*, double*, int*, MPI_Datatype*); // Allocates the data type into a struct and broadcasts it 
   void Send(float, float, int, int); // Standard send/receive pair 
   void Receive(float*, float*, int*, int); // Standard send/receive pair 
@@ -61,6 +61,8 @@ private:
   std::vector<int> MPItype;
   std::vector<MPI_Datatype> MPIDatatype;
   std::vector<MPI_Aint> MPIdisplacements;
+  std::vector<int> v;
+  // Testing 
 };
 
 #endif

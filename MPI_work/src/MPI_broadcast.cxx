@@ -129,7 +129,6 @@ void MPI_BC::Send(float a, float b, int n, int dest) {
 
 
 void MPI_BC::broadcast_input() { // input, input, input, output, output
-
   if (my_rank == 0) {
     std::cout << "Enter a, b and n \n";
     scanf("%lf %lf %d", a_p, b_p, n_p); 
@@ -142,17 +141,22 @@ void MPI_BC::broadcast_input() { // input, input, input, output, output
   // Get Input
 }
 
+void MPI_BC::add_vector() {
+ v.push_back(7);
+ v.push_back(8); 
+}
 
 void MPI_BC::broadcast_vector() { // input, input, input, output, output
-  std::vector<int> v = {7, 5, 16, 8};
   int* vecData = v.data();
+  int count = v.size();
   int tag;
+  // std::cout << v[0] << std::endl;
   if (my_rank == 0) {
-    MPI_Bcast(&v, 1, MPI_INT, 0, MPI_COMM_WORLD);
+    MPI_Bcast(v.data(), v.size() * sizeof(decltype(v)::value_type), MPI_BYTE, 0, MPI_COMM_WORLD);
   }
   else {
-    MPI_Recv(&v, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, &status); 
-    std::cout << " " << v[1] << " "  << " " << my_rank << " " << std::endl; 
+    //  MPI_Recv(v.data(), v.size() * sizeof(decltype(v)::value_type), MPI_BYTE, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE); 
+    std::cout << " " << v[0] << " "  << " " << my_rank << " " << std::endl; 
   }
 }
 

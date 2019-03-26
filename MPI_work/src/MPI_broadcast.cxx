@@ -152,6 +152,7 @@ void MPI_BC::broadcast_vector() { // input, input, input, output, output
   int tag;
   // std::cout << v[0] << std::endl;
   if (my_rank == 0) {
+    // Broadcast vector data - recv does not need to be called as 
     MPI_Bcast(v.data(), v.size() * sizeof(decltype(v)::value_type), MPI_BYTE, 0, MPI_COMM_WORLD);
   }
   else {

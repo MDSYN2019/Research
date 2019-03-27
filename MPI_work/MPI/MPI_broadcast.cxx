@@ -62,7 +62,6 @@ private:
   iterator limit;
 };
 
-
 std::map<std::string, std::string> typeConvDict; // TODO
 void my_bcast(void* data, int count, MPI_Datatype datatype, int root, MPI_Comm communicator) {
   int world_rank;

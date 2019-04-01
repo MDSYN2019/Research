@@ -1,5 +1,4 @@
 /*
-
 Performance evaluation of MPI programs
 
 We're usually not interested in the time taken from the sstart of program execution 
@@ -120,30 +119,46 @@ void MPI_BC::Get_input2(int my_rank, int comm_sz, double* a_p, double* b_p, int*
 }
 
 */
+
 void MPI_BC::Send(float a, float b, int n, int dest) {
    start = MPI_Wtime();
    MPI_Send(&a, 1, MPI_FLOAT, dest, 0, MPI_COMM_WORLD);
    MPI_Send(&b, 1, MPI_FLOAT, dest, 1, MPI_COMM_WORLD);
    MPI_Send(&n, 1, MPI_INT, dest, 2, MPI_COMM_WORLD);
-} /* Send */
-
+} 
 
 void MPI_BC::broadcast_input() { // input, input, input, output, output
   if (my_rank == 0) {
     std::cout << "Enter a, b and n \n";
     scanf("%lf %lf %d", a_p, b_p, n_p); 
   }
-
   MPI_Bcast(a_p, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
   MPI_Bcast(b_p, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
-  MPI_Bcast(n_p, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
-  
-  // Get Input
+  MPI_Bcast(n_p, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);  
 }
 
 void MPI_BC::add_vector() {
- v.push_back(7);
- v.push_back(8); 
+  /*
+    [ 1 2 3 4 5 6 7 8 9 10 ] 
+    [ 1 2 3 4 5 6 7 8 9 10 ] 
+    [ 1 2 3 4 5 6 7 8 9 10 ] 
+
+    ... for a 10 X 10 matrix
+   */
+  for (int i = 0; i < 10; i++) {
+    v[i].push_back(i);
+  }
+
+  v.data(); // Vector data
+  MPI_Datatype AA;
+  MPI_Type_Vector(10, 1, 10, MPI_INT, &AA); // count, block_length, stride, element_type, new_mpi_t 
+  MPI_Type_commit(&AA);
+
+  if (my_rank == 0) {
+    MPI_Send(&v[0][1], 1, AA, 1, 0);  
+  } else {
+    MPI_Recv(&v[0][1], 1, AA, 0, 0, MPI_COMM_WORLD, &status);
+  }
 }
 
 void MPI_BC::broadcast_vector() { // input, input, input, output, output

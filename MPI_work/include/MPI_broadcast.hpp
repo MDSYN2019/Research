@@ -61,7 +61,7 @@ private:
   std::vector<int> MPItype;
   std::vector<MPI_Datatype> MPIDatatype;
   std::vector<MPI_Aint> MPIdisplacements;
-  std::vector<int> v;
+  std::vector<std::vector<int> > v;
   // Testing 
 };
 

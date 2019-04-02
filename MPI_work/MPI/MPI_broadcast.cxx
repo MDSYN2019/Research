@@ -21,6 +21,14 @@ time that elapses frm the beginning t the end of the actual atual matrix
 #include "mpi.h"
 #include "MPI_broadcast.hpp"
 
+// cppunit tests
+
+#include <cppunit/extensions/TestFactoryRegistry.h>
+#include <cppunit/CompilerOutputter.h>
+#include <cppunit/ui/text/TestRunner.h>
+#include <cppunit/TestFixture.h>
+#include <cppunit/extensions/HelperMacros.h>
+
 // Trying to get this vector understood
 
 template <class T> class Vec {

@@ -5,7 +5,6 @@
 
 // cppunit tests
 
-
 #include <cppunit/extensions/TestFactoryRegistry.h>
 #include <cppunit/CompilerOutputter.h>
 #include <cppunit/ui/text/TestRunner.h>
@@ -29,14 +28,6 @@ void MPIInput::MPI_start() {
   MPI_Comm_size(MPI_COMM_WORLD, &p);  
 }
 
-/*
-  Scalability
-
-  Our parallel matrix-vector mulitplication program doesn't come close 
-  obtaining linear speedup for small n and large p. 
-
- */
-
 
 void MPIInput::I_send() {
   int power_2_stage;
@@ -49,8 +40,7 @@ void MPIInput::I_send() {
 
     if (*dest_ptr >= p) return 0;
     else return 1;  
-  }
-  
+  }  
 }
 
 

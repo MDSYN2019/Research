@@ -138,7 +138,7 @@ void MPI_BC::broadcast_input() { // input, input, input, output, output
   MPI_Bcast(n_p, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);  
 }
 
-void MPI_BC::add_vector() {
+void MPI_BC::add_vector() {  
   /*
     [ 1 2 3 4 5 6 7 8 9 10 ] 
     [ 1 2 3 4 5 6 7 8 9 10 ] 
@@ -146,17 +146,17 @@ void MPI_BC::add_vector() {
 
     ... for a 10 X 10 matrix
    */
+
   for (int i = 0; i < 10; i++) {
-    v[i].push_back(i);
+    TdVector[i].push_back(i);
   }
-  v.data(); // Vector data
-  MPI_Datatype AA;
-  MPI_Type_Vector(10, 1, 10, MPI_INT, &AA); // count, block_length, stride, element_type, new_mpi_t 
-  MPI_Type_commit(&AA);
+  MPI_Type_vector(10, 1, 10, MPI_INT, &AA); // count, block_length, stride, element_type, new_mpi_t 
+  MPI_Type_commit(&AA);  
+
   if (my_rank == 0) {
-    MPI_Send(&v[0][1], 1, AA, 1, 0);  
+    MPI_Send(&(TdVector[0][1]), 1, AA, 1, 0, MPI_COMM_WORLD);  
   } else {
-    MPI_Recv(&v[0][1], 1, AA, 0, 0, MPI_COMM_WORLD, &status);
+    MPI_Recv(&(TdVector[0][1]), 1, AA, 0, 0, MPI_COMM_WORLD, &status);
   }
 }
 

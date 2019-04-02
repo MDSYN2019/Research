@@ -87,30 +87,8 @@ MPI_BC::MPI_BC() {
   MPI_Init(NULL, NULL);
   MPI_Comm_size(MPI_COMM_WORLD, &comm_sz);
   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
-} // constructor 
-
-/*
-
-MPI_BC::MPI_BC::operator=(const MPI_BC& rhs) {
-  if (this == &rhs) return *this;
-  copy (rhs);
-  return *this;
 }
 
-*/
-
-MPI_BC::~MPI_BC() {
-  MPI_Finalize();
-} // destructor 
-
-/*
-void MPI_BC::InitializeVec(int lenOfVec) {
-  vectorOfBlockLengths = std::vector<int>(lenOfVec);
-  MPItype = std::vector<int>(lenOfVec);
-  MPIDatatype = std::vector<MPI_Datatype>(lenOfVec);
-  MPIdisplacements = std::vector<MPI_Aint>(lenOfVec);
-}
-*/
 
 void MPI_BC::parallelAllocateVec(double* aa, double* bb, int lenOfVec, std::vector<int>* vecpart, MPI_Datatype* input_mpi_t_p) {
   std::iota(MPItype.begin(), MPItype.end(), 1); // Vector allocation of types
@@ -122,7 +100,6 @@ void MPI_BC::parallelAllocateVec(double* aa, double* bb, int lenOfVec, std::vect
   //  MPI_Type_create_struct(lenOfVec, pointerToArray, MPIdisplacements, MPItype, input_mpi_t_p);
   MPI_Type_commit(input_mpi_t_p);
   finish = MPI_Wtime();
- 
 }
 
 
@@ -131,8 +108,6 @@ void MPI_BC::packData() {
 
 
 void MPI_BC::buildMpiType(double* a_p, double* b_p, int* n_p, MPI_Datatype* input_mpi_t_p) {
-
-
   /*  
     A derived datatype can bbe used to represent any collection 
     of data items by storing both the types of items and their 
@@ -141,6 +116,7 @@ void MPI_BC::buildMpiType(double* a_p, double* b_p, int* n_p, MPI_Datatype* inpu
     If a function that sends data knows the types and the relative 
     locations in memory of a collection of data items,   
   */
+  
   start = MPI_Wtime();
   int array_of_blocklengths[3] = {1,1,1};
 
@@ -191,6 +167,27 @@ void MPI_BC::Send(float a, float b, int n, int dest) {
    MPI_Send(&n, 1, MPI_INT, dest, 2, MPI_COMM_WORLD);
 } /* Send */
 
+
+void MPI_BC::SendVector() {
+  //start = MPI_Wtime();
+  
+  for (unsigned int i = 0; i < 10; i++) {
+    v[i].push_back(i);
+  }
+  MPI_Datatype column_mpi_t;
+  MPI_Type_vector(10, 1, 10, MPI_INT, &column_mpi_t);
+  MPI_Type_commit(&column_mpi_t);
+
+  if (my_rank == 0) {
+    MPI_Send(&v[0][1], 1, column_mpi_t, 1, 0, MPI_COMM_WORLD);
+  } else {
+    MPI_Recv(&v[0][1], 1, column_mpi_t, 0, 0, MPI_COMM_WORLD, &status);
+  }
+  // MPI_Send(&a, 1, MPI_FLOAT, dest, 0, MPI_COMM_WORLD);
+  // MPI_Send(&b, 1, MPI_FLOAT, dest, 1, MPI_COMM_WORLD);
+  // MPI_Send(&n, 1, MPI_INT, dest, 2, MPI_COMM_WORLD);
+} /* Send */
+
 void MPI_BC::Receive(float* a_ptr, float* b_ptr, int* n_ptr, int   source) {
   
   MPI_Recv(a_ptr, 1, MPI_FLOAT, source, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
@@ -199,12 +196,8 @@ void MPI_BC::Receive(float* a_ptr, float* b_ptr, int* n_ptr, int   source) {
   finish = MPI_Wtime();
 } /* Receive */
 
-/*
-void MPI_BC::GetData() {
-  if (my_rank == 0) {
-    std::cout << "Enter a, b, and n \n";
-    scanf("%lf %lf %d", a_ptr, b_ptr, n_ptr);
-  }
- 
-}
-*/
+MPI_BC::~MPI_BC() {
+  MPI_Finalize();
+} // destructor 
+
+

@@ -14,13 +14,13 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <mpi.h>
+#include "mpi.h"
 #include <numeric>
-
 
 /*
   For the constructors that take a size, we will allocate 
- */
+*/
+
 template <typename T, typename Q, typename R>  class MPI_BC_Generic {
 public:
   MPI_BC_Generic();
@@ -30,7 +30,6 @@ private:
   T* limit;
 };
 
-
 class MPI_BC {
 public:
   MPI_BC(); // Default constructor 
@@ -38,12 +37,12 @@ public:
   virtual ~MPI_BC();   
   void packData(); // Using MPI_Pack/MPI_unpack
   void time_ellapsed(); // Total time for the MPI program to execute
-
   void broadcast_input(); // broadcasting values
   void broadcast_vector(); // broadcasting vector
   void add_vector();
   void buildMpiType(double*, double*, int*, MPI_Datatype*); // Allocates the data type into a struct and broadcasts it 
   void Send(float, float, int, int); // Standard send/receive pair 
+  void SendVector(); // Standard send/receive pair 
   void Receive(float*, float*, int*, int); // Standard send/receive pair 
   // void GetData(float*, float*, int*, int, int); // WIP
   void parallelAllocateVec(double*, double*, int, std::vector<int>*, MPI_Datatype*);
@@ -57,11 +56,15 @@ private:
   double start, finish; // integers for measuring the start and finish of the function called from this class
   MPI_Aint aint; // What does MPI_Aint mean?
   MPI_Status status;
+  MPI_Datatype AA;
+
+  // Vectors 
   std::vector<int> vectorOfBlockLengths;
   std::vector<int> MPItype;
+  std::vector<int> v;
   std::vector<MPI_Datatype> MPIDatatype;
   std::vector<MPI_Aint> MPIdisplacements;
-  std::vector<std::vector<int> > v;
+  std::vector<std::vector<int> > TdVector;
   // Testing 
 };
 

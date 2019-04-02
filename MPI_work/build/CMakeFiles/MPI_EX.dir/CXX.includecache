@@ -14,7 +14,7 @@ vector
 algorithm
 -
 mpi.h
--
+../include/mpi.h
 numeric
 -
 

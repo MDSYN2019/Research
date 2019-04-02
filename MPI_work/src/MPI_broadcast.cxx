@@ -76,6 +76,7 @@ void MPI_BC::buildMpiType(double* a_p, double* b_p, int* n_p, MPI_Datatype* inpu
     If a function that sends data knows the types and the relative 
     locations in memory of a collection of data items,   
   */
+  
   start = MPI_Wtime();
   int array_of_blocklengths[3] = {1,1,1};
 
@@ -121,10 +122,10 @@ void MPI_BC::Get_input2(int my_rank, int comm_sz, double* a_p, double* b_p, int*
 */
 
 void MPI_BC::Send(float a, float b, int n, int dest) {
-   start = MPI_Wtime();
-   MPI_Send(&a, 1, MPI_FLOAT, dest, 0, MPI_COMM_WORLD);
-   MPI_Send(&b, 1, MPI_FLOAT, dest, 1, MPI_COMM_WORLD);
-   MPI_Send(&n, 1, MPI_INT, dest, 2, MPI_COMM_WORLD);
+  start = MPI_Wtime();
+  MPI_Send(&a, 1, MPI_FLOAT, dest, 0, MPI_COMM_WORLD);
+  MPI_Send(&b, 1, MPI_FLOAT, dest, 1, MPI_COMM_WORLD);
+  MPI_Send(&n, 1, MPI_INT, dest, 2, MPI_COMM_WORLD);
 } 
 
 void MPI_BC::broadcast_input() { // input, input, input, output, output
@@ -148,12 +149,10 @@ void MPI_BC::add_vector() {
   for (int i = 0; i < 10; i++) {
     v[i].push_back(i);
   }
-
   v.data(); // Vector data
   MPI_Datatype AA;
   MPI_Type_Vector(10, 1, 10, MPI_INT, &AA); // count, block_length, stride, element_type, new_mpi_t 
   MPI_Type_commit(&AA);
-
   if (my_rank == 0) {
     MPI_Send(&v[0][1], 1, AA, 1, 0);  
   } else {
@@ -161,7 +160,9 @@ void MPI_BC::add_vector() {
   }
 }
 
+
 void MPI_BC::broadcast_vector() { // input, input, input, output, output
+
   int* vecData = v.data();
   int count = v.size();
   int tag;
@@ -176,7 +177,6 @@ void MPI_BC::broadcast_vector() { // input, input, input, output, output
   }
 }
 
-
 void MPI_BC::Receive(float* a_ptr, float* b_ptr, int* n_ptr, int   source) {  
   MPI_Recv(a_ptr, 1, MPI_FLOAT, source, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
   MPI_Recv(b_ptr, 1, MPI_FLOAT, source, 1, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
@@ -184,12 +184,3 @@ void MPI_BC::Receive(float* a_ptr, float* b_ptr, int* n_ptr, int   source) {
   finish = MPI_Wtime();
 } /* Receive */
 
-/*
-void MPI_BC::GetData() {
-  if (my_rank == 0) {
-    std::cout << "Enter a, b, and n \n";
-    scanf("%lf %lf %d", a_ptr, b_ptr, n_ptr);
-  }
- 
-}
-*/

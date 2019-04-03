@@ -1,13 +1,3 @@
-/*
-Performance evaluation of MPI programs
-
-We're usually not interested in the time taken from the sstart of program execution 
-to the end of program execution. 
-
-We're nly interested in the time it takes to do the actual multiplicaton, 
-s we need to modify our source code by adding in calls to a function that will tell us the amount of 
-time that elapses frm the beginning t the end of the actual atual matrix
- */
 
 
 #include <iostream>
@@ -17,8 +7,22 @@ time that elapses frm the beginning t the end of the actual atual matrix
 #include <algorithm>
 #include <iterator>
 #include <numeric>
+#include <string>
 #include "mpi.h"
 #include "MPI_broadcast.hpp"
+
+
+void Get_data4(float* a_ptr, float* b_ptr, int* n_ptr, int my_rank) {
+  std::string buffer; // Keep data in the buffer 
+  int position; 
+
+  if (my_rank == 0) {
+    std::cout << "Enter a, b, and n \n";
+    position = 0;
+   
+  }
+
+}
 
 std::map<std::string, std::string> typeConvDict; // TODO
 void my_bcast(void* data, int count, MPI_Datatype datatype, int root, MPI_Comm communicator) {

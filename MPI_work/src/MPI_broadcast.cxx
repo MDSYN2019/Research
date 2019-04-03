@@ -12,14 +12,22 @@
 #include "MPI_broadcast.hpp"
 
 
-void Get_data4(float* a_ptr, float* b_ptr, int* n_ptr, int my_rank) {
+/*
+  An alternative approach to grouping data is provided by the MPI functions
+  MPI_Pack and MPI_Unpack, MPI_Pack allows one to explicitly store noncontiguous 
+  data in contiguous memory locations, and MPI_unpack can be used to copy ..
+ */
+
+void Pack_unpackGet(float* a_ptr, float* b_ptr, int* n_ptr, int my_rank) {
   std::string buffer; // Keep data in the buffer 
   int position; 
 
   if (my_rank == 0) {
     std::cout << "Enter a, b, and n \n";
     position = 0;
-   
+    MPI_Pack(a_ptr, 1, MPI_FLOAT, buffer, 100, &position, MPI_COMM_WORLD); 
+    MPI_Pack(b_ptr, 1, MPI_FLOAT, buffer, 100, &position, MPI_COMM_WORLD);
+    
   }
 
 }
@@ -67,9 +75,7 @@ void MPI_BC::parallelAllocateVec(double* aa, double* bb, int lenOfVec, std::vect
   //  MPI_Type_create_struct(lenOfVec, pointerToArray, MPIdisplacements, MPItype, input_mpi_t_p);
   MPI_Type_commit(input_mpi_t_p);
   finish = MPI_Wtime();
- 
 }
-
 
 void MPI_BC::buildMpiType(double* a_p, double* b_p, int* n_p, MPI_Datatype* input_mpi_t_p) {
   /*  

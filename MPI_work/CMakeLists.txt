@@ -6,6 +6,8 @@ project (MPI_C++)
 # Ensure C++11 is invoked
 
 include(CheckCXXCompilerFlag)
+      
+FIND_LIBRARY(CPPUNIT_LIBRARY NAMES cppunit)
 
 CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
 CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
@@ -43,16 +45,6 @@ include_directories(${MPI_INCLUDE_PATH})
 #include_directories(${GSL_INCLUDE_DIR})
 
 find_package(Boost) 
-find_package(CPPUNIT REQUIRED)
-include_directories(${CPPUNIT_INCLUDE_DIR})
-if(CPPUNIT_FOUND)
-	set(CPPUNIT_LIBRARIES ${CPPUNIT_LIBRARY} ${CMAKE_DL_LIBS})
-	set(CPPUNIT_INCLUDE_DIRS "${CPPUNIT_INCLUDE_DIR}")
-	mark_as_advanced(CPPUNIT_ROOT_DIR)
-endif()
-
-#Include the "unit-tests" directory
-include_directories("unit-tests")
 
 if(Boost_FOUND)
   include_directories (${Boost_INCLUDE_DIRS})
@@ -63,6 +55,8 @@ add_subdirectory (src)
 
 set (EXTRA_LIBS ${EXTRA_LIBS} src)
 set(MATH "${MATH} -lm")
+set(CPPUNIT "${CPPUNIT} -lcppunit")
+
 
 # include_directories ("${EIGEN3_INCLUDE_DIR}")
 # Specifically add the src library definition for linking
@@ -75,7 +69,7 @@ set(MATH "${MATH} -lm")
 
 include_directories (${Boost_INCLUDE_DIRS})
 #target_compile_options(MPI_EX PRIVATE ${MPI_CXX_COMPILE_FLAGS})
-add_executable (MPI_EX main.cxx)
+add_executable (MPI_EX ${UNIT_TEST} main.cxx)
 target_include_directories(MPI_EX PRIVATE ${MPI_CXX_INCLUDE_PATH})
 
 ADD_LIBRARY(gsllib 
@@ -85,7 +79,7 @@ ADD_LIBRARY(gsllib
 target_link_libraries(gsllib -L/home/noh/anaconda3/pkgs/gsl-2.1-2/lib/)
 target_link_libraries(gsllib libgsl.a)
 target_link_libraries(gsllib libgslcblas.a)
-target_link_libraries(MPI_EX ${EXTRA_LIBS} ${Boost_LIBRARIES} ${MATH} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB} gsllib)
+target_link_libraries(MPI_EX ${EXTRA_LIBS} ${Boost_LIBRARIES} ${MATH} ${CPPUNIT} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB}  gsllib)
 
 if(MPI_COMPILE_FLAGS)
   set_target_properties(MPI_EX PROPERTIES

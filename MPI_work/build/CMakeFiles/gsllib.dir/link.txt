@@ -1,0 +1,2 @@
+/usr/bin/ar qc libgsllib.a  CMakeFiles/gsllib.dir/main.o
+/usr/bin/ranlib libgsllib.a

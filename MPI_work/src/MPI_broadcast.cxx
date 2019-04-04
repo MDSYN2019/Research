@@ -198,5 +198,5 @@ void MPI_BC::Receive(float* a_ptr, float* b_ptr, int* n_ptr, int   source) {
 
 
 void MPI_BC::vectorTest() {
-  CPPUNIT_ASSERT(v.size() == v.size());
+//  CPPUNIT_ASSERT(v.size() == v.size());
 }

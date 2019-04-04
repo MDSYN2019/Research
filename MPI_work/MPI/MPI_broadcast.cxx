@@ -31,22 +31,12 @@ time that elapses frm the beginning t the end of the actual atual matrix
 
 // Trying to get this vector understood
 
-template <class T> class Vec {
-public:
-  typedef T* iterator;
-
-
-};
-
-
-
 std::map<std::string, std::string> typeConvDict; // TODO
 void my_bcast(void* data, int count, MPI_Datatype datatype, int root, MPI_Comm communicator) {
   int world_rank;
   MPI_Comm_rank(communicator, &world_rank);
   int world_size;
   MPI_Comm_size(communicator, &world_size);
-
   if (world_rank == root) {
     // If we are the root process, send our data to everyone
     int i;
@@ -67,13 +57,11 @@ MPI_BC::MPI_BC() {
   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
 }
 
-
 void MPI_BC::parallelAllocateVec(double* aa, double* bb, int lenOfVec, std::vector<int>* vecpart, MPI_Datatype* input_mpi_t_p) {
   std::iota(MPItype.begin(), MPItype.end(), 1); // Vector allocation of types
   std::iota(MPIDatatype.begin(), MPIDatatype.end(), MPI_INT); // Vector allocation of MPI_INt
   std::iota(MPIdisplacements.begin(), MPIdisplacements.end(), sizeof(int));  // vector allocation of the size of the vector 
-  pointerToArray = &MPItype[0];
-  
+  pointerToArray = &MPItype[0];  
   MPI_Get_address(&vecpart[0], &aint);
   //  MPI_Type_create_struct(lenOfVec, pointerToArray, MPIdisplacements, MPItype, input_mpi_t_p);
   MPI_Type_commit(input_mpi_t_p);
@@ -177,7 +165,6 @@ void MPI_BC::Receive(float* a_ptr, float* b_ptr, int* n_ptr, int   source) {
 MPI_BC::~MPI_BC() {
   MPI_Finalize();
 } // destructor 
-
 
 // Test methods
 

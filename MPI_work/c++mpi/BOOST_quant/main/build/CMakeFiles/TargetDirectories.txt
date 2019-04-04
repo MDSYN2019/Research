@@ -1,6 +1,0 @@
-/home/noh/Desktop/Program/GIT/CV_Analysis/main/build/CMakeFiles/rebuild_cache.dir
-/home/noh/Desktop/Program/GIT/CV_Analysis/main/build/CMakeFiles/OPENCV_exploration.dir
-/home/noh/Desktop/Program/GIT/CV_Analysis/main/build/CMakeFiles/edit_cache.dir
-/home/noh/Desktop/Program/GIT/CV_Analysis/main/build/src/CMakeFiles/rebuild_cache.dir
-/home/noh/Desktop/Program/GIT/CV_Analysis/main/build/src/CMakeFiles/src.dir
-/home/noh/Desktop/Program/GIT/CV_Analysis/main/build/src/CMakeFiles/edit_cache.dir

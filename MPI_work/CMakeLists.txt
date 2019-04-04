@@ -10,6 +10,9 @@ include(CheckCXXCompilerFlag)
 CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
 CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
 
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${DevIL_SOURCE_DIR}/cmake/Modules")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 if(COMPILER_SUPPORTS_CXX11)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
@@ -40,6 +43,17 @@ include_directories(${MPI_INCLUDE_PATH})
 #include_directories(${GSL_INCLUDE_DIR})
 
 find_package(Boost) 
+find_package(CPPUNIT REQUIRED)
+include_directories(${CPPUNIT_INCLUDE_DIR})
+if(CPPUNIT_FOUND)
+	set(CPPUNIT_LIBRARIES ${CPPUNIT_LIBRARY} ${CMAKE_DL_LIBS})
+	set(CPPUNIT_INCLUDE_DIRS "${CPPUNIT_INCLUDE_DIR}")
+	mark_as_advanced(CPPUNIT_ROOT_DIR)
+endif()
+
+#Include the "unit-tests" directory
+include_directories("unit-tests")
+
 if(Boost_FOUND)
   include_directories (${Boost_INCLUDE_DIRS})
 endif()

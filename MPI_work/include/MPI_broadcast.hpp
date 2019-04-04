@@ -17,6 +17,14 @@
 #include "mpi.h"
 #include <numeric>
 
+// cppunit tests
+
+#include <cppunit/extensions/TestFactoryRegistry.h>
+#include <cppunit/CompilerOutputter.h>
+#include <cppunit/ui/text/TestRunner.h>
+#include <cppunit/TestFixture.h>
+#include <cppunit/extensions/HelperMacros.h>
+
 /*
   For the constructors that take a size, we will allocate 
 */
@@ -30,10 +38,27 @@ private:
   T* limit;
 };
 
-class MPI_BC {
+/*
+  Inheritance in C++
+
+  1. Public mode: If we derive a sub class from a public base class, then the public members 
+     of the base class will become public in the derived class and protected members of the 
+     base class will become protected in the derived class (public -> public) 
+
+  2. Protected mode: If we derive a sub class from a protected base class, then both public 
+     member and protected members of the base class will become protected in derived 
+     class
+
+  3. Private mode: If we derive a sub class from a Private base class. Then both public 
+  member and protected members of the base class 
+
+     
+ */
+
+class MPI_BC : public CppUnit::TestCase {
 public:
   MPI_BC(); // Default constructor 
-  // MPI_BC(int); // Custom constructor 
+  //  MPI_BC(int) : CppUnit::TestCase(name) {} // Test constructor  
   virtual ~MPI_BC();   
   void packData(); // Using MPI_Pack/MPI_unpack
   void time_ellapsed(); // Total time for the MPI program to execute
@@ -46,6 +71,8 @@ public:
   void Receive(float*, float*, int*, int); // Standard send/receive pair 
   // void GetData(float*, float*, int*, int, int); // WIP
   void parallelAllocateVec(double*, double*, int, std::vector<int>*, MPI_Datatype*);
+
+  void vectorTest();
 private:
   float* a_p;
   float* b_p;

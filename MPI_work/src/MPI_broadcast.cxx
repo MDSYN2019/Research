@@ -18,6 +18,7 @@
   data in contiguous memory locations, and MPI_unpack can be used to copy ..
  */
 
+/*
 void Pack_unpackGet(float* a_ptr, float* b_ptr, int* n_ptr, int my_rank) {
   std::string buffer; // Keep data in the buffer 
   int position; 
@@ -31,6 +32,7 @@ void Pack_unpackGet(float* a_ptr, float* b_ptr, int* n_ptr, int my_rank) {
   }
 
 }
+*/
 
 std::map<std::string, std::string> typeConvDict; // TODO
 void my_bcast(void* data, int count, MPI_Datatype datatype, int root, MPI_Comm communicator) {
@@ -194,3 +196,7 @@ void MPI_BC::Receive(float* a_ptr, float* b_ptr, int* n_ptr, int   source) {
   finish = MPI_Wtime();
 } /* Receive */
 
+
+void MPI_BC::vectorTest() {
+  CPPUNIT_ASSERT(v.size() == v.size());
+}

@@ -191,6 +191,9 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//The directory containing a CMake configuration file for CPPUNIT.
+CPPUNIT_DIR:PATH=CPPUNIT_DIR-NOTFOUND
+
 //Single output directory for building all executables.
 EXECUTABLE_OUTPUT_PATH:PATH=
 
@@ -282,12 +285,6 @@ MPI_pthread_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libpthread.so
 
 //Location of the rt library for MPI
 MPI_rt_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/librt.so
-
-//Dependencies for the target
-gsllib_LIB_DEPENDS:STATIC=general;-L/home/noh/anaconda3/pkgs/gsl-2.1-2/lib/;general;libgsl.a;general;libgslcblas.a;
-
-//Dependencies for target
-src_LIB_DEPENDS:STATIC=
 
 
 ########################
@@ -392,7 +389,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

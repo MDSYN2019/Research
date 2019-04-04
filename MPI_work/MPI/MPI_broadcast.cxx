@@ -34,41 +34,11 @@ time that elapses frm the beginning t the end of the actual atual matrix
 template <class T> class Vec {
 public:
   typedef T* iterator;
-  typedef const T* const_iterator;
-  typedef size_t size_type;
-  typedef T value_type;
-  typedef std::ptrdiff_T difference_type;
-  typedef T& reference;
-  typedef const T& const_reference;
-  template <class T>
-  Vec<T>& Vec<T>::operator=(const Vec& rhs) {
-   // check for self-assignment
-    if (&rhs != this) {
-      // free the array in the left hand side
-      uncreate();
-      create (rhs.begin(), rhs.end());
-    }
-    return *this;
-  }
-  
-  &Vec operator=(const Vec&);
-  Vec() {create();}
-  // we'll assume that one of our utiity functions will handle the allocation and copy so that the copy constucorr can forward its wworkd to taht function
-  Vec(const Vec& v){(create(v.begin(), v.end()));} // copy constructor
-  explicit Vec(std::size_t n, const T& val = T()) {create(n,val);} // this explicit constructor takes a size_type and a value - this will allocate neough mempry of type T of number n, and initialize it with the values val 
-  size_type size() const {return limit - data;}
-  T& operator[] (size_type i) { return data[i]}
-  const T& operator[](size_type i) const {return data[i];}
-  
-  iterator begin() {return data;}
-  const_iterator begin() const {return data;}
-  iterator_end() {return limit;}
-  const_iterator end() {return limit;}
 
-private:
-  iterator data; // first the first element of the data
-  iterator limit;
+
 };
+
+
 
 std::map<std::string, std::string> typeConvDict; // TODO
 void my_bcast(void* data, int count, MPI_Datatype datatype, int root, MPI_Comm communicator) {
@@ -209,3 +179,8 @@ MPI_BC::~MPI_BC() {
 } // destructor 
 
 
+// Test methods
+
+MPI_BC::vectorTest() {
+  CPPUNIT_ASSERT(v.size() == v.size());
+}

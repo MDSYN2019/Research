@@ -9,6 +9,20 @@
   
   This means that a thread that has completed the block of code will wait for other threads in the team to complete the block.  
 
+  ------------------
+  Scope of Variables 
+  ------------------
+
+
+  In serial programming, the scope of a variable consists of those parts of a program in which the 
+  variable can be used. For example, a variable declared at the beginning of a C function has a 
+  "function-wide" sceop, that is, it can be only be accessed in the body of the function. 
+
+  On the other hand, a variable declared at the beginning of a .c file but outside any function has a "file-wide" scope, tat is, any function in the file 
+
+
+
+
  */
 
 

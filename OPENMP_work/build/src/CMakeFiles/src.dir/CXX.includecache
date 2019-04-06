@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/oohnohnoh1/Desktop/GIT/PhD_work/OPENMP_work/src/openmp1.cxx
+iostream
+-
+cstdlib
+-
+cstdio
+-
+omp.h
+-
+

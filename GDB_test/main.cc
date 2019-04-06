@@ -6,27 +6,29 @@
 // tutorial. The tutorial can be found on the web at
 // http://students.cec.wustl.edu/~agg1/tutorial/
 
-#include <iostream.h>
+
+
+#include <iostream>
 
 int number_instantiated = 0;
 
 template <class T>
 class Node {
 public:
-  Node (const T &value, Node<T> *next = 0) : value_(value), next_(next) {
-    cout << "Creating Node, "
-         << ++number_instantiated
-         << " are in existence right now" << endl;
+  Node (const T &value, Node<T> *next = 0) : value_(value), next_(next) { // Allocate value to value, next to next
+    std::cout << "Creating Node, "
+	      << ++number_instantiated // global variable here 
+         << " are in existence right now" << std::endl;
   }
-  ~Node () {
-    cout << "Destroying Node, "
+  ~Node () { // Destructor 
+    std::cout << "Destroying Node, "
          << --number_instantiated
-         << " are in existence right now" << endl;
+         << " are in existence right now" << std::endl;
     next_ = 0;
   }
 
-  Node<T>* next () const { return next_; }
-  void next (Node<T> *new_next) { next_ = new_next; };
+  Node<T>* next () const { return next_; }  // pointer to the next node 
+  void next (Node<T> *new_next) { next_ = new_next; }; // 
   const T& value () const { return value_; }
   void value (const T &value) { value_ = value; }
 
@@ -83,7 +85,7 @@ public:
   void print (void) {
     Node<T> *marker = head_;
     while (marker != 0) {
-      cout << marker->value() << endl;
+      std::cout << marker->value() << std::endl;
       marker = marker->next();
     }
   }
@@ -109,21 +111,21 @@ int main (int argc, char **argv) {
   list->insert (3);
   list->insert (4);
 
-  cout << "The fully created list is:" << endl;
+  std::cout << "The fully created list is:" << std::endl;
   list->print ();
 
-  cout << endl << "Now removing elements:" << endl;
+  std::cout << std::endl << "Now removing elements:" << std::endl;
   list->remove (4);
   list->print ();
-  cout << endl;
+  std::cout << std::endl;
 
   list->remove (1);
   list->print ();
-  cout << endl;
+  std::cout << std::endl;
 
   list->remove (2);
   list->print ();
-  cout << endl;
+  std::cout << std::endl;
 
   list->remove (3);
   list->print ();

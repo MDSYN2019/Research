@@ -17,6 +17,8 @@
 OpenMP consists of a library of functions and macros, so we usually need to iunclude a header 
 file with prototypes and macro definitions. 
 
+openmp - a set of compiler directiev s and library routines for parallel application 
+
 */
 
 void Hello(void);

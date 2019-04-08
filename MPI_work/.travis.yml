@@ -1,0 +1,19 @@
+install: make get deps
+compiler:
+  - clang
+  - gcc
+matrix:
+  include:
+    os: linux
+    addons:
+      apt:
+        sources:
+          - ubuntu toolchain-r-test
+        packages:
+          g++ 4.9
+addons:
+  apt:
+    packages:
+      -cmake-data
+      -cmake
+      

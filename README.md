@@ -1,4 +1,7 @@
 # PhD_work
+
+https://travis-ci.com/MDSYN2019/PhD_work.svg?branch=master
+
 PhD Molecular Dynamics analysis code 
 
 This repository contains some of the code I used during period of my PhD, including free energy calculation codes, such as the Jarzynski Equality.

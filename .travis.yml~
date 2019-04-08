@@ -1,3 +1,23 @@
+install: make get deps
 language: cpp
 compiler:
-- gcc
+  - clang
+  - gcc
+matrix:
+  include:
+    os: linux
+    addons:
+      apt:
+        sources:
+          - ubuntu-toolchain-r-test
+          - llvm-toolchain-precise-3.8
+        packages:
+          - g++-6
+          - clang-3.8
+addons:
+  apt:
+    packages:
+      -cmake-data
+      -cmake
+script:
+  - cd 

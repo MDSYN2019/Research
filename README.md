@@ -1,8 +1,7 @@
 # PhD_work
 
-
 CI link: https://travis-ci.com/MDSYN2019/PhD_work
-
+ 
 [![Build Status](https://travis-ci.com/MDSYN2019/PhD_work.svg?branch=master)](https://travis-ci.com/MDSYN2019/PhD_work)
 
 PhD Molecular Dynamics analysis code 

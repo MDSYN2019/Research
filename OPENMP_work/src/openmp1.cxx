@@ -12,11 +12,27 @@
 
  */
 
-/*
 
+/*
+  
+Trapezium rule 
+
+1. Weidentified two types of tasks:
+a. Computation of the areas of individual trapezouids and 
+b. Adding the areas of trapezoids
+
+2. There is no communication among the tasks in the first collection, but each task in the first 
+   collection communicated with the task in task 1 b
+
+
+
+
+ */
+
+
+/*
 OpenMP consists of a library of functions and macros, so we usually need to iunclude a header 
 file with prototypes and macro definitions. 
-
 */
 
 void Hello(void);
@@ -55,3 +71,30 @@ void Hello(void) {
   int thread_count = omp_get_num_threads();
   std::cout << "Hello from thread " << my_rank  << " of " <<  thread_count << std::endl;
 }
+
+void Trap(double a, double b, int n, double * global_result_p) {
+
+  double h, x, my_result;
+  double local_a, local_b;
+  int i, local_n;
+
+  int my_rank = omp_get_thread_num();
+  int thread_count = omp_get_num_threads();
+}
+
+class OMP {
+public:
+  OMP();
+  ~OMP();
+  
+  int input;
+  
+private:
+  int my_rank = omp_get_thread_num();
+  int thread_count = omp_get_num_threads();
+  
+};
+  
+
+
+

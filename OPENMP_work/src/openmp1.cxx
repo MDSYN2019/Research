@@ -13,6 +13,23 @@
  */
 
 
+
+template <class T> class Vec {
+public:
+  // Interface
+  // Two constructors defined here -
+  Vec() {create();} // Default constructor 
+  explicit Vec(std::size_t n, const T& = T()) { create(n, val);} // When we say that a constructor is explicit, we're saying that the compiler
+                                                                 // will use specifically invokes the constructor
+  
+private:
+  // Implemntation
+  T* data;
+  T* limit;
+};
+
+
+
 /*
   
 Trapezium rule 
@@ -24,26 +41,11 @@ b. Adding the areas of trapezoids
 2. There is no communication among the tasks in the first collection, but each task in the first 
    collection communicated with the task in task 1 b
 
-
-
-
- */
-
-
-/*
 OpenMP consists of a library of functions and macros, so we usually need to iunclude a header 
 file with prototypes and macro definitions. 
+
+
 */
-
-
-template <class T> class Vec {
-public:
-  // Interface
-private:
-  // Implemntation
-  T* data;
-  T* limit;
-};
 
 void Hello(void);
 int main(int argc, char *argv[]) {

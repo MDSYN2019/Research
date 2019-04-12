@@ -1,2 +1,2 @@
 #include_directories ("${PROJECT_SOURCE_DIR}/include")
-add_library(src *.cxx)
+add_library(src MPI_broadcast.cxx)

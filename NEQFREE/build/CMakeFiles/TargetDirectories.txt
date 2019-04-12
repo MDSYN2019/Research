@@ -1,0 +1,6 @@
+/home/oohnohnoh1/Desktop/GIT/PhD_work/NEQFREE/build/CMakeFiles/rebuild_cache.dir
+/home/oohnohnoh1/Desktop/GIT/PhD_work/NEQFREE/build/CMakeFiles/JE.dir
+/home/oohnohnoh1/Desktop/GIT/PhD_work/NEQFREE/build/CMakeFiles/edit_cache.dir
+/home/oohnohnoh1/Desktop/GIT/PhD_work/NEQFREE/build/src/CMakeFiles/rebuild_cache.dir
+/home/oohnohnoh1/Desktop/GIT/PhD_work/NEQFREE/build/src/CMakeFiles/src.dir
+/home/oohnohnoh1/Desktop/GIT/PhD_work/NEQFREE/build/src/CMakeFiles/edit_cache.dir

@@ -10,7 +10,7 @@ CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
 
 # option for using MPI functions
 
-add_subdirectory(MPI_work)
+add_subdirectory(src)
 
 # Add the conditionals for USE_MPI
 #option(UMPI "Use MPI functions for the compilation of this code" ON)

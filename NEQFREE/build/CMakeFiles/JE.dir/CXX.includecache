@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/oohnohnoh1/Desktop/GIT/PhD_work/NEQFREE/main.cxx
+iostream
+-
+iomanip
+-
+vector
+-
+map
+-
+algorithm
+-
+iterator
+-
+numeric
+-
+mpi.h
+/home/oohnohnoh1/Desktop/GIT/PhD_work/NEQFREE/mpi.h
+MPI_broadcast.hpp
+/home/oohnohnoh1/Desktop/GIT/PhD_work/NEQFREE/MPI_broadcast.hpp
+
+/home/oohnohnoh1/anaconda3/include/mpi.h
+mpio.h
+/home/oohnohnoh1/anaconda3/include/mpio.h
+mpicxx.h
+/home/oohnohnoh1/anaconda3/include/mpicxx.h
+
+/home/oohnohnoh1/anaconda3/include/mpicxx.h
+stdio.h
+-
+
+/home/oohnohnoh1/anaconda3/include/mpio.h
+mpi.h
+/home/oohnohnoh1/anaconda3/include/mpi.h
+

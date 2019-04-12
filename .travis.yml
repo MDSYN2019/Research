@@ -2,7 +2,7 @@
 # For more languages and info see:
 # https://github.com/rsp/travis-hello#readme
 
-sudo: false
+sudo: true
 language: cpp
 compiler:
   - g++
@@ -16,14 +16,10 @@ addons:
     - clang-3.8
     - cmake-data
     - cmake
-cache:
-  directories:
-    - mpich    
 install:
 - "[ $CXX = g++ ] && export CXX=g++-6 || true"
 - "[ $CXX = clang++ ] && export CXX=clang++-3.8 || true"
-before_install:
-  - sh ./get_mpich.sh
+- sudo apt-get install libcr-dev mpich2 mpich2-doc
 script:
   - cd MPI_work/build
   - rm -r *

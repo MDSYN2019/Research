@@ -35,8 +35,17 @@ OpenMP consists of a library of functions and macros, so we usually need to iunc
 file with prototypes and macro definitions. 
 */
 
-void Hello(void);
 
+template <class T> class Vec {
+public:
+  // Interface
+private:
+  // Implemntation
+  T* data;
+  T* limit;
+};
+
+void Hello(void);
 int main(int argc, char *argv[]) {
   int thread_count = strtol(argv[1], NULL, 10);
   

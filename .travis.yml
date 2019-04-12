@@ -17,9 +17,15 @@ addons:
     - clang-3.8
     - cmake-data
     - cmake
+cache:
+  directories:
+    - mpich
+    
 install:
 - "[ $CXX = g++ ] && export CXX=g++-6 || true"
 - "[ $CXX = clang++ ] && export CXX=clang++-3.8 || true"
+before_install:
+  - test -n $CC && unset CC
 script:
   - cd MPI_work/build
   - cmake ..

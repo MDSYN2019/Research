@@ -1,12 +1,8 @@
 cmake_minimum_required (VERSION 1.0)
 project (OMP_C++)
-#find_package( OpenCV REQUIRED COMPONENTS core)
-#find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 
 # Ensure C++11 is invoked
 include(CheckCXXCompilerFlag)
-
-
 
 FIND_LIBRARY(CPPUNIT_LIBRARY NAMES cppunit)
 

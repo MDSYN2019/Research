@@ -30,6 +30,7 @@ include_directories (${GSL_INCLUDE_DIRS} ${GSLCBLAS_INCLUDE_DIRS})
 set(Boost_USE_STATIC_LIBS ON) 
 set(Boost_USE_MULTITHREADED ON)  
 set(Boost_USE_STATIC_RUNTIME OFF) 
+
 find_package(Boost) 
 find_package(MPI REQUIRED)
 if (MPI_FOUND)

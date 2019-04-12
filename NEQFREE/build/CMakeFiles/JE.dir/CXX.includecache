@@ -6,6 +6,28 @@
 
 #IncludeRegexTransform: 
 
+../include/MPI_broadcast.hpp
+iostream
+-
+vector
+-
+algorithm
+-
+mpi.h
+../include/mpi.h
+numeric
+-
+cppunit/extensions/TestFactoryRegistry.h
+-
+cppunit/CompilerOutputter.h
+-
+cppunit/ui/text/TestRunner.h
+-
+cppunit/TestFixture.h
+-
+cppunit/extensions/HelperMacros.h
+-
+
 /home/oohnohnoh1/Desktop/GIT/PhD_work/NEQFREE/main.cxx
 iostream
 -

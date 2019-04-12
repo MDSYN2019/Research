@@ -24,7 +24,7 @@ script:
   - cd GDB_test/travis/travis-hello-modern-cpp
   - make
   - make test
-  - cd MPI_work/build
+  - cd ../../../MPI_work/build
   - rm -r *
   - cmake ../
 

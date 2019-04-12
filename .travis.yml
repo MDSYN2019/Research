@@ -21,10 +21,6 @@ install:
 - "[ $CXX = g++ ] && export CXX=g++-6 || true"
 - "[ $CXX = clang++ ] && export CXX=clang++-3.8 || true"
 script:
-  - cd GDB_test/travis/travis-hello-modern-cpp
-  - make
-  - make test
-  - cd ../../../
   - cd MPI_work/build
   - rm -r *
   - cmake ../

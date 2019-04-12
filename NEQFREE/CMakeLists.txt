@@ -10,14 +10,15 @@ CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
 
 # option for using MPI functions
 
-add_subdirectory(src)
+option(USE_MPI "Use MPI functions for the compilation of this code" ON)
 
 # Add the conditionals for USE_MPI
-#option(UMPI "Use MPI functions for the compilation of this code" ON)
-#if (UMPI)
-#  list(APPEND MPILIBS MPI)
-#  list(APPEND MPI_INCLUDES "${PROJECT_SOURCE_DIR}/MPI")
-#endif(UMPI)
+
+if (USE_MPI)
+  add_subdirectory(MPI)
+  list(APPEND MPILIBS MPI)
+  list(APPEND MPI_INCLUDES "${CMAKE_CURRENT_SOURCE_DIR}/MPI")
+endif(USE_MPI)
 
 if(COMPILER_SUPPORTS_CXX11)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
@@ -34,7 +35,6 @@ endif()
 include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/src")
 include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/include")
 include_directories (${GSL_INCLUDE_DIRS} ${GSLCBLAS_INCLUDE_DIRS})
-include_directories (${MPI_CXX_INCLUDE_PATH})
 
 # GSL libraries linking
 
@@ -42,32 +42,37 @@ set(CMAKE_GSL_LINKER_FLAGS "${CMAKE_GSL_LINKER_FLAGS} -lgsl")
 set(CMAKE_GSL_LINKER_FLAGS_CBLAS "${CMAKE_GSL_LINKER_FLAGS_CBLAS} -lgslcblas")
 set(MATH "${MATH} -lm")
 
-
-set(Boost_USE_STATIC_LIBS ON) 
-set(Boost_USE_MULTITHREADED ON)  
-set(Boost_USE_STATIC_RUNTIME OFF)
-
 # Find package boost 
 find_package(Boost) 
 if(Boost_FOUND)
   include_directories (${Boost_INCLUDE_DIRS})
 endif()
 
+set(Boost_USE_STATIC_LIBS ON) 
+set(Boost_USE_MULTITHREADED ON)  
+set(Boost_USE_STATIC_RUNTIME OFF) 
+
 # Configuring MPI libraries
 find_package(MPI REQUIRED)
-include_directories(${MPI_INCLUDE_PATH})
+if (MPI_FOUND)
+  include_directories(${MPI_INCLUDE_PATH})
+endif()
 
 # Find Eigen libraries
+
 find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 if (Eigen3_FOUND) 
-  include_directories (${EIGEN3_INCLUDE_DIRS})
+  include_directories ("${EIGEN3_INCLUDE_DIRS}")
 # Specifically add the src library definition for linking
 endif()
 
+add_subdirectory (src)
+set (EXTRA_LIBS ${EXTRA_LIBS} src)
+
+include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/MPI")
 
 add_executable (JE main.cxx)
-target_include_directories(JE PRIVATE ${MPI_CXX_INCLUDE_PATH})
-target_link_libraries (JE ${EXTRA_LIBS} ${BOOST_LIBRARIES} ${Boost_LIBRARIES} ${MATH} ${EIGEN3_INCLUDE_DIR} ${MPI_LIBRARIES} Eigen3::Eigen)
+target_link_libraries (JE  ${EXTRA_LIBS} ${BOOST_LIBRARIES} ${Boost_LIBRARIES} ${MATH} ${EIGEN3_INCLUDE_DIR} ${MPI_LIBRARIES} ${MPI_INCLUDES} Eigen3::Eigen)
 
 # Compile flags with MPI
 if(MPI_COMPILE_FLAGS)

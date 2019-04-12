@@ -27,6 +27,7 @@ before_install:
   - sh ./get_mpich.sh
 script:
   - cd MPI_work/build
+  - rm -r *
   - cmake ..
 
   

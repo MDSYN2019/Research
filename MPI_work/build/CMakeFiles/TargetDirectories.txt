@@ -1,7 +1,0 @@
-/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build/CMakeFiles/rebuild_cache.dir
-/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build/CMakeFiles/edit_cache.dir
-/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build/CMakeFiles/MPI_EX.dir
-/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build/CMakeFiles/gsllib.dir
-/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build/src/CMakeFiles/rebuild_cache.dir
-/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build/src/CMakeFiles/src.dir
-/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build/src/CMakeFiles/edit_cache.dir

@@ -1,0 +1,14 @@
+This includes some notes I made in the process of learning openMP (open multiple processing)
+
+Wh\t actually happens when the program gets to the parallel directive? Prior to the parallel directive, the program is using a single thread, the process
+started when the program started execution.
+
+When the program reaches the parallel directive, the original thread continrues executing and (thread_count - 1) additonal threads are started.
+
+In opneMP parlaance, the collection of threads executing the parallel block.
+
+1. The original thread is called the master
+
+2. The additional threads are called the slaves
+
+3. 

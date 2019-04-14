@@ -15,12 +15,10 @@ Example:
 You can think of it as: parallelism can appen during the execution of a specific for loop by splittig up the loop
 among the different threads.
 
-
 OpenMP provides hat's known as a "directives-based" shared memory API. In C and C++, this means that there are speciial preprocessor 
 instructions known as pragmas. Pragmas are typcailyl added to a system to allow behaviours that aren't part of the basic C specification
 
-
- */
+*/
 
 #include <iostream>
 #include <cstdlib>
@@ -31,6 +29,14 @@ instructions known as pragmas. Pragmas are typcailyl added to a system to allow 
 #ifndef _OPENMP
 #include <omp.h>
 #endif
+#include "openmp1.h"
+
+// cppunit tests                                                                                                                                      
+#include <cppunit/extensions/TestFactoryRegistry.h>
+#include <cppunit/CompilerOutputter.h>
+#include <cppunit/ui/text/TestRunner.h>
+#include <cppunit/TestFixture.h>
+#include <cppunit/extensions/HelperMacros.h>
 
 template <class T> class Vec {
 public:
@@ -115,20 +121,11 @@ void Hello(void) {
   // Each thread runs the Hello() function  -> Which simply prints out a string as following above.
 }
 
-class OMP {
-public:
-  OMP();
-  ~OMP();  
-  int input;
-private:
-  int my_rank; // 
-  int thread_count;
-  
-};
-  
 
 OMP::OMP() {
-# pragma omp parallel num_threads(thread_count) // OpenMP directive - the program should start some threads. Each thread that's forked
-                                                // should execute the Hello function, and when the threads return from the call to Hello,
+# pragma omp parallel num_threads(thread_count) // OpenMP directive - the program should start some threads. Each thread that's forked                                                // should execute the Hello function, and when the threads return from the call to Hello,
 }
+  
+  OMP::~OMP() {
+  }
 

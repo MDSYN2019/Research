@@ -65,6 +65,20 @@ void Trap(double a, double b, int n, double * global_result_p) {
 
   int my_rank = omp_get_thread_num();
   int thread_count = omp_get_num_threads();
+
+  h = (b-a)/n;
+  local_n = n/thread_count;
+  local_a = a + my_rank * local_n * h;
+  local_b = loycal_a + local_n * h;
+  my_result = ((float)local_a + (float)local_b) / 2.0;
+  for (int i = 1; i <= local_n - 1; i++) {
+    x = local_a + i * h;
+    my_result += float(x);
+  }
+
+  my_result = my_result * h;
+# pragma omp critical
+  *global_result_p += my_result;
 }
 
 /*
@@ -111,14 +125,6 @@ int main(int argc, char *argv[]) {
   
   Hello();
  return 0;
-}
-
-
-void Hello(void) {
-  int my_rank = omp_get_thread_num();
-  int thread_count = omp_get_num_threads();
-  std::cout << "Hello from thread " << my_rank  << " of " <<  thread_count << std::endl;
-  // Each thread runs the Hello() function  -> Which simply prints out a string as following above.
 }
 
 

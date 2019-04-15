@@ -38,5 +38,42 @@ b. Adding the areas of trapezoids
    but each task in the first collection communicates task 1(b).
 
 3. We assumed that there would be many more trapezoids than cores, so
-   we aggregated tasks by assigning a contiguous block to each thread
-   
+   we aggregated tasks by assigning a contiguous block to each thread.
+   Effectively, this paritioned the interval [a,b] into larger subintervals,
+   and each thread simply applied the serial trapezoidal rule to its
+   subinterval.
+
+
+We aren't quite done, however, since we still need to add up the thread's results. An obvious solution is to use a shared variable for the sums of all the thread's results, and each thread can add its (private) result into the shared variable.
+
+The actual sequence of events might well be different but unlessone thread
+finishes the computation global_result += my_result before the other
+starts, the result will be incorrect. Recall that this is an exmaple of a
+race condition: Multiple threads are attempting to access a shared resource,
+at least one of the accesses is an update, and the accesses can result in an error.
+
+We therefore need some mechanism to make sure that once one thread has started execting global_result += my_reuslt, no other thread can staet eecuting this code until the first thread has finished. 
+
+
+=> Scope of variables
+
+In serial programming, the scope of a variable consists of those parts of a program in which the variable can be used. For example, a variable declared at the
+beginning of a C function has a function-wide scop,e that is it can only be accessed in the body of a function.
+
+In openMP, the scope of a variable refers to the set of threads that can access
+the variable in a parallel block.
+
+1. A variable that can be accessed by all the threads in the team has shared scope.
+
+2. A variable that can only be accessed by a single thread has private scope.
+
+In the "hello World" program, the variables used by each thread (my_rank and thread_count) were declared in the Hello function, which is called inside the
+parallel block.
+	 Consequently, the variables used by each thread are allocated
+	 from the thread's (private) stack, and hence all of the variables
+	 have private scope.
+
+=> The Reduction Clause
+
+
+

@@ -71,14 +71,15 @@ void Trap(double a, double b, int n, double * global_result_p) {
   local_a = a + my_rank * local_n * h;
   local_b = loycal_a + local_n * h;
   my_result = ((float)local_a + (float)local_b) / 2.0;
+
   for (int i = 1; i <= local_n - 1; i++) {
     x = local_a + i * h;
     my_result += float(x);
   }
 
   my_result = my_result * h;
-# pragma omp critical
-  *global_result_p += my_result;
+# pragma omp critical // Makes sure the threads have mutually exclusive access to the following block of code (*global_result_p)
+  *global_result_p += my_result; // This is done in thread order 
 }
 
 /*

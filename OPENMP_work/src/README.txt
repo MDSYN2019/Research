@@ -75,5 +75,72 @@ parallel block.
 
 => The Reduction Clause
 
+If we developed a serial implementation of the trapezoidal rule, we'd probably
+use a slightly different function prototype. For the parallel version,
+we resorted to the pointer version because we needed to add each thread's local
+calculation to get global_result. However we might prefer the following function
 
 
+Example:
+
+global_result = 0.0;
+# pragma omp parallel num_threads(thread_count)
+{
+
+double my_result = 0.0; // private
+my_result += Local_trap(double a, double b, int n);
+# pragma omp critical
+global_result += my_result;
+
+
+}
+
+OpenMP provides a cleaner alternative that also avoids serializing
+cleaner execution of Local_trap - we can specifiy that global_result
+is a reduction variable.
+
+
+A reduction operator is a binary operation (such as addition or multiplication)
+and a reduction is a computation that repeatedly applies the same reduction opterator to a sequence of oeprands in order to get a single result.
+
+Furthermore, all of the intermediate results of the operation should be variable
+For example, if A is an array of n ints, the computation:
+
+int sum = 0;
+for (int i = 0; i < n; i++) {
+    sum += A[i];
+}
+
+.. is a reduction in which the reduction operator is addition.
+
+In OpenMP it may be possible to specify that the result of a reduction is a reduction variable.  To do this, a reduction clause can be added to a parallel directive.
+
+It should be noted that if a reduction variable is a float or a double, the results may differ lsughtly when different numbers of threads arre used. This is due to the fact that
+floating point arthmetic isn't associatve. For example, if a, b and c are floats, then (a + b) + c may not be eactly equalt to a + (b + c).
+
+When a variable is included in a reduction clause, the variable itself is shared. Howeve,r a rivate vaiable i created for each thread in the team. In the parallel block each time a thread executes a statement involving the variable, it uses the private vairrable. When the parallel block eneds, the values in the private vairable are combined into the shared variable. 
+
+
+=> The parallel for directive
+
+As an alternative to our explitcit paraellization of the trapezoiudal rule, OpenMP provides the parallel for directive. USing it, we can paralleize the serial trapezoidal rule
+
+h = (b-a) / n;
+approx = ((float)a + float(b))/2.0;
+for (int i = 1; i <= n -1; i++) {
+    approx += f(a + i*h);
+}
+approx = h * approx;
+
+
+By simply placing a directive immediately before the for loop:
+
+h = (b-a) /n;
+approx = (f(a) + f(b))/2.0';
+#pragma omp parallel for num_threads(thread_count)
+	reduction (+: approx)
+for (i = 1; i <= n-1; i++) {
+    approx += f(a + i * h);
+    approx = h * approx;
+    
+}

@@ -58,6 +58,10 @@ private:
   T* limit;
 };
 
+double Local_trap(double a, double b, int n);
+
+
+
 void Trap(double a, double b, int n, double * global_result_p) {
   double h, x, my_result;
   double local_a, local_b;
@@ -80,7 +84,27 @@ void Trap(double a, double b, int n, double * global_result_p) {
   my_result = my_result * h;
 # pragma omp critical // Makes sure the threads have mutually exclusive access to the following block of code (*global_result_p)
   *global_result_p += my_result; // This is done in thread order 
+
+  /*
+    global_result = 0.0;
+    # pragma omp parallel num_threads(thread_count)
+    {
+    
+    # pragma omp critical 
+    double my_result = 0.0; // private variable -> can only be accessed by a single thread 
+    my_result += Local_trap(double a, double b, int n); // Add up the private variable inside the parallele threading scope
+    global_result += local_trap(double a, double b, int n); -> The critical section
+    
+    }
+
+    The call to local_trap can only be executed by one thread at a time, and effectivle,y we're 
+    forcing the threads to execute the trapezoidal rule sequentially. 
+    
+    
+   */
 }
+
+
 
 /*
   
@@ -121,7 +145,6 @@ int main(int argc, char *argv[]) {
      It should be noted tha there may be system0defined limitations on the number of 
      threads that a program can start. The OpenMP standard deosnt guarantee that this will
      actually start thread_count threads. 
-     
    */
   
   Hello();
@@ -129,10 +152,27 @@ int main(int argc, char *argv[]) {
 }
 
 
+/*
+The code specifies that 
+ */
+
 OMP::OMP() {
-# pragma omp parallel num_threads(thread_count) // OpenMP directive - the program should start some threads. Each thread that's forked                                                // should execute the Hello function, and when the threads return from the call to Hello,
+# pragma omp parallel num_threads(thread_count) \ // OpenMP directive - the program should start some threads. Each thread that's forked
+  reduction(+: global_result) // Code specified that global result is a reduction variable
+  global_result += Local_trap(double a, double b, int n);
 }
   
   OMP::~OMP() {
   }
-
+  
+  void OMP::OMP_reduce() {
+    h = (b-a)/n;
+    approx = ((float)a + (float)b)/2.0;
+# pragma omp parallel for num_threads(thread_count) \
+  reduction (+: approx)
+    for (int i = 1; i <= n -1; i++) {
+      approx += (float)(a+ i*h);
+    }
+    pprox = h * approx;
+    
+  }

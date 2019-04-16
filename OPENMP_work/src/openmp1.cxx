@@ -29,6 +29,7 @@ instructions known as pragmas. Pragmas are typcailyl added to a system to allow 
 #ifndef _OPENMP
 #include <omp.h>
 #endif
+
 #include "openmp1.h"
 
 // cppunit tests                                                                                                                                      
@@ -58,103 +59,6 @@ private:
   T* limit;
 };
 
-double Local_trap(double a, double b, int n);
-
-
-
-void Trap(double a, double b, int n, double * global_result_p) {
-  double h, x, my_result;
-  double local_a, local_b;
-  int i, local_n;
-
-  int my_rank = omp_get_thread_num();
-  int thread_count = omp_get_num_threads();
-
-  h = (b-a)/n;
-  local_n = n/thread_count;
-  local_a = a + my_rank * local_n * h;
-  local_b = loycal_a + local_n * h;
-  my_result = ((float)local_a + (float)local_b) / 2.0;
-
-  for (int i = 1; i <= local_n - 1; i++) {
-    x = local_a + i * h;
-    my_result += float(x);
-  }
-
-  my_result = my_result * h;
-# pragma omp critical // Makes sure the threads have mutually exclusive access to the following block of code (*global_result_p)
-  *global_result_p += my_result; // This is done in thread order 
-
-  /*
-    global_result = 0.0;
-    # pragma omp parallel num_threads(thread_count)
-    {
-    
-    # pragma omp critical 
-    double my_result = 0.0; // private variable -> can only be accessed by a single thread 
-    my_result += Local_trap(double a, double b, int n); // Add up the private variable inside the parallele threading scope
-    global_result += local_trap(double a, double b, int n); -> The critical section
-    
-    }
-
-    The call to local_trap can only be executed by one thread at a time, and effectivle,y we're 
-    forcing the threads to execute the trapezoidal rule sequentially. 
-    
-    
-   */
-}
-
-
-
-/*
-  
-Trapezium rule 
-
-1. Weidentified two types of tasks:
-a. Computation of the areas of individual trapezouids and 
-b. Adding the areas of trapezoids
-
-2. There is no communication among the tasks in the first collection, but each task in the first 
-   collection communicated with the task in task 1 b
-
-OpenMP consists of a library of functions and macros, so we usually need to iunclude a header 
-file with prototypes and macro definitions. 
-
-
-*/
-
-void Hello(void);
-int main(int argc, char *argv[]) {
-  int thread_count = strtol(argv[1], NULL, 10);
-  
-# pragma omp parallel num_threads(thread_count) // OpenMP directive - the program should start some threads. Each thread that's forked
-                                                // should execute the Hello function, and when the threads return from the call to Hello,
-                                            // hey should be terminate
-  
-  // The first part is the parallel directive, and as you might have guessed it   
-
-  /* Recollect that thread is short for thread of executon. The name is meant to suggest
-     a sequence of statements executed by a program. 
-     
-     Threads are typically started or forked by a process, and they share most of the resources of the process
-     that starts them - for example, access to stdin and stdout - but each thread has its own stack and program 
-     counter.
-
-     When a thread completes execution it joins the process that started it.
-
-     It should be noted tha there may be system0defined limitations on the number of 
-     threads that a program can start. The OpenMP standard deosnt guarantee that this will
-     actually start thread_count threads. 
-   */
-  
-  Hello();
- return 0;
-}
-
-
-/*
-The code specifies that 
- */
 
 OMP::OMP() {
 # pragma omp parallel num_threads(thread_count) \ // OpenMP directive - the program should start some threads. Each thread that's forked

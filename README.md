@@ -1,4 +1,4 @@
-# PhD_work
+# MD design in nanoparticles, free energy analysis of trajectories and other MPI/OpenMP files
 
 CI link: https://travis-ci.com/MDSYN2019/PhD_work
  

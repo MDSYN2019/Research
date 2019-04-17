@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/oohnohnoh1/Desktop/GIT/PhD_work/OPENMP_work/main.cxx" "/home/oohnohnoh1/Desktop/GIT/PhD_work/OPENMP_work/build/CMakeFiles/OMP_EX.dir/main.o"
+  "/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/main.cxx" "/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/build/CMakeFiles/OMP_EX.dir/main.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -16,8 +16,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/oohnohnoh1/Desktop/GIT/PhD_work/OPENMP_work/build/src/CMakeFiles/src.dir/DependInfo.cmake"
-  "/home/oohnohnoh1/Desktop/GIT/PhD_work/OPENMP_work/build/CMakeFiles/gsllib.dir/DependInfo.cmake"
+  "/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/build/src/CMakeFiles/src.dir/DependInfo.cmake"
+  "/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/build/CMakeFiles/gsllib.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

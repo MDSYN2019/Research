@@ -6,5 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/home/oohnohnoh1/Desktop/GIT/PhD_work/OPENMP_work/main.cxx
+../include/openmp1.h
+iostream
+-
+cstdlib
+-
+cstdio
+-
+omp.h
+-
+
+/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/main.cxx
+iostream
+-
+iostream
+-
+cstdlib
+-
+cstdio
+-
+omp.h
+-
+openmp1.h
+/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/openmp1.h
 

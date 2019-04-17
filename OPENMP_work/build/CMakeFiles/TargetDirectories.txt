@@ -1,7 +1,7 @@
-/home/oohnohnoh1/Desktop/GIT/PhD_work/OPENMP_work/build/CMakeFiles/rebuild_cache.dir
-/home/oohnohnoh1/Desktop/GIT/PhD_work/OPENMP_work/build/CMakeFiles/edit_cache.dir
-/home/oohnohnoh1/Desktop/GIT/PhD_work/OPENMP_work/build/CMakeFiles/OMP_EX.dir
-/home/oohnohnoh1/Desktop/GIT/PhD_work/OPENMP_work/build/CMakeFiles/gsllib.dir
-/home/oohnohnoh1/Desktop/GIT/PhD_work/OPENMP_work/build/src/CMakeFiles/rebuild_cache.dir
-/home/oohnohnoh1/Desktop/GIT/PhD_work/OPENMP_work/build/src/CMakeFiles/src.dir
-/home/oohnohnoh1/Desktop/GIT/PhD_work/OPENMP_work/build/src/CMakeFiles/edit_cache.dir
+/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/build/CMakeFiles/rebuild_cache.dir
+/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/build/CMakeFiles/edit_cache.dir
+/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/build/CMakeFiles/OMP_EX.dir
+/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/build/CMakeFiles/gsllib.dir
+/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/build/src/CMakeFiles/rebuild_cache.dir
+/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/build/src/CMakeFiles/src.dir
+/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/build/src/CMakeFiles/edit_cache.dir

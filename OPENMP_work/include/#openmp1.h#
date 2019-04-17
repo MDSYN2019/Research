@@ -21,18 +21,22 @@ What actulaly happens when the program gets to the parallel directive? Prior to 
 using a single thread, the process started when the pgoraam started execution. When the pgoram 
 */
 
+ */
+
 
 class OMP {
 public:
+  OMP();
   OMP(int);
+  
   ~OMP();  
   void addup();
-  void add(int);
+  void add();
  private:
-  int val;
   int my_rank; // 
   int thread_count;
   int global_result;
+  int val;
 };
 
 #endif

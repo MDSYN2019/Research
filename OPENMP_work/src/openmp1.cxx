@@ -23,7 +23,6 @@ instructions known as pragmas. Pragmas are typcailyl added to a system to allow 
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
-
 /* Instead of just calling the OpenMP functions, e can first check whetehr _OPENMP is defined. */
 
 #ifndef _OPENMP
@@ -66,6 +65,9 @@ instructions known as pragmas. Pragmas are typcailyl added to a system to allow 
 
 // Estimating pi
 // serial pi estimator 
+
+
+/*
 double factor = 1.0;
 double sum = 0.0;
 for (int k = 0; k < n; k++) {
@@ -78,7 +80,8 @@ pi_approx = 4.0 * sum;
 // parallel OpenMP pi estimator
 double factor = 1.0;
 double sum = 0.0;
-# pragma omp parallel for num_threads(thread_count) \
+
+# pragma omp parallel for  num_threads(thread_count)	\
   reduction(+:sum)
 for (int k = 0; k < n; k++) {
   sum += factor(2*k + 1);
@@ -118,24 +121,21 @@ private:
   T* limit;
 };
 
+*/
 
-OMP::OMP() {
-# pragma omp parallel num_threads(thread_count) \ // OpenMP directive - the program should start some threads. Each thread that's forked
-  reduction(+: global_result) // Code specified that global result is a reduction variable
-  global_result += Local_trap(double a, double b, int n);
+OMP::OMP(int N) {
+  thread_count = N;
 }
-  
-  OMP::~OMP() {
-  }
-  
-  void OMP::OMP_reduce() {
-    h = (b-a)/n;
-    approx = ((float)a + (float)b)/2.0;
-# pragma omp parallel for num_threads(thread_count) \
-  reduction (+: approx)
-    for (int i = 1; i <= n -1; i++) {
-      approx += (float)(a+ i*h);
-    }
-    pprox = h * approx;
-    
-  }
+OMP::~OMP() {
+}
+void OMP::add(int a) {
+  val += a;
+}
+void OMP::addup() {
+  global_result = 0.0;
+#pragma omp parallel num_threads(thread_count)
+  this->add(3);
+#pragma omp critical
+  global_result = val;
+}
+

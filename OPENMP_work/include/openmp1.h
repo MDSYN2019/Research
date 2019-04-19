@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
+#include <Eigen/Dense>
 #include <omp.h>
 
 /*
@@ -35,5 +36,8 @@ public:
   int global_result;
 };
 
+
+class OMP_eigen {
+}
 #endif
   

@@ -17,6 +17,7 @@ OMP AA(5);
 
 int main () {
   AA.addup();
+  test_debug();
   return 0;
   
 }

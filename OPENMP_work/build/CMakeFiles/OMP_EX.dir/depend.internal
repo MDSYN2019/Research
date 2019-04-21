@@ -3,4 +3,5 @@
 
 CMakeFiles/OMP_EX.dir/main.o
  ../include/openmp1.h
+ ../include/syn_dbg.hpp
  /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/main.cxx

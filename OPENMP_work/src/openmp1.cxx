@@ -23,7 +23,7 @@ instructions known as pragmas. Pragmas are typcailyl added to a system to allow 
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
-#include <Eigen/Dense>
+//#include <Eigen/Dense>
 
 /* Instead of just calling the OpenMP functions, e can first check whetehr _OPENMP is defined. */
 

@@ -4,7 +4,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
-#include <Eigen/Dense>
+//#include <Eigen/Dense>
 #include <omp.h>
 
 /*
@@ -37,7 +37,5 @@ public:
 };
 
 
-class OMP_eigen {
-}
 #endif
   

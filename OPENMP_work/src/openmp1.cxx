@@ -167,8 +167,13 @@ void OMP::Compute_trapezium() {
     my_result += (float)x;
   }
   my_result = my_result * h;
+  // TODO
   // #pragma omp critical
   //
+  if (n & thread_count != 0) {
+    std::cerr << error_type << " n must be evenly divisible by thread_count " << std::end;
+    exit(0); // Exit the program 
+  }
 }
 
 void OMP::addup() {

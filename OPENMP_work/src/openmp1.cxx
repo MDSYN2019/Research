@@ -102,7 +102,7 @@ int Linear_search(int key, int A[], int n) {
     
   }
 }
-
+*/
 template <class T> class Vec {
 public:
   // Interface
@@ -112,9 +112,12 @@ public:
   Vec() {create();} // Default constructor 
   explicit Vec(std::size_t n, const T& = T()) { create(n, val);} // When we say that a constructor is explicit, we're saying that the compiler
                                                                  // will use specifically invokes the constructor
-
   typedef T* iterator;
-  typedef const T* const_iterator
+  typedef const T* const_iterator; 
+  // The difference between a const and non-const iterator - const_iterators don't allow you to change the
+  // values they point to, but iterators do
+
+  // 
   typedef size_t size_type;
   
 private:
@@ -122,8 +125,6 @@ private:
   T* data;
   T* limit;
 };
-
-*/
 
 OMP::OMP(int N) {
   thread_count = N;
@@ -133,10 +134,49 @@ OMP::~OMP() {
 void OMP::add(int a) {
   val += a;
 }
+
+int OMP::Linear_search(int key, int* A, int n) {
+  int i;
+  // thread count is global
+# pragma omp parallel for num_threads(thread_count)
+  for (int i = 0; i < n; i++) {
+    if (A[i] == key) {
+      return i;
+    }
+    else {
+      return -1;
+    }
+  }
+}
+
+void OMP::Compute_trapezium() {
+  double h, x, my_result;
+  double local_a, local_b;
+  int i, local_n;
+
+  my_rank = omp_get_thread_num();
+  thread_count = omp_get_num_threads();
+
+  h = (b - a) / n; // each slice of the trapezium
+  local_a = a + my_rank * local_n * h;
+  local_b = local_a + local_n * h;
+
+  my_result = ((float)local_a + (float)(local_b)) / 2.0;
+  for (int i = 1; i <= local_n - 1; i++) {
+    x = local_a + i * h;
+    my_result += (float)x;
+  }
+  my_result = my_result * h;
+  // #pragma omp critical
+  //
+}
+
 void OMP::addup() {
   global_result = 0.0;
 #pragma omp parallel num_threads(thread_count)
-  this->add(3);
+  reduction(+:val) // In OpenMP it may be possible to spcift that th result of a reduction is a reduction variable.
+                   // To do this, a reduction clause can be added to a parlllel directive
+  this->add(3); // Use the function that has already been allocated onto this class 
 #pragma omp critical
   global_result = val;
 }

@@ -29,11 +29,14 @@ public:
   ~OMP();  
   void addup();
   void add(int);
+  int Linear_search(int, int*, int n);
+  void Compute_trapezium(); 
  private:
   int val;
   int my_rank; // 
   int thread_count;
   int global_result;
+  int my_rank; // get current rank
 };
 
 

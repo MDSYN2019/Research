@@ -149,7 +149,21 @@ int OMP::Linear_search(int key, int* A, int n) {
   }
 }
 
+void OMP::pi() {
+
+  double factor = 1.0;
+  double sum = 0.0;
+  
+# pragma omp parallel for num_threads(thread_count)	\
+  reduction(+:sum)
+  for (k = 0; k < n; k++) {
+    sum += factor / (2*k + 1);
+    factor = -factor;
+  }
+}
+
 void OMP::Compute_trapezium() {
+
   double h, x, my_result;
   double local_a, local_b;
   int i, local_n;
@@ -181,7 +195,8 @@ void OMP::addup() {
 #pragma omp parallel num_threads(thread_count)
   reduction(+:val) // In OpenMP it may be possible to spcift that th result of a reduction is a reduction variable.
                    // To do this, a reduction clause can be added to a parlllel directive
-  this->add(3); // Use the function that has already been allocated onto this class 
+
+    this->add(3); // Use the function that has already been allocated onto this class 
 #pragma omp critical
   global_result = val;
 }

@@ -32,7 +32,6 @@ public:
   int Linear_search(int, int*, int n);
   void Compute_trapezium(); 
   void pi();
-  
  private:
   int val;
   int my_rank; // 

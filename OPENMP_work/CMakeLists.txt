@@ -3,6 +3,8 @@ project (OMP_C++)
 # Enable Fortran
 enable_language(Fortran)
 
+find_package (Eigen3 3.3 REQUIRED NO_MODULE)
+
 if(CMAKE_Fortran_COMPILER_ID MATCHES "GNU")
     set(dialect "-ffree-form -std=f2008 -fimplicit-none")
     set(bounds "-fbounds-check")
@@ -44,7 +46,7 @@ endif()
 
 include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/src")
 include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/include")
-
+include_directories ("${EIGEN3_INCLUDE_DIR}") # Eigen libaries
 include_directories (${GSL_INCLUDE_DIRS} ${GSLCBLAS_INCLUDE_DIRS})
 #include_directories (${MPI_CXX_INCLUDE_PATH})
 

@@ -15,4 +15,36 @@ The openkim repository provides permanent archival sotrage of interatomic models
 -> The OpenKIM Repository contains KIM Tests uploaded by researchers that compute material properties of interest (such as equilibrium crystal structures, elastic constants, surface energies, thermal properties). The tests are applited to all compatible interatomic models in the
 repository. The results are stored and can be examined and compared using visualizaition tools and text-based tools.
 
--> 
+-> OpenKIM provides a framework for researchers to distribute and realize their molecular simulations broadly. IT is the aim of the KIM
+   project for high-quality KIM tests to become standard, citeable methods for computing material properties. A great deal of expertise
+   is required to compute material properties rigourously and robustly. For more information
+
+---
+Using KIM Models
+
+-> An important part of the KIM project is the creation of an application programming interface (API) for molecular simulations. The KIM API
+   is a standard for exchanging information between simulations codes and interatomic models. Simulators and models that conform to the KIM
+   API ork together seamlessly . This means that you can downlaod any kim model
+
+-> For interatomic models archived in openkim.org that conform
+
+
+-----------------------
+
+Example 1
+
+Test Driver
+
+This deiver is constructed to take the name of a KIM Model and an initial guess at the equilibirum lattice constant of fcc argon, it then
+uses LAMMPS to compute the actual cohesive energy and equilibrium lattice constant for that model. Thus the only difference between KIM tests
+which use this deiver is the iniital guess at the lattice constant.
+
+List of files:
+
+-=> runner - The scriot begins by reading the model name and the initial lattice constant guess from stdin. These are then used to replace
+             the corresponding placeholder string lammps.in.template to create a functioning LAMMPS input script, Lammps.in, in the test
+	     test result directory. LAMMPS is the ncalled using lammps.in as an input script and the resulting output is redirected to a file
+	     name called lammps.log in the test result directory. After the quantities of interest in the LAMMPS log file are parsed, sed is
+	     used to replace the relevant placeholder strings in the results.ed.tpl and yield a file named results.edn
+
+=> lammps.in.template - This specific test driver processes the template below using sed with the information entered on stdin through pipeline.stdin.tpl 

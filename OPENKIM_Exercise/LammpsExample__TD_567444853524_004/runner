@@ -31,7 +31,7 @@ sed -e "s/sed_model_string/"$modelname"/"                                  \
     ""$thisdir"/lammps.in.template" > output/lammps.in
 
 # Run LAMMPS using the lammps.in input file and write the output to output/lammps.log
-lammps < output/lammps.in > output/lammps.log
+/home/oohnohnoh1/Desktop/LAMMPS/lammps-12Dec18/src/lmp_ubuntu < output/lammps.in > output/lammps.log
 
 # Parse the LAMMPS output log and extract the final pressure (to indicate how converged it is to 0),
 # cohesive energy, and equilibrium lattice constant.

@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+# Author: Daniel S. Karls (karl0100 |AT| umn DOT edu), University of Minnesota
+# Date: 10/10/2014
+
+# This example Test Driver computes the cohesive energy and equilibrium
+# lattice constant for an FCC argon lattice using Polak-Ribiere
+# conjugate gradient static minimization in LAMMPS and an initial guess
+# at the equilibrium lattice spacing supplied by the user through pipeline.stdin.tpl.
+
+# Define function which outputs to stderr
+echoerr() { echo "$@" 1>&2; }
+
+# Read the KIM Model name and initial lattice constant from pipeline.stdin.tpl
+# (the former is passed using @< MODELNAME >@, which the
+# pipeline will automatically fill in once a compatible Model is found).
+echo "Please enter a KIM Model name:"
+read modelname
+echo "Please enter an initial lattice constant (Angstroms):"
+read initial_lattice_constant
+
+# Replace the string 'sed_model_string' in the lammp.in.template input file
+# script template with the name of the KIM Model being used.  Also replace
+# the string 'sed_initial_lattice_constant_string' with the value supplied
+# through stdin.
+# The resulting  file will be stored in the Test Result folder (which may be
+# referenced as the 'output' directory).
+thisdir=`dirname "$0"` # The directory of this Test Driver executable
+sed -e "s/sed_model_string/"$modelname"/"                                  \
+    -e "s/sed_initial_lattice_constant_string/$initial_lattice_constant/"  \
+    ""$thisdir"/lammps.in.template" > output/lammps.in
+
+# Run LAMMPS using the lammps.in input file and write the output to output/lammps.log
+lammps < output/lammps.in > output/lammps.log
+
+# Parse the LAMMPS output log and extract the final pressure (to indicate how converged it is to 0),
+# cohesive energy, and equilibrium lattice constant.
+finalpressure=`grep "Final pressure = [0-9.e+\-]\+ bar" output/lammps.log | cut -d' ' -f4`
+ecohesive=`grep "Cohesive energy = [0-9.e+\-]\+ eV/atom" output/lammps.log | cut -d' ' -f4`
+latticeconstant=`grep "Equilibrium lattice constant = [0-9.e+\-]\+ angstrom" output/lammps.log | cut -d' ' -f5`
+
+# Check that the results we obtained are actually numbers (in case there was a LAMMPS error of some sort)
+if ! [[ $finalpressure =~ ^[0-9.e-]+ ]] ; then
+    echo "Error: Final pressure parsed from LAMMPS log is not a numeric value.  Check the LAMMPS log for errors.  Exiting..."
+    echoerr "Error: Final pressure parsed from LAMMPS log is not a numeric value.  Check the LAMMPS log for errors.  Exiting..."
+    exit 1
+elif ! [[ $ecohesive =~ ^[0-9.e-]+ ]] ; then
+    echo "Error: Cohesive energy parsed from LAMMPS log is not a numeric value.  Check the LAMMPS log for errors.  Exiting..."
+    echoerr "Error: Cohesive energy parsed from LAMMPS log is not a numeric value.  Check the LAMMPS log for errors.  Exiting..."
+    exit 1
+elif ! [[ $latticeconstant =~ ^[0-9.e-]+ ]] ; then
+    echo "Error: Equilibrium lattice constant parsed from LAMMPS log is not a numeric value.  Check the LAMMPS log for errors.  Exiting..."
+    echoerr "Error: Equilibrium lattice constant parsed from LAMMPS log is not a numeric value.  Check the LAMMPS log for errors.  Exiting..."
+    exit 1
+fi
+
+sed -e "s/_LATCONST_/${latticeconstant}/"  \
+    -e "s/_ECOHESIVE_/${ecohesive}/"       \
+    ""$thisdir"/results.edn.tpl" > output/results.edn
+
+# Write final pressure to file to indicate level of convergence
+echo "The final pressure corresponding to the cohesive energy and lattice constant given in results.edn is:" > output/finalpressure.txt
+echo "${finalpressure} bar" >> output/finalpressure.txt

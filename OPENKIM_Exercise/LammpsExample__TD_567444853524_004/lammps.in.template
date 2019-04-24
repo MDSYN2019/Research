@@ -1,0 +1,52 @@
+# Define unit set and class of atomic model
+units metal
+atom_style atomic
+
+# Periodic boundary conditions along all three dimensions
+boundary p p p
+
+# Create an FCC lattice with the lattice spacing supplied supplied by the user
+# using a single conventional (orthogonal) unit cell
+lattice fcc sed_initial_lattice_constant_string
+region box block 0 1 0 1 0 1 units lattice
+create_box 1 box
+create_atoms 1 box
+mass 1 39.948
+
+# Specify which KIM Model to use, letting LAMMPS compute the virial/pressure
+pair_style kim LAMMPSvirial sed_model_string
+pair_coeff * * Ar
+
+# Set what thermodynamic information to print to log
+thermo_style custom step atoms xlo xhi ylo yhi zlo zhi pe press pxx pyy pzz pxy pxz pyz
+thermo 10 # Print every 10 timesteps
+
+# Set what information to write to dump file
+dump id all custom 10 output/lammps.dump id type x y z xs ys zs fx fy fz
+dump_modify id format line "%d %d %16.7f %16.7f %16.7f %16.7f %16.7f %16.7f %16.7f %16.7f %16.7f"
+
+# Set boundary conditions to be stress-free
+fix 1 all box/relax iso 0.0
+
+# Prescribe the force on each basis atom to remain at [0,0,0].  This has the effect of
+# keeping the fractional coordinates of the basis atoms fixed during the minimization,
+# so that only the lattice constant is varied
+fix constrain_symmetry all setforce 0.0 0.0 0.0
+
+# Perform static minimization using the Polack-Ribiere conjugate gradient method.
+# The first argument is a convergence tolerance for the energy, the second argument
+# is a convergence tolerance for the forces, and the latter two arguments set the
+# maximum number of allowed iterations and force/energy evaluations, respectively.
+minimize 1e-16 1e-16 2000 100000
+
+# Define auxiliary variables to contain cohesive energy and equilibrium lattice constant
+variable poteng    equal "c_thermo_pe"
+variable natoms    equal "count(all)"
+variable ecohesive equal "-v_poteng/v_natoms"
+variable pressure  equal "c_thermo_press"
+variable a         equal "lx"
+
+# Output cohesive energy and equilibrium lattice constant
+print "Final pressure = ${pressure} bar"
+print "Cohesive energy = ${ecohesive} eV/atom"
+print "Equilibrium lattice constant = ${a} angstrom"

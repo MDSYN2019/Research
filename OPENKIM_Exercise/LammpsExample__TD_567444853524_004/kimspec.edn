@@ -1,0 +1,18 @@
+{
+  "title" "LammpsExample: cohesive energy and equilibrium lattice constant of fcc argon"
+  "extended-id" "LammpsExample__TD_567444853524_004"
+  "simulator-name" "LAMMPS"
+  "properties" [
+    "tag:staff@noreply.openkim.org,2014-04-15:property/cohesive-potential-energy-cubic-crystal"
+  ]
+  "author" "Daniel Karls"
+  "description" "This example Test Driver illustrates the use of LAMMPS to compute the equilibrium lattice spacing and cohesive energy of fcc argon using Polak-Ribiere conjugate gradient minimization in LAMMPS and an initial guess at the equilibrium lattice spacing supplied by the user through pipeline.stdin.tpl."
+  "contributor-id" "4d62befd-21c4-42b8-a472-86132e6591f3"
+  "maintainer-id" "4d62befd-21c4-42b8-a472-86132e6591f3"
+  "publication-year" "2018"
+  "kim-api-version" "1.9.0"
+  "executables" [
+    "runner"
+  ]
+  "domain" "openkim.org"
+}

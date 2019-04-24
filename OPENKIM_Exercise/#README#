@@ -1,0 +1,20 @@
+OPENKIM is a major open source effort to develop standards and improve the reliability of molecular simulations
+
+OpenKI repository contains computer implementations of interactomic models (potentials and force fields), simulatons codes, that compute
+difference material proeprties, and first-principles/experimental reference data.
+
+
+---
+
+Archival storage of KIM Content
+
+The openkim repository provides permanent archival sotrage of interatomic models, tests for computing material properties, reference data, and model predictions (test results).
+
+-> Each model is subjected to a series of Verification Checks evaluting its integrity e.g. are the forces returned by the model consistent with those obtained through numerical diffrentaiton of the energy? Does the model hae continuous energy and derivatires at its cutoff?
+
+-> The OpenKIM Repository contains KIM Tests uploaded by researchers that compute material properties of interest (such as equilibrium crystal structures, elastic constants, surface energies, thermal properties). The tests are applited to all compatible interatomic models in the
+repository. The results are stored and can be examined and compared using visualizaition tools and text-based tools.
+
+-> OpenKIM provides a framework for researchers to distribute and realize their molecular simulations broadly. IT is the aim of the KIM
+   project for high-quality KIM tests to become standard, citeable methods for computing material properties. A great deal of expertise
+   is required to compute material properties rigourously and robustly. For more information 

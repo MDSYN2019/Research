@@ -47,4 +47,7 @@ List of files:
 	     name called lammps.log in the test result directory. After the quantities of interest in the LAMMPS log file are parsed, sed is
 	     used to replace the relevant placeholder strings in the results.ed.tpl and yield a file named results.edn
 
-=> lammps.in.template - This specific test driver processes the template below using sed with the information entered on stdin through pipeline.stdin.tpl 
+=> lammps.in.template - This specific test driver processes the template below using sed with the information entered on stdin through pipeline.stdin.tpl. The processed file is then written to the final LAMMPS input script which is run (lammps.in in the Test Result directory). Note that when
+using a KIM Model within LAMMPS, the appropriate LAMMPS pair style s to use is pair_style kim.
+
+=> result.edn.tpl - 

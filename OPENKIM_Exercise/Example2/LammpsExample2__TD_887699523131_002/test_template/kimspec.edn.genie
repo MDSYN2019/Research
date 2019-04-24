@@ -1,0 +1,13 @@
+{
+  "extended-id" "LammpsExample2_{{lattice}}_{{symbol}}__TE_{{kimnum}}_{{version}}{# FILENAME = kimspec.edn #}"
+  "test-driver" "{{TEST_DRIVER_NAME}}"
+  "species" [ "{{symbol}}" ]
+  "description" "This example Test illustrates the use of LAMMPS in the openkim-pipeline to compute an energy vs.
+lattice constant curve for {{lattice}} {{fullsymbol}}.  The curve is computed for lattice constants
+ranging from {{amin}} Angstroms to {{amax}} Angstroms, with most lattice spacings sampled about
+{{a0}} Angstroms."
+  "kim-api-version" "1.6"
+  "domain" "openkim.org"
+  "title" "LammpsExample2_{{lattice}}_{{symbol}}: energy-volume curve of {{lattice}} {{fullsymbol}}"
+  "pipeline-api-version" "1.0"
+}

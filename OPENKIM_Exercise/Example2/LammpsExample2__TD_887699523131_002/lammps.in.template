@@ -1,0 +1,47 @@
+# Define looping variables
+variable loopcount loop sed_numberofspacings_string
+variable latticeconst index sed_latticeconst_string
+
+# Define unit set and class of atomic model
+units metal
+atom_style atomic
+
+# Periodic boundary conditions along all three dimensions
+boundary p p p
+
+# Create a lattice with type and spacing specified by the user (referred to as "a_0" in
+# README.txt) using a single conventional (orthogonal) unit cell
+lattice sed_latticetype_string ${latticeconst}
+region box block 0 1 0 1 0 1 units lattice
+create_box 1 box
+create_atoms 1 box
+mass 1 sed_mass_string
+
+# Specify which KIM Model to use
+pair_style kim LAMMPSvirial sed_model_string
+pair_coeff * * sed_species_string
+
+# Set what thermodynamic information to print to log
+thermo_style custom step atoms xlo xhi ylo yhi zlo zhi pe press pxx pyy pzz pxy pxz pyz
+thermo 10 # Print every 10 steps
+
+# Set what information to write to dump file
+dump id all custom 10 output/lammps.dump id type x y z fx fy fz
+dump_modify id format line "%d %d %16.7f %16.7f %16.7f %16.7f %16.7f %16.7f"
+
+# Compute the energy and forces for this lattice spacing
+run 0
+
+# Define auxiliary variables to contain cohesive energy and equilibrium lattice constant
+variable poteng    equal "c_thermo_pe"
+variable natoms    equal "count(all)"
+variable ecohesive equal "v_poteng/v_natoms"
+
+# Output cohesive energy and equilibrium lattice constant
+print "Cohesive energy = ${ecohesive} eV/atom"
+
+# Queue next loop
+clear # Clear existing atoms, variables, and allocated memory
+next latticeconst # Increment latticeconst to next value
+next loopcount # Increment loopcount to next value
+jump SELF # Reload this input script with the new variable values

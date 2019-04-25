@@ -7,8 +7,8 @@ import argparse
 import string
 import os
 import re  # regex module 
-
 KIM_MODELS_DIR = "/usr/local/lib/kim-api/models"
+
 
 # Instead of the sed echo commands, we can use argparse
 

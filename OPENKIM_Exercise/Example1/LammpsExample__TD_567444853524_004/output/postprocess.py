@@ -1,6 +1,9 @@
 """
 
-Sang Young Noh - OpenKIM exercise for lammps - For Professor Tadmor 
+Author: Sang Young Noh -
+Version: 0.0.1 
+Date: --::--::----
+Title: Develop a Python Tool for Generating KIM Property Instances from LAMMPS Output
 
 """
 import argparse
@@ -10,6 +13,20 @@ import re  # regex module
 
 KIM_MODELS_DIR = "/usr/local/lib/kim-api/models"
 
+# Temporary placeholder 
+KIM_MODELS_LIST = [
+	'LennardJones612_UniversalShifted__MO_959249795837_003',
+	'LennardJones_Ar',
+	'SW_StillingerWeber_1985_Si__MO_405512056662_005',
+	'ex_model_Ar_P_LJ',
+	'ex_model_Ar_P_MLJ_Fortran',
+	'ex_model_Ar_P_Morse',
+	'ex_model_Ar_P_Morse_07C',
+	'ex_model_Ar_P_Morse_07C_w_Extensions',
+	'ex_model_Ar_P_Morse_MultiCutoff',
+	'ex_model_Ar_SLJ_MultiCutoff
+	]
+	
 # Instead of the sed echo commands, we can use argparse
 
 current_path = os.path.abspath('.')

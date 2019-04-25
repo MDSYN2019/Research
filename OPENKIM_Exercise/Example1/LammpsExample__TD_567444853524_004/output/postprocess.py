@@ -32,29 +32,41 @@ s = open("/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENKIM_Exercise/E
 for i, line in enumerate(s.readlines()):
 	if re.search(I_pattern, line):
 		print ("Found on line {}: {}".format(i, line))
-# Replacing sed model string
-
-
 
 class KIM_Postprocess:
 	def __init__(self, logfile, input_template,path):
-		self.logfile = open(str(path + "/" + logfile))
-		self.input_template = open(str(path + "/" + input_template))
-		
+		self.logfile_input = open(str(path + "/" + logfile))
+		self.input_template_input = open(str(path + "/" + input_template)) # Need to rename this 
+		self.logfile_read = self.logfile_input.readlines()
+		self.input_template_input = self.input_template_input.readlines() # Need to rename this 
 	def logfileReader(self):
 		pass
 	def output(self):
 		pass
 	def propertySearch(self):
+		I_pattern = re.compile("sed_model_string")
+		II_pattern = re.compile("sed_initial_lattice_constant_string")
+		# Extract values
 		finalpressure = re.search()
 		ecohesive = re.search()
 		latticeconstant = re.search()
 
-
 # How to generalize the LAMMPS input file?
 
 """
-1. Its probably best to divide into blocks - 
+1. Its probably best to divide into blocks - at the moment, the lammps input file is divided into multiple blocks:
+   
+   - Units and atom_style block, maybe add boundary. Could name this 'conditions' 
 
+   - Box properties and dimensions - 
+ 
+   - Output style - dump (pdb, dcd, ...) 
+   
+   - Variable definition
+
+   - Print definitions
+
+These have to be divided into blocks and made into modules so that they can be puzzled together, with error condiitons making sure 
+incompatible fixes are rooted out.
 
 """

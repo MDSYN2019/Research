@@ -14,14 +14,13 @@ import re  # regex module
 current_path = os.path.abspath('.')
 os.mkdir(str(current_path + "/" + output)) # Make output directory 
 
-#parser = argparse.ArgumentParser(description='Stdin for OpenKIM')
-#parser.add_argument('Forcefield', metavar = 'FF' , type = str, help = 'The name of the KIM forcefield')
-#parser.add_argument('Lattice_Constant', metavar = 'C', type = float, help = 'The value of the lattice constant')
-#parser.add_argument('Log', metavar = 'L', type = str, help = 'Name of the log file')
-#parser.add_argument('lammps_binary', metavar = 'B', type = str, help = 'Path to lammps binary')
-
-#args = parser.parse_args()
-#print(args.accumulate(args.integers))
+parser = argparse.ArgumentParser(description='Stdin for OpenKIM')
+parser.add_argument('Forcefield', metavar = 'FF' , type = str, help = 'The name of the KIM forcefield')
+parser.add_argument('Lattice_Constant', metavar = 'C', type = float, help = 'The value of the lattice constant')
+parser.add_argument('Log', metavar = 'L', type = str, help = 'Name of the log file')
+parser.add_argument('lammps_binary', metavar = 'B', type = str, help = 'Path to lammps binary')
+args = parser.parse_args()
+print(args.accumulate(args.integers))
 
 # Regular expression patterns
 
@@ -39,18 +38,19 @@ class KIM_Postprocess:
 		self.input_template_input = open(str(path + "/" + input_template)) # Need to rename this 
 		self.logfile_read = self.logfile_input.readlines()
 		self.input_template_input = self.input_template_input.readlines() # Need to rename this 
+	def propertySearch(self):
+		model_string_pattern = re.compile("sed_model_string")
+		lattice_contant_pattern = re.compile("sed_initial_lattice_constant_string")
+		# Extract values
+		finalpressure_line = [line for line in self.logfile_read.split(' ') if "Final Pressure" in line] 
+		ecohesive_line = [line for line in self.logfile_read.split(' ') if "Cohesive Energy" in line]
+		latticeconstant_line = [line for line in self.logfile_read.split(' ') if "lattice constant" in line]
 	def logfileReader(self):
 		pass
 	def output(self):
 		pass
-	def propertySearch(self):
-		I_pattern = re.compile("sed_model_string")
-		II_pattern = re.compile("sed_initial_lattice_constant_string")
-		# Extract values
-		finalpressure = re.search()
-		ecohesive = re.search()
-		latticeconstant = re.search()
 
+	
 # How to generalize the LAMMPS input file?
 
 """

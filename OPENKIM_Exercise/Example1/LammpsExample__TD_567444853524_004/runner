@@ -34,7 +34,7 @@ sed -e "s/sed_model_string/"$modelname"/"                                  \
 /home/oohnohnoh1/Desktop/LAMMPS/lammps-12Dec18/src/lmp_ubuntu < output/lammps.in > output/lammps.log
 
 # Parse the LAMMPS output log and extract the final pressure (to indicate how converged it is to 0),
-# cohesive energy, and equilibrium lattice constant.
+# cohesive energy, and equilibrium lattice constant.4
 finalpressure=`grep "Final pressure = [0-9.e+\-]\+ bar" output/lammps.log | cut -d' ' -f4`
 ecohesive=`grep "Cohesive energy = [0-9.e+\-]\+ eV/atom" output/lammps.log | cut -d' ' -f4`
 latticeconstant=`grep "Equilibrium lattice constant = [0-9.e+\-]\+ angstrom" output/lammps.log | cut -d' ' -f5`

@@ -1,3 +1,6 @@
+# Why isnt it currently general?
+
+
 # Define unit set and class of atomic model
 units metal
 atom_style atomic

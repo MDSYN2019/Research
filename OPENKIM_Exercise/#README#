@@ -62,3 +62,6 @@ KIM Properties Framework
 
 1. Overview
 
+The OpenKIM system includes a collections of Tests, Models, PRedictions and Reference Data. A Test is a computer program that couples
+with a Model (i.e. an interatomic potential) to generate one or more predictions, each of which is associated with a specific material
+property. 

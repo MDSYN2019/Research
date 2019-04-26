@@ -72,21 +72,42 @@ for i, line in enumerate(s.readlines()):
 		print ("Found on line {}: {}".format(i, line))
 
 class KIM_Postprocess:
-	def __init__(self, logfile, input_template, path):
-		self.logfile_input = open(str(path + "/" + logfile))
-		self.input_template_input = open(str(path + "/" + input_template)) # Need to rename this 
+	def __init__(self, logfile, input_template, writefile, path):
+
+		self.logfile_input = open(str(path + "/" + logfile), "rb")
+
+		self.input_template_input = open(str(path + "/" + input_template), "rb") # Need to rename this 
+
 		self.logfile_read = self.logfile_input.readlines()
+
 		self.input_template_input = self.input_template_input.readlines() # Need to rename this 
+
 	def propertySearch(self):
+
 		model_string_pattern = re.compile("sed_model_string")
+
 		lattice_contant_pattern = re.compile("sed_initial_lattice_constant_string")
+
 		# Extract values
+
 		finalpressure_line = [line for line in self.logfile_read.split(' ') if "Final Pressure" in line] 
+
 		ecohesive_line = [line for line in self.logfile_read.split(' ') if "Cohesive Energy" in line]
+
 		latticeconstant_line = [line for line in self.logfile_read.split(' ') if "lattice constant" in line]
+
 	def edn_writer(self):
-		pass
+
+		self.writefile = writefile
+
+		f = open(str(self.writefile), "wb")
+
+		# do something
+
+		f.close()
+
 	def output(self):
+
 		pass
 # How to generalize the LAMMPS input file?
 

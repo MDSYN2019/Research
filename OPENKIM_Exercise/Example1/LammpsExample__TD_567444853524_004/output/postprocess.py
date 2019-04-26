@@ -1,11 +1,31 @@
 """
-
 Author: Sang Young Noh -
 Version: 0.0.1 
 Date: --::--::----
 Title: Develop a Python Tool for Generating KIM Property Instances from LAMMPS Output
 
+=> Key point - How could we generalize this python processing code to work for a wider variety of LAMMPS input files?
+
+1. Its probably best to divide into blocks - at the moment, the lammps input file is divided into multiple blocks:
+   
+   - Units and atom_style block, maybe add boundary. Could name this 'conditions' 
+
+   - Box properties and dimensions - 
+ 
+   - Output style - dump (pdb, dcd, ...) 
+   
+   - Variable definition
+
+   - Print definitions
+
+These have to be divided into blocks and made into modules so that they can be puzzled together, with error condiitons making sure 
+incompatible fixes are rooted out.
+
+2.  The program needs to be modular - not complicated enough that it is just boilerplate in the end and also easy for even novices 
+     in Python to update for their own purposes and for future versions of lammps
+
 """
+
 import argparse
 import string
 import os
@@ -15,24 +35,25 @@ KIM_MODELS_DIR = "/usr/local/lib/kim-api/models"
 
 # Temporary placeholder 
 KIM_MODELS_LIST = [
-	'LennardJones612_UniversalShifted__MO_959249795837_003',
-	'LennardJones_Ar',
-	'SW_StillingerWeber_1985_Si__MO_405512056662_005',
-	'ex_model_Ar_P_LJ',
-	'ex_model_Ar_P_MLJ_Fortran',
-	'ex_model_Ar_P_Morse',
-	'ex_model_Ar_P_Morse_07C',
-	'ex_model_Ar_P_Morse_07C_w_Extensions',
-	'ex_model_Ar_P_Morse_MultiCutoff',
-	'ex_model_Ar_SLJ_MultiCutoff
-	]
+'LennardJones612_UniversalShifted__MO_959249795837_003',
+'LennardJones_Ar',
+'SW_StillingerWeber_1985_Si__MO_405512056662_005',
+'ex_model_Ar_P_LJ',
+'ex_model_Ar_P_MLJ_Fortran',
+'ex_model_Ar_P_Morse',
+'ex_model_Ar_P_Morse_07C',
+'ex_model_Ar_P_Morse_07C_w_Extensions',
+'ex_model_Ar_P_Morse_MultiCutoff',
+'ex_model_Ar_SLJ_MultiCutoff'
+]
 	
+template_path = os.path.abspath('../')
+current_path = os.path.abspath('.')
+
 # Instead of the sed echo commands, we can use argparse
 
-current_path = os.path.abspath('.')
 os.mkdir(str(current_path + "/" + output)) # Make output directory 
-
-parser = argparse.ArgumentParser(description='Stdin for OpenKIM')
+parser = argparse.ArgumentParser(description="Stdin for OpenKIM")
 parser.add_argument('Forcefield', metavar = 'FF' , type = str, help = 'The name of the KIM forcefield')
 parser.add_argument('Lattice_Constant', metavar = 'C', type = float, help = 'The value of the lattice constant')
 parser.add_argument('Log', metavar = 'L', type = str, help = 'Name of the log file')
@@ -51,7 +72,7 @@ for i, line in enumerate(s.readlines()):
 		print ("Found on line {}: {}".format(i, line))
 
 class KIM_Postprocess:
-	def __init__(self, logfile, input_template,path):
+	def __init__(self, logfile, input_template, path):
 		self.logfile_input = open(str(path + "/" + logfile))
 		self.input_template_input = open(str(path + "/" + input_template)) # Need to rename this 
 		self.logfile_read = self.logfile_input.readlines()
@@ -63,28 +84,20 @@ class KIM_Postprocess:
 		finalpressure_line = [line for line in self.logfile_read.split(' ') if "Final Pressure" in line] 
 		ecohesive_line = [line for line in self.logfile_read.split(' ') if "Cohesive Energy" in line]
 		latticeconstant_line = [line for line in self.logfile_read.split(' ') if "lattice constant" in line]
-	def logfileReader(self):
+	def edn_writer(self):
 		pass
 	def output(self):
 		pass
-
-	
 # How to generalize the LAMMPS input file?
 
-"""
-1. Its probably best to divide into blocks - at the moment, the lammps input file is divided into multiple blocks:
-   
-   - Units and atom_style block, maybe add boundary. Could name this 'conditions' 
 
-   - Box properties and dimensions - 
- 
-   - Output style - dump (pdb, dcd, ...) 
-   
-   - Variable definition
+""" 
 
-   - Print definitions
-
-These have to be divided into blocks and made into modules so that they can be puzzled together, with error condiitons making sure 
-incompatible fixes are rooted out.
+Test block - using pytest 
 
 """
+def test_input():
+	pass
+
+def test_output():
+	pass

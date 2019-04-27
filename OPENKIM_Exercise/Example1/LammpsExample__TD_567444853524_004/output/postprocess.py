@@ -1,7 +1,10 @@
 """
 Author: Sang Young Noh -
+
 Version: 0.0.1 
-Date: --::--::----
+
+Date: 27::04::2019 (Date is in British format so feel free to change if necessary!)
+
 Title: Develop a Python Tool for Generating KIM Property Instances from LAMMPS Output
 
 The LAMMPS version used in this version is "lammps-12Dec18"
@@ -11,13 +14,9 @@ The LAMMPS version used in this version is "lammps-12Dec18"
 1. Its probably best to divide into blocks - at the moment, the lammps input file is divided into multiple blocks:
    
    - Units and atom_style block, maybe add boundary. Could name this 'conditions' 
-
    - Box properties and dimensions - 
- 
    - Output style - dump (pdb, dcd, ...) 
-   
    - Variable definition
-
    - Print definitions
 
 These have to be divided into blocks and made into modules so that they can be puzzled together, with error condiitons making sure 
@@ -34,11 +33,15 @@ import os
 import re  # regex module 
 import unittest
 import subprocess
+import signal
 
+
+# Temporary placeholder 
+
+LAMMPS_PATH = "/home/oohnohnoh1/Desktop/LAMMPS/lammps-12Dec18/src"
 
 KIM_MODELS_DIR = "/usr/local/lib/kim-api/models"
 
-# Temporary placeholder 
 KIM_MODELS_LIST = [
 'LennardJones612_UniversalShifted__MO_959249795837_003',
 'LennardJones_Ar',
@@ -72,8 +75,10 @@ try:
 	args.Forcefield in KIM_MODELS_LIST
 except IndexError:
 	print ("Input forcefield is not valid")
-
-
+try:
+	proc = subprocess.Popen("/home/oohnohnoh1/Desktop/LAMMPS/lammps-12Dec18/src/lmp_ubuntu", shell=True)
+	proc.wait(timeout = 3)
+	
 
 s = open("/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENKIM_Exercise/Example1/LammpsExample__TD_567444853524_004/lammps.in.template","r+")
 for i, line in enumerate(s.readlines()):

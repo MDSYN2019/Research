@@ -4,6 +4,8 @@ Version: 0.0.1
 Date: --::--::----
 Title: Develop a Python Tool for Generating KIM Property Instances from LAMMPS Output
 
+The LAMMPS version used in this version is "lammps-12Dec18"
+
 => Key point - How could we generalize this python processing code to work for a wider variety of LAMMPS input files?
 
 1. Its probably best to divide into blocks - at the moment, the lammps input file is divided into multiple blocks:
@@ -30,6 +32,9 @@ import argparse
 import string
 import os
 import re  # regex module 
+import unittest
+import subprocess
+
 
 KIM_MODELS_DIR = "/usr/local/lib/kim-api/models"
 
@@ -62,6 +67,11 @@ parser.add_argument('--Log', action = 'store', type = str, help = 'Name of the l
 parser.add_argument('--LAMMPS_binary', action='store', type = str, help = 'Path to lammps binary')
 args = parser.parse_args()
 print (args)
+
+try:
+	args.Forcefield in KIM_MODELS_LIST
+except IndexError:
+	print ("Input forcefield is not valid")
 
 
 

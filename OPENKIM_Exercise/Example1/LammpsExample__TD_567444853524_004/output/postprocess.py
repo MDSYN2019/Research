@@ -50,21 +50,20 @@ KIM_MODELS_LIST = [
 template_path = os.path.abspath('../')
 current_path = os.path.abspath('.')
 
+
+os.mkdir(str(current_path + "/" + "output")) # Make output directory 
+
 # Instead of the sed echo commands, we can use argparse
 
-os.mkdir(str(current_path + "/" + output)) # Make output directory 
 parser = argparse.ArgumentParser(description="Stdin for OpenKIM")
-parser.add_argument('Forcefield', metavar = 'FF' , type = str, help = 'The name of the KIM forcefield')
-parser.add_argument('Lattice_Constant', metavar = 'C', type = float, help = 'The value of the lattice constant')
-parser.add_argument('Log', metavar = 'L', type = str, help = 'Name of the log file')
-parser.add_argument('lammps_binary', metavar = 'B', type = str, help = 'Path to lammps binary')
+parser.add_argument('--Forcefield', action = 'store' , type = str, help = 'The name of the KIM forcefield')
+parser.add_argument('--Lattice_Constant', action = 'store', type = float, help = 'The value of the lattice constant')
+parser.add_argument('--Log', action = 'store', type = str, help = 'Name of the log file')
+parser.add_argument('--LAMMPS_binary', action='store', type = str, help = 'Path to lammps binary')
 args = parser.parse_args()
-print(args.accumulate(args.integers))
+print (args)
 
-# Regular expression patterns
 
-I_pattern = re.compile("sed_initial_lattice_constant_string")
-II_pattern = re.compile("<(\d{4,5})>")
 
 s = open("/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENKIM_Exercise/Example1/LammpsExample__TD_567444853524_004/lammps.in.template","r+")
 for i, line in enumerate(s.readlines()):
@@ -72,6 +71,7 @@ for i, line in enumerate(s.readlines()):
 		print ("Found on line {}: {}".format(i, line))
 
 class KIM_Postprocess:
+
 	def __init__(self, logfile, input_template, writefile, path):
 
 		self.logfile_input = open(str(path + "/" + logfile), "rb")

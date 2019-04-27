@@ -1,9 +1,9 @@
 """
-Author: Sang Young Noh -
+Author: Sang Young Noh 
 
 Version: 0.0.1 
 
-Date: 27::04::2019 (Date is in British format so feel free to change if necessary!)
+Date: 27-04-2019 (Date is in British format so feel free to change if necessary!)
 
 Title: Develop a Python Tool for Generating KIM Property Instances from LAMMPS Output
 
@@ -24,7 +24,6 @@ incompatible fixes are rooted out.
 
 2.  The program needs to be modular - not complicated enough that it is just boilerplate in the end and also easy for even novices 
      in Python to update for their own purposes and for future versions of lammps
-
 """
 
 import argparse
@@ -58,7 +57,6 @@ KIM_MODELS_LIST = [
 template_path = os.path.abspath('../')
 current_path = os.path.abspath('.')
 
-
 os.mkdir(str(current_path + "/" + "output")) # Make output directory 
 
 # Instead of the sed echo commands, we can use argparse
@@ -71,15 +69,21 @@ parser.add_argument('--LAMMPS_binary', action='store', type = str, help = 'Path 
 args = parser.parse_args()
 print (args)
 
+# Exceptions for input
+
 try:
 	args.Forcefield in KIM_MODELS_LIST
 except IndexError:
 	print ("Input forcefield is not valid")
-try:
-	proc = subprocess.Popen("/home/oohnohnoh1/Desktop/LAMMPS/lammps-12Dec18/src/lmp_ubuntu", shell=True)
-	proc.wait(timeout = 3)
-	
 
+try:
+	proc = subprocess.Popen("/home/oohnohnoh1/Desktop/LAMMPS/lammps-12Dec18/src/lmp_ubuntu", shell=True) 
+	proc.wait(timeout = 3)
+	proc.kill()
+except:
+	proc.CalledProcessError as e:
+	print(e.output)
+	
 s = open("/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENKIM_Exercise/Example1/LammpsExample__TD_567444853524_004/lammps.in.template","r+")
 for i, line in enumerate(s.readlines()):
 	if re.search(I_pattern, line):

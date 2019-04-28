@@ -128,13 +128,9 @@ class KIM_Postprocess:
 		latticeconstant_line = [line for line in self.logfile_read.split(' ') if "lattice constant" in line]
 		latticeconstant_line[0].decode('utf-8').rstrip().split('=')
 	def edn_writer(self):
-
 		self.writefile = writefile
-
 		f = open(str(self.writefile), "wb")
-
 		# do something
-
 		f.close()
 
 	def output(self):

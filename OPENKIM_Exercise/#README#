@@ -89,6 +89,8 @@ The OpenKIM system includes a collection of tests, models, predictions and refer
 model (i.e. an interatomic potential) to generate one or more predictions, each of which is associated with a specific material property.
 In turn, every material property is associated with a property definition.  A prediction is thus a realization of a Property Definition for a specific case. Similarly, an item of reference data is a property instance, obtained from an experiment or a first principles calculation.Thus, every Property instance is either prediction or an item of reference data.
 
+A developer interested in contributing a new Test or Reference Data must first determine whether a suitable Property Definition already
+exists in OpenKIM. If so, they 
 
 
 

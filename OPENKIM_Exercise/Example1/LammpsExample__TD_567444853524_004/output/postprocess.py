@@ -7,6 +7,25 @@ Date: 27-04-2019 (Date is in British format so feel free to change if necessary!
 
 Title: Develop a Python Tool for Generating KIM Property Instances from LAMMPS Output
 
+Description:
+
+All aspects for the KIM system are designed to be extended by user contributions.
+However, there are a number of aspects of the system that are currently challenging 
+for potential contributors. 
+
+In principle a KIM Test can be as simple as writing a LAMMPS input script to compute a material 
+property, such as the face-centered cubic (FCC) equilibrium lattice constant. However, in pracrise 
+such a test must also include a script that will post-process the LAMMPS output file to extract 
+all necessary dataand put it into a form that the rest of the KIM system can readily unserstand. 
+
+Although there are lots of material scientists who could create and contribute interesting simulations,
+few are capable of creating the necessary post-processing software to complete a contribution to KIM.
+Thus, it is crucial for the success for KIM that we create a suite of software tools that make it easy 
+for the contributors to extract heir from LAMMPS output files and import it into he apporpriate KIM format.
+ 
+
+Notes:
+
 The LAMMPS version used in this version is "lammps-12Dec18"
 
 => Key point - How could we generalize this python processing code to work for a wider variety of LAMMPS input files?
@@ -90,44 +109,29 @@ for i, line in enumerate(s.readlines()):
 		print ("Found on line {}: {}".format(i, line))
 
 class KIM_Postprocess:
-
+	"""
+	API-class for reading in the parameters and forcefields to run a simple OpenKIM work
+	"""
 	def __init__(self, logfile, input_template, writefile, path):
-
 		self.logfile_input = open(str(path + "/" + logfile), "rb")
-
 		self.input_template_input = open(str(path + "/" + input_template), "rb") # Need to rename this 
-
 		self.logfile_read = self.logfile_input.readlines()
-
 		self.input_template_input = self.input_template_input.readlines() # Need to rename this 
-
 	def propertySearch(self):
-
 		model_string_pattern = re.compile("sed_model_string")
-
 		lattice_contant_pattern = re.compile("sed_initial_lattice_constant_string")
-
 		# Extract values
-
-		finalpressure_line = [line for line in self.logfile_read.split(' ') if "Final Pressure" in line] 
-
-		ecohesive_line = [line for line in self.logfile_read.split(' ') if "Cohesive Energy" in line]
-
-		latticeconstant_line = [line for line in self.logfile_read.split(' ') if "lattice constant" in line]
-
+		finalpressure_line = [re.finall('Final Pressure',line) for line in self.input_template_input] 
+		ecohesive_line = [re.findall('Cohesive Energy',line) for line in self.input_template_input]
+		latticeconstant_line = [re.findall('Lattice constant',line) for line in self.input_template_input]
 	def edn_writer(self):
-
 		self.writefile = writefile
-
 		f = open(str(self.writefile), "wb")
-
 		# do something
-
 		f.close()
-
 	def output(self):
-
 		pass
+		
 # How to generalize the LAMMPS input file?
 
 

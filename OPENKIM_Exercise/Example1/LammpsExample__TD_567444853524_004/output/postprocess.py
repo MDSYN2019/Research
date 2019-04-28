@@ -121,9 +121,9 @@ class KIM_Postprocess:
 		model_string_pattern = re.compile("sed_model_string")
 		lattice_contant_pattern = re.compile("sed_initial_lattice_constant_string")
 		# Extract values
-		finalpressure_line = [re.finall('Final Pressure',line) for line in self.input_template_input] 
-		ecohesive_line = [re.findall('Cohesive Energy',line) for line in self.input_template_input]
-		latticeconstant_line = [re.findall('Lattice constant',line) for line in self.input_template_input]
+		F_P = [line for line in self.logfile_read if bool(re.search(r'Final pressure',line.decode('utf-8'))) == True]
+		C_E = [line for line in self.logfile_read if bool(re.search(r'Cohesive Energy',line.decode('utf-8'))) == True]
+		L_C = [line for line in self.logfile_read if bool(re.search(r'Equilibrium lattice constant',line.decode('utf-8'))) == True]
 	def edn_writer(self):
 		self.writefile = writefile
 		f = open(str(self.writefile), "wb")
@@ -133,7 +133,6 @@ class KIM_Postprocess:
 		pass
 		
 # How to generalize the LAMMPS input file?
-
 
 """ 
 

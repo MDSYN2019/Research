@@ -54,13 +54,15 @@ import subprocess
 import signal
 import psutil, time
 
-# Temporary placeholder 
+# Optional and currently experiementing - running lammps on python
 
-LAMMPS_PATH = "/home/oohnohnoh1/Desktop/LAMMPS/lammps-12Dec18/src"
+#from lammps import lammps
+#lmp = lammps()
+#lmp.file("in.lj")
 
-KIM_MODELS_DIR = "/usr/local/lib/kim-api/models"
-
-KIM_MODELS_LIST = [
+LAMMPSPATH = "/home/oohnohnoh1/Desktop/LAMMPS/lammps-12Dec18/src"
+KIMMODELSDIR = "/usr/local/lib/kim-api/models"
+KIMMODELSLIST = [
 'LennardJones612_UniversalShifted__MO_959249795837_003',
 'LennardJones_Ar',
 'ex_model_Ar_P_LJ',
@@ -87,18 +89,15 @@ parser.add_argument('--LAMMPS_binary', action='store', type = str, help = 'Path 
 args = parser.parse_args()
 print (args)
 
-with open("../lammps.in.template","r+") as fin:
-    filedata = fin.read()
-    filedata = filedata.replace("sed_initial_lattice_constant_string", args.Lattice_Constant)
-    filedata = filedata.replace("sed_model_string", args.Forcefield)
-with open("lammps.in", "w+") as fout:
-    fout.write(filedata)
+# Making sure of errors
 
 try:
 	args.Forcefield in KIM_MODELS_LIST
 except IndexError:
 	print ("Input forcefield is not valid")
-	
+
+# Could try to use the python version of LAMMPS here for exceptions 
+
 try:
 	proc = subprocess.Popen("/home/oohnohnoh1/Desktop/LAMMPS/lammps-12Dec18/src/lmp_ubuntu", shell=True) 
 	p_id = psutil.Process(proc.pid)
@@ -106,38 +105,47 @@ try:
 except subprocess.CalledProcessError as e:
 	print(e.output)
 
-	
-s = open("/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENKIM_Exercise/Example1/LammpsExample__TD_567444853524_004/lammps.in.template","r+")
-for i, line in enumerate(s.readlines()):
-	if re.search(I_pattern, line):
-		print ("Found on line {}: {}".format(i, line))
-
 class KIM_Postprocess:
 	"""
+
 	Class to read in lammps.log and template files and call to produce the edn files	
+
 	"""
 	def __init__(self, logfile, input_template, writefile, path):
+		"""
+		Constructor 
+		"""
 		self.LogfileInput = open(str(path + "/" + logfile), "rb")
 		self.InputTemplateInput = open(str(path + "/" + input_template), "rb") # Need to rename this 
 		self.LogfileRead = self.logfile_input.readlines()
 		self.InputTemplateInput = self.input_template_input.readlines() # Need to rename this 
 	def PropertySearch(self):
-		ModelStringPattern = re.compile("sed_model_string")
-		LatticeConstantPattern = re.compile("sed_initial_lattice_constant_string")
+		with open("../lammps.in.template","r+") as fin:
+			filedata = fin.read()
+			filedata = filedata.replace("sed_initial_lattice_constant_string", args.Lattice_Constant)
+			filedata = filedata.replace("sed_model_string", args.Forcefield)
+		with open("lammps.in", "w+") as fout:
+			fout.write(filedata)			
+	def EdnWriter(self):		
+		"""
+		Writer for the Edn file 
+		"""
 		FinalPressureLine = [line for line in self.logfile_read.split(' ') if "Final Pressure" in line] 
 		CohesiveEnergyLine = [line for line in self.logfile_read.split(' ') if "Cohesive Energy" in line]
 		LatticeConstantLine = [line for line in self.logfile_read.split(' ') if "lattice constant" in line]
-        self.FinalPressureVal = FinalPressureLine[0].decode('utf-8').rstrip().split('=')
+
+		self.FinalPressureVal = FinalPressureLine[0].decode('utf-8').rstrip().split('=')
 		self.CohesiveEnergyVal = CohesiveEnergyLine[0].decode('utf-8').rstrip().split('=')
 		self.LatticeConstantVal = LatticeConstantLine[0].decode('utf-8').rstrip().split('=')
-	def EdnWriter(self):
-		self.writefile = writefile
-		f = open(str(self.writefile), "wb")
-		# do something
-		f.close()
-	def Output(self):
 
-		pass
+		with open("../results.edn.tpl","r+") as fin:
+			filedata = fin.read()
+			filedata = filedata.replace("_LATCONST_", self.LatticeConstantVal[0])
+			filedata = filedata.replace("_ECOHESIVE_", self.CohesiveEnergyVal[0])
+		with open("results.edn", "w+") as fout:
+			fout.write(filedata)
+
+			
 # How to generalize the LAMMPS input file?
 
 

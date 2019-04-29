@@ -1,0 +1,47 @@
+# Define looping variables
+variable loopcount loop 36
+variable latticeconst index 4.998000 4.690849 4.505584 4.372509 4.268593 4.183325 4.111020 4.048252 3.992796 3.943124 3.898144 3.857044 3.819208 3.784156 3.751506 3.720949 3.692234 3.665151 3.639524 3.615205 3.592067 3.570000 3.537371 3.502700 3.465717 3.426090 3.383412 3.337174 3.286726 3.231226 3.169546 3.100138 3.020783 2.928144 2.816864 2.677500 
+
+# Define unit set and class of atomic model
+units metal
+atom_style atomic
+
+# Periodic boundary conditions along all three dimensions
+boundary p p p
+
+# Create a lattice with type and spacing specified by the user (referred to as "a_0" in
+# README.txt) using a single conventional (orthogonal) unit cell
+lattice diamond ${latticeconst}
+region box block 0 1 0 1 0 1 units lattice
+create_box 1 box
+create_atoms 1 box
+mass 1 28.085
+
+# Specify which KIM Model to use
+pair_style kim LAMMPSvirial SW_StillingerWeber_1985_Si__MO_405512056662_005
+pair_coeff * * Si
+
+# Set what thermodynamic information to print to log
+thermo_style custom step atoms xlo xhi ylo yhi zlo zhi pe press pxx pyy pzz pxy pxz pyz
+thermo 10 # Print every 10 steps
+
+# Set what information to write to dump file
+dump id all custom 10 output/lammps.dump id type x y z fx fy fz
+dump_modify id format line "%d %d %16.7f %16.7f %16.7f %16.7f %16.7f %16.7f"
+
+# Compute the energy and forces for this lattice spacing
+run 0
+
+# Define auxiliary variables to contain cohesive energy and equilibrium lattice constant
+variable poteng    equal "c_thermo_pe"
+variable natoms    equal "count(all)"
+variable ecohesive equal "v_poteng/v_natoms"
+
+# Output cohesive energy and equilibrium lattice constant
+print "Cohesive energy = ${ecohesive} eV/atom"
+
+# Queue next loop
+clear # Clear existing atoms, variables, and allocated memory
+next latticeconst # Increment latticeconst to next value
+next loopcount # Increment loopcount to next value
+jump SELF # Reload this input script with the new variable values

@@ -1,0 +1,34 @@
+KIM_API_Version  := 1.6.0 
+Unit_Handling    := flexible
+Unit_length      := A
+Unit_energy      := eV
+Unit_charge      := e
+Unit_temperature := K
+Unit_time        := ps
+
+SUPPORTED_ATOM/PARTICLES_TYPES:
+Si spec 14
+
+CONVENTIONS:
+ZeroBasedLists    flag
+Neigh_BothAccess  flag
+NEIGH_PURE_H      flag
+NEIGH_PURE_F      flag
+NEIGH_RVEC_H      flag
+NEIGH_RVEC_F      flag
+
+MODEL_INPUT:
+numberOfParticles            integer  none    []
+numberOfSpecies              integer  none    []
+particleSpecies              integer  none    [numberOfParticles]
+coordinates                  double   length  [numberOfParticles,3]
+numberContributingParticles  integer  none    []
+get_neigh                    method   none    []
+neighObject                  pointer  none    []
+
+MODEL_OUTPUT:
+compute  method  none    []
+destroy  method  none    []
+cutoff   double  length  []
+energy   double  energy  []
+forces   double  force   [numberOfParticles,3]

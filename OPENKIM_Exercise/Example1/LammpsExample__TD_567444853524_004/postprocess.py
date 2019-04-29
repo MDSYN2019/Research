@@ -79,39 +79,36 @@ KIMMODELSLIST = [
 	
 TemplatePath = os.path.abspath('../')
 CurrentPath = os.path.abspath('.')
-os.mkdir(str(template_path + "/" + "output")) # Make output directory 
+#os.mkdir(str(TemplatePath + "/" + "output")) # Make output directory 
 
 # Parser to read in the force fields, the Lattice constant, log file and the lammps binary of the Computer
 
 parser = argparse.ArgumentParser(description="Stdin for OpenKIM")
-parser.add_argument('--Forcefield', action = 'store' , type = str, help = 'The name of the KIM forcefield')
-parser.add_argument('--Lattice_Constant', action = 'store', type = float, help = 'The value of the lattice constant')
-parser.add_argument('--Log', action = 'store', type = str, help = 'Name of the log file')
-parser.add_argument('--LAMMPS_binary', action='store', type = str, help = 'Path to lammps binary')
-args = parser.parse_args()
-print (args)
+parser.add_argument('--Forcefield', metavar = 'F', action = 'store' , type = str, help = 'The name of the KIM Forcefield')
+parser.add_argument('--Lattice_Constant', metavar = 'LC', action = 'store', type = float, help = 'The value of the Lattice Constant')
+parser.add_argument('--Log', metavar = 'L', action = 'store', type = str, help = 'Name of the Lammps log File')
+parser.add_argument('--LAMMPS_binary_path', metavar = 'LB',  action='store', type = str, help = 'Path to Lammps Binary')
+print (parser.parse_args(['--Forcefield', '-Lattice_Constant', '-Log', '--LAMMPS_binary']))
 
 # Making sure of errors
-
 try:
-	args.Forcefield in KIM_MODELS_LIST
+	args.Forcefield in KIMMODELSLIST
 except IndexError:
 	print ("Input forcefield is not valid")
 
 # Could try to use the python version of LAMMPS here for exceptions 
 
-try:
-	proc = subprocess.Popen("/home/oohnohnoh1/Desktop/LAMMPS/lammps-12Dec18/src/lmp_ubuntu", shell=True) 
-	p_id = psutil.Process(proc.pid)
-	p_id.wait(timeout = 3)
-except subprocess.CalledProcessError as e:
-	print(e.output)
+#try:
+#	proc = subprocess.Popen("/home/oohnohnoh1/Desktop/LAMMPS/lammps-12Dec18/src/lmp_ubuntu", shell=True) 
+#	p_id = psutil.Process(proc.pid)
+#	p_id.wait(timeout = 3)
+#	p_id.kill()
+#except subprocess.CalledProcessError as e:
+#	print(e.output)
 
 class KIMPostprocess:
 	"""
-
 	Class to read in lammps.log and template files and call to produce the edn files	
-
 	"""
 	def __init__(self, logfile, input_template, writefile, path):
 		"""
@@ -142,7 +139,7 @@ class KIMPostprocess:
 		self.FinalPressureVal = FinalPressureLine[0].decode('utf-8').rstrip().split('=')
 		self.CohesiveEnergyVal = CohesiveEnergyLine[0].decode('utf-8').rstrip().split('=')
 		self.LatticeConstantVal = LatticeConstantLine[0].decode('utf-8').rstrip().split('=')
-
+		
 		with open("../results.edn.tpl","r+") as fin:
 			filedata = fin.read()
 			filedata = filedata.replace("_LATCONST_", self.LatticeConstantVal[0])

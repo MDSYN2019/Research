@@ -88,7 +88,13 @@ parser.add_argument('--LAMMPS_binary', action='store', type = str, help = 'Path 
 args = parser.parse_args()
 print (args)
 
-# Exceptions for input
+with open("../lammps.in.template","r+") as fin:
+    filedata = fin.read()
+    filedata = filedata.replace("sed_initial_lattice_constant_string", args.Lattice_Constant)
+    filedata = filedata.replace("sed_model_string", args.Forcefield)
+
+with open("lammps.in", "w+") as fout:
+    fout.write(filedata)
 
 try:
 	args.Forcefield in KIM_MODELS_LIST
@@ -117,14 +123,18 @@ class KIM_Postprocess:
 		self.input_template_input = open(str(path + "/" + input_template), "rb") # Need to rename this 
 		self.logfile_read = self.logfile_input.readlines()
 		self.input_template_input = self.input_template_input.readlines() # Need to rename this 
+
 	def propertySearch(self):
 		model_string_pattern = re.compile("sed_model_string")
 		lattice_contant_pattern = re.compile("sed_initial_lattice_constant_string")
 		# Extract values
+
 		finalpressure_line = [line for line in self.logfile_read.split(' ') if "Final Pressure" in line] 
         finalpressure_line[0].decode('utf-8').rstrip().split('=') 
+
 		ecohesive_line = [line for line in self.logfile_read.split(' ') if "Cohesive Energy" in line]
 		ecohesive_line[0].decode('utf-8').rstrip().split('=')
+
 		latticeconstant_line = [line for line in self.logfile_read.split(' ') if "lattice constant" in line]
 		latticeconstant_line[0].decode('utf-8').rstrip().split('=')
 	def edn_writer(self):

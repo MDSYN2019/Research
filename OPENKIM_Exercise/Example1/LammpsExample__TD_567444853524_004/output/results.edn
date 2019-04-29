@@ -13,7 +13,7 @@
     ]
   }
   "a" {
-    "source-value" 2.76000000000017
+    "source-value" 3.60000000000017
     "source-unit" "angstrom"
   }
   "basis-atom-coordinates" {
@@ -24,7 +24,7 @@
       [ 0.5  0.5    0 ]
     ]
   }
-    "space-group" {
+  "space-group" {
     "source-value" "Fm-3m"
   }
   "wyckoff-multiplicity-and-letter" {
@@ -37,7 +37,7 @@
     "source-value" [ [ 0 0 0 ] ]
   }
   "cohesive-potential-energy" {
-    "source-value" -188.935356645442
+    "source-value" -6.46911040131582
     "source-unit" "eV"
   }
 }

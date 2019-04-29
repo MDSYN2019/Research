@@ -1,2 +1,2 @@
 The final pressure corresponding to the cohesive energy and lattice constant given in results.edn is:
-235403241.647368 bar
+4005707.53622692 bar

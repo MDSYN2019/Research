@@ -1,4 +1,4 @@
-OpenKIM is a major open source effort to develop standards and improve the reliability of molecular simulations. OpenKIM repository contains computer implementations of interactomic models (potentials and force fields), simulatons codes, that compute difference material properties, and first-principles/experimental reference data.
+2OpenKIM is a major open source effort to develop standards and improve the reliability of molecular simulations. OpenKIM repository contains computer implementations of interactomic models (potentials and force fields), simulatons codes, that compute difference material properties, and first-principles/experimental reference data.
 
 ---
 
@@ -54,8 +54,6 @@ together seemlessly. This means that you can download any KIM Model and use it i
    file can lead to different results when read in by different programs.
 
 -> To use KIM-compliant software, you first need to install KIM API. Installation from source as well 
-
-
 
 
 -----------------------

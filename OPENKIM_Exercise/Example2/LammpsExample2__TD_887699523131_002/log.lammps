@@ -1,7 +1,7 @@
 LAMMPS (12 Dec 2018)
 # Define looping variables
-variable loopcount loop 38
-variable latticeconst index 5.355000 4.847425 4.613094 4.459033 4.344065 4.252314 4.175959 4.110568 4.053385 4.002577 3.956863 3.915316 3.877237 3.842094 3.809464 3.779013 3.750468 3.723604 3.698233 3.674200 3.651369 3.629627 3.608873 3.589023 3.570000 3.548868 3.526301 3.502092 3.475983 3.447649 3.416675 3.382520 3.344453 3.301461 3.252078 3.194066 3.123758 3.034500
+variable loopcount loop 36
+variable latticeconst index 2.800000 2.627927 2.524137 2.449585 2.391368 2.343599 2.303092 2.267928 2.236860 2.209033 2.183834 2.160809 2.139612 2.119975 2.101684 2.084566 2.068479 2.053306 2.038949 2.025325 2.012362 2.000000 1.981720 1.962297 1.941578 1.919378 1.895469 1.869565 1.841303 1.810210 1.775656 1.736772 1.692315 1.640417 1.578075 1.500000
 
 # Define unit set and class of atomic model
 units metal
@@ -12,21 +12,21 @@ boundary p p p
 
 # Create a lattice with type and spacing specified by the user (referred to as "a_0" in
 # README.txt) using a single conventional (orthogonal) unit cell
-lattice fcc ${latticeconst}
-lattice fcc 5.355000
-Lattice spacing in x,y,z = 5.355 5.355 5.355
+lattice diamond ${latticeconst}
+lattice diamond 2.800000
+Lattice spacing in x,y,z = 2.8 2.8 2.8
 region box block 0 1 0 1 0 1 units lattice
 create_box 1 box
-Created orthogonal box = (0 0 0) to (5.355 5.355 5.355)
+Created orthogonal box = (0 0 0) to (2.8 2.8 2.8)
   1 by 1 by 1 MPI processor grid
 create_atoms 1 box
-Created 4 atoms
-  Time spent = 0.000389814 secs
-mass 1 39.948
+Created 8 atoms
+  Time spent = 0.000429153 secs
+mass 1 28.085
 
 # Specify which KIM Model to use
-pair_style kim LAMMPSvirial LammpsExample2__TD_887699523131_002
-pair_coeff * * Ar
+pair_style kim LAMMPSvirial SW_StillingerWeber_1985_Si__MO_405512056662_005
+pair_coeff * * Si
 
 # Set what thermodynamic information to print to log
 thermo_style custom step atoms xlo xhi ylo yhi zlo zhi pe press pxx pyy pzz pxy pxz pyz

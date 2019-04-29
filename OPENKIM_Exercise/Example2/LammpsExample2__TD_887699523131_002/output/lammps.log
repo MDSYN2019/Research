@@ -1,9 +1,9 @@
 LAMMPS (12 Dec 2018)
-Lattice spacing in x,y,z = 5.355 5.355 5.355
-Created orthogonal box = (0 0 0) to (5.355 5.355 5.355)
+Lattice spacing in x,y,z = 2.8 2.8 2.8
+Created orthogonal box = (0 0 0) to (2.8 2.8 2.8)
   1 by 1 by 1 MPI processor grid
-Created 4 atoms
-  Time spent = 0.000389814 secs
+Created 8 atoms
+  Time spent = 0.000429153 secs
 WARNING: No fixes defined, atoms won't move (../verlet.cpp:55)
 * Error: at line 1037 in ../pair_kim.cpp
 	Message: KIM initialization failed

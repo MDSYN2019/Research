@@ -9,7 +9,7 @@ import signal
 import psutil, time
 import pytest
 from postprocess import KIMPostprocess
-
+KIMPostprocess.method.. # This can be tested in the futre ..
 @pytest.mark.file
 def test_something():
 	file = open()

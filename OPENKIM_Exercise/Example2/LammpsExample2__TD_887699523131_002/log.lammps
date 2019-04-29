@@ -1,7 +1,7 @@
 LAMMPS (12 Dec 2018)
 # Define looping variables
-variable loopcount loop 36
-variable latticeconst index 2.800000 2.627927 2.524137 2.449585 2.391368 2.343599 2.303092 2.267928 2.236860 2.209033 2.183834 2.160809 2.139612 2.119975 2.101684 2.084566 2.068479 2.053306 2.038949 2.025325 2.012362 2.000000 1.981720 1.962297 1.941578 1.919378 1.895469 1.869565 1.841303 1.810210 1.775656 1.736772 1.692315 1.640417 1.578075 1.500000
+variable loopcount loop 56
+variable latticeconst index 4.500000 4.321383 4.192111 4.090740 4.007338 3.936484 3.874892 3.820417 3.771583 3.727332 3.686877 3.649616 3.615084 3.582906 3.552783 3.524468 3.497755 3.472474 3.448478 3.425644 3.403863 3.383044 3.363104 3.343972 3.325586 3.307889 3.290832 3.274370 3.258462 3.243074 3.228171 3.213725 3.199707 3.186094 3.172863 3.159992 3.147463 3.135258 3.123361 3.111756 3.100430 3.089369 3.078561 3.067996 3.057662 3.047549 3.037648 3.027951 3.018449 3.009134 3.000000 2.964193 2.919154 2.858402 2.764702 2.550000
 
 # Define unit set and class of atomic model
 units metal
@@ -12,21 +12,21 @@ boundary p p p
 
 # Create a lattice with type and spacing specified by the user (referred to as "a_0" in
 # README.txt) using a single conventional (orthogonal) unit cell
-lattice diamond ${latticeconst}
-lattice diamond 2.800000
-Lattice spacing in x,y,z = 2.8 2.8 2.8
+lattice fcc ${latticeconst}
+lattice fcc 4.500000
+Lattice spacing in x,y,z = 4.5 4.5 4.5
 region box block 0 1 0 1 0 1 units lattice
 create_box 1 box
-Created orthogonal box = (0 0 0) to (2.8 2.8 2.8)
+Created orthogonal box = (0 0 0) to (4.5 4.5 4.5)
   1 by 1 by 1 MPI processor grid
 create_atoms 1 box
-Created 8 atoms
-  Time spent = 0.000429153 secs
-mass 1 28.085
+Created 4 atoms
+  Time spent = 0.00026989 secs
+mass 1 39.948
 
 # Specify which KIM Model to use
-pair_style kim LAMMPSvirial SW_StillingerWeber_1985_Si__MO_405512056662_005
-pair_coeff * * Si
+pair_style kim LAMMPSvirial LennardJones_Ar
+pair_coeff * * Ar
 
 # Set what thermodynamic information to print to log
 thermo_style custom step atoms xlo xhi ylo yhi zlo zhi pe press pxx pyy pzz pxy pxz pyz

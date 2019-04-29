@@ -44,7 +44,6 @@ incompatible fixes are rooted out.
 2.  The program needs to be modular - not complicated enough that it is just boilerplate in the end and also easy for even novices 
      in Python to update for their own purposes and for future versions of lammps
 
-
 """
 
 import argparse
@@ -64,6 +63,7 @@ import psutil, time
 
 LAMMPSPATH = "/home/oohnohnoh1/Desktop/LAMMPS/lammps-12Dec18/src"
 KIMMODELSDIR = "/usr/local/lib/kim-api/models"
+
 KIMMODELSLIST = [
 'LennardJones612_UniversalShifted__MO_959249795837_003',
 'LennardJones_Ar',
@@ -76,7 +76,7 @@ KIMMODELSLIST = [
 'ex_model_Ar_P_Morse_MultiCutoff',
 'ex_model_Ar_SLJ_MultiCutoff'
 ]
-	
+
 TemplatePath = os.path.abspath('../')
 CurrentPath = os.path.abspath('.')
 
@@ -100,6 +100,7 @@ except IndexError:
 	print ("Input forcefield is not valid")
 
 # Testing that LAMMPS works through a subprocess
+
 try:
 	proc = subprocess.Popen("/home/oohnohnoh1/Desktop/LAMMPS/lammps-12Dec18/src/lmp_ubuntu", shell=True) 
 	p_id = psutil.Process(proc.pid)
@@ -108,20 +109,17 @@ try:
 except subprocess.CalledProcessError as e:
 	print(e.output)
 
-# Testing whether log.lammps output is in the output folder 
-
+# Testing whether log.lammps output is in the output folder
 try:
 	FileOpen = open(CurrentPath + "/" + "log.lammps")
 	print ("log.lammps exists")
 except FileNotFoundError:
 	print ("log.lammps does not exist")
-
 	
-class KIMPostprocess:
+	
+class KIMPostProcess:
 	"""
-
 	Class to read in lammps.log and template files and call to produce the edn files	
-
 	"""
 	def __init__(self, logfile, input_template, writefile, path):
 		"""

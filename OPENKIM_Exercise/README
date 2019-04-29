@@ -81,6 +81,13 @@ using a KIM Model within LAMMPS, the appropriate LAMMPS pair style s to use is p
 
 => result.edn.tpl -
 
+Like the lammps.in.template file above, this is a template used by this specific test driver for convenience. However, not that whichever
+method a test driver or test ueses to generate its results, it must eventually produce a valid edn file named 'results.edn.' which conforms
+to the KIM properties network. In this case, a suitable property definition for this test driver to report is cohesive-potential-energy-cubic-crystal. By looking at the page of this property, we can see that the lattice constant should be reported in the key 'a' and the cohesive energy in 'cohesive-potential-energy'. The keys 'short
+
+
+
+
 
 -----
 KIM Properties Framework

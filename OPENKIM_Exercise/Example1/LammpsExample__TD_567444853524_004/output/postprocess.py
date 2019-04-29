@@ -24,7 +24,7 @@ Thus, it is crucial for the success for KIM that we create a suite of software t
 for the contributors to extract heir from LAMMPS output files and import it into he apporpriate KIM format.
  
 
-Notes:
+My Personal Notes:
 
 The LAMMPS version used in this version is "lammps-12Dec18"
 
@@ -43,6 +43,8 @@ incompatible fixes are rooted out.
 
 2.  The program needs to be modular - not complicated enough that it is just boilerplate in the end and also easy for even novices 
      in Python to update for their own purposes and for future versions of lammps
+
+
 """
 
 import argparse

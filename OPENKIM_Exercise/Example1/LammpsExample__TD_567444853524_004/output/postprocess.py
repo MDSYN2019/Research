@@ -107,7 +107,7 @@ try:
 except subprocess.CalledProcessError as e:
 	print(e.output)
 
-class KIM_Postprocess:
+class KIMPostprocess:
 	"""
 
 	Class to read in lammps.log and template files and call to produce the edn files	

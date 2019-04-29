@@ -117,10 +117,13 @@ class KIM_Postprocess:
 		"""
 		Constructor 
 		"""
-		self.LogfileInput = open(str(path + "/" + logfile), "rb")
-		self.InputTemplateInput = open(str(path + "/" + input_template), "rb") # Need to rename this 
-		self.LogfileRead = self.logfile_input.readlines()
-		self.InputTemplateInput = self.input_template_input.readlines() # Need to rename this 
+		try:
+			self.LogfileInput = open(str(path + "/" + logfile), "rb")
+			self.InputTemplateInput = open(str(path + "/" + input_template), "rb") # Need to rename this 
+			self.LogfileRead = self.logfile_input.readlines()
+			self.InputTemplateInput = self.input_template_input.readlines() # Need to rename this 
+		except IOError:
+			pass
 	def PropertySearch(self):
 		with open("../lammps.in.template","r+") as fin:
 			filedata = fin.read()

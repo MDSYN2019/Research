@@ -73,12 +73,11 @@ KIM_MODELS_LIST = [
 'ex_model_Ar_SLJ_MultiCutoff'
 ]
 	
-template_path = os.path.abspath('../')
-current_path = os.path.abspath('.')
+TemplatePath = os.path.abspath('../')
+CurrentPath = os.path.abspath('.')
+os.mkdir(str(template_path + "/" + "output")) # Make output directory 
 
-os.mkdir(str(current_path + "/" + "output")) # Make output directory 
-
-# Instead of the sed echo commands, we can use argparse
+# Parser to read in the force fields, the Lattice constant, log file and the lammps binary of the Computer
 
 parser = argparse.ArgumentParser(description="Stdin for OpenKIM")
 parser.add_argument('--Forcefield', action = 'store' , type = str, help = 'The name of the KIM forcefield')
@@ -92,7 +91,6 @@ with open("../lammps.in.template","r+") as fin:
     filedata = fin.read()
     filedata = filedata.replace("sed_initial_lattice_constant_string", args.Lattice_Constant)
     filedata = filedata.replace("sed_model_string", args.Forcefield)
-
 with open("lammps.in", "w+") as fout:
     fout.write(filedata)
 
@@ -116,34 +114,28 @@ for i, line in enumerate(s.readlines()):
 
 class KIM_Postprocess:
 	"""
-	API-class for reading in the parameters and forcefields to run a simple OpenKIM work
+	Class to read in lammps.log and template files and call to produce the edn files	
 	"""
 	def __init__(self, logfile, input_template, writefile, path):
-		self.logfile_input = open(str(path + "/" + logfile), "rb")
-		self.input_template_input = open(str(path + "/" + input_template), "rb") # Need to rename this 
-		self.logfile_read = self.logfile_input.readlines()
-		self.input_template_input = self.input_template_input.readlines() # Need to rename this 
-
-	def propertySearch(self):
-		model_string_pattern = re.compile("sed_model_string")
-		lattice_contant_pattern = re.compile("sed_initial_lattice_constant_string")
-		# Extract values
-
-		finalpressure_line = [line for line in self.logfile_read.split(' ') if "Final Pressure" in line] 
-        finalpressure_line[0].decode('utf-8').rstrip().split('=') 
-
-		ecohesive_line = [line for line in self.logfile_read.split(' ') if "Cohesive Energy" in line]
-		ecohesive_line[0].decode('utf-8').rstrip().split('=')
-
-		latticeconstant_line = [line for line in self.logfile_read.split(' ') if "lattice constant" in line]
-		latticeconstant_line[0].decode('utf-8').rstrip().split('=')
-	def edn_writer(self):
+		self.LogfileInput = open(str(path + "/" + logfile), "rb")
+		self.InputTemplateInput = open(str(path + "/" + input_template), "rb") # Need to rename this 
+		self.LogfileRead = self.logfile_input.readlines()
+		self.InputTemplateInput = self.input_template_input.readlines() # Need to rename this 
+	def PropertySearch(self):
+		ModelStringPattern = re.compile("sed_model_string")
+		LatticeConstantPattern = re.compile("sed_initial_lattice_constant_string")
+		FinalPressureLine = [line for line in self.logfile_read.split(' ') if "Final Pressure" in line] 
+		CohesiveEnergyLine = [line for line in self.logfile_read.split(' ') if "Cohesive Energy" in line]
+		LatticeConstantLine = [line for line in self.logfile_read.split(' ') if "lattice constant" in line]
+        self.FinalPressureVal = FinalPressureLine[0].decode('utf-8').rstrip().split('=')
+		self.CohesiveEnergyVal = CohesiveEnergyLine[0].decode('utf-8').rstrip().split('=')
+		self.LatticeConstantVal = LatticeConstantLine[0].decode('utf-8').rstrip().split('=')
+	def EdnWriter(self):
 		self.writefile = writefile
 		f = open(str(self.writefile), "wb")
 		# do something
 		f.close()
-
-	def output(self):
+	def Output(self):
 
 		pass
 # How to generalize the LAMMPS input file?

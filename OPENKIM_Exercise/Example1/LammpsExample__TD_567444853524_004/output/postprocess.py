@@ -22,8 +22,8 @@ Although there are lots of material scientists who could create and contribute i
 few are capable of creating the necessary post-processing software to complete a contribution to KIM.
 Thus, it is crucial for the success for KIM that we create a suite of software tools that make it easy 
 for the contributors to extract heir from LAMMPS output files and import it into he apporpriate KIM format.
- 
 
+ 
 My Personal Notes:
 
 The LAMMPS version used in this version is "lammps-12Dec18"
@@ -54,8 +54,12 @@ import unittest
 import subprocess
 import signal
 import psutil, time
+import pprint # This module will become important
 
 # Optional and currently experiementing - running lammps on python
+
+
+# edn_format converter - at the moment, we cant seem to print 
 
 #from lammps import lammps
 #lmp = lammps()

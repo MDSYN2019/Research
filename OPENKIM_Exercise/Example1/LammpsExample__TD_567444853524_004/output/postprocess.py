@@ -92,6 +92,8 @@ parser.add_argument('--Forcefield', action = 'store' , type = str, help = 'The n
 parser.add_argument('--Lattice_Constant', action = 'store', type = float, help = 'The value of the lattice constant')
 parser.add_argument('--Log', action = 'store', type = str, help = 'Name of the log file')
 parser.add_argument('--LAMMPS_binary', action='store', type = str, help = 'Path to lammps binary')
+parser.add_argument('--KIM_property', action='store', type = str, help = 'Property to compute')
+
 print (parser.parse_args(['--Forcefield', '--Lattice_Constant', '--Log', '--LAMMPS_binary']))
 
 # Making sure of errors
@@ -159,6 +161,9 @@ class KIMPostProcess:
 			filedata = fin.read()
 			filedata = filedata.replace("_LATCONST_", self.LatticeConstantVal[0])
 			filedata = filedata.replace("_ECOHESIVE_", self.CohesiveEnergyVal[0])
+
+		# Need to write in 
+
 		with open("results.edn", "w+") as fout:
 			fout.write(filedata)
 	

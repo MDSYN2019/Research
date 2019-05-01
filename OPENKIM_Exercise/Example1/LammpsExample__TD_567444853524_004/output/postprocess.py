@@ -81,6 +81,67 @@ KIMMODELSLIST = [
 'ex_model_Ar_SLJ_MultiCutoff'
 ]
 
+# KIM property list
+
+ 
+PROPERTYLIST = [
+	'atomic-mass',
+	'bulk-modulus-isothermal-cubic-crystal-npt',
+	'cohesive-energy-lattice-invariant-shear-path-cubic-crystal',
+	'cohesive-energy-lattice-invariant-shear-unrelaxed-path-cubic-crystal',
+	'cohesive-energy-relation-cubic-crystal',
+	'cohesive-energy-shear-stress-path-cubic-crystal',
+	'cohesive-free-energy-cubic-crystal',
+	'cohesive-free-energy-hexagonal-crystal',
+	'cohesive-potential-energy-2d-hexagonal-crystal',
+	'cohesive-potential-energy-cubic-crystal',
+	'cohesive-potential-energy-hexagonal-crystal',
+	'configuration-cluster-fixed',
+	'configuration-cluster-relaxed',
+	'configuration-nonorthogonal-periodic-3d-cell-fixed-particles-fixed',
+	'configuration-nonorthogonal-periodic-3d-cell-fixed-particles-relaxed',
+	'configuration-nonorthogonal-periodic-3d-cell-relaxed-particles-fixed',
+	'configuration-nonorthogonal-periodic-3d-cell-relaxed-particles-relaxed',
+	'configuration-periodic-2d-cell-fixed-particles-fixed',
+	'elastic-constants-first-strain-gradient-isothermal-cubic-crystal-npt',
+	'elastic-constants-first-strain-gradient-isothermal-monoatomic-hexagonal-crystal-npt',
+	'elastic-constants-isothermal-cubic-crystal-npt',
+	'enthalpy-of-mixing-curve-substitutional-binary-cubic-crystal-npt',
+	'enthalpy-of-mixing-curve-substitutional-binary-cubic-crystal-nvt',
+	'extrinsic-stacking-fault-relaxed-energy-fcc-crystal-npt',
+	'gamma-surface-relaxed-fcc-crystal-npt',
+	'grain-boundary-symmetric-tilt-energy-ideal-cubic-crystal',
+	'grain-boundary-symmetric-tilt-energy-relaxed-cubic-crystal',
+	'grain-boundary-symmetric-tilt-energy-relaxed-relation-cubic-crystal',
+	'intrinsic-stacking-fault-relaxed-energy-fcc-crystal-npt',
+	'linear-thermal-expansion-coefficient-cubic-crystal-npt',
+	'melting-temperature-constant-pressure-cubic-crystal',
+	'monovacancy-formation-energy-monoatomic-cubic-diamond',
+	'monovacancy-neutral-formation-free-energy-crystal-npt',
+	'monovacancy-neutral-migration-energy-crystal-npt',
+	'monovacancy-neutral-relaxation-volume-crystal-npt',
+	'monovacancy-neutral-relaxed-formation-potential-energy-crystal-npt',
+	'monovacancy-neutral-unrelaxed-formation-potential-energy-crystal-npt',
+	'phonon-dispersion-dos-cubic-crystal-npt',
+	'phonon-dispersion-relation-cubic-crystal-npt',
+	'shear-stress-path-cubic-crystal',
+	'stacking-fault-relaxed-energy-curve-fcc-crystal-npt',
+	'structure-2d-hexagonal-crystal-npt',
+	'structure-cubic-crystal-npt',
+	'structure-hexagonal-crystal-npt',
+	'structure-monoclinic-crystal-npt',
+	'structure-orthorhombic-crystal-npt',
+	'structure-rhombohedral-crystal-npt',
+	'structure-tetragonal-crystal-npt',
+	'structure-triclinic-crystal-npt',
+	'surface-energy-broken-bond-fit-cubic-bravais-crystal-npt',
+	'surface-energy-cubic-crystal-npt',
+	'surface-energy-ideal-cubic-crystal',
+	'unstable-stacking-fault-relaxed-energy-fcc-crystal-npt',
+	'unstable-twinning-fault-relaxed-energy-fcc-crystal-npt',
+	'verification-check'
+	]
+
 TemplatePath = os.path.abspath('../')
 CurrentPath = os.path.abspath('.')
 
@@ -148,6 +209,10 @@ class KIMPostProcess:
 	def EdnWriter(self):		
 		"""
 		Writer for the Edn file 
+	   
+		Property to compute:
+		Cohesive energy of cubic crystal structure at zero temperature under stress-free boundary conditions	
+
 		"""
 		FinalPressureLine = [line for line in self.logfile_read.split(' ') if "Final Pressure" in line] 
 		CohesiveEnergyLine = [line for line in self.logfile_read.split(' ') if "Cohesive Energy" in line]
@@ -161,8 +226,6 @@ class KIMPostProcess:
 			filedata = fin.read()
 			filedata = filedata.replace("_LATCONST_", self.LatticeConstantVal[0])
 			filedata = filedata.replace("_ECOHESIVE_", self.CohesiveEnergyVal[0])
-
-		# Need to write in 
 
 		with open("results.edn", "w+") as fout:
 			fout.write(filedata)

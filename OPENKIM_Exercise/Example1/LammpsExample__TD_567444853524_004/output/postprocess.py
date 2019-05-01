@@ -56,10 +56,20 @@ import signal
 import psutil, time
 import pprint # This module will become important
 
+from collections import OrderedDict
+from uuid import uuid4
+import random
+import datetime
+import fractions
+import unittest
+import pytz
+
 # Optional and currently experiementing - running lammps on python
 
 
 # edn_format converter - at the moment, we cant seem to print 
+
+from edn_format import edn_lex, edn_parse, loads, dumps, Keyword, Symbol, TaggedElement, ImmutableDict, ImmutableList, add_tag, EDNDecodeError
 
 #from lammps import lammps
 #lmp = lammps()
@@ -153,7 +163,7 @@ parser.add_argument('--Forcefield', action = 'store' , type = str, help = 'The n
 parser.add_argument('--Lattice_Constant', action = 'store', type = float, help = 'The value of the lattice constant')
 parser.add_argument('--Log', action = 'store', type = str, help = 'Name of the log file')
 parser.add_argument('--LAMMPS_binary', action='store', type = str, help = 'Path to lammps binary')
-parser.add_argument('--KIM_property', action='store', type = str, help = 'Property to compute')
+parser.add_argument('--KIM_property', action='store', type = str, default = 'cohesive-potential-energy-cubic-crystal' help = 'Property to compute')
 
 print (parser.parse_args(['--Forcefield', '--Lattice_Constant', '--Log', '--LAMMPS_binary']))
 
@@ -207,6 +217,7 @@ class KIMPostProcess:
 		with open("lammps.in", "w+") as fout:
 			fout.write(filedata)			
 	def EdnWriter(self):		
+		self.keys = ["property-id", "instance-id", "short-name", "species", "basis-atom-coordinates", "space-group", "wyckoff-multiplicity-and-letter", "wyckoff-species", "wyckoff-coordinates", "cohesive-potential-energy"]
 		"""
 		Writer for the Edn file 
 	   

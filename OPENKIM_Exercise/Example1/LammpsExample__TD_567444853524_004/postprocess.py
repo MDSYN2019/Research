@@ -1,10 +1,7 @@
 """
 Author: Sang Young Noh 
-
 Version: 0.0.1 
-
 Date: 27-04-2019 (Date is in British format so feel free to change if necessary!)
-
 Title: Develop a Python Tool for Generating KIM Property Instances from LAMMPS Output
 
 Description:
@@ -43,8 +40,6 @@ incompatible fixes are rooted out.
 
 2.  The program needs to be modular - not complicated enough that it is just boilerplate in the end and also easy for even novices 
      in Python to update for their own purposes and for future versions of lammps
-
-
 """
 
 import argparse
@@ -57,15 +52,12 @@ import signal
 import psutil, time
 import edn_format
 import pprint
+from lammps import lammps
 
-# Optional and currently experiementing - running lammps on python
-
-#from lammps import lammps
-#lmp = lammps()
-#lmp.file("in.lj")
-
-LAMMPSPATH = "/home/oohnohnoh1/Desktop/LAMMPS/lammps-12Dec18/src"
-KIMMODELSDIR = "/usr/local/lib/kim-api/models"
+LammpsPath = "/home/oohnohnoh1/Desktop/LAMMPS/lammps-12Dec18/src"
+KIMModelsPath = "/usr/local/lib/kim-api/models"
+TemplatePath = os.path.abspath('../')
+CurrentPath = os.path.abspath('.')
 
 KIMMODELSLIST = [
 	'LennardJones612_UniversalShifted__MO_959249795837_003',
@@ -150,9 +142,6 @@ PROPERTYDENVAL = ['instance-id',
  'wyckoff-species',
  'wyckoff-coordinates',
  'cohesive-potential-energy']
-
-TemplatePath = os.path.abspath('../')
-CurrentPath = os.path.abspath('.')
 
 #os.mkdir(str(TemplatePath + "/" + "output")) # Make output directory 
 # Parser to read in the force fields, the Lattice constant, log file and the lammps binary of the Computer
@@ -313,7 +302,7 @@ class KIMPostprocess:
 			self.LogfileRead = self.logfile_input.readlines()
 			self.InputTemplateInput = self.input_template_input.readlines() # Need to rename this 
 		except IOError:
-			pass
+			print ("Make sure you have the right paths for the lammps and template files")
 	def PropertySearch(self):
 		"""
 		"""

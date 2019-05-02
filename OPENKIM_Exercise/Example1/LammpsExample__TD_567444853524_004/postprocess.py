@@ -1,3 +1,5 @@
+
+
 """
 Author: Sang Young Noh 
 Version: 0.0.1 
@@ -267,7 +269,7 @@ PropertyVal = [
  'wyckoff-coordinates',
  'cohesive-potential-energy']
 
-def EdnOutput(key, propertyArray):
+def EdnOutput(key, propertyArray, Address):
 	"""
 	The KIM infrastructure embraces a subset of EDN as a standard data format. EDN stands for extensible data notation, and is 
 	pronounced like the word "eden"	
@@ -327,6 +329,7 @@ def EdnOutput(key, propertyArray):
 	outputDict["cohesive-potential-energy"]["source-value"] = -6.46911040131582
 	outputDict["cohesive-potential-energy"]["source-unit"] =  "eV"
 
+	
 	# Check for entries that have not been used, and remove it if it contains 'None'
 	for property in propertyArray:
 		outputDict[property] = {k: v for k, v in outputDict[property].items() if v is not None}

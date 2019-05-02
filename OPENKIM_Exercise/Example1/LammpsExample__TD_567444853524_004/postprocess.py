@@ -255,7 +255,8 @@ GenericName = ["short-name", "species", "a", "basis-atom-coordinates", "space-gr
 
 GenericProperties = ["type", "has-unit", "extent", "required", "description"]
 
-PropertyVal = ['instance-id',
+PropertyVal = [
+'instance-id',
  'short-name',
  'species',
  'a',
@@ -266,27 +267,29 @@ PropertyVal = ['instance-id',
  'wyckoff-coordinates',
  'cohesive-potential-energy']
 
-
 def EdnOutput(key, propertyArray):
 	"""
 	The KIM infrastructure embraces a subset of EDN as a standard data format. EDN stands for extensible data notation, and is 
 	pronounced like the word "eden"	
-	
 	"""
 	
 	# First, check if the property is indeed a valid one as defined in OpenKIM - we have already listed the properties in the PROPERTY array
+
 	try:
 		key in PROPERTY
 	except KeyError:
 		print ("Input property not found")
 
-
 	# Output dictionary to fill in 
-	
 	outputDict = {}
 	
-	# Concatenate 
+	# Concatenate string with the email and property 
 	outputDict["property-id"] = "tag:staff@noreply.openkim.org,2014-04-15:property/{}".format(key)	
+
+	# We initialize the array with None, so that if the
+	# dictionary is unfilled at the end of the function,
+	# we can simply filter them out
+	
 	for property in propertyArray:
 		outputDict[property] = {}
 		outputDict[property]["source-value"] = None
@@ -333,18 +336,23 @@ def EdnOutput(key, propertyArray):
 	return ednOutput
 
 def printEdn(output):
+	"""
+	Function to print out the filled dictionary as a edn file - the indentation needs work, but
+	at the moment there is not a good library that can provide for this. So this needs a bit of work.
+	I may need to modify the edn_format file to print out a clean indented pprint file  
+	"""
 	with open("example.out", "w+") as fout:
 		pprint.pprint(output, stream = fout, indent = 4)			
 
 class KIMPostprocess:
 	"""
-
 	Class to read in lammps.log and template files and call to produce the edn files	
 
 	"""
 	def __init__(self, logfile, input_template, writefile, path):
 		"""
-		Constructor 
+		Constructor - defining the log.lammps to parse the properties to 
+		plug into the edn template 
 		"""
 		try:
 			self.LogfileInput = open(str(path + "/" + logfile), "rb")
@@ -355,6 +363,7 @@ class KIMPostprocess:
 			print ("Make sure you have the right paths for the lammps and template files")
 	def PropertySearch(self):
 		"""
+		Write the lammps input file - This needs further work 
 		"""
 		with open("../lammps.in.template","r+") as fin:
 			filedata = fin.read()
@@ -364,7 +373,7 @@ class KIMPostprocess:
 			fout.write(filedata)			
 	def EdnWriter(self):		
 		"""
-		Writer for the Edn file 
+		Writer for the edn file 
 		"""
 		FinalPressureLine = [line for line in self.logfile_read.split(' ') if "Final Pressure" in line] 
 		CohesiveEnergyLine = [line for line in self.logfile_read.split(' ') if "Cohesive Energy" in line]

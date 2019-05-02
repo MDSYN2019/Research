@@ -53,12 +53,16 @@ import psutil, time
 import edn_format
 import pprint
 import json
+
+# Not being used yet 
 from lammps import lammps
 
 LammpsPath = "/home/oohnohnoh1/Desktop/LAMMPS/lammps-12Dec18/src"
 KIMModelsPath = "/usr/local/lib/kim-api/models"
 TemplatePath = os.path.abspath('../')
 CurrentPath = os.path.abspath('.')
+
+# List of models used in OpenKIM  - This will be modified later to list the 
 
 KIMMODELSLIST = [
 	'LennardJones612_UniversalShifted__MO_959249795837_003',
@@ -72,6 +76,8 @@ KIMMODELSLIST = [
 	'ex_model_Ar_P_Morse_MultiCutoff',
 	'ex_model_Ar_SLJ_MultiCutoff'
 ]
+
+# The list of property definitions as seen in the OpenKIM library (https://openkim.org/properties)
 
 PROPERTY = [
 	'atomic-mass',
@@ -133,17 +139,6 @@ PROPERTY = [
 	'verification-check'
 ]
 
-PROPERTYDENVAL = ['instance-id',
- 'short-name',
- 'species',
- 'a',
- 'basis-atom-coordinates',
- 'space-group',
- 'wyckoff-multiplicity-and-letter',
- 'wyckoff-species',
- 'wyckoff-coordinates',
- 'cohesive-potential-energy']
-
 #os.mkdir(str(TemplatePath + "/" + "output")) # Make output directory 
 # Parser to read in the force fields, the Lattice constant, log file and the lammps binary of the Computer
 
@@ -183,7 +178,6 @@ PROPERTYDENVAL = ['instance-id',
 
 """
 Example for the property definition of the cohesive energy relation of a cubic crystal
-
 {
   "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/cohesive-energy-relation-cubic-crystal"
 
@@ -256,40 +250,51 @@ Example for the property definition of the cohesive energy relation of a cubic c
     "required"     true
     "description"  "Cohesive energy (negative of the potential energy per atom) associated with the corresponding lattice constant."
   }
-"""
-		
+"""		
 GenericName = ["short-name", "species", "a", "basis-atom-coordinates", "space-group",  "wyckoff-multiplicity-and-letter", "wyckoff-species", "wyckoff-coordinates", "cohesive-potential-energy"]
 
 GenericProperties = ["type", "has-unit", "extent", "required", "description"]
 
+PropertyVal = ['instance-id',
+ 'short-name',
+ 'species',
+ 'a',
+ 'basis-atom-coordinates',
+ 'space-group',
+ 'wyckoff-multiplicity-and-letter',
+ 'wyckoff-species',
+ 'wyckoff-coordinates',
+ 'cohesive-potential-energy']
 
-def EdnSourceValue(key):
 
+def EdnOutput(key, propertyArray):
 	"""
 	The KIM infrastructure embraces a subset of EDN as a standard data format. EDN stands for extensible data notation, and is 
 	pronounced like the word "eden"	
+	
 	"""
-
-	# First, check if the property is indeed a valid one as defined in OpenKIM (https://openkim.org/properties)
-
+	
+	# First, check if the property is indeed a valid one as defined in OpenKIM - we have already listed the properties in the PROPERTY array
 	try:
 		key in PROPERTY
 	except KeyError:
 		print ("Input property not found")
 
-	propertyArray = ["short-name", "species", "a", "basis-atom-coordinates", "space-group", "wyckoff-multiplicity-and-letter", "wyckoff-species", "wyckoff-coordinates", "cohesive-potential-energy"] 
 
-	# Output dictionary part
+	# Output dictionary to fill in 
 	
 	outputDict = {}
+	
+	# Concatenate 
 	outputDict["property-id"] = "tag:staff@noreply.openkim.org,2014-04-15:property/{}".format(key)	
 	for property in propertyArray:
 		outputDict[property] = {}
 		outputDict[property]["source-value"] = None
 		outputDict[property]["source-unit"] = None
 
-    ## An example output following the case for the result.edn.tpl as shown in the OpenKIM example
-
+    # An example output following the case for the result.edn.tpl as shown in the OpenKIM example
+	# This will need to be generalized for other property frameworks
+	
 	# short-name
 	outputDict["short-name"]["source-value"] = ["fcc"]
 

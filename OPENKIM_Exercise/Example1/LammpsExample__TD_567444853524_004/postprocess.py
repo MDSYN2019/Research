@@ -253,25 +253,24 @@ Example for the property definition of the cohesive energy relation of a cubic c
     "required"     true
     "description"  "Cohesive energy (negative of the potential energy per atom) associated with the corresponding lattice constant."
   }
-
 """
+		
+ GenericName = ["short-name", "species", "a", "basis-atom-coordinates", "space-group",  "wyckoff-multiplicity-and-letter", "wyckoff-species", "wyckoff-coordinates", "cohesive-potential-energy"]
+
+ GenericProperties = ["type", "has-unit", "extent", required", "description"]
+
 
 def EdnSourceValue(key):
 	"""
 	The KIM infrastructure embraces a subset of EDN as a standard data format. EDN stands for extensible data notation, and is 
-	pronounced like the word "eden"
-	
+	pronounced like the word "eden"	
 	"""
-
 	# First, check if the property is indeed a valid one as defined in OpenKIM (https://openkim.org/properties)
-	
 	try:
 		key in PROPERTY
 	except KeyError:
 		print ("Input property not found")
-		
-	# GenericName = ["short-name", "species", "a", "basis-atom-coordinates", "space-group"]
-	# GenericProperties = ["type", "has-unit", "extent", required", "description"]
+
 	propertyArray = ["short-name", "species", "a", "basis-atom-coordinates", "space-group", "wyckoff-multiplicity-and-letter", "wyckoff-species", "wyckoff-coordinates", "cohesive-potential-energy"] 
 
 	# Output dictionary part
@@ -296,11 +295,11 @@ def EdnSourceValue(key):
 	outputDict["a"]["source-unit"] = "angstrom"
 
 	# basis-atom-coordinates
-	outputDict["basis-atom-coordinates"]["source-value"] = [ [0, 0, 0],
+	outputDict["basis-atom-coordinates"]["source-value"] = [[0, 0, 0],
 															 [0, 0.5, 0.5],
 															 [0.5, 0, 0.5],
 															 [0.5, 0.5, 0]
-															 ]
+	                                                          ]
 	# space-group
 	outputDict["space-group"]["source-unit"] = "Fm-3m"
 

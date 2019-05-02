@@ -146,39 +146,39 @@ PROPERTYDENVAL = ['instance-id',
 #os.mkdir(str(TemplatePath + "/" + "output")) # Make output directory 
 # Parser to read in the force fields, the Lattice constant, log file and the lammps binary of the Computer
 
-parser = argparse.ArgumentParser(description="Stdin for OpenKIM")
-parser.add_argument('--Forcefield', action = 'store' , type = str, help = 'The name of the KIM forcefield')
-parser.add_argument('--Lattice_Constant', action = 'store', type = float, help = 'The value of the lattice constant')
-parser.add_argument('--Log', action = 'store', type = str, help = 'Name of the log file')
-parser.add_argument('--LAMMPS_binary', action='store', type = str, help = 'Path to lammps binary')
-print (parser.parse_args(['--Forcefield', '--Lattice_Constant', '--Log', '--LAMMPS_binary']))
+#parser = argparse.ArgumentParser(description="Stdin for OpenKIM")
+#parser.add_argument('--Forcefield', action = 'store' , type = str, help = 'The name of the KIM forcefield')
+#parser.add_argument('--Lattice_Constant', action = 'store', type = float, help = 'The value of the lattice constant')
+#parser.add_argument('--Log', action = 'store', type = str, help = 'Name of the log file')
+#parser.add_argument('--LAMMPS_binary', action='store', type = str, help = 'Path to lammps binary')
+#print (parser.parse_args(['--Forcefield', '--Lattice_Constant', '--Log', '--LAMMPS_binary']))
 
 # Making sure of errors
 
 # Make sure that the input Forcefield exists
 
-try:
-	args.Forcefield in KIMMODELSLIST
-except IndexError:
-	print ("Input forcefield is not valid")
+#try:
+#	args.Forcefield in KIMMODELSLIST
+#except IndexError:
+#	print ("Input forcefield is not valid")
 
 # Testing that LAMMPS works through a subprocess
 
-try:
-	proc = subprocess.Popen("/home/oohnohnoh1/Desktop/LAMMPS/lammps-12Dec18/src/lmp_ubuntu", shell=True) 
-	p_id = psutil.Process(proc.pid)
-	p_id.kill()
-	print ("LAMMPS works!")
-except subprocess.CalledProcessError as e:
-	print(e.output)
+#try:
+#	proc = subprocess.Popen("/home/oohnohnoh1/Desktop/LAMMPS/lammps-12Dec18/src/lmp_ubuntu", shell=True) 
+#	p_id = psutil.Process(proc.pid)
+#	p_id.kill()
+#	print ("LAMMPS works!")
+#except subprocess.CalledProcessError as e:
+#	print(e.output)
 
 # Testing whether log.lammps output is in the output folder 
 
-try:
-	FileOpen = open(CurrentPath + "/" + "log.lammps")
-	print ("log.lammps exists")
-except FileNotFoundError:
-	print ("log.lammps does not exist")
+#try:
+#	FileOpen = open(CurrentPath + "/" + "log.lammps")
+#	print ("log.lammps exists")
+#except FileNotFoundError:
+#	print ("log.lammps does not exist")
 
 """
 Example for the property definition of the cohesive energy relation of a cubic crystal
@@ -256,7 +256,7 @@ Example for the property definition of the cohesive energy relation of a cubic c
 
 """
 
-def EdnSourceValue(key, propertyArray, val = None, unit = None):
+def EdnSourceValue(key):
 	"""
 	The KIM infrastructure embraces a subset of EDN as a standard data format. EDN stands for extensible data notation, and is 
 	pronounced like the word "eden"
@@ -315,16 +315,17 @@ def EdnSourceValue(key, propertyArray, val = None, unit = None):
 	outputDict["cohesive-potential-energy"]["source-unit"] =  "eV"
 
 	# Check for entries that have not been used, and remove it if it contains 'None'
-
 	for property in propertyArray:
 		outputDict[property] = {k: v for k, v in outputDict[property].items() if v is not None}
 
 	# Convert output to a edn format
-	
 	ednOutput = edn_format.dumps(outputDict)
-	return outputDict
+	return ednOutput
 
-	
+def printEdn(output):
+	with open("example.out", "w+") as fout:
+		fout.write(output)			
+
 class KIMPostprocess:
 	"""
 

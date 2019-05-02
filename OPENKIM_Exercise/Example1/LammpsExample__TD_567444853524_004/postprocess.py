@@ -66,19 +66,91 @@ import pprint
 
 LAMMPSPATH = "/home/oohnohnoh1/Desktop/LAMMPS/lammps-12Dec18/src"
 KIMMODELSDIR = "/usr/local/lib/kim-api/models"
+
 KIMMODELSLIST = [
-'LennardJones612_UniversalShifted__MO_959249795837_003',
-'LennardJones_Ar',
-'ex_model_Ar_P_LJ',
-'SW_StillingerWeber_1985_Si__MO_405512056662_005',
-'ex_model_Ar_P_MLJ_Fortran',
-'ex_model_Ar_P_Morse',
-'ex_model_Ar_P_Morse_07C',
-'ex_model_Ar_P_Morse_07C_w_Extensions',
-'ex_model_Ar_P_Morse_MultiCutoff',
-'ex_model_Ar_SLJ_MultiCutoff'
+	'LennardJones612_UniversalShifted__MO_959249795837_003',
+	'LennardJones_Ar',
+	'ex_model_Ar_P_LJ',
+	'SW_StillingerWeber_1985_Si__MO_405512056662_005',
+	'ex_model_Ar_P_MLJ_Fortran',
+	'ex_model_Ar_P_Morse',
+	'ex_model_Ar_P_Morse_07C',
+	'ex_model_Ar_P_Morse_07C_w_Extensions',
+	'ex_model_Ar_P_Morse_MultiCutoff',
+	'ex_model_Ar_SLJ_MultiCutoff'
 ]
-	
+
+PROPERTY = [
+	'atomic-mass',
+	'bulk-modulus-isothermal-cubic-crystal-npt',
+	'bulk-modulus-isothermal-hexagonal-crystal-npt',
+	'cohesive-energy-lattice-invariant-shear-path-cubic-crystal',
+	'cohesive-energy-lattice-invariant-shear-unrelaxed-path-cubic-crystal',
+	'cohesive-energy-relation-cubic-crystal',
+	'cohesive-energy-shear-stress-path-cubic-crystal',
+	'cohesive-free-energy-cubic-crystal',
+	'cohesive-free-energy-hexagonal-crystal',
+	'cohesive-potential-energy-2d-hexagonal-crystal',
+	'cohesive-potential-energy-cubic-crystal',
+	'cohesive-potential-energy-hexagonal-crystal',
+	'configuration-cluster-fixed',
+	'configuration-cluster-relaxed',
+	'configuration-nonorthogonal-periodic-3d-cell-fixed-particles-fixed',
+	'configuration-nonorthogonal-periodic-3d-cell-fixed-particles-relaxed',
+	'configuration-nonorthogonal-periodic-3d-cell-relaxed-particles-fixed',
+	'configuration-nonorthogonal-periodic-3d-cell-relaxed-particles-relaxed',
+	'configuration-periodic-2d-cell-fixed-particles-fixed',
+	'elastic-constants-first-strain-gradient-isothermal-cubic-crystal-npt',
+	'elastic-constants-first-strain-gradient-isothermal-monoatomic-hexagonal-crystal-npt',
+	'elastic-constants-isothermal-cubic-crystal-npt',
+	'enthalpy-of-mixing-curve-substitutional-binary-cubic-crystal-npt',
+	'enthalpy-of-mixing-curve-substitutional-binary-cubic-crystal-nvt',
+	'extrinsic-stacking-fault-relaxed-energy-fcc-crystal-npt',
+	'gamma-surface-relaxed-fcc-crystal-npt',
+	'grain-boundary-symmetric-tilt-energy-ideal-cubic-crystal',
+	'grain-boundary-symmetric-tilt-energy-relaxed-cubic-crystal',
+	'grain-boundary-symmetric-tilt-energy-relaxed-relation-cubic-crystal',
+	'intrinsic-stacking-fault-relaxed-energy-fcc-crystal-npt',
+	'linear-thermal-expansion-coefficient-cubic-crystal-npt',
+	'melting-temperature-constant-pressure-cubic-crystal',
+	'monovacancy-formation-energy-monoatomic-cubic-diamond',
+	'monovacancy-neutral-formation-free-energy-crystal-npt',
+	'monovacancy-neutral-migration-energy-crystal-npt',
+	'monovacancy-neutral-relaxation-volume-crystal-npt',
+	'monovacancy-neutral-relaxed-formation-potential-energy-crystal-npt',
+	'monovacancy-neutral-unrelaxed-formation-potential-energy-crystal-npt',
+	'monovacancy-neutral-unrelaxed-formation-potential-energy-crystal-npt',
+	'phonon-dispersion-dos-cubic-crystal-npt',
+	'phonon-dispersion-relation-cubic-crystal-npt',
+	'shear-stress-path-cubic-crystal',
+	'stacking-fault-relaxed-energy-curve-fcc-crystal-npt',
+	'structure-2d-hexagonal-crystal-npt',
+	'structure-cubic-crystal-npt',
+	'structure-hexagonal-crystal-npt',
+	'structure-monoclinic-crystal-npt',
+	'structure-orthorhombic-crystal-npt',
+	'structure-rhombohedral-crystal-npt',
+	'structure-tetragonal-crystal-npt',
+	'structure-triclinic-crystal-npt',
+	'surface-energy-broken-bond-fit-cubic-bravais-crystal-npt',
+	'surface-energy-cubic-crystal-npt',
+	'surface-energy-ideal-cubic-crystal',
+	'unstable-stacking-fault-relaxed-energy-fcc-crystal-npt',
+	'unstable-twinning-fault-relaxed-energy-fcc-crystal-npt',
+	'verification-check'
+]
+
+PROPERTYDENVAL = ['instance-id',
+ 'short-name',
+ 'species',
+ 'a',
+ 'basis-atom-coordinates',
+ 'space-group',
+ 'wyckoff-multiplicity-and-letter',
+ 'wyckoff-species',
+ 'wyckoff-coordinates',
+ 'cohesive-potential-energy']
+
 TemplatePath = os.path.abspath('../')
 CurrentPath = os.path.abspath('.')
 
@@ -119,6 +191,21 @@ try:
 except FileNotFoundError:
 	print ("log.lammps does not exist")
 
+def EdnSourceValue(key, propertyArray, val = None, unit = None):
+	"""
+	The KIM infrastructure embraces a subset of EDN as a standard data format. EDN stands for extensible data notation, and is 
+	pronounced like the word "eden"
+	"""
+	output = {}
+	output['key'] = key
+	for property in propertyArray:
+		output[property] = {}
+		output[property]["source-value"] = "val"
+		output[property]["source-unit"] = "unit"
+	return output
+
+	
+
 	
 class KIMPostprocess:
 	"""
@@ -130,6 +217,9 @@ class KIMPostprocess:
 		"""
 		Constructor 
 		"""
+		OUTPUTDICT = {}
+		OUTPUTDICT['cohesive-potential-energy-cubic-crystal'] = ["short-name", "species", "a", "basis-atom-coordinates", "space-group", "wyckoff-multiplicity-and-letter", "wyckoff-species", "wyckoff-coordinates", "cohesive-potential-energy"]
+		PROPERTYARRAY = ["short-name", "species", "a", "basis-atom-coordinates", "space-group", "wyckoff-multiplicity-and-letter", "wyckoff-species", "wyckoff-coordinates", "cohesive-potential-energy"] 
 		try:
 			self.LogfileInput = open(str(path + "/" + logfile), "rb")
 			self.InputTemplateInput = open(str(path + "/" + input_template), "rb") # Need to rename this 

@@ -260,7 +260,9 @@ def EdnSourceValue(key, propertyArray, val = None, unit = None):
 	"""
 	The KIM infrastructure embraces a subset of EDN as a standard data format. EDN stands for extensible data notation, and is 
 	pronounced like the word "eden"
+	
 	"""
+
 	# First, check if the property is indeed a valid one as defined in OpenKIM (https://openkim.org/properties)
 	
 	try:
@@ -270,15 +272,12 @@ def EdnSourceValue(key, propertyArray, val = None, unit = None):
 		
 	# GenericName = ["short-name", "species", "a", "basis-atom-coordinates", "space-group"]
 	# GenericProperties = ["type", "has-unit", "extent", required", "description"]
-
-	# Output properties for 'cohesive 
-
 	propertyArray = ["short-name", "species", "a", "basis-atom-coordinates", "space-group", "wyckoff-multiplicity-and-letter", "wyckoff-species", "wyckoff-coordinates", "cohesive-potential-energy"] 
 
-	# Output dictionary part 
-	outputDict = {}
-	outputDict['key'] = key
+	# Output dictionary part
 	
+	outputDict = {}
+	outputDict["property-id"] = "tag:staff@noreply.openkim.org,2014-04-15:property/{}".format(key)	
 	for property in propertyArray:
 		outputDict[property] = {}
 		outputDict[property]["source-value"] = None
@@ -296,6 +295,12 @@ def EdnSourceValue(key, propertyArray, val = None, unit = None):
 	outputDict["a"]["source-value"] = 3.60000000000017
 	outputDict["a"]["source-unit"] = "angstrom"
 
+	# basis-atom-coordinates
+	outputDict["basis-atom-coordinates"]["source-value"] = [ [0, 0, 0],
+															 [0, 0.5, 0.5],
+															 [0.5, 0, 0.5],
+															 [0.5, 0.5, 0]
+															 ]
 	# space-group
 	outputDict["space-group"]["source-unit"] = "Fm-3m"
 
@@ -308,7 +313,15 @@ def EdnSourceValue(key, propertyArray, val = None, unit = None):
     # cohesive-potential-energy
 	outputDict["cohesive-potential-energy"]["source-value"] = -6.46911040131582
 	outputDict["cohesive-potential-energy"]["source-unit"] =  "eV"
+
+	# Check for entries that have not been used, and remove it if it contains 'None'
+
+	for property in propertyArray:
+		outputDict[property] = {k: v for k, v in outputDict[property].items() if v is not None}
+
+	# Convert output to a edn format
 	
+	ednOutput = edn_format.dumps(outputDict)
 	return outputDict
 
 	

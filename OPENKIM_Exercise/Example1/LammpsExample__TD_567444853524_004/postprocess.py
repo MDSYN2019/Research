@@ -273,16 +273,29 @@ def EdnSourceValue(key, propertyArray, val = None, unit = None):
 	The KIM infrastructure embraces a subset of EDN as a standard data format. EDN stands for extensible data notation, and is 
 	pronounced like the word "eden"
 	"""
+	
+	# First, check if the property is indeed a valid one as defined in OpenKIM (https://openkim.org/properties)
+	try:
+		key in PROPERTY
+	except KeyError:
+		print ("Input property not found")
+		
+	defaultDict = {}
+	GenericName = ["short-name", "species", "a", "basis-atom-coordinates", "space-group"]
+	GenericProperties = ["type", "has-unit", "extent", required", "description"]
+
+	# Output properties for 'cohesive 
+	PROPERTYARRAY = ["short-name", "species", "a", "basis-atom-coordinates", "space-group", "wyckoff-multiplicity-and-letter", "wyckoff-species", "wyckoff-coordinates", "cohesive-potential-energy"] 
+
+	# Output dictionary part 
 	output = {}
 	output['key'] = key
 	for property in propertyArray:
 		output[property] = {}
 		output[property]["source-value"] = "val"
 		output[property]["source-unit"] = "unit"
-	return output
-
 	
-
+	return output
 	
 class KIMPostprocess:
 	"""
@@ -294,9 +307,6 @@ class KIMPostprocess:
 		"""
 		Constructor 
 		"""
-		OUTPUTDICT = {}
-		OUTPUTDICT['cohesive-potential-energy-cubic-crystal'] = ["short-name", "species", "a", "basis-atom-coordinates", "space-group", "wyckoff-multiplicity-and-letter", "wyckoff-species", "wyckoff-coordinates", "cohesive-potential-energy"]
-		PROPERTYARRAY = ["short-name", "species", "a", "basis-atom-coordinates", "space-group", "wyckoff-multiplicity-and-letter", "wyckoff-species", "wyckoff-coordinates", "cohesive-potential-energy"] 
 		try:
 			self.LogfileInput = open(str(path + "/" + logfile), "rb")
 			self.InputTemplateInput = open(str(path + "/" + input_template), "rb") # Need to rename this 

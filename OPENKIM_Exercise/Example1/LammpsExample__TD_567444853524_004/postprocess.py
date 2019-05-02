@@ -191,6 +191,83 @@ try:
 except FileNotFoundError:
 	print ("log.lammps does not exist")
 
+"""
+Example for the property definition of the cohesive energy relation of a cubic crystal
+
+{
+  "property-id" "tag:staff@noreply.openkim.org,2014-04-15:property/cohesive-energy-relation-cubic-crystal"
+
+  "property-title" "Cohesive energy versus lattice constant relation for a cubic crystal"
+
+  "property-description" "Cohesive energy versus lattice constant relation for a cubic crystal at zero absolute temperature.  Lattice constants are taken to correspond to the conventional cubic unit cell.  Moreover, note that here the cohesive energy is defined as the *negative* of the potential energy per atom."
+
+  "short-name" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       [":"]
+    "required"     false
+    "description"  "Short name defining the cubic crystal type."
+  }
+  "species" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       [":"]
+    "required"     true
+    "description"  "The element symbols of the basis atoms.  The order in which the species are specified must correspond to the order of the atoms listed in 'basis-atom-coordinates'."
+  }
+  "a" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       [":"]
+    "required"     true
+    "description"  "A vector of conventional unit cell lattice constants of the cubic crystal."
+  }
+  "basis-atom-coordinates" {
+    "type"         "float"
+    "has-unit"     false
+    "extent"       [":",3]
+    "required"     true
+    "description"  "Fractional coordinates of the basis atoms in the conventional unit cell.  If the unit cell vectors are denoted by <a>, <b>, and <c>, and the fractional coordinates of atom 'i' are [afrac_i, bfrac_i, cfrac_i], the value of 'basis-atom-coordinates' will be of the form [[afrac_1 bfrac_1 cfrac_1] [afrac_2 bfrac_2 cfrac_2] ... ].  All components of each basis atom should be between zero and one, inclusive of zero."
+  }
+  "space-group" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       []
+    required       false
+    "description"  "Hermann-Mauguin designation for the space group associated with the symmetry of the crystal (e.g. Immm, Fm-3m, P6_3/mmc)."
+  }
+  "wyckoff-multiplicity-and-letter" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       [":"]
+    required       false
+    "description"  "Multiplicity and standard letter of Wyckoff sites (e.g. 4a, 2b).  The order of elements in this array must correspond to the order of the entries listed in 'wyckoff-species' and 'wyckoff-coordinates'."
+  }
+  "wyckoff-species" {
+    "type"         "string"
+    "has-unit"     false
+    "extent"       [":"]
+    required       false
+    "description"  "The element symbol of the atomic species of the unique Wyckoff sites used in the fully symmetry-reduced description of the crystal.  The order of elements in this array must correspond to the order of the entries listed in 'wyckoff-multiplicity-and-letter' and 'wyckoff-coordinates'."
+  }
+  "wyckoff-coordinates" {
+    "type"         "float"
+    "has-unit"     false
+    "extent"       [":",3]
+    required       false
+    "description"  "Coordinates of the Wyckoff sites, given as fractions of the lattice vectors.  The order of elements in this array must correspond to the order of the entries listed in 'wyckoff-species' and 'wyckoff-multiplicity-and-letter'."
+  }
+  "cohesive-potential-energy" {
+    "type"         "float"
+    "has-unit"     true
+    "extent"       [":"]
+    "required"     true
+    "description"  "Cohesive energy (negative of the potential energy per atom) associated with the corresponding lattice constant."
+  }
+
+"""
+
+	
 def EdnSourceValue(key, propertyArray, val = None, unit = None):
 	"""
 	The KIM infrastructure embraces a subset of EDN as a standard data format. EDN stands for extensible data notation, and is 

@@ -52,6 +52,7 @@ import signal
 import psutil, time
 import edn_format
 import pprint
+import json
 from lammps import lammps
 
 LammpsPath = "/home/oohnohnoh1/Desktop/LAMMPS/lammps-12Dec18/src"
@@ -239,6 +240,7 @@ Example for the property definition of the cohesive energy relation of a cubic c
     required       false
     "description"  "The element symbol of the atomic species of the unique Wyckoff sites used in the fully symmetry-reduced description of the crystal.  The order of elements in this array must correspond to the order of the entries listed in 'wyckoff-multiplicity-and-letter' and 'wyckoff-coordinates'."
   }
+
   "wyckoff-coordinates" {
     "type"         "float"
     "has-unit"     false
@@ -246,6 +248,7 @@ Example for the property definition of the cohesive energy relation of a cubic c
     required       false
     "description"  "Coordinates of the Wyckoff sites, given as fractions of the lattice vectors.  The order of elements in this array must correspond to the order of the entries listed in 'wyckoff-species' and 'wyckoff-multiplicity-and-letter'."
   }
+
   "cohesive-potential-energy" {
     "type"         "float"
     "has-unit"     true
@@ -255,17 +258,20 @@ Example for the property definition of the cohesive energy relation of a cubic c
   }
 """
 		
- GenericName = ["short-name", "species", "a", "basis-atom-coordinates", "space-group",  "wyckoff-multiplicity-and-letter", "wyckoff-species", "wyckoff-coordinates", "cohesive-potential-energy"]
+GenericName = ["short-name", "species", "a", "basis-atom-coordinates", "space-group",  "wyckoff-multiplicity-and-letter", "wyckoff-species", "wyckoff-coordinates", "cohesive-potential-energy"]
 
- GenericProperties = ["type", "has-unit", "extent", required", "description"]
+GenericProperties = ["type", "has-unit", "extent", "required", "description"]
 
 
 def EdnSourceValue(key):
+
 	"""
 	The KIM infrastructure embraces a subset of EDN as a standard data format. EDN stands for extensible data notation, and is 
 	pronounced like the word "eden"	
 	"""
+
 	# First, check if the property is indeed a valid one as defined in OpenKIM (https://openkim.org/properties)
+
 	try:
 		key in PROPERTY
 	except KeyError:
@@ -308,7 +314,7 @@ def EdnSourceValue(key):
 
 	# wyckoff-potential
 	outputDict["wyckoff-coordinates"]["source-value"] = [[0,0,0]]
-
+	
     # cohesive-potential-energy
 	outputDict["cohesive-potential-energy"]["source-value"] = -6.46911040131582
 	outputDict["cohesive-potential-energy"]["source-unit"] =  "eV"
@@ -318,12 +324,12 @@ def EdnSourceValue(key):
 		outputDict[property] = {k: v for k, v in outputDict[property].items() if v is not None}
 
 	# Convert output to a edn format
-	ednOutput = edn_format.dumps(outputDict)
+	ednOutput = edn_format.dumps(outputDict)	
 	return ednOutput
 
 def printEdn(output):
 	with open("example.out", "w+") as fout:
-		fout.write(output)			
+		pprint.pprint(output, stream = fout, indent = 4)			
 
 class KIMPostprocess:
 	"""

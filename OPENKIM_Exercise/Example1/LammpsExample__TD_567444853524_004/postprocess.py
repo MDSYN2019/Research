@@ -256,35 +256,61 @@ Example for the property definition of the cohesive energy relation of a cubic c
 
 """
 
-	
 def EdnSourceValue(key, propertyArray, val = None, unit = None):
 	"""
 	The KIM infrastructure embraces a subset of EDN as a standard data format. EDN stands for extensible data notation, and is 
 	pronounced like the word "eden"
 	"""
-	
 	# First, check if the property is indeed a valid one as defined in OpenKIM (https://openkim.org/properties)
+	
 	try:
 		key in PROPERTY
 	except KeyError:
 		print ("Input property not found")
 		
-	defaultDict = {}
-	GenericName = ["short-name", "species", "a", "basis-atom-coordinates", "space-group"]
-	GenericProperties = ["type", "has-unit", "extent", required", "description"]
+	# GenericName = ["short-name", "species", "a", "basis-atom-coordinates", "space-group"]
+	# GenericProperties = ["type", "has-unit", "extent", required", "description"]
 
 	# Output properties for 'cohesive 
-	PROPERTYARRAY = ["short-name", "species", "a", "basis-atom-coordinates", "space-group", "wyckoff-multiplicity-and-letter", "wyckoff-species", "wyckoff-coordinates", "cohesive-potential-energy"] 
+
+	propertyArray = ["short-name", "species", "a", "basis-atom-coordinates", "space-group", "wyckoff-multiplicity-and-letter", "wyckoff-species", "wyckoff-coordinates", "cohesive-potential-energy"] 
 
 	# Output dictionary part 
-	output = {}
-	output['key'] = key
-	for property in propertyArray:
-		output[property] = {}
-		output[property]["source-value"] = "val"
-		output[property]["source-unit"] = "unit"
+	outputDict = {}
+	outputDict['key'] = key
 	
-	return output
+	for property in propertyArray:
+		outputDict[property] = {}
+		outputDict[property]["source-value"] = None
+		outputDict[property]["source-unit"] = None
+
+    ## An example output following the case for the result.edn.tpl as shown in the OpenKIM example
+
+	# short-name
+	outputDict["short-name"]["source-value"] = ["fcc"]
+
+	# "species" 
+	outputDict["species"]["source-value"] = ["Ar", "Ar", "Ar", "Ar"]
+
+	# "a"
+	outputDict["a"]["source-value"] = 3.60000000000017
+	outputDict["a"]["source-unit"] = "angstrom"
+
+	# space-group
+	outputDict["space-group"]["source-unit"] = "Fm-3m"
+
+	# wyckoff-species
+	outputDict["wyckoff-species"]["source-unit"] = ["Ar"]
+
+	# wyckoff-potential
+	outputDict["wyckoff-coordinates"]["source-value"] = [[0,0,0]]
+
+    # cohesive-potential-energy
+	outputDict["cohesive-potential-energy"]["source-value"] = -6.46911040131582
+	outputDict["cohesive-potential-energy"]["source-unit"] =  "eV"
+	
+	return outputDict
+
 	
 class KIMPostprocess:
 	"""

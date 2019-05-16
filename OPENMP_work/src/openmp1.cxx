@@ -1,4 +1,5 @@
 /*
+
 OpenMP - Open multi processing
 
 Pthreads requires the programmer to explicitly epecifiy the behaviour of each thread. 

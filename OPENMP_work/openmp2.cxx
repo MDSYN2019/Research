@@ -1,33 +1,28 @@
-#include <iostream>
-#include <cstdlib>
-#include <cstdio>
-//#include <Eigen/Dense>
+#ifndef __openmp2__
+#include "openmp2.hpp"
 
-/* Instead of just calling the OpenMP functions, e can first check whetehr _OPENMP is defined. */
 
-#ifndef _OPENMP
-#include <omp.h>
+void Progression::printProgression(int n) {
+  std::cout << firstValue();
+  for (int i = 2; i <= n; i++) {
+    std::cout << ' ' << nextValue();
+  }
+  std::cout << std::endl;
+}
+
+long Progression::firstValue() {
+  cur = first;
+  return cur;
+}
+
+
+// # pragma omp parallel num_threads(thread_count)
+
+long Progression::nextValue() {
+  return ++cur;
+}
+
+
+
+
 #endif
-
-#include "openmp1.h"
-
-/* cppunit tests */                                                                                                                                      
-#include <cppunit/extensions/TestFactoryRegistry.h>
-#include <cppunit/CompilerOutputter.h>
-#include <cppunit/ui/text/TestRunner.h>
-#include <cppunit/TestFixture.h>
-#include <cppunit/extensions/HelperMacros.h>
-
-
-/*
-
-A numeric progression is a seuqence of numbers, where the value of each number depends on one or more of the 
-previous value.
- 
-*/
-
-
-
-class Progression {
-
-};

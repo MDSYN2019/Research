@@ -14,14 +14,19 @@ long Progression::firstValue() {
   cur = first;
   return cur;
 }
-
-
 // # pragma omp parallel num_threads(thread_count)
 
 long Progression::nextValue() {
   return ++cur;
 }
 
+
+ArithProgression::ArithProgression(long i) : Progression(), inc(i) { }
+// Constructor 
+long ArithProgression::nextValue() {
+  cur += inc;
+  return cur;
+}
 
 
 

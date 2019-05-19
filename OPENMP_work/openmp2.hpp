@@ -49,3 +49,24 @@ protected:
 protected:
   long inc;
 };
+
+template <class T>
+class TemplateUnderTest {
+  T *t_;
+public:
+  TemplateUnderTest(T *t) : t_(t) {} // allocate to t_ the value of t 
+  void SomeMethod() {
+    t->DoSomething();
+    t->DoSomeOtherThing();
+  }
+};
+
+
+// Chapter 3 - Using arrays
+
+class GameEntry {
+public:
+  GameEntry(const std::string& n = "", int s = 0);
+  
+
+}

@@ -1,18 +1,19 @@
 /*
 
-OpenMP - Open multi processing
-
-Pthreads requires the programmer to explicitly epecifiy the behaviour of each thread. 
+|---------------------------------|
+|OpenMP - "Open multi processing" |
+|---------------------------------|
 
 OpenMP (Open multi-processing), on the other hand, sometimes allows the programmer 
 to simply state that a block fo code should be exectuted in parallel, and the precise 
-determination of the takss and which thread should execute them is left to the compiler and 
-the run-time system
+determination of the takes and which thread should execute them is left to the compiler and 
+the run-time system.
 
 OpenMP is a way to program shared memory devices. This means that the parellism occurs where every parallel thread has access 
 to all your data 
 
 Example:
+
 You can think of it as: parallelism can appen during the execution of a specific for loop by splittig up the loop
 among the different threads.
 
@@ -104,6 +105,18 @@ int Linear_search(int key, int A[], int n) {
   }
 }
 */
+
+class ComplexNumberTest : public CppUnit::TestCase { 
+public: 
+  ComplexNumberTest( std::string name ) : CppUnit::TestCase( name ) {}
+  
+  void runTest() {
+    CPPUNIT_ASSERT( Complex (10, 1) == Complex (10, 1) );
+    CPPUNIT_ASSERT( !(Complex (1, 1) == Complex (2, 2)) );
+  }
+};
+
+
 template <class T> class Vec {
 public:
   // Interface

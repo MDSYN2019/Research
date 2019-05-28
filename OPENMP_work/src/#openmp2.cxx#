@@ -1,8 +1,8 @@
 #ifndef __openmp2__
 #include "openmp2.hpp"
 
-int nv,
-  *notdone,
+int nv, // number of vertices 
+  *notdone, 
   
 
 void Progression::printProgression(int n) {

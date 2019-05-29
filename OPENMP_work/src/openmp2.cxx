@@ -1,7 +1,6 @@
 #ifndef __openmp2__
 #include "openmp2.hpp"
 
-
 void Progression::printProgression(int n) {
   std::cout << firstValue();
   for (int i = 2; i <= n; i++) {

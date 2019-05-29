@@ -117,7 +117,9 @@ public:
   typedef const T& const_reference;
   // We form the name of an overloaded operator by appending the operator to the word operator
 
+
   Vec() {create();}
+  Vec(const Vec& v); // copy constructor 
   explicit Vec(size_type n, const T& val = T()) { create(n, val);} // We are saying to the compiler that we will use the constuctor
                                                                    // only in contexts in which the user expresly invokes the constructor 
   // Prevents weird default constructor allocation 
@@ -127,7 +129,11 @@ public:
 
   T& operator[](size_type i) {return data[i]; }
   const T& operator[] (size_type i) const {return data[i]; }
-    
+
+  // new functions to return iterators
+  iterator begin() { return data;}
+  const_iterator begin() const {return data;} // return a constant type
+  
 private:
   // Using the iterator type created above
   iterator data;

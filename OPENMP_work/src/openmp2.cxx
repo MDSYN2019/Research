@@ -1,9 +1,6 @@
 #ifndef __openmp2__
 #include "openmp2.hpp"
 
-int nv,
-  *notdone,
-  
 
 void Progression::printProgression(int n) {
   std::cout << firstValue();

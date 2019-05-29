@@ -106,6 +106,33 @@ int Linear_search(int key, int A[], int n) {
 }
 */
 
+template <class T> class Vec {
+public:
+  typedef T* iterator; // Defines a type parameter T pointer which acts a a inner iterator in the vector function 
+  typedef const T* const_iterator; // Ditto as above, but a constant iterator
+  typedef size_t size_type;
+  typedef T value_type;
+  typedef std::ptrdiff_t difference_type;
+  typedef T& reference;
+  typedef const T& const_reference;
+  // We form the name of an overloaded operator by appending the operator to the word operator
+
+  Vec() {create();}
+  explicit Vec(size_type n, const T& val = T()) { create(n, val);} // We are saying to the compiler that we will use the constuctor
+                                                                   // only in contexts in which the user expresly invokes the constructor 
+  // Prevents weird default constructor allocation 
+
+  // new operations: size and index
+  size_type size() const (return limit - data; } // const allocated onto the return value to ensure the return data is not mutable
+  
+private:
+  // Using the iterator type created above
+  iterator data;
+  iterator limit;
+};
+
+
+
 class ComplexNumberTest : public CppUnit::TestCase { 
 public: 
   ComplexNumberTest( std::string name ) : CppUnit::TestCase( name ) {}

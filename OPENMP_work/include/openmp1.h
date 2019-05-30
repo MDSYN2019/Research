@@ -18,8 +18,8 @@ It allows the programmer to speucfy the number of threads that should be execute
 # prgama omp parlallel nun)threads(thread)count)
 
 /*
-What actulaly happens when the program gets to the parallel directive? Prior to the parallel directive, the program us 
-using a single thread, the process started when the pgoraam started execution. When the pgoram 
+What actually happens when the program gets to the parallel directive? Prior to the parllel directive, the program is using a 
+single thread, the process started when the program started execution.
 */
 
 
@@ -27,6 +27,7 @@ class OMP {
 public:
   OMP(int);
   ~OMP();  
+  OMP& operator=(const OMP& ref); // self-assignment operator
   void addup();
   void add(int);
   int Linear_search(int, int*, int n);
@@ -39,7 +40,6 @@ public:
   int global_result;
   int my_rank; // get current rank
 };
-
 
 #endif
   

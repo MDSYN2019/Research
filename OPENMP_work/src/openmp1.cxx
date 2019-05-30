@@ -112,14 +112,16 @@ public:
   typedef const T* const_iterator; // Ditto as above, but a constant iterator
   typedef size_t size_type;
   typedef T value_type;
-  typedef std::ptrdiff_t difference_type;
+  typedef std::ptrdiff_t difference_type; // What does ptrdiff do?
   typedef T& reference;
   typedef const T& const_reference;
+
   // We form the name of an overloaded operator by appending the operator to the word operator
-
-
   Vec() {create();}
-  Vec(const Vec& v); // copy constructor 
+  Vec(const Vec& v) {create (v.begin(), v.end());} // copy constructor - we allocate new space for the copy vector
+  Vec& operator=(const Vec&); // Defines what it means to assign one value of the class type to another.
+
+  
   explicit Vec(size_type n, const T& val = T()) { create(n, val);} // We are saying to the compiler that we will use the constuctor
                                                                    // only in contexts in which the user expresly invokes the constructor 
   // Prevents weird default constructor allocation 
@@ -181,6 +183,12 @@ private:
 OMP::OMP(int N) {
   thread_count = N;
 }
+
+OMP& OMP::OMP::operator(const OMP& ref) {
+  //
+}
+
+
 OMP::~OMP() {
 }
 void OMP::add(int a) {

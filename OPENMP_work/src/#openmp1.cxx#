@@ -151,7 +151,15 @@ template <class T>
 Vec<T>& Vec<T>::operator=(const Vec& rhs) {
 
   // check for self-assignment
-  
+  level 1
+Codimus123
+Score hidden ·
+1 hour ago
+· edited 1 hour ago
+
+Lib Dem government looking more and more likely as center left voters may go there and left voters may go to the Greens. The Tory vote will be split between them and BXP.
+
+Good job, Corbyn, destroying all your momentum by still being ambiguous(because much as I think that it is highly likely that Remain would be one of the “alternatives”, Corbyn is either tone deaf or deluded if he thi
   
 }
 

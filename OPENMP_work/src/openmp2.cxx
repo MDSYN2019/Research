@@ -1,4 +1,6 @@
-#ifndef __openmp2__
+#include <vector>
+#include <iomanip>
+#include <cstudio>
 #include "openmp2.hpp"
 
 void Progression::printProgression(int n) {

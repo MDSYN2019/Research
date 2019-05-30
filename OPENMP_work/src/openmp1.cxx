@@ -108,6 +108,9 @@ int Linear_search(int key, int A[], int n) {
 
 template <class T> class Vec {
 public:
+
+
+  
   typedef T* iterator; // Defines a type parameter T pointer which acts a a inner iterator in the vector function 
   typedef const T* const_iterator; // Ditto as above, but a constant iterator
   typedef size_t size_type;
@@ -116,6 +119,9 @@ public:
   typedef T& reference;
   typedef const T& const_reference;
 
+
+  
+  
   // We form the name of an overloaded operator by appending the operator to the word operator
   Vec() {create();}
   Vec(const Vec& v) {create (v.begin(), v.end());} // copy constructor - we allocate new space for the copy vector
@@ -129,10 +135,11 @@ public:
   explicit Vec(size_type n, const T& val = T()) { create(n, val);} // We are saying to the compiler that we will use the constuctor
                                                                    // only in contexts in which the user expresly invokes the constructor 
   // Prevents weird default constructor allocation 
-  
   // new operations: size and index
-  size_type size() const {return limit - data; } // const allocated onto the return value to ensure the return data is not mutable
+  size_type size() const {return avail - data; } // const allocated onto the return value to ensure the return data is not mutable
+  
 
+  
   T& operator[](size_type i) {return data[i]; }
   const T& operator[] (size_type i) const {return data[i]; }
 
@@ -140,9 +147,17 @@ public:
   iterator begin() { return data;}
   const_iterator begin() const {return data;} // return a constant type
   
+  iterator end() {return avail;}
+  const_iterator end() const {return avail;}
+
+  void push_back(const T& val) {
+    
+  }
+ 
 private:
   // Using the iterator type created above
   iterator data;
+  iterator limit;
   iterator limit;
 };
 

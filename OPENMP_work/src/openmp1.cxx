@@ -33,9 +33,11 @@ instructions known as pragmas. Pragmas are typcailyl added to a system to allow 
 #include <omp.h>
 #endif
 
+// Main header to include 
 #include "openmp1.h"
 
-/* cppunit tests */                                                                                                                                      
+/* CPPunit tests */
+
 #include <cppunit/extensions/TestFactoryRegistry.h>
 #include <cppunit/CompilerOutputter.h>
 #include <cppunit/ui/text/TestRunner.h>
@@ -70,14 +72,14 @@ instructions known as pragmas. Pragmas are typcailyl added to a system to allow 
 // Estimating pi
 // serial pi estimator 
 
-
-/*
 double factor = 1.0;
 double sum = 0.0;
+
 for (int k = 0; k < n; k++) {
   sum += factor / (2*k + 1);
   factor -= factor;
  }
+
 pi_approx = 4.0 * sum;
 
 
@@ -104,13 +106,9 @@ int Linear_search(int key, int A[], int n) {
     
   }
 }
-*/
 
 template <class T> class Vec {
-public:
-
-
-  
+public:  
   typedef T* iterator; // Defines a type parameter T pointer which acts a a inner iterator in the vector function 
   typedef const T* const_iterator; // Ditto as above, but a constant iterator
   typedef size_t size_type;
@@ -118,9 +116,6 @@ public:
   typedef std::ptrdiff_t difference_type; // What does ptrdiff do?
   typedef T& reference;
   typedef const T& const_reference;
-
-
-  
   
   // We form the name of an overloaded operator by appending the operator to the word operator
   Vec() {create();}
@@ -151,7 +146,9 @@ public:
   const_iterator end() const {return avail;}
 
   void push_back(const T& val) {
-    
+    if (avail == limit) // get space if needed 
+      grow();
+    unchecked_append(val); // append the new element
   }
  
 private:
@@ -160,7 +157,6 @@ private:
   iterator limit;
   iterator limit;
 };
-
 
 template <class T>
 Vec<T>& Vec<T>::operator=(const Vec& rhs) {

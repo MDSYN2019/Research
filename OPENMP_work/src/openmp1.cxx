@@ -65,6 +65,38 @@ T::operator=() - the assignment operator
 
 */
 
+template <class T> void Vec<T>::create() {
+  data = avail = limit = 0;
+}
+
+
+template <class T> void Vec<T>::create(size_type n, const T& val) {
+  data = alloc.allocate(n);
+  limit = avail  = data + n;
+  std::uninitialized_fill(data, limit, val);
+}
+
+template <class T>
+void Vec<T>::create(const_iterator i, const_iterator j) {
+  data = std::alloc.allocate(j - i);
+  limit = avail = std::uninitialized_copy(i,j,data);
+}
+
+
+template <class T> void Vec<T>::uncreate() {
+
+  if (data) { // If data exists
+    iterator it = avail;
+    while (it != data)
+      std::alloc.destroy(--it);
+    // Return all the space that was deallocated
+    std::alloc.deallocate(data, limit-data); 
+  }
+  
+  data = limit = avail = 0;
+}
+
+
 // Estimating pi
 // serial pi estimator 
 
@@ -115,10 +147,6 @@ void generate(ForwardIterator first, ForwardIterator last, Generator gen) {
 int RandomNumber() {
   return (std::rand() % 100);
 }
-
-
-
-
 
 
 

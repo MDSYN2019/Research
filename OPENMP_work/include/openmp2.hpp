@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
-//#include <Eigen/Dense>
 
 /* Instead of just calling the OpenMP functions, e can first check whetehr _OPENMP is defined. */
 
@@ -18,15 +17,12 @@
 #include <cppunit/TestFixture.h>
 #include <cppunit/extensions/HelperMacros.h>
 
-
 /*
 
 A numeric progression is a seuqence of numbers, where the value of each number depends on one or more of the 
 previous value.
  
 */
-
-
 
 class Progression {
 public:
@@ -61,12 +57,3 @@ public:
   }
 };
 
-
-// Chapter 3 - Using arrays
-
-class GameEntry {
-public:
-  GameEntry(const std::string& n = "", int s = 0);
-  
-
-}

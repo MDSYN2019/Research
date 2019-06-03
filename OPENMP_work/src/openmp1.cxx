@@ -25,6 +25,9 @@ instructions known as pragmas. Pragmas are typcailyl added to a system to allow 
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
+#include <string>
+#include "openmp2.hpp"
+
 //#include <Eigen/Dense>
 
 /* Instead of just calling the OpenMP functions, e can first check whetehr _OPENMP is defined. */
@@ -162,8 +165,7 @@ template <class T>
 Vec<T>& Vec<T>::operator=(const Vec& rhs) {
 
   // check for self-assignment
-  
-  
+   
 }
 
 
@@ -281,4 +283,39 @@ void OMP::addup() {
 #pragma omp critical
   global_result = val;
 }
+
+
+void Progression::printProgression(int n) {
+  std::cout << firstValue();
+  for (int i = 2; i <= n; i++) {
+    std::cout << ' ' << nextValue();
+  }
+  std::cout << std::endl;
+}
+
+long Progression::firstValue() {
+  cur = first;
+  return cur;
+}
+// # pragma omp parallel num_threads(thread_count)
+
+long Progression::nextValue() {
+  return ++cur;
+}
+
+
+ArithProgression::ArithProgression(long i) : Progression(), inc(i) { }
+// Constructor 
+long ArithProgression::nextValue() {
+  cur += inc;
+  return cur;
+}
+
+struct Student_info {
+  std::string name;
+  double midterm, final;
+  std::vector<double> homework;
+};
+
+
 

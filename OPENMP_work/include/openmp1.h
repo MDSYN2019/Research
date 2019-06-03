@@ -82,9 +82,19 @@ class Str {
   // Create a Str containing n copies of c 
  Str(size_type n, char c) : data(n , c) {}
 
-  // Create a Str from a null-terminated array of char
-  // TODO
+  // Create a Str from a null-terminated array of char 
+  
+  Str(const char* cp) {
+    std::copy(cp, cp+std::strlen(cp), std::back_inserter(data));
+  }
+  
+  // Create a Str from the range enoted by iterators b and e
+  template <class In> Str(In b, In e) {
+    std::copt(b, e, std::back_inserter(data));
+  }
+  
  private:
+  Vec<char> data;
 }
 
 class OMP {

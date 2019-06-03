@@ -164,10 +164,20 @@ void Vec<T>::create(const_iterator i, const_iterator j) {
   limit = avail = uninitialized_copy(i, j, data);
 }
 
-template <class T>
-Vec<T>& Vec<T>::operator=(const Vec& rhs) {
-  // check for self-assignment
+
+template <class T> void Vec<T>::grow() {
+
+  // when growing, allocate twice as much space as currently in use
+  size_type new_size = max(2 * (limie - data), ptrdiff_t(1));
+
+  // allocate new space and copy existing elements to the new space
+
+  iterator new_data = alloc.allocate(new_size);
+  //iterator new_avail
+
 }
+
+
 
 class ComplexNumberTest : public CppUnit::TestCase { 
 public: 

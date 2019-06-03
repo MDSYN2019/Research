@@ -22,22 +22,27 @@ instructions known as pragmas. Pragmas are typcailyl added to a system to allow 
 
 */
 
+
 #include <iostream>
+#include <algorithm>
 #include <cstdlib>
 #include <cstdio>
+#include <ctime>
+#include <cstdlib>
 #include <string>
-#include "openmp2.hpp"
-
-//#include <Eigen/Dense>
+#include <memory>
 
 /* Instead of just calling the OpenMP functions, e can first check whetehr _OPENMP is defined. */
 
-#ifndef _OPENMP
+#ifndef _OPENMP_
+
 #include <omp.h>
+
 #endif
 
 // Main header to include 
 #include "openmp1.h"
+#include "openmp2.h"
 
 /* CPPunit tests */
 
@@ -71,6 +76,22 @@ instructions known as pragmas. Pragmas are typcailyl added to a system to allow 
      'increment expression' in the for statement.
 
  */
+
+
+
+/*
+
+For every class, we need to define these properly 
+
+T::T() - one or more constructors, perhaps with arguments
+
+T::~T() - the destructor 
+
+T::T(const T&) - the copy constructor
+
+T::operator=() - the assignment operator
+
+*/
 
 // Estimating pi
 // serial pi estimator 
@@ -110,6 +131,19 @@ int Linear_search(int key, int A[], int n) {
   }
 }
 
+template <class ForwardIterator, class Generator>
+void generate(ForwardIterator first, ForwardIterator last, Generator gen) {
+  while (first != last) {
+    *first = gen();
+    ++first;
+  }
+
+}
+
+int RandomNumber() {
+  return (std::rand() % 100);
+}
+
 template <class T> class Vec {
 public:  
   typedef T* iterator; // Defines a type parameter T pointer which acts a a inner iterator in the vector function 
@@ -121,8 +155,10 @@ public:
   typedef const T& const_reference;
   
   // We form the name of an overloaded operator by appending the operator to the word operator
-  Vec() {create();}
-  Vec(const Vec& v) {create (v.begin(), v.end());} // copy constructor - we allocate new space for the copy vector
+  Vec() {create();} // Need to replace create here 
+
+  Vec(const Vec& v) {std::generate (v.begin(), v.end(), RandomNumber);} // copy constructor - we allocate new space for the copy vector
+
   Vec& operator=(const Vec& ref) {  // Defines what it means to assign one value of the class type to another.
     if (&ref != this) {
       uncreate();
@@ -159,6 +195,9 @@ private:
   iterator data;
   iterator limit;
   iterator limit;
+
+  // Facilities for memory allocation
+  allocator<T> 
 };
 
 template <class T>
@@ -284,38 +323,10 @@ void OMP::addup() {
   global_result = val;
 }
 
-
-void Progression::printProgression(int n) {
-  std::cout << firstValue();
-  for (int i = 2; i <= n; i++) {
-    std::cout << ' ' << nextValue();
-  }
-  std::cout << std::endl;
-}
-
-long Progression::firstValue() {
-  cur = first;
-  return cur;
-}
-// # pragma omp parallel num_threads(thread_count)
-
-long Progression::nextValue() {
-  return ++cur;
-}
-
-
-ArithProgression::ArithProgression(long i) : Progression(), inc(i) { }
-// Constructor 
-long ArithProgression::nextValue() {
-  cur += inc;
-  return cur;
-}
-
 struct Student_info {
   std::string name;
   double midterm, final;
   std::vector<double> homework;
 };
-
 
 

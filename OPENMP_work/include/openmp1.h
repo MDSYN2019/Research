@@ -69,14 +69,23 @@ template <class T> class Vec {
     void create(size_type, const T&);
     void create(const_iterator, const_iterator);
     // destroy the elements in the array and free the memory
-
     void uncreate();
-
     // support functions for push_back
     void grow();
     void unchecked_append(const T&);
-    
 };
+
+class Str {
+ public:
+  typedef Vec<char>::size_type size_type;
+  Str() {}
+  // Create a Str containing n copies of c 
+ Str(size_type n, char c) : data(n , c) {}
+
+  // Create a Str from a null-terminated array of char
+  // TODO
+ private:
+}
 
 class OMP {
 public:

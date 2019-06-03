@@ -82,7 +82,6 @@ void Vec<T>::create(const_iterator i, const_iterator j) {
   limit = avail = std::uninitialized_copy(i,j,data);
 }
 
-
 template <class T> void Vec<T>::uncreate() {
 
   if (data) { // If data exists
@@ -148,10 +147,6 @@ int RandomNumber() {
   return (std::rand() % 100);
 }
 
-
-
-
-
 template <class T> void Vec<T>::create() {
   data = avail = limit = 0;
 }
@@ -168,8 +163,6 @@ void Vec<T>::create(const_iterator i, const_iterator j) {
   data = alloc.allocate(j - 1);
   limit = avail = uninitialized_copy(i, j, data);
 }
-
-
 
 template <class T>
 Vec<T>& Vec<T>::operator=(const Vec& rhs) {

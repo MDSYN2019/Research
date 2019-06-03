@@ -207,40 +207,15 @@ Vec<T>& Vec<T>::operator=(const Vec& rhs) {
    
 }
 
-
 class ComplexNumberTest : public CppUnit::TestCase { 
 public: 
-  ComplexNumberTest( std::string name ) : CppUnit::TestCase( name ) {}
-  
+  ComplexNumberTest( std::string name ) : CppUnit::TestCase( name ) {} 
   void runTest() {
     CPPUNIT_ASSERT( Complex (10, 1) == Complex (10, 1) );
     CPPUNIT_ASSERT( !(Complex (1, 1) == Complex (2, 2)) );
   }
 };
 
-
-template <class T> class Vec {
-public:
-  // Interface
-  // Two constructors defined here -
-  // We need to provide typedefs for the const and nonconst iterator types.
-  
-  Vec() {create();} // Default constructor 
-  explicit Vec(std::size_t n, const T& = T()) { create(n, val);} // When we say that a constructor is explicit, we're saying that the compiler
-                                                                 // will use specifically invokes the constructor
-  typedef T* iterator;
-  typedef const T* const_iterator; 
-  // The difference between a const and non-const iterator - const_iterators don't allow you to change the
-  // values they point to, but iterators do
-
-  // 
-  typedef size_t size_type;
-  
-private:
-  // Implemntation
-  T* data;
-  T* limit;
-};
 
 OMP::OMP(int N) {
   thread_count = N;

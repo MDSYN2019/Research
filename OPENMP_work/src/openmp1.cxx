@@ -197,14 +197,42 @@ private:
   iterator limit;
 
   // Facilities for memory allocation
-  allocator<T> 
+  allocator<T> alloc; // object to handle memory allocation
+
+  void create();
+  void create(size_type, const T&);
+  void create(const_iterator, const_iterator);
+
+  // destroy the elements in the array and free the memory
+  void uncreate();
+
+  // support functions for push_back
+  void grow();
+  void unchecked_append(const T&);
 };
+
+template <class T> void Vec<T>::create() {
+  data = avail = limit = 0;
+}
+
+template <class T> void Vec<T>::create(size_type n, const T& val) {
+  data = alloc.allocate(n);
+  limit = avail = data + n;
+  uninitialized_fill(data, limit, val);
+  
+}
+
+template <class T>
+void Vec<T>::create(const_iterator i, const_iterator j) {
+  data = alloc.allocate(j - 1);
+  limit = avail = uninitialized_copy(i, j, data);
+}
+
+
 
 template <class T>
 Vec<T>& Vec<T>::operator=(const Vec& rhs) {
-
   // check for self-assignment
-   
 }
 
 class ComplexNumberTest : public CppUnit::TestCase { 

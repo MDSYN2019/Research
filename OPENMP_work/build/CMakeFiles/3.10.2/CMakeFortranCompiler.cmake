@@ -1,7 +1,7 @@
 set(CMAKE_Fortran_COMPILER "/usr/bin/gfortran")
 set(CMAKE_Fortran_COMPILER_ARG1 "")
 set(CMAKE_Fortran_COMPILER_ID "GNU")
-set(CMAKE_Fortran_COMPILER_VERSION "7.3.0")
+set(CMAKE_Fortran_COMPILER_VERSION "7.4.0")
 set(CMAKE_Fortran_COMPILER_WRAPPER "")
 set(CMAKE_Fortran_PLATFORM_ID "")
 set(CMAKE_Fortran_SIMULATE_ID "")

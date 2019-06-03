@@ -41,7 +41,7 @@ instructions known as pragmas. Pragmas are typcailyl added to a system to allow 
 #endif
 
 // Main header to include 
-#include "openmp1.h"
+#include "openmp1.hpp"
 
 /* CPPunit tests */
 
@@ -65,6 +65,11 @@ T::operator=() - the assignment operator
 
 */
 
+
+int RandomNumber() {
+  return (std::rand() % 100);
+}
+
 template <class T> void Vec<T>::create() {
   data = avail = limit = 0;
 }
@@ -78,7 +83,7 @@ template <class T> void Vec<T>::create(size_type n, const T& val) {
 
 template <class T>
 void Vec<T>::create(const_iterator i, const_iterator j) {
-  data = std::alloc.allocate(j - i);
+  data = alloc.allocate(j - i);
   limit = avail = std::uninitialized_copy(i,j,data);
 }
 
@@ -87,108 +92,23 @@ template <class T> void Vec<T>::uncreate() {
   if (data) { // If data exists
     iterator it = avail;
     while (it != data)
-      std::alloc.destroy(--it);
+      alloc.destroy(--it);
     // Return all the space that was deallocated
-    std::alloc.deallocate(data, limit-data); 
+    alloc.deallocate(data, limit-data); 
   }
   
   data = limit = avail = 0;
 }
 
 
-// Estimating pi
-// serial pi estimator 
-
-double factor = 1.0;
-double sum = 0.0;
-
-for (int k = 0; k < n; k++) {
-  sum += factor / (2*k + 1);
-  factor -= factor;
- }
-
-pi_approx = 4.0 * sum;
-
-
-// parallel OpenMP pi estimator
-double factor = 1.0;
-double sum = 0.0;
-
-# pragma omp parallel for  num_threads(thread_count)	\
-  reduction(+:sum)
-for (int k = 0; k < n; k++) {
-  sum += factor(2*k + 1);
-  factor -= factor;
- }
-
-int Linear_search(int key, int A[], int n) {
-  int i;
-  // thread count is global
-# pragma omp parallel for num_threads(thread_count)
-  for (int i = 0; i < n; i++) {
-    if (A[i] == key) {
-      return i;
-    }
-    return -1;
-    
-  }
-}
-
-template <class ForwardIterator, class Generator>
-void generate(ForwardIterator first, ForwardIterator last, Generator gen) {
-  while (first != last) {
-    *first = gen();
-    ++first;
-  }
-
-}
-
-int RandomNumber() {
-  return (std::rand() % 100);
-}
-
-template <class T> void Vec<T>::create() {
-  data = avail = limit = 0;
-}
-
-template <class T> void Vec<T>::create(size_type n, const T& val) {
-  data = alloc.allocate(n);
-  limit = avail = data + n;
-  uninitialized_fill(data, limit, val);
-  
-}
-
-template <class T>
-void Vec<T>::create(const_iterator i, const_iterator j) {
-  data = alloc.allocate(j - 1);
-  limit = avail = uninitialized_copy(i, j, data);
-}
-
-
 template <class T> void Vec<T>::grow() {
-
   // when growing, allocate twice as much space as currently in use
-  size_type new_size = max(2 * (limie - data), ptrdiff_t(1));
-
+  size_type new_size = max(2 * (limit - data), ptrdiff_t(1));
   // allocate new space and copy existing elements to the new space
-
   iterator new_data = alloc.allocate(new_size);
   //iterator new_avail
-
 }
-
-
-
-class ComplexNumberTest : public CppUnit::TestCase { 
-public: 
-  ComplexNumberTest( std::string name ) : CppUnit::TestCase( name ) {} 
-  void runTest() {
-    CPPUNIT_ASSERT( Complex (10, 1) == Complex (10, 1) );
-    CPPUNIT_ASSERT( !(Complex (1, 1) == Complex (2, 2)) );
-  }
-};
-
-
+/* 
 OMP::OMP(int N) {
   thread_count = N;
 }
@@ -197,9 +117,9 @@ OMP& OMP::OMP::operator(const OMP& ref) {
   //
 }
 
-
 OMP::~OMP() {
 }
+
 void OMP::add(int a) {
   val += a;
 }
@@ -269,6 +189,6 @@ void OMP::addup() {
 #pragma omp critical
   global_result = val;
 }
-
+*/
 
 

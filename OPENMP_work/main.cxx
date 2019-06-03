@@ -4,7 +4,7 @@
 #include <cstdio>
 #include <omp.h>
 
-#include "openmp1.h"
+#include "openmp1.hpp"
 #include "syn_dbg.hpp"
 
 void test_debug() {
@@ -13,11 +13,11 @@ void test_debug() {
   debug("I am %d years old ", 37);
 }
 
-OMP AA(5);
+//OMP AA(5);
 
 int main () {
-  AA.addup();
-  test_debug();
+  // AA.addup();
+  // test_debug();
   return 0;
   
 }

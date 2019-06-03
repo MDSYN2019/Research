@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
+#include <memory>
 //#include <Eigen/Dense>
 #include <omp.h>
 
@@ -22,6 +23,11 @@ What actually happens when the program gets to the parallel directive? Prior to 
 single thread, the process started when the program started execution.
 */
 
+#include <cppunit/extensions/TestFactoryRegistry.h>
+#include <cppunit/CompilerOutputter.h>
+#include <cppunit/ui/text/TestRunner.h>
+#include <cppunit/TestFixture.h>
+#include <cppunit/extensions/HelperMacros.h>
 
 template <class T> class Vec {
  public:
@@ -33,75 +39,54 @@ template <class T> class Vec {
   typedef const T& const_reference;
 
   Vec() { create(); }
-  explicit Vec(size_type n, const T& t = T()) {create(n,T);}
+  explicit Vec(size_type n, const T& t = T() ) {
+    create(n,t);
+  }
+
   Vec(const Vec& v) {create(v.begin(), v.end()); }
   Vec& operator=(const Vec&);
   ~Vec() {uncreate();}
 
-  T& operator[](size_type i) const {
-    
-  } // This might not work..
-
   const T& operator[] (size_type i) const {return data[i];}
 
-  void  push_back(const T& t) {
+  void push_back(const T& t) {
     if (avail == limit) {
       grow();
       unchecked_append(t);
     }
   }
+  
   size_type size() const {return avail - data;}
-
   iterator begin() {return data;}
   const_iterator begin() const {return data;}
-
   iterator end() {return avail;}
   const_iterator end() const {return avail;}
+  // Testing positions
   
  private:
-    iterator data;
-    iterator avail;
-    iterator limit;
-    // facilities for memory allocation
-    allocator<T> alloc;
-    // allocate and initlize the underlying array
-    void create();
-    void create(size_type, const T&);
-    void create(const_iterator, const_iterator);
-    // destroy the elements in the array and free the memory
-    void uncreate();
-    // support functions for push_back
-    void grow();
-    void unchecked_append(const T&);
+  iterator data;
+  iterator avail;
+  iterator limit;
+  // facilities for memory allocation
+  std::allocator<T> alloc;
+  // allocate and initlize the underlying array
+  void create();
+  void create(size_type, const T&);
+  void create(const_iterator, const_iterator);
+  // destroy the elements in the array and free the memory
+  void uncreate();
+  // support functions for push_back
+  void grow();
+  void unchecked_append(const T&);
 };
-
-class Str {
- public:
-  typedef Vec<char>::size_type size_type;
-  Str() {}
-  // Create a Str containing n copies of c 
- Str(size_type n, char c) : data(n , c) {}
-
-  // Create a Str from a null-terminated array of char 
-  
-  Str(const char* cp) {
-    std::copy(cp, cp+std::strlen(cp), std::back_inserter(data));
-  }
-  
-  // Create a Str from the range enoted by iterators b and e
-  template <class In> Str(In b, In e) {
-    std::copt(b, e, std::back_inserter(data));
-  }
-  
- private:
-  Vec<char> data;
-}
 
 class OMP {
 public:
+  // Constructors and destructors 
   OMP(int);
-  ~OMP();  
+  OMP(const OMP& OMPCopy); // Copy constructor 
   OMP& operator=(const OMP& ref); // self-assignment operator
+  ~OMP(); // Destructor  
   void addup();
   void add(int);
   int Linear_search(int, int*, int n);
@@ -109,7 +94,6 @@ public:
   void pi();
  private:
   int val;
-  int my_rank; // 
   int thread_count;
   int global_result;
   int my_rank; // get current rank

@@ -42,7 +42,6 @@ instructions known as pragmas. Pragmas are typcailyl added to a system to allow 
 
 // Main header to include 
 #include "openmp1.h"
-#include "openmp2.h"
 
 /* CPPunit tests */
 
@@ -51,33 +50,6 @@ instructions known as pragmas. Pragmas are typcailyl added to a system to allow 
 #include <cppunit/ui/text/TestRunner.h>
 #include <cppunit/TestFixture.h>
 #include <cppunit/extensions/HelperMacros.h>
-
-/*
-  Data dependencies
-
-  If a for loop fails to satisfy one of the rules outlined in the 
-  preceding section, the compiler will simply reject it.
-
-  For example, suppose we try to compile a program with the following 
-  linear search function
-
-  OpenMP will only parallelize for loops that are in the canonical form
-
-  Canonical form: 
-  
-  -  The variable index must have an integer or pointer type (cannot be a float!!)  
-  
-  -  The expressions start, end, and incr must have a compatible type. For example, 
-     if index is a pointer, then incr must have an integer type.
-
-  -  The expressions start, end and incr must not change during the execution for the loop
-  
-  -  During execution of the loop, the variable index can only be modified by the 
-     'increment expression' in the for statement.
-
- */
-
-
 
 /*
 
@@ -144,72 +116,13 @@ int RandomNumber() {
   return (std::rand() % 100);
 }
 
-template <class T> class Vec {
-public:  
-  typedef T* iterator; // Defines a type parameter T pointer which acts a a inner iterator in the vector function 
-  typedef const T* const_iterator; // Ditto as above, but a constant iterator
-  typedef size_t size_type;
-  typedef T value_type;
-  typedef std::ptrdiff_t difference_type; // What does ptrdiff do?
-  typedef T& reference;
-  typedef const T& const_reference;
-  
-  // We form the name of an overloaded operator by appending the operator to the word operator
-  Vec() {create();} // Need to replace create here 
 
-  Vec(const Vec& v) {std::generate (v.begin(), v.end(), RandomNumber);} // copy constructor - we allocate new space for the copy vector
 
-  Vec& operator=(const Vec& ref) {  // Defines what it means to assign one value of the class type to another.
-    if (&ref != this) {
-      uncreate();
-      create(rhs.begin(), rhs.end());
-    }
-  }
-  
-  explicit Vec(size_type n, const T& val = T()) { create(n, val);} // We are saying to the compiler that we will use the constuctor
-                                                                   // only in contexts in which the user expresly invokes the constructor 
-  // Prevents weird default constructor allocation 
-  // new operations: size and index
-  size_type size() const {return avail - data; } // const allocated onto the return value to ensure the return data is not mutable
-  
 
-  
-  T& operator[](size_type i) {return data[i]; }
-  const T& operator[] (size_type i) const {return data[i]; }
 
-  // new functions to return iterators
-  iterator begin() { return data;}
-  const_iterator begin() const {return data;} // return a constant type
-  
-  iterator end() {return avail;}
-  const_iterator end() const {return avail;}
 
-  void push_back(const T& val) {
-    if (avail == limit) // get space if needed 
-      grow();
-    unchecked_append(val); // append the new element
-  }
- 
-private:
-  // Using the iterator type created above
-  iterator data;
-  iterator limit;
-  iterator limit;
 
-  // Facilities for memory allocation
-  allocator<T> alloc; // object to handle memory allocation
 
-  void create();
-  void create(size_type, const T&);
-  void create(const_iterator, const_iterator);
-
-  // destroy the elements in the array and free the memory
-  void uncreate();
-
-  // support functions for push_back
-  void grow();
-  void unchecked_append(const T&);
-};
 
 template <class T> void Vec<T>::create() {
   data = avail = limit = 0;
@@ -326,10 +239,5 @@ void OMP::addup() {
   global_result = val;
 }
 
-struct Student_info {
-  std::string name;
-  double midterm, final;
-  std::vector<double> homework;
-};
 
 

@@ -103,13 +103,10 @@ template <class T> void Vec<T>::grow() {
   iterator new_data = alloc.allocate(new_size);
   //iterator new_avail
 }
-/* 
+
+
 OMP::OMP(int N) {
   thread_count = N;
-}
-
-OMP& OMP::OMP::operator(const OMP& ref) {
-  //
 }
 
 OMP::~OMP() {
@@ -134,15 +131,19 @@ int OMP::Linear_search(int key, int* A, int n) {
 }
 
 void OMP::pi() {
-
+  
   double factor = 1.0;
   double sum = 0.0;
   
 # pragma omp parallel for num_threads(thread_count)	\
   reduction(+:sum)
   for (k = 0; k < n; k++) {
+    if (k % 2 == 0) {
+      factor = 1.0;
+    } else {
+      factor = -1.0;
+    }
     sum += factor / (2*k + 1);
-    factor = -factor;
   }
 }
 

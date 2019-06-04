@@ -16,8 +16,15 @@ void test_debug() {
 //OMP AA(5);
 
 int main () {
+  int x = 5;
+
+# pragma omp parallel num_threads(thread_count) private(x)
+  {
+    int my_rank = omp_get_thread_num();
+    std::cout << "Thread %d ";
+    x = 2 * my_rank + 2;
+  }
   // AA.addup();
   // test_debug();
   return 0;
-  
 }

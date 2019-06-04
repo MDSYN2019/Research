@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <algorithm>
 #include <cstdlib>
@@ -86,11 +85,12 @@ void Vec<T>::create(const_iterator i, const_iterator j) {
 }
 
 template <class T> void Vec<T>::uncreate() {
-
   if (data) { // If data exists
+
     iterator it = avail;
-    while (it != data)
+    while (it != data){
       alloc.destroy(--it);
+    }
     // Return all the space that was deallocated
     alloc.deallocate(data, limit-data); 
   }

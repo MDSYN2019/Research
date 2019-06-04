@@ -131,13 +131,11 @@ int OMP::Linear_search(int key, int* A, int n) {
 }
 
 void OMP::pi() {
-  
   double factor = 1.0;
   double sum = 0.0;
   
-# pragma omp parallel for num_threads(thread_count)	\
-  reduction(+:sum) private(factor)
-  for (k = 0; k < n; k++) {
+# pragma omp parallel for num_threads(thread_count) reduction(+:sum) private(factor)
+  for (int k = 0; k < n; k++) {
     if (k % 2 == 0) {
       factor = 1.0;
     } else {
@@ -147,43 +145,11 @@ void OMP::pi() {
   }
 }
 
-void OMP::Compute_trapezium() {
-
-  double h, x, my_result;
-  double local_a, local_b;
-  int i, local_n;
-
-  my_rank = omp_get_thread_num();
-  thread_count = omp_get_num_threads();
-
-  h = (b - a) / n; // each slice of the trapezium
-  local_a = a + my_rank * local_n * h;
-  local_b = local_a + local_n * h;
-
-  my_result = ((float)local_a + (float)(local_b)) / 2.0;
-  for (int i = 1; i <= local_n - 1; i++) {
-    x = local_a + i * h;
-    my_result += (float)x;
-  }
-  my_result = my_result * h;
-  // TODO
-  // #pragma omp critical
-  //
-  if (n & thread_count != 0) {
-    std::cerr << error_type << " n must be evenly divisible by thread_count " << std::end;
-    exit(0); // Exit the program 
-  }
-}
-
 void OMP::addup() {
   global_result = 0.0;
-#pragma omp parallel num_threads(thread_count)
-  reduction(+:val) // In OpenMP it may be possible to spcift that th result of a reduction is a reduction variable.
-                   // To do this, a reduction clause can be added to a parlllel directive
-
+#pragma omp parallel num_threads(thread_count) reduction(+:val) // In OpenMP it may be possible to spcift that th result of a reduction is a reduction variable.
     this->add(3); // Use the function that has already been allocated onto this class 
 #pragma omp critical
-  global_result = val;
+    global_result = val;
 }
-*/
 

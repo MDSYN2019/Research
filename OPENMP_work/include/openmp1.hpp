@@ -84,19 +84,20 @@ class OMP {
 public:
   // Constructors and destructors 
   OMP(int);
-  OMP(const OMP& OMPCopy); // Copy constructor 
-  OMP& operator=(const OMP& ref); // self-assignment operator
+  //  OMP(const OMP& OMPCopy); // Copy constructor 
+  // OMP& operator=(const OMP& ref); // self-assignment operator
   ~OMP(); // Destructor  
-  void addup();
   void add(int);
-  int Linear_search(int, int*, int n);
-  void Compute_trapezium(); 
+  void addup();
   void pi();
+
+  int Linear_search(int, int*, int n);
  private:
   int val;
   int thread_count;
   int global_result;
   int my_rank; // get current rank
+  int n;
 };
 
 #endif

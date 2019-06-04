@@ -136,7 +136,7 @@ void OMP::pi() {
   double sum = 0.0;
   
 # pragma omp parallel for num_threads(thread_count)	\
-  reduction(+:sum)
+  reduction(+:sum) private(factor)
   for (k = 0; k < n; k++) {
     if (k % 2 == 0) {
       factor = 1.0;

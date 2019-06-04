@@ -24,6 +24,15 @@ int main () {
     std::cout << "Thread %d ";
     x = 2 * my_rank + 2;
   }
+  for (int phase = 0; phase < n; phase++) {
+    if (phase % 2 == 0) {
+      for (int i = 1; i < n; i += 2) {
+	if (a[i-1] > a[i]) {
+	  Swap(&a[i-1], &a[i]);
+	}
+      }
+    }
+  }
   // AA.addup();
   // test_debug();
   return 0;

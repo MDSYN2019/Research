@@ -33,6 +33,18 @@ int main () {
       }
     }
   }
+
+  for (int phase = 0; phase < n; phase++) {
+    if (phase % 2 == 0) {
+# pragma omp parallel for num_threads(thread_count) default(none) shared(a, n) private(i, tmp)
+      for (int i = 1; i < n; i += 2) {
+
+
+      }
+    }
+    
+  }
+
   // AA.addup();
   // test_debug();
   return 0;

@@ -1,3 +1,16 @@
+
+#include <iostream>
+#include <algorithm>
+#include <cstdlib>
+#include <cstdio>
+#include <ctime>
+#include <cstdlib>
+#include <string>
+#include <memory>
+
+/* Instead of just calling the OpenMP functions, e can first check whetehr _OPENMP is defined. */
+
+
 /*
 
 |---------------------------------|
@@ -21,17 +34,6 @@ OpenMP provides hat's known as a "directives-based" shared memory API. In C and 
 instructions known as pragmas. Pragmas are typcailyl added to a system to allow behaviours that aren't part of the basic C specification
 
 */
-
-#include <iostream>
-#include <algorithm>
-#include <cstdlib>
-#include <cstdio>
-#include <ctime>
-#include <cstdlib>
-#include <string>
-#include <memory>
-
-/* Instead of just calling the OpenMP functions, e can first check whetehr _OPENMP is defined. */
 
 #ifndef _OPENMP_
 #include <omp.h>

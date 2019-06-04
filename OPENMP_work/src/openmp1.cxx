@@ -107,19 +107,35 @@ template <class T> void Vec<T>::grow() {
 }
 
 
-OMP::OMP(int N) {
+explicit OMP::OMP(int N) {
   thread_count = N;
+} // Constructor 
+
+
+OMP::OMP(const OMP& ref) {
+  
 }
 
 OMP::~OMP() {
-}
+} // Destructor 
 
+}
 void OMP::add(int a) {
   val += a;
 }
 
+void OMP::addup() {
+  global_result = 0.0;
+#pragma omp parallel num_threads(thread_count) reduction(+:val) // In OpenMP it may be possible to spcift that th result of a reduction is a reduction variable.
+  this->add(3); // Use the function that has already been allocated onto this class 
+#pragma omp critical
+  global_result = val;
+}
+
+
 int OMP::Linear_search(int key, int* A, int n) {
   int i;
+  
   // thread count is global
 # pragma omp parallel for num_threads(thread_count)
   for (int i = 0; i < n; i++) {
@@ -147,11 +163,4 @@ void OMP::pi() {
   }
 }
 
-void OMP::addup() {
-  global_result = 0.0;
-#pragma omp parallel num_threads(thread_count) reduction(+:val) // In OpenMP it may be possible to spcift that th result of a reduction is a reduction variable.
-    this->add(3); // Use the function that has already been allocated onto this class 
-#pragma omp critical
-    global_result = val;
-}
 

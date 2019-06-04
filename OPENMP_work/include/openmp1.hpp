@@ -84,13 +84,12 @@ class OMP {
 public:
   // Constructors and destructors 
   OMP(int);
-  //  OMP(const OMP& OMPCopy); // Copy constructor 
-  // OMP& operator=(const OMP& ref); // self-assignment operator
+  explicit OMP(const OMP& OMPCopy); // Copy constructor 
+  OMP& operator=(const OMP& ref); // self-assignment operator
   ~OMP(); // Destructor  
   void add(int);
   void addup();
   void pi();
-
   int Linear_search(int, int*, int n);
  private:
   int val;

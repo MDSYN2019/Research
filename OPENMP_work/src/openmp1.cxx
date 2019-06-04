@@ -22,7 +22,6 @@ instructions known as pragmas. Pragmas are typcailyl added to a system to allow 
 
 */
 
-
 #include <iostream>
 #include <algorithm>
 #include <cstdlib>
@@ -35,7 +34,6 @@ instructions known as pragmas. Pragmas are typcailyl added to a system to allow 
 /* Instead of just calling the OpenMP functions, e can first check whetehr _OPENMP is defined. */
 
 #ifndef _OPENMP_
-
 #include <omp.h>
 
 #endif
@@ -65,7 +63,6 @@ T::operator=() - the assignment operator
 
 */
 
-
 int RandomNumber() {
   return (std::rand() % 100);
 }
@@ -73,7 +70,6 @@ int RandomNumber() {
 template <class T> void Vec<T>::create() {
   data = avail = limit = 0;
 }
-
 
 template <class T> void Vec<T>::create(size_type n, const T& val) {
   data = alloc.allocate(n);
@@ -84,7 +80,7 @@ template <class T> void Vec<T>::create(size_type n, const T& val) {
 template <class T>
 void Vec<T>::create(const_iterator i, const_iterator j) {
   data = alloc.allocate(j - i);
-  limit = avail = std::uninitialized_copy(i,j,data);
+  limit = avail = std::uninitialized_copy(i,j,data); // allocate additional space at the end of the vector
 }
 
 template <class T> void Vec<T>::uncreate() {
@@ -99,7 +95,6 @@ template <class T> void Vec<T>::uncreate() {
   
   data = limit = avail = 0;
 }
-
 
 template <class T> void Vec<T>::grow() {
   // when growing, allocate twice as much space as currently in use
@@ -190,5 +185,4 @@ void OMP::addup() {
   global_result = val;
 }
 */
-
 

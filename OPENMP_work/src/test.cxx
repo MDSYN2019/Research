@@ -5,7 +5,6 @@ void f(std::vector<int>& v) {
   v.at(0); // Guaranteed to throw a std::out_of_range exception
 }
 
-
 void PrettyFormat(int i, char* buf) {
   sprintf(buf, "%4d" i);
 }

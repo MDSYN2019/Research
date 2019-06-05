@@ -45,20 +45,18 @@ else()
   message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
 endif()
 
-
 # Include directories for headers and CXX files
-
 include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/src")
 include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/include")
 include_directories ("${EIGEN3_INCLUDE_DIR}") # Eigen libaries
-include_directories (${GSL_INCLUDE_DIRS} ${GSLCBLAS_INCLUDE_DIRS})
-#include_directories (${MPI_CXX_INCLUDE_PATH})
-
+# Boost directories 
+include_directories (${Boost_INCLUDE_DIRS})
 
 # QAT directory
-include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/QAT/QatGenericFunctions/QatGenericFunctions")
-add_subdirectory (QatGenericFunctions)
-set (GenFunctions ${GenFunctions} GenFunctions)
+include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/QAT/QatGenericFunctions/QatGenericFunctions/include")
+
+# Include GSL directories
+include_directories (${GSL_INCLUDE_DIRS} ${GSLCBLAS_INCLUDE_DIRS})
 
 set(Boost_USE_STATIC_LIBS ON) 
 set(Boost_USE_MULTITHREADED ON)  
@@ -79,9 +77,8 @@ find_package(MPI REQUIRED)
 add_subdirectory (src)
 
 set (EXTRA_LIBS ${EXTRA_LIBS} src)
-set(MATH "${MATH} -lm")
-set(CPPUNIT "${CPPUNIT} -lcppunit")
-
+set (MATH "${MATH} -lm")
+set (CPPUNIT "${CPPUNIT} -lcppunit")
 
 # include_directories ("${EIGEN3_INCLUDE_DIR}")
 # Specifically add the src library definition for linking
@@ -92,19 +89,16 @@ set(CPPUNIT "${CPPUNIT} -lcppunit")
 #set(CMAKE_GSL_LINKER_FLAGS_CBLAS "${CMAKE_GSL_LINKER_FLAGS_CBLAS} -lgslcblas")
 # add the executable
 
-include_directories (${Boost_INCLUDE_DIRS})
 #target_compile_options(MPI_EX PRIVATE ${MPI_CXX_COMPILE_FLAGS})
 add_executable (OMP_EX ${UNIT_TEST} main.cxx)
 target_include_directories(OMP_EX PRIVATE)
 
-ADD_LIBRARY(gsllib 
-    main.cxx
-)
+ADD_LIBRARY(gsllib main.cxx)
 
 target_link_libraries(gsllib -L/home/noh/anaconda3/pkgs/gsl-2.1-2/lib/)
 target_link_libraries(gsllib libgsl.a)
 target_link_libraries(gsllib libgslcblas.a)
-target_link_libraries(OMP_EX ${EXTRA_LIBS} ${Boost_LIBRARIES} ${MATH} ${CPPUNIT} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB} ${GenFunctions} gsllib)
+target_link_libraries(OMP_EX ${EXTRA_LIBS} ${Boost_LIBRARIES} ${MATH} ${CPPUNIT} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB}  gsllib)
 
 find_package(OpenMP)
 if(OpenMP_CXX_FOUND)

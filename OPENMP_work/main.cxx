@@ -16,14 +16,17 @@ void test_debug() {
 //OMP AA(5);
 
 int main () {
+
   int x = 5;
 
 # pragma omp parallel num_threads(thread_count) private(x)
+
   {
     int my_rank = omp_get_thread_num();
     std::cout << "Thread %d ";
     x = 2 * my_rank + 2;
   }
+  
   for (int phase = 0; phase < n; phase++) {
     if (phase % 2 == 0) {
       for (int i = 1; i < n; i += 2) {
@@ -46,16 +49,14 @@ int main () {
       }
     } else {
 # pragma omp parallel for num_threads(thread_count) default(none) shared(a, n) private(i, tmp)
-
       for (int i = 1; i < n-1; i += 2) {
-
-	if (a[i] ) {
-
+	if (a[i] > a[i+1]) {
+	  tmp = a[i+1];
+	  a[i+1] = a[i];
+	  a[i] = tmp;
 	}
-
       }
-    }
-    
+    } 
   }
 
   // AA.addup();

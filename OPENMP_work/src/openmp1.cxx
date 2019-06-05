@@ -108,12 +108,12 @@ template <class T> void Vec<T>::grow() {
 
 explicit OMP::OMP(int N) {
   thread_count = N;
+  my_rank = omp_get_thread_num();
+  n = omp_get_num_threads();
 } // Constructor 
 
-
-OMP::OMP(const OMP& ref) {
-  
-}
+OMP::OMP(const OMP& ref) {  
+} // Reference allocator 
 
 OMP::~OMP() {
 } // Destructor 
@@ -131,10 +131,8 @@ void OMP::addup() {
   global_result = val;
 }
 
-
 int OMP::Linear_search(int key, int* A, int n) {
-  int i;
-  
+  int i;  
   // thread count is global
 # pragma omp parallel for num_threads(thread_count)
   for (int i = 0; i < n; i++) {

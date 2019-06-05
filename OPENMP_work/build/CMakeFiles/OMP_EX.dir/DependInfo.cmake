@@ -13,6 +13,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../src"
   "../include"
   "/usr/local/include/eigen3"
+  "../thirdparty/QAT/QatGenericFunctions/QatGenericFunctions"
   )
 
 # Targets to which this target links.

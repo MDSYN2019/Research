@@ -1,7 +1,10 @@
 cmake_minimum_required (VERSION 1.0)
 project (OMP_C++)
+
 # Enable Fortran
 enable_language(Fortran)
+
+# Enable eigen (C++)
 
 find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 
@@ -9,6 +12,7 @@ if(CMAKE_Fortran_COMPILER_ID MATCHES "GNU")
     set(dialect "-ffree-form -std=f2008 -fimplicit-none")
     set(bounds "-fbounds-check")
 endif()
+
 if(CMAKE_Fortran_COMPILER_ID MATCHES "Intel")
     set(dialect "-stand f08 -free -implicitnone")
     set(bounds "-check bounds")
@@ -49,6 +53,12 @@ include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/include")
 include_directories ("${EIGEN3_INCLUDE_DIR}") # Eigen libaries
 include_directories (${GSL_INCLUDE_DIRS} ${GSLCBLAS_INCLUDE_DIRS})
 #include_directories (${MPI_CXX_INCLUDE_PATH})
+
+
+# QAT directory
+include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/QAT/QatGenericFunctions/QatGenericFunctions")
+add_subdirectory (QatGenericFunctions)
+set (GenFunctions ${GenFunctions} GenFunctions)
 
 set(Boost_USE_STATIC_LIBS ON) 
 set(Boost_USE_MULTITHREADED ON)  
@@ -94,11 +104,10 @@ ADD_LIBRARY(gsllib
 target_link_libraries(gsllib -L/home/noh/anaconda3/pkgs/gsl-2.1-2/lib/)
 target_link_libraries(gsllib libgsl.a)
 target_link_libraries(gsllib libgslcblas.a)
-target_link_libraries(OMP_EX ${EXTRA_LIBS} ${Boost_LIBRARIES} ${MATH} ${CPPUNIT} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB}  gsllib)
+target_link_libraries(OMP_EX ${EXTRA_LIBS} ${Boost_LIBRARIES} ${MATH} ${CPPUNIT} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB} ${GenFunctions} gsllib)
 
 find_package(OpenMP)
 if(OpenMP_CXX_FOUND)
     target_link_libraries(OMP_EX  OpenMP::OpenMP_CXX)
 endif()
-
 

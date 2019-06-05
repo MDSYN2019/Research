@@ -6,5 +6,5 @@ CXX_FLAGS =  -std=c++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/src -I/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/include -I/usr/local/include/eigen3 
+CXX_INCLUDES = -I/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/src -I/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/include -I/usr/local/include/eigen3 -I/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/thirdparty/QAT/QatGenericFunctions/QatGenericFunctions 
 

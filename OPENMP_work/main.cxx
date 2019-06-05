@@ -38,7 +38,20 @@ int main () {
     if (phase % 2 == 0) {
 # pragma omp parallel for num_threads(thread_count) default(none) shared(a, n) private(i, tmp)
       for (int i = 1; i < n; i += 2) {
+	if (a[i-1] > a[i]) {
+	  tmp = a[i-1];
+	  a[i-1] = a[i];
+	  a[i] = tmp;
+	}
+      }
+    } else {
+# pragma omp parallel for num_threads(thread_count) default(none) shared(a, n) private(i, tmp)
 
+      for (int i = 1; i < n-1; i += 2) {
+
+	if (a[i] ) {
+
+	}
 
       }
     }

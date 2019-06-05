@@ -13,6 +13,17 @@ void test_debug() {
   debug("I am %d years old ", 37);
 }
 
+
+double f (int i) {
+  int j, start = i * (i + 1) / 2, finish = start +  i;
+  double return_val = 0.0;
+
+  for (j = start; j <= finish; j++) {
+    return_val += sin(j);
+  }
+  return return_val;
+}
+
 //OMP AA(5);
 
 int main () {

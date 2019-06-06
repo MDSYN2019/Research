@@ -265,6 +265,7 @@ double JarzynskiFreeEnergy::JETaylorErr(std::vector<double> *JEVector) {
 
 
 double JarzynskiFreeEnergy::JEalpha(std::vector<double> *JEVector) {
+
   double G; /*!< Free Energy */
   double Beta = 1 / (-BOLTZMANN * 303);  /*!< Boltzmann Factor */
   double Wdiss;

@@ -2,8 +2,8 @@
 #define __MD__libraries__structures__
 
 /*
-
 */
+
 #include <Eigen/Dense>
 #include <cmath>
 #include <vector>
@@ -23,7 +23,6 @@ typedef struct {
 
 class MD_structures {
 private:  
-
   MatrixXd dr = MatrixXd(1,1); // You must initialize the size of the container before 
   MatrixXd vector = MatrixXd(1,1); // Ditto ;   
   MatrixXd VecI = MatrixXd(1,1); // Ditto ;   
@@ -35,7 +34,6 @@ private:
   int deltaT;
   int rCut, temperature, timeNow, uSum, velMag;
   int moreCycles, nMol, stepAvg, stepCount, stepEquil, stepLimit;
-
   double fcVal, rr, rrCut, rri, rri3;
   Mol mol;
   Prop kinEnergy, pressure, totEnergy;

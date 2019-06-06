@@ -42,6 +42,7 @@ typedef std::vector<double>::iterator doubleIter; /*!< Double iterator */
 typedef std::vector<std::string>::const_iterator stringIter; /*!< String iterator */
 
 // structs cannot be externed 
+
 typedef struct {
   double BM;
   double T; 
@@ -53,6 +54,7 @@ double err;
 } FE;
 
 //! 
+
 /*! The main class */  
 
 class JarzynskiFreeEnergy {  
@@ -74,8 +76,10 @@ public:
 
   double JEprocessVector(int, double (JarzynskiFreeEnergy::*f) (std::vector<double> *VectorInput), std::vector<double> *JEVector); /*< functor which can take a JE algorithm then processing it accordingly */
   double alpha(double, double, double); /*< */   
+
   // friend functions to take care of the MPI implementation
   friend class MPI_setup;
+
   //friend class JEunitTest;
 private:
   /*! Scientific constants used in this work */
@@ -109,7 +113,6 @@ private:
   tupleList JERawCoordinateBin; /*< Vector for storing raw JE tuples */
   tupleList JETaylorCoordinateBin; /*< Vector for storing taylor series JE tuples */
   tupleList JEAlphaCoordinateBin; /*< Vector for storing taylor series JE tuples */
-
 };
 
 /*

@@ -4,7 +4,7 @@ project (OMP_C++)
 # Enable Fortran
 #enable_language(Fortran)
 # Enable eigen (C++)
-find_package (Eigen3 3.3 REQUIRED NO_MODULE)
+
 
 if(CMAKE_Fortran_COMPILER_ID MATCHES "GNU")
     set(dialect "-ffree-form -std=f2008 -fimplicit-none")
@@ -46,6 +46,9 @@ endif()
 # Include directories for headers and CXX files
 include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/src")
 include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/include")
+
+
+find_package(Eigen3 REQUIRED)
 include_directories ("${EIGEN3_INCLUDE_DIR}") # Eigen libaries
 
 # Boost directories 
@@ -74,9 +77,11 @@ set(Boost_USE_STATIC_RUNTIME OFF)
 
 find_package(Boost) 
 
+
 if(Boost_FOUND)
   include_directories (${Boost_INCLUDE_DIRS})
 endif()
+
 
 find_package(MPI REQUIRED)
 
@@ -88,7 +93,7 @@ add_library(gsllib main.cxx)
 target_link_libraries(gsllib -L/home/noh/anaconda3/pkgs/gsl-2.1-2/lib/)
 target_link_libraries(gsllib libgsl.a)
 target_link_libraries(gsllib libgslcblas.a)
-target_link_libraries(OMP_EX ${EXTRA_LIBS} ${Boost_LIBRARIES} ${MATH} ${CPPUNIT} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB}  gsllib)
+target_link_libraries(OMP_EX ${EXTRA_LIBS} ${Boost_LIBRARIES} ${MATH} ${CPPUNIT} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB} gsllib)
 
 find_package(OpenMP)
 

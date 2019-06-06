@@ -5,13 +5,21 @@
 #include <cstdio>
 #include <omp.h>
 
+
+// Eigen Library
+
+#include "Eigen/Dense"
+
+using namespace Eigen;
+
+//#include <eigen3/Eigen/Core>
+
 #include "openmp1.hpp"
 #include "syn_dbg.hpp"
 
 // QAT headers
 
 #include "Argument.h"
-#include ""
 
 void test_debug() {
   debug("A message");
@@ -32,6 +40,15 @@ double f (int i) {
 //OMP AA(5);
 
 int main () {
+  Matrix2d a;
+  a << 1, 2,
+       3, 4;
+  MatrixXd b(2,2);
+  b << 2, 3,
+       1, 4;
+  std::cout << "a + b =\n" << a + b << std::endl;
+
+  
   /*
   int x = 5;
 

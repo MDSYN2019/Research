@@ -84,24 +84,27 @@ template <class T> void Vec<T>::grow() {
 }
 
 template <class T>
-OMP::OMP(int N) {
+OMP<T>::OMP(int N) {
   thread_count = N;
   my_rank = omp_get_thread_num();
   n = omp_get_num_threads();
 } // Constructor 
 
-OMP::OMP(const OMP& ref) {  
+template <class T>
+OMP<T>::OMP(const OMP& ref) {  
 } // Reference allocator 
 
-OMP::~OMP() {
+template <class T>
+OMP<T>::~OMP() {
 } // Destructor 
 
 template <class T>
-void OMP::add(T a) {
+void OMP<T>::add(T a) {
   val += a;
 }
 
-void OMP::addup() {
+template <class T>
+void OMP<T>::addup() {
   global_result = 0.0;
 #pragma omp parallel num_threads(thread_count) reduction(+:val) // In OpenMP it may be possible to spcift that th result of a reduction is a reduction variable.
   this->add(3); // Use the function that has already been allocated onto this class 
@@ -109,7 +112,8 @@ void OMP::addup() {
   global_result = val;
 }
 
-int OMP::Linear_search(int key, int* A, int n) {
+template <class T>
+int OMP<T>::Linear_search(int key, int* A, int n) {
   int i;  
   // thread count is global
 # pragma omp parallel for num_threads(thread_count)
@@ -123,7 +127,8 @@ int OMP::Linear_search(int key, int* A, int n) {
   }
 }
 
-void OMP::pi() {
+template <class T>
+void OMP<T>::pi() {
   
   double factor = 1.0;
   double sum = 0.0;

@@ -7,36 +7,13 @@
 #include <string>
 #include <memory>
 
-/*
-
-|---------------------------------|
-|OpenMP - "Open multi processing" |
-|---------------------------------|
-
-OpenMP (Open multi-processing), on the other hand, sometimes allows the programmer 
-to simply state that a block fo code should be exectuted in parallel, and the precise 
-determination of the takes and which thread should execute them is left to the compiler and 
-the run-time system.
-
-OpenMP is a way to program shared memory devices. This means that the parellism occurs where every parallel thread has access 
-to all your data 
-
-Example:
-
-You can think of it as: parallelism can appen during the execution of a specific for loop by splittig up the loop
-among the different threads.
-
-OpenMP provides hat's known as a "directives-based" shared memory API. In C and C++, this means that there are speciial preprocessor 
-instructions known as pragmas. Pragmas are typcailyl added to a system to allow behaviours that aren't part of the basic C specification
-
-*/
-
 #ifndef _OPENMP_
 #include <omp.h>
 
 #endif
 
 // Main header to include 
+
 #include "openmp1.hpp"
 
 // QAT headers

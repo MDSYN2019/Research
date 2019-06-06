@@ -35,7 +35,6 @@
 #include <initializer_list>
 
 namespace Genfun {
-
   class Argument {
   public:
     // Constructor
@@ -65,7 +64,7 @@ namespace Genfun {
   inline const Argument & Argument::operator=( const Argument & right) {
     if (this != &right) {
       delete _data;
-      _data=NULL;
+      _data= NULL;
       _data = new std::vector<double>(*(right._data));
     }
     return *this;

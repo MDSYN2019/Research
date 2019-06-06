@@ -2,10 +2,8 @@ cmake_minimum_required (VERSION 1.0)
 project (OMP_C++)
 
 # Enable Fortran
-enable_language(Fortran)
-
+#enable_language(Fortran)
 # Enable eigen (C++)
-
 find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 
 if(CMAKE_Fortran_COMPILER_ID MATCHES "GNU")
@@ -49,11 +47,24 @@ endif()
 include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/src")
 include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/include")
 include_directories ("${EIGEN3_INCLUDE_DIR}") # Eigen libaries
+
 # Boost directories 
 include_directories (${Boost_INCLUDE_DIRS})
 
 # QAT directory
-include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/QAT/QatGenericFunctions/QatGenericFunctions/include")
+include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/QAT/include")
+include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/QAT/src")
+
+#add_subdirectory (QAT)
+#set (QAT ${QAT} "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/QAT/include")
+
+#add_subdirectory (QATsrc)
+#set (QATsrc ${QATsrc} "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/QAT/src")
+
+add_subdirectory (src)
+set (EXTRA_LIBS ${EXTRA_LIBS} src)
+set (MATH "${MATH} -lm")
+set (CPPUNIT "${CPPUNIT} -lcppunit")
 
 # Include GSL directories
 include_directories (${GSL_INCLUDE_DIRS} ${GSLCBLAS_INCLUDE_DIRS})
@@ -62,11 +73,6 @@ set(Boost_USE_STATIC_LIBS ON)
 set(Boost_USE_MULTITHREADED ON)  
 set(Boost_USE_STATIC_RUNTIME OFF) 
 
-#find_package(MPI REQUIRED)
-#include_directories(${MPI_INCLUDE_PATH})
-#find_package(GSL)
-#include_directories(${GSL_INCLUDE_DIR})
-
 find_package(Boost) 
 
 if(Boost_FOUND)
@@ -74,33 +80,19 @@ if(Boost_FOUND)
 endif()
 
 find_package(MPI REQUIRED)
-add_subdirectory (src)
 
-set (EXTRA_LIBS ${EXTRA_LIBS} src)
-set (MATH "${MATH} -lm")
-set (CPPUNIT "${CPPUNIT} -lcppunit")
-
-# include_directories ("${EIGEN3_INCLUDE_DIR}")
-# Specifically add the src library definition for linking
-
-# GSL libraries linking
-#set(CMAKE_GSL_LINKER_LIB "${CMAKE_GSL_LINKER_LIB} -L/home/noh/anaconda3/pkgs/gsl-2.1-2/lib/")
-#set(CMAKE_GSL_LINKER_FLAGS "${CMAKE_GSL_LINKER_FLAGS} -lgsl")
-#set(CMAKE_GSL_LINKER_FLAGS_CBLAS "${CMAKE_GSL_LINKER_FLAGS_CBLAS} -lgslcblas")
-# add the executable
-
-#target_compile_options(MPI_EX PRIVATE ${MPI_CXX_COMPILE_FLAGS})
+#set(QATCOMP ${QATsrc}/AbsFunction.cpp ${QAT}/*.h)
 add_executable (OMP_EX ${UNIT_TEST} main.cxx)
 target_include_directories(OMP_EX PRIVATE)
 
-ADD_LIBRARY(gsllib main.cxx)
-
+add_library(gsllib main.cxx)
 target_link_libraries(gsllib -L/home/noh/anaconda3/pkgs/gsl-2.1-2/lib/)
 target_link_libraries(gsllib libgsl.a)
 target_link_libraries(gsllib libgslcblas.a)
 target_link_libraries(OMP_EX ${EXTRA_LIBS} ${Boost_LIBRARIES} ${MATH} ${CPPUNIT} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB}  gsllib)
 
 find_package(OpenMP)
+
 if(OpenMP_CXX_FOUND)
     target_link_libraries(OMP_EX  OpenMP::OpenMP_CXX)
 endif()

@@ -42,6 +42,10 @@ instructions known as pragmas. Pragmas are typcailyl added to a system to allow 
 // Main header to include 
 #include "openmp1.hpp"
 
+// QAT headers
+
+#include "Argument.h"
+
 /* CPPunit tests */
 
 #include <cppunit/extensions/TestFactoryRegistry.h>
@@ -105,8 +109,7 @@ template <class T> void Vec<T>::grow() {
   //iterator new_avail
 }
 
-
-explicit OMP::OMP(int N) {
+OMP::OMP(int N) {
   thread_count = N;
 
   my_rank = omp_get_thread_num();
@@ -119,7 +122,6 @@ OMP::OMP(const OMP& ref) {
 OMP::~OMP() {
 } // Destructor 
 
-}
 void OMP::add(int a) {
   val += a;
 }

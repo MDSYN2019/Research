@@ -3,5 +3,6 @@
 
 CMakeFiles/gsllib.dir/main.o: ../include/openmp1.hpp
 CMakeFiles/gsllib.dir/main.o: ../include/syn_dbg.hpp
+CMakeFiles/gsllib.dir/main.o: ../thirdparty/QAT/include/Argument.h
 CMakeFiles/gsllib.dir/main.o: ../main.cxx
 

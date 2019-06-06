@@ -85,7 +85,6 @@ template <class T> void Vec<T>::grow() {
 
 OMP::OMP(int N) {
   thread_count = N;
-
   my_rank = omp_get_thread_num();
   n = omp_get_num_threads();
 } // Constructor 

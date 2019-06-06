@@ -80,14 +80,14 @@ template <class T> class Vec {
   void unchecked_append(const T&);
 };
 
-class OMP {
+template <class T> class OMP {
 public:
   // Constructors and destructors 
-  OMP(int);
+  OMP(T);
   explicit OMP(const OMP& OMPCopy); // Copy constructor 
   OMP& operator=(const OMP& ref); // self-assignment operator
   ~OMP(); // Destructor  
-  void add(int);
+  void add(T);
   void addup();
   void pi();
   int Linear_search(int, int*, int n);
@@ -97,6 +97,7 @@ public:
   int global_result;
   int my_rank; // get current rank
   int n;
+  std::allocator<T> alloc;
 };
 
 #endif

@@ -151,19 +151,16 @@ src/fast:
 
 # target to build an object file
 main.o:
-	$(MAKE) -f CMakeFiles/OMP_EX.dir/build.make CMakeFiles/OMP_EX.dir/main.o
 	$(MAKE) -f CMakeFiles/gsllib.dir/build.make CMakeFiles/gsllib.dir/main.o
 .PHONY : main.o
 
 # target to preprocess a source file
 main.i:
-	$(MAKE) -f CMakeFiles/OMP_EX.dir/build.make CMakeFiles/OMP_EX.dir/main.i
 	$(MAKE) -f CMakeFiles/gsllib.dir/build.make CMakeFiles/gsllib.dir/main.i
 .PHONY : main.i
 
 # target to generate assembly for a file
 main.s:
-	$(MAKE) -f CMakeFiles/OMP_EX.dir/build.make CMakeFiles/OMP_EX.dir/main.s
 	$(MAKE) -f CMakeFiles/gsllib.dir/build.make CMakeFiles/gsllib.dir/main.s
 .PHONY : main.s
 

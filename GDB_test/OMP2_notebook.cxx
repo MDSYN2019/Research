@@ -3,6 +3,7 @@
 
 double output = 0.0;
 double finaloutput = 0.0;
+double sum = 0.0;
 
 void Add(double* output) {
   for (int i = 0; i <= 10; i++) {
@@ -16,10 +17,16 @@ int main() {
   std::cout << nProcessors << std::endl;  
   omp_set_num_threads(nProcessors); // Set the number of threads
 
-  std::cout << "There are " <<  omp_get_num_threads() << " threads" << std::endl;
+  //std::cout << "There are " <<  omp_get_num_threads() << " threads" << std::endl;
   //int my_rank = omp_get_thread_num();
   //int thread_count = omp_get_num_threads();
   //std::cout << thread_count << std::endl;
+
+# pragma omp parallel for num_threads(nProcessors) reduction (+:sum) schedule(static, 1)
+  for (int i = 0; i <= n; i++) {
+    sum += f(i);
+  }
+
   
 # pragma omp parallel num_threads(nProcessors) 
   Add(&output);

@@ -7,9 +7,6 @@
 #include <string>
 #include <memory>
 
-/* Instead of just calling the OpenMP functions, e can first check whetehr _OPENMP is defined. */
-
-
 /*
 
 |---------------------------------|

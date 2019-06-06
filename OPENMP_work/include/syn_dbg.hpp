@@ -11,7 +11,6 @@ C (C++) tackles the problem by returning error codes and setting a global errno 
 
  */
 
-
 // The usual defence against accidentally including the file twice, which you saw in the last exercise 
 #ifndef __syn_dbg_h__
 #define __syn_dbg_h__
@@ -42,9 +41,7 @@ printf and take variable arguemnts. Some C compilers
 // strange syntax in the middle is a ternary operator and you'll learn what it does later
 
 #define clean_errno() (errno == 0 ? "None" : std::strerror(errno))
-
 #define log_err(M, ...) fprintf(stderr, "[WARN] (%s:%d : errorno: %s)" M "\n" __FILE__, __LINE__, clean_errno(), ##__VAR_ARGS__) 
-
 #define log_warn(M, ...)
 
 #endif 

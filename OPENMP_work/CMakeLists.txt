@@ -57,7 +57,6 @@ include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/QAT/src")
 
 #add_subdirectory (QAT)
 #set (QAT ${QAT} "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/QAT/include")
-
 #add_subdirectory (QATsrc)
 #set (QATsrc ${QATsrc} "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/QAT/src")
 
@@ -81,8 +80,8 @@ endif()
 
 find_package(MPI REQUIRED)
 
-#set(QATCOMP ${QATsrc}/AbsFunction.cpp ${QAT}/*.h)
-add_executable (OMP_EX ${UNIT_TEST} main.cxx)
+set(QATCOMP AbsFunction.cpp )
+add_executable (OMP_EX ${UNIT_TEST} ${QATCOMP} main.cxx)
 target_include_directories(OMP_EX PRIVATE)
 
 add_library(gsllib main.cxx)

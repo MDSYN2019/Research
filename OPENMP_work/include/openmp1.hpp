@@ -83,7 +83,7 @@ template <class T> class Vec {
 template <class T> class OMP {
 public:
   // Constructors and destructors 
-  OMP(T);
+  OMP(int);
   explicit OMP(const OMP& OMPCopy); // Copy constructor 
   OMP& operator=(const OMP& ref); // self-assignment operator
   ~OMP(); // Destructor  

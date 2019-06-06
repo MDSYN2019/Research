@@ -83,6 +83,7 @@ template <class T> void Vec<T>::grow() {
   //iterator new_avail
 }
 
+template <class T>
 OMP::OMP(int N) {
   thread_count = N;
   my_rank = omp_get_thread_num();
@@ -95,7 +96,8 @@ OMP::OMP(const OMP& ref) {
 OMP::~OMP() {
 } // Destructor 
 
-void OMP::add(int a) {
+template <class T>
+void OMP::add(T a) {
   val += a;
 }
 
@@ -122,16 +124,23 @@ int OMP::Linear_search(int key, int* A, int n) {
 }
 
 void OMP::pi() {
+  
   double factor = 1.0;
   double sum = 0.0;
   
 # pragma omp parallel for num_threads(thread_count) reduction(+:sum) private(factor)
+
   for (int k = 0; k < n; k++) {
+
     if (k % 2 == 0) {
       factor = 1.0;
+
     } else {
+
       factor = -1.0;
+
     }
+    
     sum += factor / (2*k + 1);
   }
 }

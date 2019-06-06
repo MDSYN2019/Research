@@ -50,7 +50,7 @@ algorithm
 initializer_list
 -
 
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/main.cxx
+/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/main.cxx
 iostream
 -
 iostream
@@ -64,13 +64,13 @@ cstdio
 omp.h
 -
 Eigen/Dense
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/Eigen/Dense
+/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/Eigen/Dense
 openmp1.hpp
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/openmp1.hpp
+/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/openmp1.hpp
 syn_dbg.hpp
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/syn_dbg.hpp
+/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/syn_dbg.hpp
 Argument.h
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/Argument.h
+/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/Argument.h
 
 /usr/local/include/eigen3/Eigen/Cholesky
 Core

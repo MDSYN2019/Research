@@ -40,7 +40,7 @@ algorithm
 initializer_list
 -
 
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/src/openmp1.cxx
+/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/openmp1.cxx
 iostream
 -
 algorithm
@@ -60,9 +60,9 @@ memory
 omp.h
 -
 openmp1.hpp
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/src/openmp1.hpp
+/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/openmp1.hpp
 Argument.h
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_work/src/Argument.h
+/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/Argument.h
 cppunit/extensions/TestFactoryRegistry.h
 -
 cppunit/CompilerOutputter.h

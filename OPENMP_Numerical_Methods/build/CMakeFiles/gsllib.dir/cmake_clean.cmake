@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/gsllib.dir/main.o"
+  "CMakeFiles/gsllib.dir/main.cxx.o"
   "libgsllib.pdb"
   "libgsllib.a"
 )

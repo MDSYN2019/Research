@@ -57,38 +57,38 @@ include CMakeFiles/gsllib.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/gsllib.dir/flags.make
 
-CMakeFiles/gsllib.dir/main.o: CMakeFiles/gsllib.dir/flags.make
-CMakeFiles/gsllib.dir/main.o: ../main.cxx
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/gsllib.dir/main.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gsllib.dir/main.o -c /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/main.cxx
+CMakeFiles/gsllib.dir/main.cxx.o: CMakeFiles/gsllib.dir/flags.make
+CMakeFiles/gsllib.dir/main.cxx.o: ../main.cxx
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/gsllib.dir/main.cxx.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gsllib.dir/main.cxx.o -c /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/main.cxx
 
-CMakeFiles/gsllib.dir/main.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gsllib.dir/main.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/main.cxx > CMakeFiles/gsllib.dir/main.i
+CMakeFiles/gsllib.dir/main.cxx.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gsllib.dir/main.cxx.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/main.cxx > CMakeFiles/gsllib.dir/main.cxx.i
 
-CMakeFiles/gsllib.dir/main.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gsllib.dir/main.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/main.cxx -o CMakeFiles/gsllib.dir/main.s
+CMakeFiles/gsllib.dir/main.cxx.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gsllib.dir/main.cxx.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/main.cxx -o CMakeFiles/gsllib.dir/main.cxx.s
 
-CMakeFiles/gsllib.dir/main.o.requires:
+CMakeFiles/gsllib.dir/main.cxx.o.requires:
 
-.PHONY : CMakeFiles/gsllib.dir/main.o.requires
+.PHONY : CMakeFiles/gsllib.dir/main.cxx.o.requires
 
-CMakeFiles/gsllib.dir/main.o.provides: CMakeFiles/gsllib.dir/main.o.requires
-	$(MAKE) -f CMakeFiles/gsllib.dir/build.make CMakeFiles/gsllib.dir/main.o.provides.build
-.PHONY : CMakeFiles/gsllib.dir/main.o.provides
+CMakeFiles/gsllib.dir/main.cxx.o.provides: CMakeFiles/gsllib.dir/main.cxx.o.requires
+	$(MAKE) -f CMakeFiles/gsllib.dir/build.make CMakeFiles/gsllib.dir/main.cxx.o.provides.build
+.PHONY : CMakeFiles/gsllib.dir/main.cxx.o.provides
 
-CMakeFiles/gsllib.dir/main.o.provides.build: CMakeFiles/gsllib.dir/main.o
+CMakeFiles/gsllib.dir/main.cxx.o.provides.build: CMakeFiles/gsllib.dir/main.cxx.o
 
 
 # Object files for target gsllib
 gsllib_OBJECTS = \
-"CMakeFiles/gsllib.dir/main.o"
+"CMakeFiles/gsllib.dir/main.cxx.o"
 
 # External object files for target gsllib
 gsllib_EXTERNAL_OBJECTS =
 
-libgsllib.a: CMakeFiles/gsllib.dir/main.o
+libgsllib.a: CMakeFiles/gsllib.dir/main.cxx.o
 libgsllib.a: CMakeFiles/gsllib.dir/build.make
 libgsllib.a: CMakeFiles/gsllib.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libgsllib.a"
@@ -100,7 +100,7 @@ CMakeFiles/gsllib.dir/build: libgsllib.a
 
 .PHONY : CMakeFiles/gsllib.dir/build
 
-CMakeFiles/gsllib.dir/requires: CMakeFiles/gsllib.dir/main.o.requires
+CMakeFiles/gsllib.dir/requires: CMakeFiles/gsllib.dir/main.cxx.o.requires
 
 .PHONY : CMakeFiles/gsllib.dir/requires
 

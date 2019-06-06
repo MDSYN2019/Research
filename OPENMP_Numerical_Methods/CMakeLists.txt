@@ -51,6 +51,8 @@ include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/include")
 find_package(Eigen3 REQUIRED)
 include_directories ("${EIGEN3_INCLUDE_DIR}") # Eigen libaries
 
+find_package(pybind11 REQUIRED)  # or add_subdirectory(pybind11)
+
 # Boost directories 
 include_directories (${Boost_INCLUDE_DIRS})
 
@@ -88,12 +90,12 @@ find_package(MPI REQUIRED)
 set(QATCOMP AbsFunction.cpp )
 add_executable (OMP_EX ${UNIT_TEST} ${QATCOMP} main.cxx)
 target_include_directories(OMP_EX PRIVATE)
-
 add_library(gsllib main.cxx)
+
 target_link_libraries(gsllib -L/home/noh/anaconda3/pkgs/gsl-2.1-2/lib/)
 target_link_libraries(gsllib libgsl.a)
 target_link_libraries(gsllib libgslcblas.a)
-target_link_libraries(OMP_EX ${EXTRA_LIBS} ${Boost_LIBRARIES} ${MATH} ${CPPUNIT} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB} gsllib)
+target_link_libraries(OMP_EX ${EXTRA_LIBS} ${Boost_LIBRARIES} ${MATH} ${CPPUNIT} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB} pybind11::module  gsllib)
 
 find_package(OpenMP)
 

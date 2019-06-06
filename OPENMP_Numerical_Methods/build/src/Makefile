@@ -125,20 +125,32 @@ src/fast:
 	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/build
 .PHONY : src/fast
 
-# target to build an object file
-openmp1.o:
-	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp1.o
+openmp1.o: openmp1.cxx.o
+
 .PHONY : openmp1.o
 
-# target to preprocess a source file
-openmp1.i:
-	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp1.i
+# target to build an object file
+openmp1.cxx.o:
+	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp1.cxx.o
+.PHONY : openmp1.cxx.o
+
+openmp1.i: openmp1.cxx.i
+
 .PHONY : openmp1.i
 
-# target to generate assembly for a file
-openmp1.s:
-	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp1.s
+# target to preprocess a source file
+openmp1.cxx.i:
+	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp1.cxx.i
+.PHONY : openmp1.cxx.i
+
+openmp1.s: openmp1.cxx.s
+
 .PHONY : openmp1.s
+
+# target to generate assembly for a file
+openmp1.cxx.s:
+	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp1.cxx.s
+.PHONY : openmp1.cxx.s
 
 # Help Target
 help:

@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/src.dir/openmp1.o"
+  "CMakeFiles/src.dir/openmp1.cxx.o"
   "libsrc.pdb"
   "libsrc.a"
 )

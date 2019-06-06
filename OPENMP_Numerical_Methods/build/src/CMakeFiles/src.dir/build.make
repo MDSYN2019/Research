@@ -57,38 +57,38 @@ include src/CMakeFiles/src.dir/progress.make
 # Include the compile flags for this target's objects.
 include src/CMakeFiles/src.dir/flags.make
 
-src/CMakeFiles/src.dir/openmp1.o: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/openmp1.o: ../src/openmp1.cxx
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/src.dir/openmp1.o"
-	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/src.dir/openmp1.o -c /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/openmp1.cxx
+src/CMakeFiles/src.dir/openmp1.cxx.o: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/openmp1.cxx.o: ../src/openmp1.cxx
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/src.dir/openmp1.cxx.o"
+	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/src.dir/openmp1.cxx.o -c /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/openmp1.cxx
 
-src/CMakeFiles/src.dir/openmp1.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/src.dir/openmp1.i"
-	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/openmp1.cxx > CMakeFiles/src.dir/openmp1.i
+src/CMakeFiles/src.dir/openmp1.cxx.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/src.dir/openmp1.cxx.i"
+	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/openmp1.cxx > CMakeFiles/src.dir/openmp1.cxx.i
 
-src/CMakeFiles/src.dir/openmp1.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/src.dir/openmp1.s"
-	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/openmp1.cxx -o CMakeFiles/src.dir/openmp1.s
+src/CMakeFiles/src.dir/openmp1.cxx.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/src.dir/openmp1.cxx.s"
+	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/openmp1.cxx -o CMakeFiles/src.dir/openmp1.cxx.s
 
-src/CMakeFiles/src.dir/openmp1.o.requires:
+src/CMakeFiles/src.dir/openmp1.cxx.o.requires:
 
-.PHONY : src/CMakeFiles/src.dir/openmp1.o.requires
+.PHONY : src/CMakeFiles/src.dir/openmp1.cxx.o.requires
 
-src/CMakeFiles/src.dir/openmp1.o.provides: src/CMakeFiles/src.dir/openmp1.o.requires
-	$(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp1.o.provides.build
-.PHONY : src/CMakeFiles/src.dir/openmp1.o.provides
+src/CMakeFiles/src.dir/openmp1.cxx.o.provides: src/CMakeFiles/src.dir/openmp1.cxx.o.requires
+	$(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp1.cxx.o.provides.build
+.PHONY : src/CMakeFiles/src.dir/openmp1.cxx.o.provides
 
-src/CMakeFiles/src.dir/openmp1.o.provides.build: src/CMakeFiles/src.dir/openmp1.o
+src/CMakeFiles/src.dir/openmp1.cxx.o.provides.build: src/CMakeFiles/src.dir/openmp1.cxx.o
 
 
 # Object files for target src
 src_OBJECTS = \
-"CMakeFiles/src.dir/openmp1.o"
+"CMakeFiles/src.dir/openmp1.cxx.o"
 
 # External object files for target src
 src_EXTERNAL_OBJECTS =
 
-src/libsrc.a: src/CMakeFiles/src.dir/openmp1.o
+src/libsrc.a: src/CMakeFiles/src.dir/openmp1.cxx.o
 src/libsrc.a: src/CMakeFiles/src.dir/build.make
 src/libsrc.a: src/CMakeFiles/src.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libsrc.a"
@@ -100,7 +100,7 @@ src/CMakeFiles/src.dir/build: src/libsrc.a
 
 .PHONY : src/CMakeFiles/src.dir/build
 
-src/CMakeFiles/src.dir/requires: src/CMakeFiles/src.dir/openmp1.o.requires
+src/CMakeFiles/src.dir/requires: src/CMakeFiles/src.dir/openmp1.cxx.o.requires
 
 .PHONY : src/CMakeFiles/src.dir/requires
 

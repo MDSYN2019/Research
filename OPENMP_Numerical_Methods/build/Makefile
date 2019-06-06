@@ -149,20 +149,32 @@ src/fast:
 	$(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/build
 .PHONY : src/fast
 
-# target to build an object file
-main.o:
-	$(MAKE) -f CMakeFiles/gsllib.dir/build.make CMakeFiles/gsllib.dir/main.o
+main.o: main.cxx.o
+
 .PHONY : main.o
 
-# target to preprocess a source file
-main.i:
-	$(MAKE) -f CMakeFiles/gsllib.dir/build.make CMakeFiles/gsllib.dir/main.i
+# target to build an object file
+main.cxx.o:
+	$(MAKE) -f CMakeFiles/gsllib.dir/build.make CMakeFiles/gsllib.dir/main.cxx.o
+.PHONY : main.cxx.o
+
+main.i: main.cxx.i
+
 .PHONY : main.i
 
-# target to generate assembly for a file
-main.s:
-	$(MAKE) -f CMakeFiles/gsllib.dir/build.make CMakeFiles/gsllib.dir/main.s
+# target to preprocess a source file
+main.cxx.i:
+	$(MAKE) -f CMakeFiles/gsllib.dir/build.make CMakeFiles/gsllib.dir/main.cxx.i
+.PHONY : main.cxx.i
+
+main.s: main.cxx.s
+
 .PHONY : main.s
+
+# target to generate assembly for a file
+main.cxx.s:
+	$(MAKE) -f CMakeFiles/gsllib.dir/build.make CMakeFiles/gsllib.dir/main.cxx.s
+.PHONY : main.cxx.s
 
 # Help Target
 help:

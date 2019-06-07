@@ -1,0 +1,17 @@
+---
+kind: pipeline
+name: default
+
+steps:
+- name: build
+  image: cppnumericalsolver_dynamic
+  pull: never
+  commands:
+  - /root/bin/bazel run verify
+  - python lint.py
+
+---
+kind: signature
+hmac: 98eb2e425769b09a9bbc04ab65c7213039bd19695fcaace53a8271e650083335
+
+...

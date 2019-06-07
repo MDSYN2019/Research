@@ -14,7 +14,6 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../include"
   "/usr/local/include/eigen3"
   "../thirdparty/QAT/include"
-  "../thirdparty/QAT/src"
   )
 
 # Targets to which this target links.

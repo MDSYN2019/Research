@@ -155,6 +155,7 @@ main.o: main.cxx.o
 
 # target to build an object file
 main.cxx.o:
+	$(MAKE) -f CMakeFiles/OMP_EX.dir/build.make CMakeFiles/OMP_EX.dir/main.cxx.o
 	$(MAKE) -f CMakeFiles/gsllib.dir/build.make CMakeFiles/gsllib.dir/main.cxx.o
 .PHONY : main.cxx.o
 
@@ -164,6 +165,7 @@ main.i: main.cxx.i
 
 # target to preprocess a source file
 main.cxx.i:
+	$(MAKE) -f CMakeFiles/OMP_EX.dir/build.make CMakeFiles/OMP_EX.dir/main.cxx.i
 	$(MAKE) -f CMakeFiles/gsllib.dir/build.make CMakeFiles/gsllib.dir/main.cxx.i
 .PHONY : main.cxx.i
 
@@ -173,6 +175,7 @@ main.s: main.cxx.s
 
 # target to generate assembly for a file
 main.cxx.s:
+	$(MAKE) -f CMakeFiles/OMP_EX.dir/build.make CMakeFiles/OMP_EX.dir/main.cxx.s
 	$(MAKE) -f CMakeFiles/gsllib.dir/build.make CMakeFiles/gsllib.dir/main.cxx.s
 .PHONY : main.cxx.s
 

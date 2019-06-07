@@ -1,10 +1,6 @@
-cmake_minimum_required (VERSION 1.0)
+cmake_minimum_required (VERSION 1.1)
 project (OMP_C++)
-
-# Enable Fortran
-#enable_language(Fortran)
-# Enable eigen (C++)
-
+include(CheckCXXCompilerFlag)
 
 if(CMAKE_Fortran_COMPILER_ID MATCHES "GNU")
     set(dialect "-ffree-form -std=f2008 -fimplicit-none")
@@ -21,8 +17,7 @@ if(CMAKE_Fortran_COMPILER_ID MATCHES "PGI")
     set(bounds "-C")
 endif()
 
-# Ensure C++11 is invoked
-include(CheckCXXCompilerFlag)
+# Ensure C++11 is invokedinclude(CheckCXXCompilerFlag)
 
 FIND_LIBRARY(CPPUNIT_LIBRARY NAMES cppunit)
 
@@ -58,7 +53,15 @@ include_directories (${Boost_INCLUDE_DIRS})
 
 # QAT directory
 include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/QAT/include")
-include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/QAT/src")
+
+
+if (USE_QAT)
+  include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/QAT/QATsrc")
+  add_subdirectory(QATsrc)
+  set(QAT_LIBS ${QAT_LIBS} QATsrc)
+endif (USE_QAT)
+
+option (USE_QAT "Use QAT implementation" ON) 
 
 #add_subdirectory (QAT)
 #set (QAT ${QAT} "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/QAT/include")
@@ -66,9 +69,10 @@ include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/QAT/src")
 #set (QATsrc ${QATsrc} "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/QAT/src")
 
 add_subdirectory (src)
-set (EXTRA_LIBS ${EXTRA_LIBS} src)
-set (MATH "${MATH} -lm")
-set (CPPUNIT "${CPPUNIT} -lcppunit")
+set(EXTRA_LIBS ${EXTRA_LIBS} src)
+set(MATH "${MATH} -lm")
+set(CPPUNIT "${CPPUNIT} -lcppunit")
+
 
 # Include GSL directories
 include_directories (${GSL_INCLUDE_DIRS} ${GSLCBLAS_INCLUDE_DIRS})
@@ -86,16 +90,15 @@ endif()
 
 
 find_package(MPI REQUIRED)
+#set(QATHEAD ${QAT}/*.h)
 
-set(QATCOMP AbsFunction.cpp )
-add_executable (OMP_EX ${UNIT_TEST} ${QATCOMP} main.cxx)
-target_include_directories(OMP_EX PRIVATE)
+add_executable (OMP_EX ${UNIT_TEST} ${QAT_LIBS} main.cxx)
 add_library(gsllib main.cxx)
 
 target_link_libraries(gsllib -L/home/noh/anaconda3/pkgs/gsl-2.1-2/lib/)
 target_link_libraries(gsllib libgsl.a)
 target_link_libraries(gsllib libgslcblas.a)
-target_link_libraries(OMP_EX ${EXTRA_LIBS} ${Boost_LIBRARIES} ${MATH} ${CPPUNIT} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB} pybind11::module  gsllib)
+target_link_libraries(OMP_EX ${EXTRA_LIBS} ${Boost_LIBRARIES} ${MATH} ${CPPUNIT} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB} ${QAT_LIBS} pybind11::module gsllib)
 
 find_package(OpenMP)
 

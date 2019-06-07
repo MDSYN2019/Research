@@ -26,7 +26,7 @@
 // This one dimensional function takes its values from   //
 // an array..which it copies in.                         //
 //-------------------------------------------------------//
-#include "QatGenericFunctions/AbsFunction.h"
+#include "AbsFunction.h"
 #include <vector>
 #include <initializer_list>
 namespace Genfun {

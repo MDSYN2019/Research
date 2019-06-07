@@ -1,6 +1,9 @@
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
+#include <sstream>
+#include <string>
+#include <complex>
 
 /* Instead of just calling the OpenMP functions, e can first check whetehr _OPENMP is defined. */
 
@@ -23,6 +26,10 @@ A numeric progression is a seuqence of numbers, where the value of each number d
 previous value.
  
 */
+
+typedef std::complex<double> Complex;
+
+
 
 class Progression {
 public:

@@ -19,6 +19,7 @@ using namespace Eigen;
 
 // QAT headers
 
+#include "Variable.h"
 #include "Argument.h"
 
 void test_debug() {
@@ -40,7 +41,11 @@ double f (int i) {
 //OMP AA(5);
 
 int main () {
+  
+  //  Genfun::Variable X;
+  //  std::cout << X(3.14) << std::endl;
 
+ 
   Matrix2d a;
   a << 1, 2,
        3, 4;

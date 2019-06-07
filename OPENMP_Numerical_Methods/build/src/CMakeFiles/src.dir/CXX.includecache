@@ -74,3 +74,9 @@ cppunit/TestFixture.h
 cppunit/extensions/HelperMacros.h
 -
 
+/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/openmp2.cxx
+exception
+-
+iostream
+-
+

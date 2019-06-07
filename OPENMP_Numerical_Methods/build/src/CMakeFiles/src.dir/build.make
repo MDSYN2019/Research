@@ -105,19 +105,97 @@ src/CMakeFiles/src.dir/openmp2.cxx.o.provides: src/CMakeFiles/src.dir/openmp2.cx
 src/CMakeFiles/src.dir/openmp2.cxx.o.provides.build: src/CMakeFiles/src.dir/openmp2.cxx.o
 
 
+src/CMakeFiles/src.dir/Variable.cxx.o: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/Variable.cxx.o: ../src/Variable.cxx
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/src.dir/Variable.cxx.o"
+	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/src.dir/Variable.cxx.o -c /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/Variable.cxx
+
+src/CMakeFiles/src.dir/Variable.cxx.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/src.dir/Variable.cxx.i"
+	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/Variable.cxx > CMakeFiles/src.dir/Variable.cxx.i
+
+src/CMakeFiles/src.dir/Variable.cxx.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/src.dir/Variable.cxx.s"
+	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/Variable.cxx -o CMakeFiles/src.dir/Variable.cxx.s
+
+src/CMakeFiles/src.dir/Variable.cxx.o.requires:
+
+.PHONY : src/CMakeFiles/src.dir/Variable.cxx.o.requires
+
+src/CMakeFiles/src.dir/Variable.cxx.o.provides: src/CMakeFiles/src.dir/Variable.cxx.o.requires
+	$(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/Variable.cxx.o.provides.build
+.PHONY : src/CMakeFiles/src.dir/Variable.cxx.o.provides
+
+src/CMakeFiles/src.dir/Variable.cxx.o.provides.build: src/CMakeFiles/src.dir/Variable.cxx.o
+
+
+src/CMakeFiles/src.dir/AbsFunction.cxx.o: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/AbsFunction.cxx.o: ../src/AbsFunction.cxx
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/src.dir/AbsFunction.cxx.o"
+	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/src.dir/AbsFunction.cxx.o -c /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/AbsFunction.cxx
+
+src/CMakeFiles/src.dir/AbsFunction.cxx.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/src.dir/AbsFunction.cxx.i"
+	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/AbsFunction.cxx > CMakeFiles/src.dir/AbsFunction.cxx.i
+
+src/CMakeFiles/src.dir/AbsFunction.cxx.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/src.dir/AbsFunction.cxx.s"
+	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/AbsFunction.cxx -o CMakeFiles/src.dir/AbsFunction.cxx.s
+
+src/CMakeFiles/src.dir/AbsFunction.cxx.o.requires:
+
+.PHONY : src/CMakeFiles/src.dir/AbsFunction.cxx.o.requires
+
+src/CMakeFiles/src.dir/AbsFunction.cxx.o.provides: src/CMakeFiles/src.dir/AbsFunction.cxx.o.requires
+	$(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/AbsFunction.cxx.o.provides.build
+.PHONY : src/CMakeFiles/src.dir/AbsFunction.cxx.o.provides
+
+src/CMakeFiles/src.dir/AbsFunction.cxx.o.provides.build: src/CMakeFiles/src.dir/AbsFunction.cxx.o
+
+
+src/CMakeFiles/src.dir/KVector.cxx.o: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/KVector.cxx.o: ../src/KVector.cxx
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/src.dir/KVector.cxx.o"
+	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/src.dir/KVector.cxx.o -c /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/KVector.cxx
+
+src/CMakeFiles/src.dir/KVector.cxx.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/src.dir/KVector.cxx.i"
+	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/KVector.cxx > CMakeFiles/src.dir/KVector.cxx.i
+
+src/CMakeFiles/src.dir/KVector.cxx.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/src.dir/KVector.cxx.s"
+	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/KVector.cxx -o CMakeFiles/src.dir/KVector.cxx.s
+
+src/CMakeFiles/src.dir/KVector.cxx.o.requires:
+
+.PHONY : src/CMakeFiles/src.dir/KVector.cxx.o.requires
+
+src/CMakeFiles/src.dir/KVector.cxx.o.provides: src/CMakeFiles/src.dir/KVector.cxx.o.requires
+	$(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/KVector.cxx.o.provides.build
+.PHONY : src/CMakeFiles/src.dir/KVector.cxx.o.provides
+
+src/CMakeFiles/src.dir/KVector.cxx.o.provides.build: src/CMakeFiles/src.dir/KVector.cxx.o
+
+
 # Object files for target src
 src_OBJECTS = \
 "CMakeFiles/src.dir/openmp1.cxx.o" \
-"CMakeFiles/src.dir/openmp2.cxx.o"
+"CMakeFiles/src.dir/openmp2.cxx.o" \
+"CMakeFiles/src.dir/Variable.cxx.o" \
+"CMakeFiles/src.dir/AbsFunction.cxx.o" \
+"CMakeFiles/src.dir/KVector.cxx.o"
 
 # External object files for target src
 src_EXTERNAL_OBJECTS =
 
 src/libsrc.a: src/CMakeFiles/src.dir/openmp1.cxx.o
 src/libsrc.a: src/CMakeFiles/src.dir/openmp2.cxx.o
+src/libsrc.a: src/CMakeFiles/src.dir/Variable.cxx.o
+src/libsrc.a: src/CMakeFiles/src.dir/AbsFunction.cxx.o
+src/libsrc.a: src/CMakeFiles/src.dir/KVector.cxx.o
 src/libsrc.a: src/CMakeFiles/src.dir/build.make
 src/libsrc.a: src/CMakeFiles/src.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libsrc.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX static library libsrc.a"
 	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/src && $(CMAKE_COMMAND) -P CMakeFiles/src.dir/cmake_clean_target.cmake
 	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/src.dir/link.txt --verbose=$(VERBOSE)
 
@@ -128,6 +206,9 @@ src/CMakeFiles/src.dir/build: src/libsrc.a
 
 src/CMakeFiles/src.dir/requires: src/CMakeFiles/src.dir/openmp1.cxx.o.requires
 src/CMakeFiles/src.dir/requires: src/CMakeFiles/src.dir/openmp2.cxx.o.requires
+src/CMakeFiles/src.dir/requires: src/CMakeFiles/src.dir/Variable.cxx.o.requires
+src/CMakeFiles/src.dir/requires: src/CMakeFiles/src.dir/AbsFunction.cxx.o.requires
+src/CMakeFiles/src.dir/requires: src/CMakeFiles/src.dir/KVector.cxx.o.requires
 
 .PHONY : src/CMakeFiles/src.dir/requires
 

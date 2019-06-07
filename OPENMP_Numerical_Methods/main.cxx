@@ -42,10 +42,9 @@ double f (int i) {
 using namespace Genfun;
 
 int main () {
-  // Genfun::Variable X;
-  // std::cout << X(3.14) << std::endl;
-
- 
+  Genfun::Variable X;
+  std::cout << X(3.14) << std::endl;
+  
   Matrix2d a;
   a << 1, 2,
        3, 4;

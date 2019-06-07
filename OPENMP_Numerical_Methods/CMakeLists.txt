@@ -52,11 +52,10 @@ find_package(pybind11 REQUIRED)  # or add_subdirectory(pybind11)
 include_directories (${Boost_INCLUDE_DIRS})
 
 # QAT directory
-include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/QAT/include")
-
+include_directories ("${PROJECT_SOURCE_DIR}/thirdparty/include")
 
 if (USE_QAT)
-  include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/QAT/QATsrc")
+  include_directories ("${PROJECT_CURRENT_SOURCE_DIR}/thirdparty/QATsrc")
   add_subdirectory(QATsrc)
   set(QAT_LIBS ${QAT_LIBS} QATsrc)
 endif (USE_QAT)

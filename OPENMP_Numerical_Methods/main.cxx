@@ -39,11 +39,11 @@ double f (int i) {
 }
 
 //OMP AA(5);
+using namespace Genfun;
 
 int main () {
-  
-  //  Genfun::Variable X;
-  //  std::cout << X(3.14) << std::endl;
+  // Genfun::Variable X;
+  // std::cout << X(3.14) << std::endl;
 
  
   Matrix2d a;

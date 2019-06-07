@@ -38,61 +38,61 @@ string
 cerrno
 -
 
-../thirdparty/QAT/include/AbsFunction.h
+../thirdparty/include/AbsFunction.h
 Argument.h
-../thirdparty/QAT/include/Argument.h
+../thirdparty/include/Argument.h
 FunctionProduct.h
-../thirdparty/QAT/include/FunctionProduct.h
+../thirdparty/include/FunctionProduct.h
 FunctionSum.h
-../thirdparty/QAT/include/FunctionSum.h
+../thirdparty/include/FunctionSum.h
 FunctionDifference.h
-../thirdparty/QAT/include/FunctionDifference.h
+../thirdparty/include/FunctionDifference.h
 FunctionQuotient.h
-../thirdparty/QAT/include/FunctionQuotient.h
+../thirdparty/include/FunctionQuotient.h
 FunctionNegation.h
-../thirdparty/QAT/include/FunctionNegation.h
+../thirdparty/include/FunctionNegation.h
 FunctionDirectProduct.h
-../thirdparty/QAT/include/FunctionDirectProduct.h
+../thirdparty/include/FunctionDirectProduct.h
 FunctionComposition.h
-../thirdparty/QAT/include/FunctionComposition.h
+../thirdparty/include/FunctionComposition.h
 ConstPlusFunction.h
-../thirdparty/QAT/include/ConstPlusFunction.h
+../thirdparty/include/ConstPlusFunction.h
 ConstTimesFunction.h
-../thirdparty/QAT/include/ConstTimesFunction.h
+../thirdparty/include/ConstTimesFunction.h
 ConstMinusFunction.h
-../thirdparty/QAT/include/ConstMinusFunction.h
+../thirdparty/include/ConstMinusFunction.h
 ConstOverFunction.h
-../thirdparty/QAT/include/ConstOverFunction.h
+../thirdparty/include/ConstOverFunction.h
 FunctionPlusParameter.h
-../thirdparty/QAT/include/FunctionPlusParameter.h
+../thirdparty/include/FunctionPlusParameter.h
 FunctionTimesParameter.h
-../thirdparty/QAT/include/FunctionTimesParameter.h
+../thirdparty/include/FunctionTimesParameter.h
 FunctionNoop.h
-../thirdparty/QAT/include/FunctionNoop.h
+../thirdparty/include/FunctionNoop.h
 ParameterComposition.h
-../thirdparty/QAT/include/ParameterComposition.h
+../thirdparty/include/ParameterComposition.h
 
-../thirdparty/QAT/include/AbsParameter.h
+../thirdparty/include/AbsParameter.h
 ParameterProduct.h
-../thirdparty/QAT/include/ParameterProduct.h
+../thirdparty/include/ParameterProduct.h
 ParameterSum.h
-../thirdparty/QAT/include/ParameterSum.h
+../thirdparty/include/ParameterSum.h
 ParameterDifference.h
-../thirdparty/QAT/include/ParameterDifference.h
+../thirdparty/include/ParameterDifference.h
 ParameterQuotient.h
-../thirdparty/QAT/include/ParameterQuotient.h
+../thirdparty/include/ParameterQuotient.h
 ParameterNegation.h
-../thirdparty/QAT/include/ParameterNegation.h
+../thirdparty/include/ParameterNegation.h
 ConstPlusParameter.h
-../thirdparty/QAT/include/ConstPlusParameter.h
+../thirdparty/include/ConstPlusParameter.h
 ConstMinusParameter.h
-../thirdparty/QAT/include/ConstMinusParameter.h
+../thirdparty/include/ConstMinusParameter.h
 ConstTimesParameter.h
-../thirdparty/QAT/include/ConstTimesParameter.h
+../thirdparty/include/ConstTimesParameter.h
 ConstOverParameter.h
-../thirdparty/QAT/include/ConstOverParameter.h
+../thirdparty/include/ConstOverParameter.h
 
-../thirdparty/QAT/include/Argument.h
+../thirdparty/include/Argument.h
 iostream
 -
 vector
@@ -104,107 +104,107 @@ algorithm
 initializer_list
 -
 
-../thirdparty/QAT/include/ConstMinusFunction.h
+../thirdparty/include/ConstMinusFunction.h
 AbsFunction.h
-../thirdparty/QAT/include/AbsFunction.h
+../thirdparty/include/AbsFunction.h
 
-../thirdparty/QAT/include/ConstMinusParameter.h
+../thirdparty/include/ConstMinusParameter.h
 AbsParameter.h
-../thirdparty/QAT/include/AbsParameter.h
+../thirdparty/include/AbsParameter.h
 
-../thirdparty/QAT/include/ConstOverFunction.h
+../thirdparty/include/ConstOverFunction.h
 AbsFunction.h
-../thirdparty/QAT/include/AbsFunction.h
+../thirdparty/include/AbsFunction.h
 
-../thirdparty/QAT/include/ConstOverParameter.h
+../thirdparty/include/ConstOverParameter.h
 AbsParameter.h
-../thirdparty/QAT/include/AbsParameter.h
+../thirdparty/include/AbsParameter.h
 
-../thirdparty/QAT/include/ConstPlusFunction.h
+../thirdparty/include/ConstPlusFunction.h
 AbsFunction.h
-../thirdparty/QAT/include/AbsFunction.h
+../thirdparty/include/AbsFunction.h
 
-../thirdparty/QAT/include/ConstPlusParameter.h
+../thirdparty/include/ConstPlusParameter.h
 AbsParameter.h
-../thirdparty/QAT/include/AbsParameter.h
+../thirdparty/include/AbsParameter.h
 
-../thirdparty/QAT/include/ConstTimesFunction.h
+../thirdparty/include/ConstTimesFunction.h
 AbsFunction.h
-../thirdparty/QAT/include/AbsFunction.h
+../thirdparty/include/AbsFunction.h
 
-../thirdparty/QAT/include/ConstTimesParameter.h
+../thirdparty/include/ConstTimesParameter.h
 AbsParameter.h
-../thirdparty/QAT/include/AbsParameter.h
+../thirdparty/include/AbsParameter.h
 
-../thirdparty/QAT/include/FunctionComposition.h
+../thirdparty/include/FunctionComposition.h
 AbsFunction.h
-../thirdparty/QAT/include/AbsFunction.h
+../thirdparty/include/AbsFunction.h
 
-../thirdparty/QAT/include/FunctionDifference.h
+../thirdparty/include/FunctionDifference.h
 AbsFunction.h
-../thirdparty/QAT/include/AbsFunction.h
+../thirdparty/include/AbsFunction.h
 
-../thirdparty/QAT/include/FunctionDirectProduct.h
+../thirdparty/include/FunctionDirectProduct.h
 AbsFunction.h
-../thirdparty/QAT/include/AbsFunction.h
+../thirdparty/include/AbsFunction.h
 
-../thirdparty/QAT/include/FunctionNegation.h
+../thirdparty/include/FunctionNegation.h
 AbsFunction.h
-../thirdparty/QAT/include/AbsFunction.h
+../thirdparty/include/AbsFunction.h
 
-../thirdparty/QAT/include/FunctionNoop.h
+../thirdparty/include/FunctionNoop.h
 AbsFunction.h
-../thirdparty/QAT/include/AbsFunction.h
+../thirdparty/include/AbsFunction.h
 
-../thirdparty/QAT/include/FunctionPlusParameter.h
+../thirdparty/include/FunctionPlusParameter.h
 AbsFunction.h
-../thirdparty/QAT/include/AbsFunction.h
+../thirdparty/include/AbsFunction.h
 
-../thirdparty/QAT/include/FunctionProduct.h
+../thirdparty/include/FunctionProduct.h
 AbsFunction.h
-../thirdparty/QAT/include/AbsFunction.h
+../thirdparty/include/AbsFunction.h
 
-../thirdparty/QAT/include/FunctionQuotient.h
+../thirdparty/include/FunctionQuotient.h
 AbsFunction.h
-../thirdparty/QAT/include/AbsFunction.h
+../thirdparty/include/AbsFunction.h
 
-../thirdparty/QAT/include/FunctionSum.h
+../thirdparty/include/FunctionSum.h
 AbsFunction.h
-../thirdparty/QAT/include/AbsFunction.h
+../thirdparty/include/AbsFunction.h
 
-../thirdparty/QAT/include/FunctionTimesParameter.h
+../thirdparty/include/FunctionTimesParameter.h
 AbsFunction.h
-../thirdparty/QAT/include/AbsFunction.h
+../thirdparty/include/AbsFunction.h
 
-../thirdparty/QAT/include/ParameterComposition.h
+../thirdparty/include/ParameterComposition.h
 AbsFunction.h
-../thirdparty/QAT/include/AbsFunction.h
+../thirdparty/include/AbsFunction.h
 AbsParameter.h
-../thirdparty/QAT/include/AbsParameter.h
+../thirdparty/include/AbsParameter.h
 
-../thirdparty/QAT/include/ParameterDifference.h
+../thirdparty/include/ParameterDifference.h
 AbsParameter.h
-../thirdparty/QAT/include/AbsParameter.h
+../thirdparty/include/AbsParameter.h
 
-../thirdparty/QAT/include/ParameterNegation.h
+../thirdparty/include/ParameterNegation.h
 AbsParameter.h
-../thirdparty/QAT/include/AbsParameter.h
+../thirdparty/include/AbsParameter.h
 
-../thirdparty/QAT/include/ParameterProduct.h
+../thirdparty/include/ParameterProduct.h
 AbsParameter.h
-../thirdparty/QAT/include/AbsParameter.h
+../thirdparty/include/AbsParameter.h
 
-../thirdparty/QAT/include/ParameterQuotient.h
+../thirdparty/include/ParameterQuotient.h
 AbsParameter.h
-../thirdparty/QAT/include/AbsParameter.h
+../thirdparty/include/AbsParameter.h
 
-../thirdparty/QAT/include/ParameterSum.h
+../thirdparty/include/ParameterSum.h
 AbsParameter.h
-../thirdparty/QAT/include/AbsParameter.h
+../thirdparty/include/AbsParameter.h
 
-../thirdparty/QAT/include/Variable.h
+../thirdparty/include/Variable.h
 AbsFunction.h
-../thirdparty/QAT/include/AbsFunction.h
+../thirdparty/include/AbsFunction.h
 
 /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/main.cxx
 iostream

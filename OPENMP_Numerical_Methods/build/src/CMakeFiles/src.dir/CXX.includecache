@@ -28,7 +28,7 @@ cppunit/TestFixture.h
 cppunit/extensions/HelperMacros.h
 -
 
-../thirdparty/QAT/include/Argument.h
+../thirdparty/include/Argument.h
 iostream
 -
 vector

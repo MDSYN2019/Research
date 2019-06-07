@@ -13,7 +13,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../src"
   "../include"
   "/usr/local/include/eigen3"
-  "../thirdparty/QAT/include"
+  "../thirdparty/include"
   "/home/oohnohnoh1/anaconda3/include/python3.6m"
   )
 

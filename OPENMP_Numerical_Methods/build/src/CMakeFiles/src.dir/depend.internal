@@ -3,7 +3,7 @@
 
 src/CMakeFiles/src.dir/openmp1.cxx.o
  ../include/openmp1.hpp
- ../thirdparty/QAT/include/Argument.h
+ ../thirdparty/include/Argument.h
  /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/openmp1.cxx
 src/CMakeFiles/src.dir/openmp2.cxx.o
  /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/openmp2.cxx

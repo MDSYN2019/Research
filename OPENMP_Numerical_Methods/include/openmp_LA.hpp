@@ -37,7 +37,25 @@ public:
 
   virtual ~SYN_Mat(); // virtual destructor
   
+  // Matrix mathematical operations
+
+  SYN_Mat<T>& operator=(SYN_Mat<T>& rhs);
+  SYN_Mat<T>& operator+(SYN_Mat<T>& rhs);
+  SYN_Mat<T>& operator-(SYN_Mat<T>& rhs);
+  SYN_Mat<T>& operator-=(SYN_Mat<T>& rhs);
+  SYN_Mat<T>& operator*(SYN_Mat<T>& rhs);
+  SYN_Mat<T>& operator*=(SYN_Mat<T>& rhs);
+  SYN_Mat<T> transpose();
+
   // Matrix/scalar operations
+
+  SYN_Mat<T> operator+(const T& rhs);
+  SYN_Mat<T> operator-(const T& rhs);
+  SYN_Mat<T> operator*(const T& rhs);
+  SYN_Mat<T> operator/(const T& rhs);
+
+  
+
   
   void thomas_algorithm(const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, std::vector<double>&);
 

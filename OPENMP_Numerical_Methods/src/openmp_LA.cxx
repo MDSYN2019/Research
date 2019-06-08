@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <string>
 #include <memory>
+#include <vector>
 
 #ifndef _OPENMP_
 #include <omp.h>
@@ -36,4 +37,9 @@
 
 typedef Eigen::Matrix<double, 4, 4> Matrix4x4;
 
+SYN_Mat::SYN_MAT() {} // default constructor
+SYN_MAT::~SYN_MAT() {}
+
+SYN_MAT::thomas_algorithm() {
+}{
 

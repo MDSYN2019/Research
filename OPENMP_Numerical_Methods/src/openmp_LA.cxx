@@ -37,9 +37,8 @@
 
 typedef Eigen::Matrix<double, 4, 4> Matrix4x4;
 
-SYN_Mat::SYN_MAT() {} // default constructor
-SYN_MAT::~SYN_MAT() {}
 
-SYN_MAT::thomas_algorithm() {
-}{
+SYN_Mat<T>::SYN_Mat() {} // default constructor
+SYN_Mat<T>::~SYN_Mat() {}
+SYN_Mat<T>::thomas_algorithm() {}
 

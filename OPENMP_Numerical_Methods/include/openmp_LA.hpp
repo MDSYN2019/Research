@@ -28,16 +28,25 @@
 
 typedef Eigen::Matrix<double, 4, 4> Matrix4x4;
 
-class SYN_Mat {
+template <typename T> class SYN_Mat {
 public:
   SYN_Mat(int);
-  ~SYN_Mat();
+  SYN_Mat(const SYN_Mat<T>& alloc);
+  // Operator overloading
+  SYN_Mat<T>& operator=(const SYN_Mat<T>& alloc);
+
+  virtual ~SYN_Mat(); // virtual destructor
+  
+  // Matrix/scalar operations
+  
   void thomas_algorithm(const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, std::vector<double>&);
+
 private:
   int N;
   std::vector<double> c_star(N, 0.0);
   std::vector<double> d_star(N, 0.0);
-  
+  unsigned rows;
+  unsigned cols;
 };
 
 #endif

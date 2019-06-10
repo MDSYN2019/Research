@@ -41,7 +41,17 @@ typedef Eigen::Matrix<double, 4, 4> Matrix4x4;
 SYN_Mat<T>::SYN_Mat() {} // default constructor
 SYN_Mat<T>::~SYN_Mat() {}
 
-SYN_Mat<T>::thomas_algorithm(const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, std::vector<double>&) {}
+SYN_Mat<T>::thomas_algorithm(const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, std::vector<double>&) {
+  c_star[0] = c[0] / b[0];
+  d_star[0] = d[0] / b[0];
+
+  for (int i = 1; i < N; i++) {
+    double m = 1.0/ (b[i] - a[i] * c_star[i-1]);
+    c_star[i] = c[i] * m;
+    d_star[i] = (d[i] - a[i] * d_star[i-1]) * m;
+  }
+ 
+}
 
 
 

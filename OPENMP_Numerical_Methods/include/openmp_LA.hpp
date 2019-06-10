@@ -54,11 +54,8 @@ public:
   SYN_Mat<T> operator*(const T& rhs);
   SYN_Mat<T> operator/(const T& rhs);
 
-  
-
-  
   void thomas_algorithm(const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, std::vector<double>&);
-
+  
 private:
   int N;
   std::vector<double> c_star(N, 0.0);

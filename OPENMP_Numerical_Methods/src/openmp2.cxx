@@ -28,10 +28,8 @@ class Complex {
   double real, imaginary;
 public:
   Complex( double r, double i = 0 ) 
-    : real(r)
-        , imaginary(i) 
-  {
-  }
+    : real(r) , imaginary(i) 
+  {}
 };
 
 bool operator ==( const Complex &a, const Complex &b )

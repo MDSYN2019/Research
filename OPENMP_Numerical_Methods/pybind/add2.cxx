@@ -8,11 +8,23 @@
 namespace py = pybind11;
 
 
+//struct Pet {
+  //   Pet(const std::string &name) : name(name) { }
+  //    void setName(const std::string &name_) { name = name_; }
+  //    const std::string &getName() const { return name; }
+//    std::string name;
+  //};
+
 struct Pet {
-    Pet(const std::string &name) : name(name) { }
-    void setName(const std::string &name_) { name = name_; }
-    const std::string &getName() const { return name; }
-    std::string name;
+  Pet(const std::string &name) : name(name) { }
+  void setName(const std::string &name_) { name = name_; }
+  const std::string &getName() const { return name; }
+  std::string name;
+};
+
+struct Dog : Pet {
+    Dog(const std::string &name) : Pet(name) { }
+    std::string bark() const { return "woof!"; }
 };
 
 PYBIND11_MODULE(example2, m) {

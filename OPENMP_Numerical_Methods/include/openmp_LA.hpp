@@ -27,8 +27,6 @@
 #include "Eigen/Dense"
 #include "Eigen/LU"
 
-typedef Eigen::Matrix<double, 4, 4> Matrix4x4;
-
 template <typename T> class SYN_Mat {
 public:
   SYN_Mat(int);
@@ -63,5 +61,10 @@ private:
   std::vector<double> d_star(N, 0.0);
   unsigned rows;
   unsigned cols;
+  double S; // Option price
+  double K; // Strike price 
+  double r; // Risk-free price 
+  double v; // Volatility of the underlying (20 %) 
+  double T; // One year until expiry
 };
 #endif

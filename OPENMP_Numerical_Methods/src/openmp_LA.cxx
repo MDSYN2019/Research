@@ -40,11 +40,9 @@ typedef Eigen::Matrix<double, 4, 4> Matrix4x4;
 typedef Eigen::Matrix<double, 3, 3> Matrix3x3;
 typedef Eigen::Matrix<double, 2, 2> Matrix2x2;
 
-
 SYN_Mat<T>::SYN_Mat() {} // default constructor
 SYN_Mat<T>::~SYN_Mat() {}
 
-SYN_Mat>
 SYN_Mat<T>::thomas_algorithm(const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, std::vector<double>&) {
 
   c_star[0] = c[0] / b[0];
@@ -64,8 +62,12 @@ SYN_Mat<T>::thomas_algorithm(const std::vector<double>&, const std::vector<doubl
 
 // Standard normal probability density function
 
+class ProbDist {
 double norm_pdf(const double& x) {
   return (1.0 / (pow(2* M_PI, 0.5))) * exp(-0.5 * x * x);
 }
 
-
+double norm_cdf(const double& x) {
+  double k = 1.0 / (1.0 + 0.2316419 * x);
+}
+}

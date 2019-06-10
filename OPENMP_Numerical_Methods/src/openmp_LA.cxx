@@ -63,11 +63,15 @@ SYN_Mat<T>::thomas_algorithm(const std::vector<double>&, const std::vector<doubl
 // Standard normal probability density function
 
 class ProbDist {
-double norm_pdf(const double& x) {
-  return (1.0 / (pow(2* M_PI, 0.5))) * exp(-0.5 * x * x);
-}
 
-double norm_cdf(const double& x) {
-  double k = 1.0 / (1.0 + 0.2316419 * x);
-}
-}
+  
+  double norm_pdf(const double& x) {
+  return (1.0 / (pow(2* M_PI, 0.5))) * exp(-0.5 * x * x);
+  }
+
+  double norm_cdf(const double& x) {
+    double k = 1.0 / (1.0 + 0.2316419 * x);
+  }
+
+  
+};

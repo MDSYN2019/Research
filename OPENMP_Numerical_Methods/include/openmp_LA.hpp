@@ -67,4 +67,16 @@ private:
   double v; // Volatility of the underlying (20 %) 
   double T; // One year until expiry
 };
+
+
+template <typename T> class ProbDist {
+private:
+public:
+  double norm_pdf(const double& x);
+  double norm_cdf(const double& x);
+
+  
+};
 #endif
+
+

@@ -126,10 +126,6 @@ AbsFunction.h
 AbsParameter.h
 ../thirdparty/include/AbsParameter.h
 
-../thirdparty/include/FixedConstant.h
-AbsFunction.h
-../thirdparty/include/AbsFunction.h
-
 ../thirdparty/include/FunctionComposition.h
 AbsFunction.h
 ../thirdparty/include/AbsFunction.h
@@ -147,10 +143,6 @@ AbsFunction.h
 ../thirdparty/include/AbsFunction.h
 
 ../thirdparty/include/FunctionNoop.h
-AbsFunction.h
-../thirdparty/include/AbsFunction.h
-
-../thirdparty/include/FunctionNumDeriv.h
 AbsFunction.h
 ../thirdparty/include/AbsFunction.h
 
@@ -207,50 +199,6 @@ AbsParameter.h
 ../thirdparty/include/Variable.h
 AbsFunction.h
 ../thirdparty/include/AbsFunction.h
-
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/AbsFunction.cxx
-AbsFunction.h
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/AbsFunction.h
-ConstTimesFunction.h
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/ConstTimesFunction.h
-ConstOverFunction.h
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/ConstOverFunction.h
-ConstPlusFunction.h
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/ConstPlusFunction.h
-ConstMinusFunction.h
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/ConstMinusFunction.h
-FunctionSum.h
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/FunctionSum.h
-FunctionDifference.h
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/FunctionDifference.h
-FunctionProduct.h
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/FunctionProduct.h
-FunctionQuotient.h
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/FunctionQuotient.h
-FunctionNegation.h
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/FunctionNegation.h
-FunctionDirectProduct.h
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/FunctionDirectProduct.h
-FixedConstant.h
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/FixedConstant.h
-FunctionNumDeriv.h
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/FunctionNumDeriv.h
-Variable.h
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/Variable.h
-FunctionNoop.h
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/FunctionNoop.h
-ParameterComposition.h
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/ParameterComposition.h
-stdexcept
--
-
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/KVector.cxx
-KVector.h
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/KVector.h
-FixedConstant.h
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/FixedConstant.h
-stdexcept
--
 
 /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/src/Variable.cxx
 Variable.h

@@ -1,5 +1,6 @@
 #include <pybind11/pybind11.h>
 #include <string>
+#include "Eigen/Dense"
 
 namespace py = pybind11;
 

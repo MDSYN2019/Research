@@ -42,8 +42,11 @@ double f (int i) {
 using namespace Genfun;
 
 int main () {
-  Genfun::Variable X;
-  std::cout << X(3.14) << std::endl;
+  Vector3d r (1.0,2.0,3.0);
+  Vector3d s (4.0,5.0,6.0);
+
+  //  Genfun::Variable X;
+  // std::cout << X(3.14) << std::endl;
   
   Matrix2d a;
   a << 1, 2,
@@ -60,6 +63,8 @@ int main () {
   A << 1, 2, 1,
     2, 1, 0,
     -1, 1, 2;
+
+  
   
   std::cout << "Here is the matrix A:\n" << A << std::endl;
   std::cout << "The determinant of A is " << A.determinant() << std::endl;

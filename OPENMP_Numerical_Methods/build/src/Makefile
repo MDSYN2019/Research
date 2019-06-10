@@ -125,60 +125,6 @@ src/fast:
 	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/build
 .PHONY : src/fast
 
-AbsFunction.o: AbsFunction.cxx.o
-
-.PHONY : AbsFunction.o
-
-# target to build an object file
-AbsFunction.cxx.o:
-	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/AbsFunction.cxx.o
-.PHONY : AbsFunction.cxx.o
-
-AbsFunction.i: AbsFunction.cxx.i
-
-.PHONY : AbsFunction.i
-
-# target to preprocess a source file
-AbsFunction.cxx.i:
-	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/AbsFunction.cxx.i
-.PHONY : AbsFunction.cxx.i
-
-AbsFunction.s: AbsFunction.cxx.s
-
-.PHONY : AbsFunction.s
-
-# target to generate assembly for a file
-AbsFunction.cxx.s:
-	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/AbsFunction.cxx.s
-.PHONY : AbsFunction.cxx.s
-
-KVector.o: KVector.cxx.o
-
-.PHONY : KVector.o
-
-# target to build an object file
-KVector.cxx.o:
-	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/KVector.cxx.o
-.PHONY : KVector.cxx.o
-
-KVector.i: KVector.cxx.i
-
-.PHONY : KVector.i
-
-# target to preprocess a source file
-KVector.cxx.i:
-	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/KVector.cxx.i
-.PHONY : KVector.cxx.i
-
-KVector.s: KVector.cxx.s
-
-.PHONY : KVector.s
-
-# target to generate assembly for a file
-KVector.cxx.s:
-	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/KVector.cxx.s
-.PHONY : KVector.cxx.s
-
 Variable.o: Variable.cxx.o
 
 .PHONY : Variable.o
@@ -269,12 +215,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... src"
 	@echo "... edit_cache"
-	@echo "... AbsFunction.o"
-	@echo "... AbsFunction.i"
-	@echo "... AbsFunction.s"
-	@echo "... KVector.o"
-	@echo "... KVector.i"
-	@echo "... KVector.s"
 	@echo "... Variable.o"
 	@echo "... Variable.i"
 	@echo "... Variable.s"

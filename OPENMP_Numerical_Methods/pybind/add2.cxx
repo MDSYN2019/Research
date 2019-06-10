@@ -1,6 +1,10 @@
 #include <pybind11/pybind11.h>
 #include <string>
 
+#include "Eigen/Dense"
+#include "Eigen/LU"
+#include "Eigen/Core"
+
 namespace py = pybind11;
 
 
@@ -8,10 +12,8 @@ struct Pet {
     Pet(const std::string &name) : name(name) { }
     void setName(const std::string &name_) { name = name_; }
     const std::string &getName() const { return name; }
-
     std::string name;
 };
-
 
 PYBIND11_MODULE(example2, m) {
     py::class_<Pet>(m, "Pet")
@@ -19,4 +21,5 @@ PYBIND11_MODULE(example2, m) {
         .def("setName", &Pet::setName)
         .def("getName", &Pet::getName);
 }
+
 

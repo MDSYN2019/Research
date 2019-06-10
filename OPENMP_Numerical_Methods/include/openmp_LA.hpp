@@ -11,6 +11,7 @@
 #include <string>
 #include <memory>
 #include <vector>
+#include <cmath>
 
 /* CPPunit tests */
 
@@ -63,5 +64,4 @@ private:
   unsigned rows;
   unsigned cols;
 };
-
 #endif

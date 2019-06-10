@@ -7,6 +7,7 @@
 #include <string>
 #include <memory>
 #include <vector>
+#include <cmath>
 
 #ifndef _OPENMP_
 #include <omp.h>
@@ -43,7 +44,9 @@ typedef Eigen::Matrix<double, 2, 2> Matrix2x2;
 SYN_Mat<T>::SYN_Mat() {} // default constructor
 SYN_Mat<T>::~SYN_Mat() {}
 
+SYN_Mat>
 SYN_Mat<T>::thomas_algorithm(const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, std::vector<double>&) {
+
   c_star[0] = c[0] / b[0];
   d_star[0] = d[0] / b[0];
 
@@ -59,5 +62,10 @@ SYN_Mat<T>::thomas_algorithm(const std::vector<double>&, const std::vector<doubl
   }
 }
 
+// Standard normal probability density function
+
+double norm_pdf(const double& x) {
+  return (1.0 / (pow(2* M_PI, 0.5))) * exp(-0.5 * x * x);
+}
 
 

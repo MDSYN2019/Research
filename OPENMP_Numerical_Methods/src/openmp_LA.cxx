@@ -40,11 +40,6 @@
 #include "Eigen/Core"
 
 
-typedef Eigen::Matrix<double, 4, 4> Matrix4x4;
-typedef Eigen::Matrix<double, 3, 3> Matrix3x3;
-typedef Eigen::Matrix<double, 2, 2> Matrix2x2;
-
-
 /*
 
 We will price a european vanilla option via the correct analytic solution of the black-scholes 
@@ -56,7 +51,16 @@ or optimized implementation at this stage.
 SYN_Mat<T>::SYN_Mat() {} // default constructor
 SYN_Mat<T>::~SYN_Mat() {}
 
+SYN_Mat<T>::cholesky_decomposition() {
+  Eigen::LLT<Matrix4x4> llt(p_4);
+  l = llt.matrixL();
+  std::cout << l << std::endl;
+
+}
+
+
 SYN_Mat<T>::thomas_algorithm(const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, std::vector<double>&) {
+
   c_star[0] = c[0] / b[0];
   d_star[0] = d[0] / b[0];
 
@@ -74,8 +78,8 @@ SYN_Mat<T>::thomas_algorithm(const std::vector<double>&, const std::vector<doubl
 
 double ProbDist<T>::norm_pdf(const double& x) {
   return (1.0 / (pow(2* M_PI, 0.5))) * exp(-0.5 * x * x);
-  }
-  
+}
+
 double ProbDist<T>::norm_cdf(const double& x) {
   double k = 1.0 / (1.0 + 0.2316419 * x);
   double k_sum = k * (0.31981590 + k*(-0.3 * k * (1.78 + k * 1.0)));

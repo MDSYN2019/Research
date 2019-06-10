@@ -27,6 +27,11 @@
 #include "Eigen/Dense"
 #include "Eigen/LU"
 
+
+typedef Eigen::Matrix<double, 4, 4> Matrix4x4;
+typedef Eigen::Matrix<double, 3, 3> Matrix3x3;
+typedef Eigen::Matrix<double, 2, 2> Matrix2x2;
+
 template <typename T> class SYN_Mat {
 public:
   SYN_Mat(int);
@@ -54,8 +59,12 @@ public:
   SYN_Mat<T> operator/(const T& rhs);
 
   void thomas_algorithm(const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, std::vector<double>&);
-  
+  void cholesky_decomposition();
 private:
+  Matrix4x4 l_4, u_4, p_4; // 4 by 4 
+  Matrix3x3 l_3, u_3, p_3; // 3 by 3 
+  Matrix2x2 l_2, u_2, p_2; // 2 by 2 
+  
   int N;
   std::vector<double> c_star(N, 0.0);
   std::vector<double> d_star(N, 0.0);

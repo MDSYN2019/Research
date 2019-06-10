@@ -58,10 +58,10 @@ double f (int i) {
 // std::cout << "Here is the matrix A:\n" << A << std::endl;
 //std::cout << "The determinant of A is " << A.determinant() << std::endl;
 // std::cout << "The inverse of A is:\n" << A.inverse() << std::endl;
-MatrixXf p(3,3);
-p << 12, -51, 4,
-     6 , 167 ,-68,
-     -4, 24 , -41;
+//MatrixXf p(3,3);
+//p << 12, -51, 4,
+//     6 , 167 ,-68,
+//     -4, 24 , -41;
 
 int main () {
    Matrix2f A;
@@ -74,30 +74,20 @@ int main () {
         << "corresponding to these eigenvalues:\n"
 	     << eigensolver.eigenvectors() << std::endl;
 
-   Eigen::HouseHolderQR<MatrixXf> qr(p);
-   Eigen::MatrixXf q = qr.householderQ();
-   std::cout << "Q Matrix :\n" << q << std::endl << std::endl ;
+   //   Eigen::HouseHolderQR<MatrixXf> qr(p);
+   //Eigen::MatrixXf q = qr.householderQ();
+   //std::cout << "Q Matrix :\n" << q << std::endl << std::endl ;
   
-  int x = 5;
+   int x = 5;
 
 # pragma omp parallel num_threads(thread_count) private(x)
-
   {
     int my_rank = omp_get_thread_num();
     std::cout << "Thread %d ";
     x = 2 * my_rank + 2;
   }
   
-  for (int phase = 0; phase < n; phase++) {
-    if (phase % 2 == 0) {
-      for (int i = 1; i < n; i += 2) {
-	if (a[i-1] > a[i]) {
-	  Swap(&a[i-1], &a[i]);
-	}
-      }
-    }
-  }
-
+ 
   /*
   for (int phase = 0; phase < n; phase++) {
     if (phase % 2 == 0) {

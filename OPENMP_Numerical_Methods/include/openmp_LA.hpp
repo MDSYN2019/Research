@@ -70,12 +70,9 @@ private:
 
 
 template <typename T> class ProbDist {
-private:
 public:
   double norm_pdf(const double& x);
   double norm_cdf(const double& x);
-
-  
 };
 #endif
 

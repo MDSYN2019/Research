@@ -35,6 +35,8 @@
 
 #include "Eigen/Dense"
 #include "Eigen/LU"
+#include "Eigen/Core"
+
 
 typedef Eigen::Matrix<double, 4, 4> Matrix4x4;
 typedef Eigen::Matrix<double, 3, 3> Matrix3x3;
@@ -44,34 +46,36 @@ SYN_Mat<T>::SYN_Mat() {} // default constructor
 SYN_Mat<T>::~SYN_Mat() {}
 
 SYN_Mat<T>::thomas_algorithm(const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, std::vector<double>&) {
-
   c_star[0] = c[0] / b[0];
   d_star[0] = d[0] / b[0];
-
   for (int i = 1; i < N; i++) {
     double m = 1.0/ (b[i] - a[i] * c_star[i-1]);
     c_star[i] = c[i] * m;
     d_star[i] = (d[i] - a[i] * d_star[i-1]) * m;
   }
-
   // This is the reverse sweep, used to update he solution vector f 
   for (int i = N-1; i--> 0;) {
     f[i] = d_star[i] - c_star[i] * d[i+1];
   }
 }
-
 // Standard normal probability density function
 
-class ProbDist {
-
-  
-  double norm_pdf(const double& x) {
+double ProbDist<T>::norm_pdf(const double& x) {
   return (1.0 / (pow(2* M_PI, 0.5))) * exp(-0.5 * x * x);
   }
+  
+double ProbDist<T>::norm_cdf(const double& x) {
+  double k = 1.0 / (1.0 + 0.2316419 * x);
+  double k_sum = k * (0.31981590 + k*(-0.3 * k * (1.78 + k * 1.0)));
 
-  double norm_cdf(const double& x) {
-    double k = 1.0 / (1.0 + 0.2316419 * x);
+  if (x >= 0.0) {
+    return ();
+  }   else {
+
+    return (1.0 - norm_cdf(-x));  
   }
 
-  
-};
+  }
+}
+
+

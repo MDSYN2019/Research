@@ -31,7 +31,6 @@ void test_debug() {
 double f (int i) {
   int j, start = i * (i + 1) / 2, finish = start +  i;
   double return_val = 0.0;
-
   for (j = start; j <= finish; j++) {
     return_val += sin(j);
   }
@@ -39,38 +38,46 @@ double f (int i) {
 }
 
 //OMP AA(5);
-using namespace Genfun;
+//using namespace Genfun;
 
-int main () {
-  Vector3d r (1.0,2.0,3.0);
-  Vector3d s (4.0,5.0,6.0);
-
-  //  Genfun::Variable X;
-  // std::cout << X(3.14) << std::endl;
-  
-  Matrix2d a;
-  a << 1, 2,
-       3, 4;
-  MatrixXd b(2,2);
-  b << 2, 3,
-       1, 4;
-  std::cout << "a + b =\n" << a + b << std::endl;
+// Matrix2d a;
+//  a << 1, 2,
+//       3, 4;
+//  MatrixXd b(2,2);
+//  b << 2, 3,
+//       1, 4;
+//  std::cout << "a + b =\n" << a + b << std::endl;
 
   // Computing the inverse and the determinant
 
-  Matrix3f A;
-
-  A << 1, 2, 1,
-    2, 1, 0,
-    -1, 1, 2;
-
+//  Matrix3f A;
+//  A << 1, 2, 1,
+//    2, 1, 0,
+//    -1, 1, 2;
   
+// std::cout << "Here is the matrix A:\n" << A << std::endl;
+//std::cout << "The determinant of A is " << A.determinant() << std::endl;
+// std::cout << "The inverse of A is:\n" << A.inverse() << std::endl;
+MatrixXf p(3,3);
+p << 12, -51, 4,
+     6 , 167 ,-68,
+     -4, 24 , -41;
+
+int main () {
+   Matrix2f A;
+   A << 1, 2, 2, 3;
+
+   SelfAdjointEigenSolver<Matrix2f> eigensolver(A);
+   if (eigensolver.info() != Success) abort();
+   std::cout << "The eigenvalues of A are:\n" << eigensolver.eigenvalues() << std::endl;
+   std::cout << "Here's a matrix whose columns are eigenvectors of A \n"
+        << "corresponding to these eigenvalues:\n"
+	     << eigensolver.eigenvectors() << std::endl;
+
+   Eigen::HouseHolderQR<MatrixXf> qr(p);
+   Eigen::MatrixXf q = qr.householderQ();
+   std::cout << "Q Matrix :\n" << q << std::endl << std::endl ;
   
-  std::cout << "Here is the matrix A:\n" << A << std::endl;
-  std::cout << "The determinant of A is " << A.determinant() << std::endl;
-  std::cout << "The inverse of A is:\n" << A.inverse() << std::endl;
- 
-  /*
   int x = 5;
 
 # pragma omp parallel num_threads(thread_count) private(x)
@@ -91,6 +98,7 @@ int main () {
     }
   }
 
+  /*
   for (int phase = 0; phase < n; phase++) {
     if (phase % 2 == 0) {
 # pragma omp parallel for num_threads(thread_count) default(none) shared(a, n) private(i, tmp)

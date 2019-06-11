@@ -55,12 +55,12 @@ SYN_Mat<T>::cholesky_decomposition() {
   Eigen::LLT<Matrix4x4> llt(p_4);
   l = llt.matrixL();
   std::cout << l << std::endl;
-
 }
 
 
-SYN_Mat<T>::thomas_algorithm(const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, std::vector<double>&) {
 
+
+SYN_Mat<T>::thomas_algorithm(const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, std::vector<double>&) {
   c_star[0] = c[0] / b[0];
   d_star[0] = d[0] / b[0];
 
@@ -74,6 +74,7 @@ SYN_Mat<T>::thomas_algorithm(const std::vector<double>&, const std::vector<doubl
     f[i] = d_star[i] - c_star[i] * d[i+1];
   }
 }
+
 // Standard normal probability density function
 
 double ProbDist<T>::norm_pdf(const double& x) {

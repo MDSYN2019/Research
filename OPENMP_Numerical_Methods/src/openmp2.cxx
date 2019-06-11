@@ -3,25 +3,15 @@
 
 #include <exception>
 #include <iostream>
+#include <deque>
+#include <thread>
 
-int add(int i, int j) {
-    return i + j;
-}
+//template <typename T, typename Container = std::deque<T> >
+//class stack {
+//public:
+//private:
+//};
 
-/*
-PYBIND11_MODULE(example, m) {
-    m.doc() = "pybind11 example plugin"; // optional module docstring
-    m.def("add", &add, "A function which adds two numbers");
-}
-*/
-
-/*
-class Core {
-public:
-  Core() : midterm
-private:
-};
-*/
 
 class Complex { 
   friend bool operator ==(const Complex& a, const Complex& b);

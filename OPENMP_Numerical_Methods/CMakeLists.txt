@@ -87,9 +87,23 @@ if(Boost_FOUND)
   include_directories (${Boost_INCLUDE_DIRS})
 endif()
 
-
 find_package(MPI REQUIRED)
 #set(QATHEAD ${QAT}/*.h)
+
+## XXL
+
+# print some info (this can be removed)
+message(STATUS "STXXL_CXX_FLAGS: ${STXXL_CXX_FLAGS}")
+message(STATUS "STXXL_INCLUDE_DIRS: ${STXXL_INCLUDE_DIRS}")
+message(STATUS "STXXL_LIBRARIES: ${STXXL_LIBRARIES}")
+
+# apply CXXFLAGS to our configuration
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${STXXL_CXX_FLAGS}")
+
+# add STXXL include directory
+include_directories(${STXXL_INCLUDE_DIRS})
+
+
 
 add_executable (OMP_EX ${UNIT_TEST} ${QAT_LIBS} main.cxx)
 add_library(gsllib main.cxx)
@@ -97,7 +111,7 @@ add_library(gsllib main.cxx)
 target_link_libraries(gsllib -L/home/noh/anaconda3/pkgs/gsl-2.1-2/lib/)
 target_link_libraries(gsllib libgsl.a)
 target_link_libraries(gsllib libgslcblas.a)
-target_link_libraries(OMP_EX ${EXTRA_LIBS} ${Boost_LIBRARIES} ${MATH} ${CPPUNIT} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB} ${QAT_LIBS} pybind11::module gsllib)
+target_link_libraries(OMP_EX ${EXTRA_LIBS} ${Boost_LIBRARIES} ${MATH} ${CPPUNIT} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB} ${QAT_LIBS}  ${STXXL_LIBRARIES} pybind11::module gsllib)
 
 find_package(OpenMP)
 

@@ -52,13 +52,13 @@ SYN_Mat<T>::SYN_Mat() {} // default constructor
 SYN_Mat<T>::~SYN_Mat() {}
 
 SYN_Mat<T>::cholesky_decomposition() {
+  
   Eigen::LLT<Matrix4x4> llt(p_4);
   l = llt.matrixL();
   std::cout << l << std::endl;
+
+
 }
-
-
-
 
 SYN_Mat<T>::thomas_algorithm(const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, std::vector<double>&) {
   c_star[0] = c[0] / b[0];

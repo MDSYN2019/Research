@@ -7,6 +7,9 @@
 
 namespace py = pybind11;
 
+enum Lang {red, blue, green};
+Lang b = red;
+
 
 //struct Pet {
   //   Pet(const std::string &name) : name(name) { }

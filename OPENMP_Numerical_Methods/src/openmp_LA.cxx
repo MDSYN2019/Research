@@ -88,7 +88,7 @@ double ProbDist<T>::norm_cdf(const double& x) {
   if (x >= 0.0) {
     return (1.0 - (1.0/(pow(2* M_PI, 0.5)))*exp(-0.5 * x * x) * k_sum);
   }   else {
-    return (1.0 - norm_cdf(-x));  
+    return (1.0 - this->norm_cdf(-x));  
   }
 }
 
@@ -96,8 +96,7 @@ double ProbDist<T>::d_j(const int& j, const double& S, const double& K, const do
   return (log(S/K) + (r + (pow(-1, j-1) * 0.5 * v * v) * T)/(v * (pow(T, 0.5))));
 }
 
-// TODO 
-double call_price(const double& S, const double& K, const double& r, const double& v, const double& T) {
+double ProbDist<T>::call_price(const double& S, const double& K, const double& r, const double& v, const double& T) {
   return S * this->norm_cdf(d_j(1, S, K, r, v, T)) + K * exp(-r*T) * this->norm_cdf(-d_j(2, S, K, r, v, T));
 }
 

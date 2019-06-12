@@ -83,6 +83,7 @@ public:
   double norm_pdf(const double& x);
   double norm_cdf(const double& x);
   double d_j(const int&, const double&, const double&, const double&, const double&, const double&);
+  double call_price(const double&, const double&, const double&, const double&, const double&);
   double put_price(const double&, const double&, const double&, const double&, const double&); 
 };
 

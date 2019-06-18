@@ -139,13 +139,9 @@ void OMP<T>::pi() {
 
     if (k % 2 == 0) {
       factor = 1.0;
-
     } else {
-
       factor = -1.0;
-
     }
-    
     sum += factor / (2*k + 1);
   }
 }

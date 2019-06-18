@@ -125,87 +125,6 @@ src/fast:
 	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/build
 .PHONY : src/fast
 
-Variable.o: Variable.cxx.o
-
-.PHONY : Variable.o
-
-# target to build an object file
-Variable.cxx.o:
-	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/Variable.cxx.o
-.PHONY : Variable.cxx.o
-
-Variable.i: Variable.cxx.i
-
-.PHONY : Variable.i
-
-# target to preprocess a source file
-Variable.cxx.i:
-	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/Variable.cxx.i
-.PHONY : Variable.cxx.i
-
-Variable.s: Variable.cxx.s
-
-.PHONY : Variable.s
-
-# target to generate assembly for a file
-Variable.cxx.s:
-	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/Variable.cxx.s
-.PHONY : Variable.cxx.s
-
-openmp1.o: openmp1.cxx.o
-
-.PHONY : openmp1.o
-
-# target to build an object file
-openmp1.cxx.o:
-	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp1.cxx.o
-.PHONY : openmp1.cxx.o
-
-openmp1.i: openmp1.cxx.i
-
-.PHONY : openmp1.i
-
-# target to preprocess a source file
-openmp1.cxx.i:
-	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp1.cxx.i
-.PHONY : openmp1.cxx.i
-
-openmp1.s: openmp1.cxx.s
-
-.PHONY : openmp1.s
-
-# target to generate assembly for a file
-openmp1.cxx.s:
-	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp1.cxx.s
-.PHONY : openmp1.cxx.s
-
-openmp2.o: openmp2.cxx.o
-
-.PHONY : openmp2.o
-
-# target to build an object file
-openmp2.cxx.o:
-	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp2.cxx.o
-.PHONY : openmp2.cxx.o
-
-openmp2.i: openmp2.cxx.i
-
-.PHONY : openmp2.i
-
-# target to preprocess a source file
-openmp2.cxx.i:
-	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp2.cxx.i
-.PHONY : openmp2.cxx.i
-
-openmp2.s: openmp2.cxx.s
-
-.PHONY : openmp2.s
-
-# target to generate assembly for a file
-openmp2.cxx.s:
-	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp2.cxx.s
-.PHONY : openmp2.cxx.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -215,15 +134,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... src"
 	@echo "... edit_cache"
-	@echo "... Variable.o"
-	@echo "... Variable.i"
-	@echo "... Variable.s"
-	@echo "... openmp1.o"
-	@echo "... openmp1.i"
-	@echo "... openmp1.s"
-	@echo "... openmp2.o"
-	@echo "... openmp2.i"
-	@echo "... openmp2.s"
 .PHONY : help
 
 

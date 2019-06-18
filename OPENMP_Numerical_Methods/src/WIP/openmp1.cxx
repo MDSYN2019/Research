@@ -9,6 +9,7 @@
 
 #ifndef _OPENMP_
 #include <omp.h>
+
 #endif
 
 // Main header to include 
@@ -17,7 +18,7 @@
 
 // QAT headers
 
-//#include "Argument.h"
+#include "Argument.h"
 
 /* CPPunit tests */
 
@@ -48,21 +49,6 @@ int RandomNumber() {
 // --------
 
 // Is in the hpp file
-
-//template <class T>
-//Vec<T>::Vec(size_type n, const T& t = T() ) {
-// create(n,t);
-//}
-
-template <class T>
-Vec<T>& Vec<T>::operator=(const Vec& rhs) {
-  if (&rhs != this) {
-    uncreate();
-  }
-  create(rhs.begin(), rhs.end());
-  return *this;
-}
-
 template <class T> void Vec<T>::create() {
   data = avail = limit = 0;
 }
@@ -82,6 +68,7 @@ void Vec<T>::create(const_iterator i, const_iterator j) {
 }
 
 //---------
+
 
 // Is in the hpp file 
 template <class T>

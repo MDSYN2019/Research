@@ -10,23 +10,27 @@
 
 #include "Eigen/Dense"
 
-using namespace Eigen;
+#include <cppunit/CompilerOutputter.h>
+#include <cppunit/extensions/TestFactoryRegistry.h>
+#include <cppunit/ui/text/TestRunner.h>
 
 //#include <eigen3/Eigen/Core>
 
 #include "openmp1.hpp"
-#include "syn_dbg.hpp"
+//#include "syn_dbg.hpp"
 
 // QAT headers
 
-#include "Variable.h"
-#include "Argument.h"
+//#include "Variable.h"
+//#include "Argument.h"
 
-void test_debug() {
-  debug("A message");
+using namespace Eigen;
+
+//void test_debug() {
+//  debug("A message");
   // passing in arguments like printf
-  debug("I am %d years old ", 37);
-}
+//  debug("I am %d years old ", 37);
+//}
 
 double f (int i) {
   int j, start = i * (i + 1) / 2, finish = start +  i;
@@ -63,8 +67,30 @@ double f (int i) {
 //     6 , 167 ,-68,
 //     -4, 24 , -41;
 
+// A local class - one where there is a class inside the function
+
+void local_function1() {
+  class Test {
+    static void method() {
+
+      std::cout << "Local class method() " << std::endl;
+      
+    }
+  };
+}
 int main () {
-   Matrix2f A;
+
+  // Checking the utility of the custom built Vec
+
+  Vec<int> EE;
+  EE.push_back(1);
+
+  std::cout << EE[0] << std::endl;
+
+  //EE.push_back(3);
+  //std::cout << EE[0] << std::endl;
+  
+  Matrix2f A;
    A << 1, 2, 2, 3;
 
    SelfAdjointEigenSolver<Matrix2f> eigensolver(A);
@@ -80,12 +106,12 @@ int main () {
   
    int x = 5;
 
-# pragma omp parallel num_threads(thread_count) private(x)
-  {
-    int my_rank = omp_get_thread_num();
-    std::cout << "Thread %d ";
-    x = 2 * my_rank + 2;
-  }
+   //# pragma omp parallel num_threads(thread_count) private(x)
+     //{
+   // int my_rank = omp_get_thread_num();
+   // std::cout << "Thread %d ";
+   // x = 2 * my_rank + 2;
+   // }
   
  
   /*

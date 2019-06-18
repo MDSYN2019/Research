@@ -39,6 +39,7 @@ else()
 endif()
 
 # Include directories for headers and CXX files
+
 include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/src")
 include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/include")
 
@@ -60,7 +61,7 @@ if (USE_QAT)
   set(QAT_LIBS ${QAT_LIBS} QATsrc)
 endif (USE_QAT)
 
-option (USE_QAT "Use QAT implementation" ON) 
+option (USE_QAT "Use QAT implementation" OFF) 
 
 #add_subdirectory (QAT)
 #set (QAT ${QAT} "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/QAT/include")
@@ -68,10 +69,11 @@ option (USE_QAT "Use QAT implementation" ON)
 #set (QATsrc ${QATsrc} "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/QAT/src")
 
 add_subdirectory (src)
-set(EXTRA_LIBS ${EXTRA_LIBS} src)
-set(MATH "${MATH} -lm")
-set(CPPUNIT "${CPPUNIT} -lcppunit")
+set(EXTRA_SRC ${EXTRA_SRC} src)
+set(EXTRA_LIBS ${EXTRA_LIBS} include)
 
+set(MATH ${MATH} "-lm")
+set(CPPUNIT ${CPPUNIT} "-lcppunit")
 
 # Include GSL directories
 include_directories (${GSL_INCLUDE_DIRS} ${GSLCBLAS_INCLUDE_DIRS})
@@ -80,14 +82,14 @@ set(Boost_USE_STATIC_LIBS ON)
 set(Boost_USE_MULTITHREADED ON)  
 set(Boost_USE_STATIC_RUNTIME OFF) 
 
-find_package(Boost) 
-
+find_package(Boost)
 
 if(Boost_FOUND)
   include_directories (${Boost_INCLUDE_DIRS})
 endif()
 
 find_package(MPI REQUIRED)
+
 #set(QATHEAD ${QAT}/*.h)
 
 ## XXL
@@ -103,15 +105,15 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${STXXL_CXX_FLAGS}")
 # add STXXL include directory
 include_directories(${STXXL_INCLUDE_DIRS})
 
+#set (INC "${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp")
+#file(GLOB source_files ${INC}) # Linking src and include 
 
-
-add_executable (OMP_EX ${UNIT_TEST} ${QAT_LIBS} main.cxx)
+add_executable (OMP_EX ${QAT_LIBS} main.cxx)
 add_library(gsllib main.cxx)
-
 target_link_libraries(gsllib -L/home/noh/anaconda3/pkgs/gsl-2.1-2/lib/)
 target_link_libraries(gsllib libgsl.a)
 target_link_libraries(gsllib libgslcblas.a)
-target_link_libraries(OMP_EX ${EXTRA_LIBS} ${Boost_LIBRARIES} ${MATH} ${CPPUNIT} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB} ${QAT_LIBS}  ${STXXL_LIBRARIES} pybind11::module gsllib)
+target_link_libraries(OMP_EX ${Boost_LIBRARIES} ${MATH} ${CPPUNIT} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB} ${QAT_LIBS}  ${STXXL_LIBRARIES} pybind11::module gsllib)
 
 find_package(OpenMP)
 

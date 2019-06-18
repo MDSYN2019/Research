@@ -90,7 +90,6 @@ OMP_EX_EXTERNAL_OBJECTS =
 
 OMP_EX: CMakeFiles/OMP_EX.dir/main.cxx.o
 OMP_EX: CMakeFiles/OMP_EX.dir/build.make
-OMP_EX: src/libsrc.a
 OMP_EX: /home/oohnohnoh1/anaconda3/lib/libmpichcxx.so
 OMP_EX: /home/oohnohnoh1/anaconda3/lib/libmpich.so
 OMP_EX: /home/oohnohnoh1/anaconda3/lib/libopa.so

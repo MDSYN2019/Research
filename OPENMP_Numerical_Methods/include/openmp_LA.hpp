@@ -32,7 +32,7 @@ typedef Eigen::Matrix<double, 4, 4> Matrix4x4;
 typedef Eigen::Matrix<double, 3, 3> Matrix3x3;
 typedef Eigen::Matrix<double, 2, 2> Matrix2x2;
 
-template <typename T> class SYN_Mat {
+template <typename T> class SYN_Mat : public CppUnit::TestCase {
 public:
   SYN_Mat(int);
   SYN_Mat(const SYN_Mat<T>& alloc);
@@ -60,6 +60,14 @@ public:
 
   void thomas_algorithm(const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, std::vector<double>&);
   void cholesky_decomposition();
+
+  /*
+    Testing functions
+   */
+
+  void test1();
+  void test2();
+  
 private:
   Matrix4x4 l_4, u_4, p_4; // 4 by 4 
   Matrix3x3 l_3, u_3, p_3; // 3 by 3 
@@ -70,6 +78,7 @@ private:
   std::vector<double> d_star(N, 0.0);
   unsigned rows;
   unsigned cols;
+
   double S; // Option price
   double K; // Strike price 
   double r; // Risk-free price 
@@ -78,7 +87,7 @@ private:
 };
 
 
-template <typename T> class ProbDist {
+class ProbDist {
 public:
   double norm_pdf(const double& x);
   double norm_cdf(const double& x);

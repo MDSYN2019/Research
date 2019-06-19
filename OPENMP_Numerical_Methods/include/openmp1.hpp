@@ -25,6 +25,8 @@ single thread, the process started when the program started execution.
 #include <cstdlib>
 #include <cstdio>
 #include <memory>
+#include <type_traits>
+
 //#include <Eigen/Dense>
 #include <omp.h>
 
@@ -35,161 +37,6 @@ single thread, the process started when the program started execution.
 #include <cppunit/TestFixture.h>
 #include <cppunit/extensions/HelperMacros.h>
 
-
-template <class T> class Vec {
-public:
-    // member types
-    typedef T* iterator;
-    typedef const T* const_iterator;
-    typedef std::size_t size_type;
-    typedef T value_type;
-
-    // constructors
-    Vec() {
-        std::cout << "calling default constructor" << std::endl;
-        create();
-    }
-
-    explicit Vec(size_type n, const T& t = T()) {
-        std::cout << "calling the explicit constructor" << std::endl;
-        create(n, t);
-    }
-
-    // copy constructor,
-    Vec(const Vec& v) {
-        std::cout << "calling copy constructor" << std::endl;
-        create(v.begin(), v.end());
-    }
-
-    //assignment operator
-    Vec& operator=(const Vec&);
-
-    // destructor
-    ~Vec() {
-        std::cout << "calling destructor" << std::endl;
-        uncreate();
-    }
-
-    // indexing operator
-    const T& operator[](size_type i) const {
-      std::cout << "calling operation[]" << std::endl;
-        return data[i];
-    }
-
-    // push_back function
-    void push_back(const T& t){
-        if(avail == limit)
-            grow();
-        unchecked_append(t);
-    }
-
-    // size function
-    size_type size() const { return avail - data; }
-
-    // begin(), end() function
-    iterator begin() { return data; }
-    const_iterator begin() const { return data; }
-    iterator end() { return avail; }
-    const_iterator end() const { return avail; }
-
-private:
-    iterator data;  // first element in the Vec
-    iterator avail; // (one past) the last element in the Vec
-    iterator limit; // (one past) the allocated memory
-
-    // facilities for memory allocation
-    std::allocator<T> alloc; // object to handle memory allocation
-
-    // allocate and initialize the underlying array
-    void create();
-    void create(size_type, const T&);
-    void create(const_iterator, const_iterator);
-
-    // destroy the elements in the array and free the memory
-    void uncreate();
-
-    // support functions for push_back
-    void grow();
-    void unchecked_append(const T&);
-};
-
-// initialize data members to nullptr
-template <class T> void Vec<T>::create()
-{
-    data = avail = limit = nullptr;
-}
-
-// create and initialize data members with a size and a value
-template <class T> void Vec<T>::create(size_type n, const T& val)
-{
-    data = alloc.allocate(n);
-    limit = avail = data + n;
-    std::uninitialized_fill(data, limit, val);
-}
-
-// create and initialize data members by copying values from an input sequence
-template <class T> void Vec<T>::create(const_iterator i, const_iterator j)
-{
-    data = alloc.allocate(j - i);
-    limit = avail = std::uninitialized_copy(i, j, data);
-}
-
-// destruct the class object using destroy and deallocate functions
-template <class T> void Vec<T>::uncreate()
-{
-    if(!data){
-        // destroy the elements in reverse order
-        iterator it = avail;
-        while(it != data)
-            alloc.destroy(--it);
-        alloc.deallocate(data, limit - data);
-    }
-    // reset pointers to indicate that Vec is empty again
-    data = limit = avail = 0;
-}
-
-// assign values from right-hand operand to the left-hand operand
-template <class T>
-Vec<T>& Vec<T>::operator= (const Vec& rhs)
-{
-    std::cout << "calling operator= function" << std::endl;
-
-    // check for self-assignment
-    if(&rhs != this)
-    {
-        // free the array in the left-hand side
-        uncreate();
-
-        // copy elements from the right-hand to the left-hand side
-        create(rhs.begin(), rhs.end());
-    }
-    return *this;
-}
-
-// reallocate storage to hold more elements
-template <class T> void Vec<T>::grow()
-{
-    // when growing, allocate twice as much as space as currently in use
-    size_type new_size = std::max(2*(limit-data), ptrdiff_t(1));
-
-    // allocate new space and copy existing elements to the new space
-    iterator new_data = alloc.allocate(new_size);
-    iterator new_avail = std::uninitialized_copy(data, avail, new_data);
-
-    // return the old space
-    uncreate();
-
-    // reset pointers to point to the newly allocated space
-    data = new_data;
-    avail = new_avail;
-    limit = data + new_size;
-}
-
-// add new element at the end of the vector
-template <class T> void Vec<T>::unchecked_append(const T& val)
-{
-    alloc.construct(avail++, val);
-}
 
 
 template <class T> class OMP {
@@ -213,12 +60,8 @@ public:
 };
 
 
-
-
-#endif /* GUARD_VEC_H */
-
-/*
-template <class T> class Vec {
+// Inherits from the testcase 
+template <class T> class Vec : public CppUnit::TestCase {
  public:
   typedef T* iterator;
   typedef const T* const_iterator;
@@ -234,9 +77,6 @@ template <class T> class Vec {
 
   Vec(const Vec& v) {create(v.begin(), v.end()); }
   Vec& operator=(const Vec&); 
-
-
-  
   ~Vec() {uncreate();}
   
   const T& operator[] (size_type i) const {return data[i];}
@@ -254,7 +94,8 @@ template <class T> class Vec {
   iterator end() {return avail;}
   const_iterator end() const {return avail;}
   // Testing positions
-  
+  void runTest();
+
  private:
   iterator data;
   iterator avail;
@@ -271,5 +112,80 @@ template <class T> class Vec {
   void grow();
   void unchecked_append(const T&);
 };
-*/
+
+
+
+template <class T>
+Vec<T>& Vec<T>::operator=(const Vec& rhs) {
+  if (&rhs != this) {
+    uncreate();
+  }
+  create(rhs.begin(), rhs.end());
+  return *this;
+}
+
+template <class T> void Vec<T>::create() {
+  data = avail = limit = 0;
+}
+
+// Is in the hpp file
+template <class T> void Vec<T>::create(size_type n, const T& val) {
+  data = alloc.allocate(n);
+  limit = avail  = data + n;
+  std::uninitialized_fill(data, limit, val);
+}
+
+// Is in the hpp file 
+template <class T>
+void Vec<T>::create(const_iterator i, const_iterator j) {
+  data = alloc.allocate(j - i);
+  limit = avail = std::uninitialized_copy(i,j,data); // allocate additional space at the end of the vector
+}
+
+//---------
+
+// Is in the hpp file 
+template <class T>
+void Vec<T>::uncreate() {
+  if (data) { // If data exists
+    iterator it = avail;
+    while (it != data){
+      alloc.destroy(--it);
+    }
+    // Return all the space that was deallocated
+    alloc.deallocate(data, limit-data); 
+  }
   
+  data = limit = avail = 0;
+}
+
+template <class T> void Vec<T>::unchecked_append(const T& val)
+{
+    alloc.construct(avail++, val);
+}
+
+
+template <class T> void Vec<T>::grow()
+{
+    // when growing, allocate twice as much as space as currently in use
+    size_type new_size = std::max(2*(limit-data), ptrdiff_t(1));
+
+    // allocate new space and copy existing elements to the new space
+    iterator new_data = alloc.allocate(new_size);
+    iterator new_avail = std::uninitialized_copy(data, avail, new_data);
+
+    // return the old space
+    uncreate();
+
+    // reset pointers to point to the newly allocated space
+    data = new_data;
+    avail = new_avail;
+    limit = data + new_size;
+}
+
+template <class T> void Vec<T>::runTest() {
+  int A = 1;
+  CPPUNIT_ASSERT(A == 2);  
+}
+
+#endif /* GUARD_VEC_H */

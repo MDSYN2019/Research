@@ -87,6 +87,8 @@ int main () {
 
   std::cout << EE[0] << std::endl;
 
+  EE.runTest();
+  
   //EE.push_back(3);
   //std::cout << EE[0] << std::endl;
   

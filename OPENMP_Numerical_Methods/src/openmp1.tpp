@@ -55,6 +55,60 @@ int RandomNumber() {
 //}
 
 template <class T>
+Vec<T>& Vec<T>::operator=(const Vec& rhs) {
+  if (&rhs != this) {
+    uncreate();
+  }
+  create(rhs.begin(), rhs.end());
+  return *this;
+}
+
+template <class T> void Vec<T>::create() {
+  data = avail = limit = 0;
+}
+
+// Is in the hpp file
+template <class T> void Vec<T>::create(size_type n, const T& val) {
+  data = alloc.allocate(n);
+  limit = avail  = data + n;
+  std::uninitialized_fill(data, limit, val);
+}
+
+// Is in the hpp file 
+template <class T>
+void Vec<T>::create(const_iterator i, const_iterator j) {
+  data = alloc.allocate(j - i);
+  limit = avail = std::uninitialized_copy(i,j,data); // allocate additional space at the end of the vector
+}
+
+//---------
+
+// Is in the hpp file 
+template <class T>
+void Vec<T>::uncreate() {
+  if (data) { // If data exists
+    iterator it = avail;
+    while (it != data){
+      alloc.destroy(--it);
+    }
+    // Return all the space that was deallocated
+    alloc.deallocate(data, limit-data); 
+  }
+  
+  data = limit = avail = 0;
+}
+
+template <class T>
+void Vec<T>::grow() {
+  // when growing, allocate twice as much space as currently in use
+  size_type new_size = max(2 * (limit - data), ptrdiff_t(1));
+  // allocate new space and copy existing elements to the new space
+  iterator new_data = alloc.allocate(new_size);
+  //iterator new_avail
+}
+
+/*
+template <class T>
 OMP<T>::OMP(int N) {
   thread_count = N;
   my_rank = omp_get_thread_num();
@@ -120,4 +174,4 @@ void OMP<T>::pi() {
   }
 }
 
-
+*/

@@ -27,23 +27,11 @@
 #include <cppunit/TestFixture.h>
 #include <cppunit/extensions/HelperMacros.h>
 
-/*
 
-For every class, we need to define these properly 
 
-T::T() - one or more constructors, perhaps with arguments
-
-T::~T() - the destructor 
-
-T::T(const T&) - the copy constructor
-
-T::operator=() - the assignment operator
-
-*/
-
-int RandomNumber() {
-  return (std::rand() % 100);
-}
+//int RandomNumber() {
+//  return (std::rand() % 100);
+//}
 
 // --------
 
@@ -54,6 +42,7 @@ int RandomNumber() {
 // create(n,t);
 //}
 
+/*
 template <class T>
 OMP<T>::OMP(int N) {
   thread_count = N;
@@ -119,5 +108,5 @@ void OMP<T>::pi() {
     sum += factor / (2*k + 1);
   }
 }
-
+*/
 

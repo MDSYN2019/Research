@@ -125,6 +125,33 @@ src/fast:
 	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/build
 .PHONY : src/fast
 
+openmp1.o: openmp1.cxx.o
+
+.PHONY : openmp1.o
+
+# target to build an object file
+openmp1.cxx.o:
+	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp1.cxx.o
+.PHONY : openmp1.cxx.o
+
+openmp1.i: openmp1.cxx.i
+
+.PHONY : openmp1.i
+
+# target to preprocess a source file
+openmp1.cxx.i:
+	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp1.cxx.i
+.PHONY : openmp1.cxx.i
+
+openmp1.s: openmp1.cxx.s
+
+.PHONY : openmp1.s
+
+# target to generate assembly for a file
+openmp1.cxx.s:
+	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp1.cxx.s
+.PHONY : openmp1.cxx.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -134,6 +161,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... src"
 	@echo "... edit_cache"
+	@echo "... openmp1.o"
+	@echo "... openmp1.i"
+	@echo "... openmp1.s"
 .PHONY : help
 
 

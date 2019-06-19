@@ -38,11 +38,9 @@ public:
   SYN_Mat(const SYN_Mat<T>& alloc);
   // Operator overloading
   SYN_Mat<T>& operator=(const SYN_Mat<T>& alloc);
-
   virtual ~SYN_Mat(); // virtual destructor
   
   // Matrix mathematical operations
-
   SYN_Mat<T>& operator=(SYN_Mat<T>& rhs);
   SYN_Mat<T>& operator+(SYN_Mat<T>& rhs);
   SYN_Mat<T>& operator-(SYN_Mat<T>& rhs);
@@ -52,7 +50,6 @@ public:
   SYN_Mat<T> transpose();
 
   // Matrix/scalar operations
-
   SYN_Mat<T> operator+(const T& rhs);
   SYN_Mat<T> operator-(const T& rhs);
   SYN_Mat<T> operator*(const T& rhs);
@@ -61,12 +58,24 @@ public:
   void thomas_algorithm(const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, std::vector<double>&);
   void cholesky_decomposition();
 
+
+  T& operator()(const unsigned& row, const unsigned& col);
+  const T& operator()(const unsigned &row, const unsigned& col) const;
+
+  // Access the row and column sizes
+
+  unsigned get_rows() const;
+  unsigned get_cols() const;
+  
+  
   /*
     Testing functions
    */
 
   void test1();
   void test2();
+
+
   
 private:
   Matrix4x4 l_4, u_4, p_4; // 4 by 4 
@@ -95,6 +104,8 @@ public:
   double call_price(const double&, const double&, const double&, const double&, const double&);
   double put_price(const double&, const double&, const double&, const double&, const double&); 
 };
+
+#include "openmp_LA.cxx"
 
 #endif
 

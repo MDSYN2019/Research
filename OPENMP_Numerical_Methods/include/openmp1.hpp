@@ -60,6 +60,21 @@ public:
 };
 
 
+/*
+
+For every class, we need to define these properly 
+
+T::T() - one or more constructors, perhaps with arguments
+
+T::~T() - the destructor 
+
+T::T(const T&) - the copy constructor
+
+T::operator=() - the assignment operator
+
+*/
+
+
 // Inherits from the testcase 
 template <class T> class Vec : public CppUnit::TestCase {
  public:
@@ -112,8 +127,6 @@ template <class T> class Vec : public CppUnit::TestCase {
   void grow();
   void unchecked_append(const T&);
 };
-
-
 
 template <class T>
 Vec<T>& Vec<T>::operator=(const Vec& rhs) {
@@ -169,14 +182,11 @@ template <class T> void Vec<T>::grow()
 {
     // when growing, allocate twice as much as space as currently in use
     size_type new_size = std::max(2*(limit-data), ptrdiff_t(1));
-
     // allocate new space and copy existing elements to the new space
     iterator new_data = alloc.allocate(new_size);
     iterator new_avail = std::uninitialized_copy(data, avail, new_data);
-
     // return the old space
     uncreate();
-
     // reset pointers to point to the newly allocated space
     data = new_data;
     avail = new_avail;
@@ -187,5 +197,7 @@ template <class T> void Vec<T>::runTest() {
   int A = 1;
   CPPUNIT_ASSERT(A == 2);  
 }
+
+#include "openmp1.cxx"
 
 #endif /* GUARD_VEC_H */

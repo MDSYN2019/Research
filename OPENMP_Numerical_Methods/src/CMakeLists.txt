@@ -1,1 +1,1 @@
-add_library(src)
+add_library(src openmp1.cxx)

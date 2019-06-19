@@ -1,3 +1,18 @@
+#include <iostream>
+#include <algorithm>
+#include <cstdlib>
+#include <cstdio>
+#include <ctime>
+#include <cstdlib>
+#include <string>
+#include <memory>
+
+#include <cppunit/extensions/TestFactoryRegistry.h>
+#include <cppunit/CompilerOutputter.h>
+#include <cppunit/ui/text/TestRunner.h>
+#include <cppunit/TestFixture.h>
+#include <cppunit/extensions/HelperMacros.h>
+
 class Complex { 
   friend bool operator ==(const Complex& a, const Complex& b);
   double real, imaginary;

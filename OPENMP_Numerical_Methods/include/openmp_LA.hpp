@@ -34,7 +34,7 @@ typedef Eigen::Matrix<double, 2, 2> Matrix2x2;
 
 template <typename T> class SYN_Mat : public CppUnit::TestCase {
 public:
-  SYN_Mat(int);
+  SYN_Mat(unsigned _rows, unsigned_ cols, const T& _initial); // 1 
   SYN_Mat(const SYN_Mat<T>& alloc);
   // Operator overloading
   SYN_Mat<T>& operator=(const SYN_Mat<T>& alloc);
@@ -57,8 +57,7 @@ public:
 
   void thomas_algorithm(const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, std::vector<double>&);
   void cholesky_decomposition();
-
-
+  
   T& operator()(const unsigned& row, const unsigned& col);
   const T& operator()(const unsigned &row, const unsigned& col) const;
 
@@ -74,8 +73,6 @@ public:
 
   void test1();
   void test2();
-
-
   
 private:
   Matrix4x4 l_4, u_4, p_4; // 4 by 4 

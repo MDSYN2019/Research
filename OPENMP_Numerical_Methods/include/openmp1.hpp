@@ -195,7 +195,7 @@ template <class T> void Vec<T>::grow()
 
 template <class T> void Vec<T>::runTest() {
   int A = 1;
-  CPPUNIT_ASSERT(A == 2);  
+  CPPUNIT_ASSERT(A == 1);  
 }
 
 #include "openmp1.cxx"

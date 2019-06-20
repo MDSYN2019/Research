@@ -7,9 +7,10 @@
 #include <deque>
 #include <thread>
 #include <vector>
-
+#include <cstring>
 #include "openmp1.hpp"
 
+/*
 template <typename T, typename Container = std::deque<T> >
 class stack {
 public:
@@ -23,7 +24,7 @@ public:
 private:
 };
 
-
+*/
 
 class Str {
 public:

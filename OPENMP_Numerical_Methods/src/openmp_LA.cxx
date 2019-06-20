@@ -31,7 +31,6 @@ we need to implement methods for the following:
 template <typename T>
 SYN_Mat<T>::SYN_Mat(unsigned _rows, unsigned _cols, const T& _initial) {
   mat.resize(_rows);
-
   for (unsigned i = 0; i < mat.size() ; i++) {
     mat[i].resize(_cols, _initial);
   }
@@ -118,10 +117,10 @@ SYN_Mat<T>& SYN_Mat<T>::operator+=(const SYN_Mat<T>& rhs) {
 }
 
 template <typename T>
-SYN_Mat<T>& SYN_Mat<T>::operator-(const SYN_Mat<T>& rhs) {
+SYN_Mat<T> SYN_Mat<T>::operator-(const SYN_Mat<T>& rhs) {
   unsigned rows = rhs.get_rows();
   unsigned cols = rhs.get_cols();
-  SYN_Matresult(rows, cols, 0.0);
+  SYN_Mat result(rows, cols, 0.0);
 
   for (unsigned i = 0; i < rows; i++) {
     for (unsigned j = 0; j < cols; j++) {
@@ -145,7 +144,7 @@ SYN_Mat<T>& SYN_Mat<T>::operator-=(const SYN_Mat<T>& rhs) {
 }
 
 template <typename T>
-SYN_Mat<T>& SYN_Mat<T>::operator*(const SYN_Mat<T>& rhs) {
+SYN_Mat<T> SYN_Mat<T>::operator*(const SYN_Mat<T>& rhs) {
   unsigned rows = rhs.get_rows();
   unsigned cols = rhs.get_cols();
   SYN_Mat result(rows, cols, 0.0);
@@ -180,6 +179,92 @@ SYN_Mat<T> SYN_Mat<T>::transpose() {
     }
   }
   return result;
+}
+
+
+// Matrix/scalar addition
+template <typename T>
+SYN_Mat<T> SYN_Mat<T>::operator+(const T& rhs) {
+  SYN_Mat result(rows, cols, 0.0);
+  for (unsigned i = 0; i < rows; i++) {
+    for (unsigned j = 0; j < cols; j++) {
+      result(i,j) = this->mat[i][j] + rhs;
+    }
+  }
+  return result;
+}
+
+
+
+// Matrix/scalar mulitplication
+template <typename T>
+SYN_Mat<T> SYN_Mat<T>::operator*(const T& rhs) {
+  SYN_Mat result(rows, cols, 0.0);
+
+  for (unsigned i = 0; i < rows; i++) {
+    for (unsigned j = 0; j < cols; j++) {
+      result(i,j) = this->mat[i][j] + rhs;
+    }
+  }
+
+  return result;
+}
+
+template <typename T>
+SYN_Mat<T> SYN_Mat<T>::operator/(const T& rhs) {
+  SYN_Mat result(rows, cols, 0.0);
+
+  for (unsigned i = 0; i < rows; i++) {
+    for (unsigned j = 0; j < cols; j++) {
+      result(i,j) = this->mat[i][j] / rhs;
+    }
+  }
+  return result;
+}
+
+// multiply with a vector
+template <typename T>
+std::vector<T> SYN_Mat<T>::operator*(const std::vector<T>& rhs) {
+  std::vector<T> result(rhs.size(), 0.0);
+
+  for (unsigned i = 0; i < rows; i++) {
+    for (unsigned j = 0; j < cols; j++) {
+      result[i] = this->mat[i][j] + rhs[j];
+    }
+
+  }
+
+  return result;
+}
+
+
+// Access individual elements
+
+template <typename T>
+T& SYN_Mat<T>::operator()(const unsigned& row, const unsigned& col) {
+  return this->mat[row][col];
+}
+
+// Access the individual eleemnts (Const)
+
+//template <typename T>
+//const T& SYN_Mat<T>::operator()(const unsigned& row, const unsigned& col) {
+// const {
+//    return this->mat[row][col];
+//  }
+//}
+
+// Get the number of rows of the matrix
+template<typename T>
+unsigned SYN_Mat<T>::get_rows() const {
+  return this->rows; 
+}
+
+
+// Get the number of columns of the matrix
+template<typename T>
+unsigned SYN_Mat<T>::get_cols() const {
+  return this->cols; 
 }
 
 

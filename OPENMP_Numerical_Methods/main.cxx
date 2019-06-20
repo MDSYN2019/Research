@@ -10,6 +10,7 @@
 
 #include "Eigen/Dense"
 
+
 #include <cppunit/CompilerOutputter.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>
 #include <cppunit/ui/text/TestRunner.h>
@@ -17,6 +18,7 @@
 //#include <eigen3/Eigen/Core>
 
 #include "openmp1.hpp"
+#include "openmp_LA.hpp"
 //#include "syn_dbg.hpp"
 
 // QAT headers
@@ -141,5 +143,17 @@ int main () {
   */
   // AA.addup();
   // test_debug();
-  return 0;
+   SYN_Mat<double> mat1(10, 10, 10);
+   SYN_Mat<double> mat2(10, 10, 10);
+
+   SYN_Mat<double> mat3 = mat1 + mat2;
+
+   for (int i = 0; i < mat3.get_rows(); i++) {
+     for (int j = 0; j < mat3.get_rows(); j++) {
+       std::cout << mat3(i,j) << ", "; 
+     }
+     std::cout << std::endl;
+   }
+    
+   return 0;
 }

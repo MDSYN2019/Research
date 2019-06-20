@@ -5,3 +5,7 @@ src/CMakeFiles/src.dir/openmp1.cxx.o: ../include/openmp1.hpp
 src/CMakeFiles/src.dir/openmp1.cxx.o: ../src/openmp1.cxx
 src/CMakeFiles/src.dir/openmp1.cxx.o: ../src/openmp1.cxx
 
+src/CMakeFiles/src.dir/openmp2.cxx.o: ../include/openmp1.hpp
+src/CMakeFiles/src.dir/openmp2.cxx.o: ../src/openmp1.cxx
+src/CMakeFiles/src.dir/openmp2.cxx.o: ../src/openmp2.cxx
+

@@ -94,7 +94,6 @@ void OMP<T>::pi() {
   // Computing Pi with openMP
   
 # pragma omp parallel for num_threads(thread_count) reduction(+:sum) private(factor)
-
   for (int k = 0; k < n; k++) {
     if (k % 2 == 0) {
 
@@ -108,5 +107,5 @@ void OMP<T>::pi() {
     sum += factor / (2*k + 1);
   }
 }
-*/
 
+*/

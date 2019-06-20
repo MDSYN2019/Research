@@ -25,6 +25,7 @@
 #include "Eigen/Dense"
 #include "Eigen/LU"
 
+// Typedefs
 
 typedef Eigen::Matrix<double, 4, 4> Matrix4x4;
 typedef Eigen::Matrix<double, 3, 3> Matrix3x3;
@@ -344,7 +345,6 @@ template<typename T>
 unsigned SYN_Mat<T>::get_rows() const {
   return this->rows; 
 }
-
 
 // Get the number of columns of the matrix
 template<typename T>

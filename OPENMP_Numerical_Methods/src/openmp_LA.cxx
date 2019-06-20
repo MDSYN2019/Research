@@ -260,11 +260,35 @@ unsigned SYN_Mat<T>::get_rows() const {
   return this->rows; 
 }
 
-
 // Get the number of columns of the matrix
 template<typename T>
 unsigned SYN_Mat<T>::get_cols() const {
   return this->cols; 
+}
+
+// --- ProbDist
+
+
+/*
+European Options with Monte Carlo 
+
+In this chapter, we will pric a European Vanilla option via the correct analyci solution of the 
+Black-Scholes eqiation, as well as via the Monte Carlo method. We won't be cooncentrating on 
+an extremely efficient 
+ */
+
+ProbDist::norm_pdf(const double& x) {
+  return (1.0 / (pow(2 * M_PI, 0.5))) * exp(-0.5 * x * x);
+}
+
+ProbDist::norm_cdf(const double& x) {
+  double k = 1.0 / (1.0 + 0.2316419 * x);
+  double k_sum = k * (0.319 + k * (-0.356563 + k * (1.781477937 + k * (-1.821255978) + 1.330274429 * k)));
+  if (x >= 0.0) {
+    return (1.0 - (1.0 / pow(1.0 / pow(2 * M_PI, 0.5)* exp(0.5 * x * x) * k_sum)));
+  } else {
+    return 1.0 - this->norm_cdf(-x);
+  }
 }
 
 

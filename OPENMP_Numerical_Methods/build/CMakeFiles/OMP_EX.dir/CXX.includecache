@@ -35,8 +35,6 @@ cppunit/TestFixture.h
 -
 cppunit/extensions/HelperMacros.h
 -
-openmp1.cxx
-../include/openmp1.cxx
 
 ../include/openmp_LA.hpp
 iostream
@@ -73,38 +71,6 @@ Eigen/Dense
 ../include/Eigen/Dense
 Eigen/LU
 ../include/Eigen/LU
-
-../src/openmp1.cxx
-iostream
--
-algorithm
--
-cstdlib
--
-cstdio
--
-ctime
--
-cstdlib
--
-string
--
-memory
--
-omp.h
--
-openmp1.hpp
-../src/openmp1.hpp
-cppunit/extensions/TestFactoryRegistry.h
--
-cppunit/CompilerOutputter.h
--
-cppunit/ui/text/TestRunner.h
--
-cppunit/TestFixture.h
--
-cppunit/extensions/HelperMacros.h
--
 
 /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/main.cxx
 iostream

@@ -42,7 +42,6 @@
 // create(n,t);
 //}
 
-/*
 template <class T>
 OMP<T>::OMP(int N) {
   thread_count = N;
@@ -66,7 +65,7 @@ void OMP<T>::add(T a) {
 template <class T>
 void OMP<T>::addup() {
   global_result = 0.0;
-#pragma omp parallel num_threads(thread_count) reduction(+:val) // In OpenMP it may be possible to spcift that th result of a reduction is a reduction variable.
+#pragma omp parallel num_threads(thread_count) default(none)  reduction(+:val) // In OpenMP it may be possible to spcift that th result of a reduction is a reduction variable.
   this->add(3); // Use the function that has already been allocated onto this class 
 #pragma omp critical
   global_result = val;
@@ -76,7 +75,7 @@ template <class T>
 int OMP<T>::Linear_search(int key, int* A, int n) {
   int i;  
   // thread count is global
-# pragma omp parallel for num_threads(thread_count)
+# pragma omp parallel for num_threads(thread_count) default(none)
   for (int i = 0; i < n; i++) {
     if (A[i] == key) {
       return i;
@@ -93,19 +92,15 @@ void OMP<T>::pi() {
   double sum = 0.0;
   // Computing Pi with openMP
   
-# pragma omp parallel for num_threads(thread_count) reduction(+:sum) private(factor)
+# pragma omp parallel for num_threads(thread_count) default(none) reduction(+:sum) private(factor)
   for (int k = 0; k < n; k++) {
     if (k % 2 == 0) {
-
       factor = 1.0;
-
     } else {
-
       factor = -1.0;
     }
-    
     sum += factor / (2*k + 1);
   }
 }
 
-*/
+

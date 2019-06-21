@@ -100,6 +100,15 @@ private:
 
 class ProbDist {
 public:
+  // Constructor/Destructor section
+  ProbDist();
+  ProbDist(const ProbDist<T>& alloc);
+  // Operator overloading
+  ProbDist& operator=(const ProbDist& alloc);
+  virtual ~ProbDist(); // virtual destructor
+  
+  // Functions
+
   double norm_pdf(const double& x);
   double norm_cdf(const double& x);
   double d_j(const int&, const double&, const double&, const double&, const double&, const double&);

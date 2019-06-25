@@ -57,9 +57,7 @@ Initialzation of the template defined in the header
 #include <cppunit/ui/text/TestRunner.h>
 
 
-static inline double computeSquare (double x) { return x*x;} // function for squaring the elements in a vector
-
-
+static inline double computeSquare (double x) {return x*x;} // function for squaring the elements in a vector
 JarzynskiFreeEnergy::JarzynskiFreeEnergy() {} 
 JarzynskiFreeEnergy::~JarzynskiFreeEnergy() {}
 
@@ -71,7 +69,9 @@ double JarzynskiFreeEnergy::JEprocessVector(int position, double (JarzynskiFreeE
   JarzynskiFreeEnergy sample; /*!< Instance of the class to get the function method */  
   JEVector->clear(); /*!< Empty vector before doing mean calculations - as we are working with a pointer to a vector, and not creating a copy each time, this is required */
   for (diterator = coordinateZVector.begin(); diterator <= coordinateZVector.end(); ++diterator, ++work_index) { 
+
     if (*diterator > position - 0.5 && *diterator < position + 0.5) { /*!< If the work values are within an angstrom range, add to vector */  
+
       JEVector->push_back((workVector[work_index])); /*!< store work values */ 
     }
   }
@@ -383,14 +383,15 @@ void JarzynskiFreeEnergy::read(std::string input) {
 }
 
 /*!<  MPI class - Sending the datatypes and vectors  */
-/*
+
 MPI_setup::MPI_setup() { // Default constructor for MPI
   MPI_Init(NULL, NULL);
-  MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
-  MPI_Comm_size(MPI_COMM_WORLD, &p);
+  MPI_Comm_rank(MPI_COMM_WORLD, &my_rank); // Allocate current rank to my_rank
+  MPI_Comm_size(MPI_COMM_WORLD, &p);  // allocate total number of nodes to p 
 }
 
 void MPI_setup::MPI_parameter_struct_constructor(MPI_Datatype* input_mpi_t_p) {
+
   parameterData parameters;
   parameters.BM = 0.0019872041; // units for the boltzmann constant are in kcal mol^-1 ; 
   parameters.T = 303;
@@ -411,12 +412,39 @@ void MPI_setup::MPI_parameter_struct_constructor(MPI_Datatype* input_mpi_t_p) {
 }
 
 void MPI_setup::MPI_data_bcast(JarzynskiFreeEnergy* serialClass) {
-  
-  workVectorSplit.assign(serialClass->workVector.begin(), serialClass->workVector.end());
-  coordinateZVectorSplit.assign(serialClass->coordinateZVector.begin(), serialClass->coordinateZVector.end());  
-
+  workVectorSplit.assign(serialClass->workVector.begin(), serialClass->workVector.end()); // Assign all workvector values read from the serial class to here 
+  coordinateZVectorSplit.assign(serialClass->coordinateZVector.begin(), serialClass->coordinateZVector.end()); // Assign all coordinate ZVector to here   
   MPI_Bcast(&workVectorSplit[0], workVectorSplit.size(), MPI_DOUBLE, 0, MPI_COMM_WORLD);
   MPI_Bcast(&coordinateZVectorSplit[0], coordinateZVectorSplit.size(), MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
 }
-*/
+
+void MPI_setup::MPI_divide_vector(int position, std::vector<double> *JEVector) {
+  int work_index = 0;  
+  JarzynskiFreeEnergy sample; /*!< Instance of the class to get the function method */  
+  doubleIter diterator; /*!< Integer iterator */ 
+
+  // Largly copied from the serial code - May need to implement this through inheritance 
+  
+  // 1. Divide the workvector into managable chunks and then redsitribute each work bin into multiple nodes
+  for (diterator = coordinateZVector.begin(); diterator <= coordinateZVector.end(); ++diterator, ++work_index) { 
+    if (*diterator > position - 0.5 && *diterator < position + 0.5) { /*!< If the work values are within an angstrom range, add to vector */  
+      JEVector->push_back((workVector[work_index])); /*!< store work values */ 
+    }
+  }
+
+  std::cout << "Each node will receive a MPI_Type vector of element size: " << JEVector << std::sendl; 
+  double* vecPointer = JEVector.data(); // Make it slighly easier to allocate data onto the MPI_dervied datatype later on   
+  // Builidng a derived type, based on the first vector size  
+  MPI_Type_vector(JEVector.size(), 1, JEVector.size(), VectorMPI, &VectorMPI2); // As it is ex
+  MPI_Type_commit(&VectorMPI2);
+
+  // TODO - need to make sure that 
+											   if (my_rank == 0) {
+											     MPI_send();
+											  
+											   }
+
+											   
+  
+}

@@ -78,7 +78,7 @@ public:
   double alpha(double, double, double); /*< */   
 
   // friend functions to take care of the MPI implementation
-  friend class MPI_setup;
+  friend class MPI_setup (const JarzynskiFreeEnergy&);
 
   //friend class JEunitTest;
 private:
@@ -127,13 +127,18 @@ public:
 class MPI_setup : public JarzynskiFreeEnergy { // Make sure we inherit from the JarzynskiFreeEnergy 
 public:
   MPI_setup();
+  
   //  MPI_setup(int*, int*);
-  ~MPI_setup();
+  MPI_setup(const MPI_setup& alloc);
+  MPI_setup& operator=(const MPI_setup& alloc);
+  virtual ~MPI_setup();
+  
   void MPI_vec_send();
   void MPI_parameter_struct_constructor(MPI_Datatype*);
   void MPI_data_send(JarzynskiFreeEnergy*);
-  void MPI_parameter_broadcast(); 
-  friend class JarzynskiFreeEnergy; // MPI class inherits from the Jarzynski equality class 
+  void MPI_parameter_broadcast();  // Might not need to broadcasr 
+  void MPI_divide_vector(std::vector<double>*);
+  friend class JarzynskiFreeEnergy; // MPI cl ass inherits from the Jarzynski equality class 
 private:
   int my_rank, p; // MPI address and total p size 
   parameterData parameters;
@@ -144,6 +149,10 @@ private:
   std::vector<double> workVectorSplit; /*< Work vector */   
   std::vector<double> JERawVectorSplit; /*< Storing the work for the raw JE interpreter */ 
   std::vector<double> JETaylorVectorSplit; /*< Storing the work ffor the taylor series JE interpreter */
+  double low, high; // we get the highest and lowest values and divide
+  MPI_Datatype VectorMPI, VectorMPI2;
+  JarzynskiFreeEnergy sample; /*!< Instance of the class to get the function method */  
+
 };
 
 #endif 

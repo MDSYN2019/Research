@@ -124,10 +124,23 @@ public:
 };
 */
 
+
+// Reminder
+
+/*
+    Public mode: If we derive a sub class from a public base class. Then the public member of the base class will become public in the derived class and protected members of the base class will become protected in derived class.
+
+    Protected mode: If we derive a sub class from a Protected base class. Then both public member and protected members of the base class will become protected in derived class.
+
+    Private mode: If we derive a sub class from a Private base class. Then both public member and protected members of the base class will become Private in derived class.
+
+// In short, usually, using public should be sufficient! 
+
+ */
+
 class MPI_setup : public JarzynskiFreeEnergy { // Make sure we inherit from the JarzynskiFreeEnergy 
 public:
   MPI_setup();
-  
   //  MPI_setup(int*, int*);
   MPI_setup(const MPI_setup& alloc);
   MPI_setup& operator=(const MPI_setup& alloc);
@@ -140,7 +153,7 @@ public:
   void MPI_divide_vector(std::vector<double>*);
   friend class JarzynskiFreeEnergy; // MPI cl ass inherits from the Jarzynski equality class 
 private:
-  int my_rank, p; // MPI address and total p size 
+  int my_rank, comm_sz; // MPI address and total p size 
   parameterData parameters;
   std::vector<int> lineNumberVectorSplit; /*< Index vector */
   std::vector<double> coordinateZVectorSplit; /*< z coordinates vector */

@@ -33,8 +33,16 @@
 #include "boost/tuple/tuple_io.hpp"
 #include "mpi.h"
 
+// cppunit tests                                                                                                                                      
+#include <cppunit/extensions/TestFactoryRegistry.h>
+#include <cppunit/CompilerOutputter.h>
+#include <cppunit/ui/text/TestRunner.h>
+#include <cppunit/TestFixture.h>
+#include <cppunit/extensions/HelperMacros.h>
+
 //!
 /*! STL iterators -  typedefs for iterators, and typedef for vectors and tuples */  
+typedef boost::tuple<int, double> indexDoubletuple; // .. 
 typedef boost::tuple<int, double, double, double, double> tuple; /*!< Boost-constructed tuple to store the index, center point in reaction coordinate, lower bound, upper bound and the free energy value */ 
 typedef std::vector<boost::tuple<int, double, double, double, double> > tupleList; /*!< Vector of the boost::tuple */  
 typedef std::vector<int>::iterator intIter; /*!< Integer iterator */ 

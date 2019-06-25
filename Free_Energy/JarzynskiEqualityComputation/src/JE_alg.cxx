@@ -1,4 +1,3 @@
-
 /*!
 ---------------------------------------------------------------------------------
 | Jarzynski-Equality Algorithm based on multiple implementations/corrections    |
@@ -52,12 +51,29 @@ Initialzation of the template defined in the header
 
 #include "mpi.h"
 
-/*! Unit Testing modules */
+/*! cppunit tests */    
 
+#include <cppunit/extensions/TestFactoryRegistry.h>
+#include <cppunit/CompilerOutputter.h>
 #include <cppunit/ui/text/TestRunner.h>
+#include <cppunit/TestFixture.h>
+#include <cppunit/extensions/HelperMacros.h>
 
+
+// Miscellaneous functions
 
 static inline double computeSquare (double x) {return x*x;} // function for squaring the elements in a vector
+
+void duplicate_remove(std::vector<double> &v) {
+  auto end = v.end();
+  for (auto it = v.begin(); it != end; ++it) {
+    end = std::remove(it + 1, end, *it);
+  }
+  
+  v.erase(end, v.end());
+}
+
+// ---
 JarzynskiFreeEnergy::JarzynskiFreeEnergy() {} 
 JarzynskiFreeEnergy::~JarzynskiFreeEnergy() {}
 
@@ -99,13 +115,17 @@ void JarzynskiFreeEnergy::vecProcess() {
   std::cout << " Columns: Coordinate, Coordinate range min, Coordinate range max, Free Energy (Kcal mol)" << std::endl;
 
   for (tupleList::const_iterator index = JERawCoordinateBin.begin(); index != JERawCoordinateBin.end(); ++index) {
+
     std::cout << index->get<0>() << " " << index->get<1>()  << " " << index->get<2>() << " " << std::fixed << std::setprecision(5) << index->get<3>() <<  " " << index->get<4>() << std::endl; //! Print out to 5 decimal places 
+
   }
 
   std::cout << " Taylor Series JE interpreter results" << std::endl;
   std::cout << " Columns: Coordinate, Coordinate range min, Coordinate range max, Free Energy (Kcal mol)" << std::endl;
   for (tupleList::const_iterator index = JETaylorCoordinateBin.begin(); index != JETaylorCoordinateBin.end(); ++index) {
+
     std::cout  << index->get<0>() << " " << index->get<1>()  << " " << index->get<2>() << " " << std::fixed << std::setprecision(5) << index->get<3>() << " " << index->get<4>() << std::endl; //! Print out to 5 decimal places 
+
   }
 
   std::cout << " Alpha Series JE interpreter results" << std::endl;
@@ -418,6 +438,8 @@ void MPI_setup::MPI_parameter_struct_constructor(MPI_Datatype* input_mpi_t_p) {
 void MPI_setup::MPI_data_bcast(JarzynskiFreeEnergy* serialClass) {
   workVectorSplit.assign(serialClass->workVector.begin(), serialClass->workVector.end()); // Assign all workvector values read from the serial class to here 
   coordinateZVectorSplit.assign(serialClass->coordinateZVector.begin(), serialClass->coordinateZVector.end()); // Assign all coordinate ZVector to here   
+  double maxZ = *max_element(serialClass->coordinateZVector.begin(), serialClass->coordinateZVector.end()); //!< Define minimum z coordinate                                
+  double minZ = *min_element(serialClass->coordinateZVector.begin(), serialClass->coordinateZVector.end()); //!< Define maximum z coordinate          
   MPI_Bcast(&workVectorSplit[0], workVectorSplit.size(), MPI_DOUBLE, 0, MPI_COMM_WORLD);
   MPI_Bcast(&coordinateZVectorSplit[0], coordinateZVectorSplit.size(), MPI_DOUBLE, 0, MPI_COMM_WORLD);
 }
@@ -426,19 +448,31 @@ void MPI_setup::MPI_data_bcast(JarzynskiFreeEnergy* serialClass) {
 // Using a function ppinter
 
 void MPI_setup::MPI_divide_vector(int position, double (JarzynskiFreeEnergy::*f) (std::vector<double> *VectorInput), std::vector<double> *JEVector) {
+
   int work_index = 0;  
   JarzynskiFreeEnergy sample; /*!< Instance of the class to get the function method */  
   doubleIter diterator; /*!< Integer iterator */ 
+  std::vector<double> coordinateVector;
+  std::vector<double> positionVector;
 
   // Largly copied from the serial code - May need to implement this through inheritance 
   
   // 1. Divide the workvector into managable chunks and then redsitribute each work bin into multiple nodes
+  
   for (diterator = coordinateZVector.begin(); diterator <= coordinateZVector.end(); ++diterator, ++work_index) { 
-
     if (*diterator > position - 0.5 && *diterator < position + 0.5) { /*!< If the work values are within an angstrom range, add to vector */  
       JEVector->push_back((workVector[work_index])); /*!< store work values */ 
+      // Not pointer 
+      coordinateVector.push_back(*diterator);
+      positionVector.push_back(position);
     }
   }
+
+  // Remove duplicate values in positionVector
+
+  duplicate_remove(positionVector);
+  
+  // Get rough estimate of the 
 
   std::cout << "Each node will receive a MPI_Type vector of element size: " << JEVector << std::sendl; 
   double* vecPointer = JEVector.data(); // Make it slighly easier to allocate data onto the MPI_dervied datatype later on   
@@ -453,8 +487,10 @@ void MPI_setup::MPI_divide_vector(int position, double (JarzynskiFreeEnergy::*f)
   if (my_rank == 0) {
     MPI_send(&JEVector[0], 1, VectorMPI2, 1, 0, MPI_COMM_WORLD);  
   } else {
-    
 
+    for (int source = 1; source < comm_sz; source++) {
+      MPI_recv(&JEVector[0], 1, VectorMPI2, 0, 0, MPI_COMM_WORLD, &status); // If rank is not 0, get divide the values evenly
+    }
   }
 
 											   

@@ -1,0 +1,30 @@
+#ifndef GUARD_VEC_H
+#define GUARD_VEC_H
+
+#include <string>
+#include <vector>
+
+
+struct Student_info {
+  std::string name;
+  double midterm, final;
+  std::vector<double> homework;  
+
+  // member functions
+  std::istream& read(std::istream&); // Added
+  double grade() const; // added  
+};
+
+
+// inheritance 
+
+// Inheritance => We can think of one class as being just like another, except for some extensions.
+
+// For example, if we have a homework 
+class Core {
+
+
+}
+
+
+#endif

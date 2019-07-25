@@ -5,12 +5,9 @@
 #include <cstdio>
 #include <omp.h>
 
-
 // Eigen Library
 
 #include "Eigen/Dense"
-
-
 #include <cppunit/CompilerOutputter.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>
 #include <cppunit/ui/text/TestRunner.h>
@@ -19,6 +16,7 @@
 
 #include "openmp1.hpp"
 #include "openmp_LA.hpp"
+
 //#include "syn_dbg.hpp"
 
 // QAT headers
@@ -27,12 +25,6 @@
 //#include "Argument.h"
 
 using namespace Eigen;
-
-//void test_debug() {
-//  debug("A message");
-  // passing in arguments like printf
-//  debug("I am %d years old ", 37);
-//}
 
 double f (int i) {
   int j, start = i * (i + 1) / 2, finish = start +  i;
@@ -145,7 +137,6 @@ int main () {
   // test_debug();
    SYN_Mat<double> mat1(10, 10, 10);
    SYN_Mat<double> mat2(10, 10, 10);
-
    SYN_Mat<double> mat3 = mat1 + mat2;
 
    for (int i = 0; i < mat3.get_rows(); i++) {

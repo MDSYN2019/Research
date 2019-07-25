@@ -244,7 +244,15 @@ template <class T> void Vec<T>::runTest() {
   CPPUNIT_ASSERT(A == 1);  
 }
 
+/*
 
+  Using inheritance and dynamic binding
+
+  The ability to build our own datatypes is fundamental to the idea of object orientated programming (OOP)
+
+  Now we want to look at the other key compononet of OOP - which is inheritance and dynamic binding
+
+ */
 
 
 #endif /* GUARD_VEC_H */

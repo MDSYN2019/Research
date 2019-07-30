@@ -4,6 +4,9 @@
 #include <istream>
 #include <vector>
 #include <map>
+#include <fstream>
+
+
 #include "openmp_dynamicbindingandinheritance.hpp"
 
 
@@ -25,7 +28,6 @@ constructor and the constructor that takes an istream, once for each class.
 
  */
 
-// read_hw work
 
 
 

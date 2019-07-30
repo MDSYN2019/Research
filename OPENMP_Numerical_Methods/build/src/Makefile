@@ -179,6 +179,33 @@ openmp2.cxx.s:
 	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp2.cxx.s
 .PHONY : openmp2.cxx.s
 
+openmp_dynamicbindingandinheritance.o: openmp_dynamicbindingandinheritance.cxx.o
+
+.PHONY : openmp_dynamicbindingandinheritance.o
+
+# target to build an object file
+openmp_dynamicbindingandinheritance.cxx.o:
+	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp_dynamicbindingandinheritance.cxx.o
+.PHONY : openmp_dynamicbindingandinheritance.cxx.o
+
+openmp_dynamicbindingandinheritance.i: openmp_dynamicbindingandinheritance.cxx.i
+
+.PHONY : openmp_dynamicbindingandinheritance.i
+
+# target to preprocess a source file
+openmp_dynamicbindingandinheritance.cxx.i:
+	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp_dynamicbindingandinheritance.cxx.i
+.PHONY : openmp_dynamicbindingandinheritance.cxx.i
+
+openmp_dynamicbindingandinheritance.s: openmp_dynamicbindingandinheritance.cxx.s
+
+.PHONY : openmp_dynamicbindingandinheritance.s
+
+# target to generate assembly for a file
+openmp_dynamicbindingandinheritance.cxx.s:
+	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp_dynamicbindingandinheritance.cxx.s
+.PHONY : openmp_dynamicbindingandinheritance.cxx.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -194,6 +221,9 @@ help:
 	@echo "... openmp2.o"
 	@echo "... openmp2.i"
 	@echo "... openmp2.s"
+	@echo "... openmp_dynamicbindingandinheritance.o"
+	@echo "... openmp_dynamicbindingandinheritance.i"
+	@echo "... openmp_dynamicbindingandinheritance.s"
 .PHONY : help
 
 

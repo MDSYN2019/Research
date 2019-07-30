@@ -97,7 +97,7 @@ private:
   //  double T; // One year until expiry
 };
 
-
+/*
 class ProbDist {
 public:
   // Constructor/Destructor section
@@ -115,6 +115,7 @@ public:
   double call_price(const double&, const double&, const double&, const double&, const double&);
   double put_price(const double&, const double&, const double&, const double&, const double&); 
 };
+*/
 
 /*
 void thomas_algorithm(const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, std::vector<double>&);

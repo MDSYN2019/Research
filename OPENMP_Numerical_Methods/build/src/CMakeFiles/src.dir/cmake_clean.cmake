@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/src.dir/openmp1.cxx.o"
   "CMakeFiles/src.dir/openmp2.cxx.o"
+  "CMakeFiles/src.dir/openmp_dynamicbindingandinheritance.cxx.o"
   "libsrc.pdb"
   "libsrc.a"
 )

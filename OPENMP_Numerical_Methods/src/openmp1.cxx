@@ -42,6 +42,8 @@
 // create(n,t);
 //}
 
+/*
+
 template <class T>
 OMP<T>::OMP(int N) {
   thread_count = N;
@@ -104,3 +106,4 @@ void OMP<T>::pi() {
 }
 
 
+*/

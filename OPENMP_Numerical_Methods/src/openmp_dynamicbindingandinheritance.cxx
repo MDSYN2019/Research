@@ -24,12 +24,21 @@ a version of that name that is not a member of anything.
 To complete our classes, we need to implement four constructors. Default
 constructor and the constructor that takes an istream, once for each class.
 
-
-
  */
 
 
+bool compare(const Core& c1, const Core& c2) {
+  return c1.name() < c2.name();
+}
 
+
+
+/*
+Our compare function does not 
+ */
+bool compare_grades(const Core& c1, const Core& c2) {
+  return c1.grade() < c2.grade();
+}
 
 std::string Core::name() const {
   return n;
@@ -52,15 +61,13 @@ std::istream& Core::read(std::istream& in) {
 }
 
 // inherited read method 
-
 std::istream& Grad::read(std::istream& in) {
-
   /*
     Note that in the definition of Grad::read, we can refer to 
     elements from the base class without any special notation, 
     because these elements are also members of Grad. 
   */
-  
+
   read_common(in);
   in >> thesis;
   read_hw(in, homework);

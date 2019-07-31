@@ -8,20 +8,7 @@
 #include <istream>
 
 /*
-struct Student_info {
-  std::string name;
-  double midterm, final;
-  std::vector<double> homework;  
 
-  // member functions
-  std::istream& read(std::istream&); // Added
-  double grade() const; // added  
-};
-*/
-
-//bool compare (const Student_info&, const Student_info&);
-
-/*
 Inheritence and constructors
 
 Before we write the constructors for Core and Grad, we need to understand how the implementation
@@ -67,7 +54,7 @@ public:
   Core(std::istream&);
   std::string name() const; // implemented in openmp_....cxx
   std::istream& read(std::istream&);
-  double grade() const;
+  virtual double grade() const; // TODO - 
 protected: // protection label allows inherited objects to use the variables/functions
   std::istream& read_common(std::istream&);
   double midterm, final;
@@ -77,7 +64,6 @@ private:
   std::filebuf fb;
 };
 
-
 class Grad: public Core { // inherit from core
 public:
   Grad();
@@ -85,13 +71,16 @@ public:
   double grade() const;
   std::istream& read(std::istream&);  
 private:
-  double thesis;
-  
+  double thesis;  
 };
+
+/*
 
 bool compare (const Core& c1, const Core& c2) {
   return c1.name() < c2.name();  
 }
+
+*/
 
 /*
 

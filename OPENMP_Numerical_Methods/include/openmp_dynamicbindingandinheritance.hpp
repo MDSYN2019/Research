@@ -1,5 +1,5 @@
-#ifndef GUARD_VEC_H
-#define GUARD_VEC_H
+#ifndef _CORE_H
+#define _CORE_H
 
 #include <iostream>
 #include <iomanip>

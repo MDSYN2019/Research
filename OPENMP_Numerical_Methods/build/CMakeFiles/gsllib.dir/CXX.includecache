@@ -72,6 +72,18 @@ Eigen/Dense
 Eigen/LU
 ../include/Eigen/LU
 
+../include/openmp_dynamicbindingandinheritance.hpp
+iostream
+-
+iomanip
+-
+string
+-
+vector
+-
+istream
+-
+
 /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/main.cxx
 iostream
 -
@@ -97,6 +109,8 @@ openmp1.hpp
 /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/openmp1.hpp
 openmp_LA.hpp
 /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/openmp_LA.hpp
+openmp_dynamicbindingandinheritance.hpp
+/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/OPENMP_Numerical_Methods/openmp_dynamicbindingandinheritance.hpp
 
 /usr/local/include/eigen3/Eigen/Cholesky
 Core

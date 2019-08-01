@@ -16,11 +16,11 @@
 
 #include "openmp1.hpp"
 #include "openmp_LA.hpp"
+#include "openmp_dynamicbindingandinheritance.hpp"
 
 //#include "syn_dbg.hpp"
 
 
-#include "openmp_dynamicbindingandinheritance.hpp" // From accelerated C++
 // QAT headers
 
 //#include "Variable.h"
@@ -75,6 +75,33 @@ void local_function1() {
 }
 
 int main (void) {
+
+  std::vector<Core> students;
+  Core records;
+  std::string::size_type maxlen = 0;
+
+
+  // read and store the data
+
+  while (record.read(cin)) {
+    maxlen = max(maxlen, record.name().size()); // get the maxiumum size of the students name
+    students.push_back(record); // push back the record
+  }
+
+  // Not sure if I need the std::sort
+  
+  std::sort(student.begin(), students.end(), compare);
+  
+  // Write the names and grades
+
+  for (std::vector<Core>::size_type i = 0; i != students.size(); ++i) {
+    std::cout << students[i].name() << std::string(maxlen + 1 - students[i].name.size(), ' ' );
+  }
+
+  try {
+    //TODO
+  }
+  
   // Checking the utility of the custom built Vec
 
   Vec<int> EE;

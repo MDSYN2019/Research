@@ -31,6 +31,10 @@ bool compare(const Core& c1, const Core& c2) {
   return c1.name() < c2.name();
 }
 
+bool compare_grades(const Core& c1, const Core& c2) {
+  return c1.grade() < c2.grade();
+}
+
 /*
 
 Our compare function does the right thing when we call it 
@@ -42,17 +46,21 @@ a function that is similar to compare
 
 */
 
-bool compare_grades(const Core& c1, const Core& c2) {
-  return c1.grade() < c2.grade();
+Core::Core() {
+  midterm(0), final(0);
+} // default constructor
+
+Core::Core(std::istream& is) {
+  read(is);
 }
 
 std::string Core::name() const {
   return n;
 }
 
-//double Core::grade() const {
-//  return ::grade(midterm, final, homework);
-//}
+double Core::grade() const {
+  return midterm; // 
+}
 
 std::istream& Core::read_common(std::istream& in) {
   // read and store the student's name and exam grades

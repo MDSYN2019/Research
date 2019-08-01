@@ -19,6 +19,8 @@
 
 //#include "syn_dbg.hpp"
 
+
+#include "openmp_dynamicbindingandinheritance.hpp" // From accelerated C++
 // QAT headers
 
 //#include "Variable.h"

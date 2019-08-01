@@ -95,12 +95,17 @@ int main (void) {
   // Write the names and grades
 
   for (std::vector<Core>::size_type i = 0; i != students.size(); ++i) {
-    std::cout << students[i].name() << std::string(maxlen + 1 - students[i].name.size(), ' ' );
+    std::cout << students[i].name() << std::string(maxlen + 1 - students[i].name.size(), ' ');
   }
 
   try {
-    //TODO
-  }
+    double final_grade = students[i].grade(); // Core::grade
+    std::streamsize prec = std::cout.precision();
+    std::cout << setprecision(3) << final_grade << setprevision(prec) << std::endl;
+  } catch (domain_error e) {
+    std::cout << e.what() << std::endl;
+  } // This block of code will need to be tested
+  
   
   // Checking the utility of the custom built Vec
 

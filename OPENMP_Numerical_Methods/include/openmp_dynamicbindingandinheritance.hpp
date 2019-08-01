@@ -32,6 +32,14 @@ Derived objects are constructed by:
  */
 
 
+/*
+Dynamic binding
+
+The run-time selection of the virtual function to exceut is relveant only when the function is called throguh a reference
+or pointer
+
+ */
+
 
 std::istream& read_hw(std::istream& in, std::vector<double>& hw) {
   if (in) {
@@ -47,18 +55,19 @@ std::istream& read_hw(std::istream& in, std::vector<double>& hw) {
 }
 
 
-
 class Core {
 public:
   Core():  midterm(0), final(0) {};
   Core(std::istream&);
   std::string name() const; // implemented in openmp_....cxx
-  std::istream& read(std::istream&);
-  virtual double grade() const; // TODO - 
+  virtual std::istream& read(std::istream&); // Virtual because we need this to be dynamically bound because of the inherited method having an identical name 
+  virtual double grade() const; // By using a virtual implementation, the function will now determine which function to run (the original or inherited version) binpsecting each object
+  
 protected: // protection label allows inherited objects to use the variables/functions
   std::istream& read_common(std::istream&);
   double midterm, final;
   std::vector<double> homework;
+
 private:
   std::string n;
   std::filebuf fb;
@@ -74,30 +83,5 @@ private:
   double thesis;  
 };
 
-/*
-
-bool compare (const Core& c1, const Core& c2) {
-  return c1.name() < c2.name();  
-}
-
-*/
-
-/*
-
-Operations
-
-
-To complete our classes, we need to implement four 
-constructors: the defaukt constructor and the constructor that 
-takes an istream, once for each class.
-
-We must also implment six operations: the name and read_common 
-operations in class Core, and the read and grae functions for both classes. 
-
-Before writing our code, we need to think about how student records
-will be structured. As befroe, we'll want to accomodate a variable 
-number of homework assignments, so those grades must come at the end of each record.
-
- */
 
 #endif

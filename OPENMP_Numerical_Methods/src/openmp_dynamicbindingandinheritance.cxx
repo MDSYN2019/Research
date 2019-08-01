@@ -31,11 +31,17 @@ bool compare(const Core& c1, const Core& c2) {
   return c1.name() < c2.name();
 }
 
-
-
 /*
-Our compare function does not 
- */
+
+Our compare function does the right thing when we call it 
+with a Grad object as an argument because the name function 
+is shared by both Grad and Cor objects
+
+As a first cut at solving this problem, we'd write 
+a function that is similar to compare
+
+*/
+
 bool compare_grades(const Core& c1, const Core& c2) {
   return c1.grade() < c2.grade();
 }

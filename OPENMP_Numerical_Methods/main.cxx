@@ -63,17 +63,16 @@ double f (int i) {
 
 // A local class - one where there is a class inside the function
 
+
 void local_function1() {
   class Test {
     static void method() {
-
-      std::cout << "Local class method() " << std::endl;
-      
+      std::cout << "Local class method() " << std::endl;      
     }
   };
 }
-int main () {
 
+int main (void) {
   // Checking the utility of the custom built Vec
 
   Vec<int> EE;
@@ -95,6 +94,22 @@ int main () {
    std::cout << "Here's a matrix whose columns are eigenvectors of A \n"
         << "corresponding to these eigenvalues:\n"
 	     << eigensolver.eigenvectors() << std::endl;
+
+   SYN_Mat<double> mat1(10, 10, 10);
+   SYN_Mat<double> mat2(10, 10, 10);
+   SYN_Mat<double> mat3 = mat1 + mat2;
+
+   for (int i = 0; i < mat3.get_rows(); i++) {
+     for (int j = 0; j < mat3.get_rows(); j++) {
+       std::cout << mat3(i,j) << ", "; 
+     }
+     std::cout << std::endl;
+   }
+    
+   return 0;
+}
+
+/// TODO
 
    //   Eigen::HouseHolderQR<MatrixXf> qr(p);
    //Eigen::MatrixXf q = qr.householderQ();
@@ -135,16 +150,3 @@ int main () {
   */
   // AA.addup();
   // test_debug();
-   SYN_Mat<double> mat1(10, 10, 10);
-   SYN_Mat<double> mat2(10, 10, 10);
-   SYN_Mat<double> mat3 = mat1 + mat2;
-
-   for (int i = 0; i < mat3.get_rows(); i++) {
-     for (int j = 0; j < mat3.get_rows(); j++) {
-       std::cout << mat3(i,j) << ", "; 
-     }
-     std::cout << std::endl;
-   }
-    
-   return 0;
-}

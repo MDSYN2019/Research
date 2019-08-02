@@ -2,6 +2,7 @@
 #define __temp__
 
 
+
 /*
 
 Function templates provide a functional behaviour that can be called for different types.

@@ -83,29 +83,30 @@ int main (void) {
 
   // read and store the data
 
-  while (record.read(cin)) {
-    maxlen = max(maxlen, record.name().size()); // get the maxiumum size of the students name
-    students.push_back(record); // push back the record
+  while (records.read(std::cin)) {
+    maxlen = std::max(maxlen, records.name().size()); // get the maxiumum size of the students name
+    students.push_back(records); // push back the record
   }
 
   // Not sure if I need the std::sort
   
-  std::sort(student.begin(), students.end(), compare);
+  // std::sort(student.begin(), students.end(), compare);
   
   // Write the names and grades
 
-  for (std::vector<Core>::size_type i = 0; i != students.size(); ++i) {
-    std::cout << students[i].name() << std::string(maxlen + 1 - students[i].name.size(), ' ');
-  }
+  // for (std::vector<Core>::size_type i = 0; i != students.size(); ++i) {
+  //  std::cout << students[i].name() << std::string(maxlen + 1 - students[i].name.size(), ' ');
+  //  }
 
+  /*
   try {
-    double final_grade = students[i].grade(); // Core::grade
-    std::streamsize prec = std::cout.precision();
-    std::cout << setprecision(3) << final_grade << setprevision(prec) << std::endl;
-  } catch (domain_error e) {
+   double final_grade = students[i].grade(); // Core::grade
+   std::streamsize prec = std::cout.precision();
+   std::cout << std::setprecision(3) << final_grade << std::setprecision(prec) << std::endl;
+  } catch (std::domain_error e) {
     std::cout << e.what() << std::endl;
   } // This block of code will need to be tested
-  
+  */
   
   // Checking the utility of the custom built Vec
 
@@ -120,10 +121,11 @@ int main (void) {
   //std::cout << EE[0] << std::endl;
   
   Matrix2f A;
-   A << 1, 2, 2, 3;
+  A << 1, 2, 2, 3;
 
    SelfAdjointEigenSolver<Matrix2f> eigensolver(A);
    if (eigensolver.info() != Success) abort();
+
    std::cout << "The eigenvalues of A are:\n" << eigensolver.eigenvalues() << std::endl;
    std::cout << "Here's a matrix whose columns are eigenvectors of A \n"
         << "corresponding to these eigenvalues:\n"

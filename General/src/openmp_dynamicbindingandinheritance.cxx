@@ -9,7 +9,6 @@
 
 #include "openmp_dynamicbindingandinheritance.hpp"
 
-
 /*
 
 This code contains two more important differences. First note that 
@@ -18,6 +17,9 @@ a version of that name that is not a member of anything.
 
  */
 
+bool compare(const Core& c1, const Core& c2) {
+  return c1.name() < c2.name();
+}
 
 /*
 
@@ -26,25 +28,13 @@ constructor and the constructor that takes an istream, once for each class.
 
  */
 
-
-bool compare(const Core& c1, const Core& c2) {
-  return c1.name() < c2.name();
-}
-
 bool compare_grades(const Core& c1, const Core& c2) {
   return c1.grade() < c2.grade();
 }
 
-/*
 
-Our compare function does the right thing when we call it 
-with a Grad object as an argument because the name function 
-is shared by both Grad and Cor objects
 
-As a first cut at solving this problem, we'd write 
-a function that is similar to compare
-
-*/
+// Filling in the details for the Core method
 
 Core::Core() {
   midterm(0), final(0);
@@ -68,10 +58,17 @@ std::istream& Core::read_common(std::istream& in) {
   return in;
 }
 
-std::istream& Core::read(std::istream& in) {
+virtual std::istream& Core::read(std::istream& in) {
   read_common(in);
   read_hw(in, homework);
   return in;
+}
+
+
+// Grad method
+
+double Grad::grade() const {
+  return std::min(Core::grade(), thesis);
 }
 
 // inherited read method 

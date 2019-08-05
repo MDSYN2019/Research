@@ -77,9 +77,9 @@ void local_function1() {
 
 int main (void) {
 
-  std::vector<Core> students;
-  Core records;
-  std::string::size_type maxlen = 0;
+  //std::vector<Core> students;
+  // Core records;
+  //std::string::size_type maxlen = 0;
 
   // read and store the data
 

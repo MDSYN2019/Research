@@ -36,9 +36,7 @@ bool compare_grades(const Core& c1, const Core& c2) {
 
 // Filling in the details for the Core method
 
-Core::Core() {
-  midterm(0), final(0);
-} // default constructor
+Core::Core() {} // default constructor
 
 Core::Core(std::istream& is) {
   read(is);
@@ -58,7 +56,7 @@ std::istream& Core::read_common(std::istream& in) {
   return in;
 }
 
-virtual std::istream& Core::read(std::istream& in) {
+std::istream& Core::read(std::istream& in) {
   read_common(in);
   read_hw(in, homework);
   return in;
@@ -118,6 +116,7 @@ std::istream& Grad::read(std::istream& in) {
 
 */
 
+/*
 class Student_info {
   // constructor and copy control
   Student_info(): cp(0) {}
@@ -145,3 +144,4 @@ class Student_info {
 private:
   Core* cp;
 };
+*/

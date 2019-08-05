@@ -50,4 +50,12 @@ private:
 };
 
 
+/*
+Our users ahve to remember to allocate space for the records as they read them.
+
+
+ */
+
+
+
 #endif

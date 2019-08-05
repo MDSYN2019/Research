@@ -86,3 +86,62 @@ std::istream& Grad::read(std::istream& in) {
 }
 
 
+/*
+  A simple handle class
+  --------------------
+  Although the approach that we have just seen is straightfoerwad, it has problems: 
+  the program has sacquired a lot of extra complexity related to managing pointers
+
+  Our users have to remember to allocate space for the records as they read them,
+  and to remember to free that space when they no longer need the data
+
+  The code is constantly dereferencing the pointers to get at the underlying objects
+  
+
+  -- 
+
+  What we'd like to do is to find a way to preserve the good properties of our 
+  simpler programs 
+
+  Our code became cluttered when we realized that we needed to be able to deal 
+  with objects whose type we could not know until run time. We knew that 
+  each object would be either a Core, or something derived from Core. 
+
+  Our solution used pointers, because we could allocate a pointer to Core and then
+  make that pointer point to either a Core or a Grad object.
+
+  The trouble with our solution is that it imposed error-prone bookkeeping 
+  on our users. We can't eliminate that bookkeeping, but we can hide it 
+  from our users by writing a new class that will encapsulate the pointer to Core 
+  
+  Key point : Encapsulate the pointer to Core 
+
+*/
+
+class Student_info {
+  // constructor and copy control
+  Student_info(): cp(0) {}
+  Student_info(std::istream is) : cp (0) { read(is)}
+  Student_info(const Student_info&);
+  Student_info& operator=(const Student_info&);
+  ~Student_info() {delete cp;}
+  // operations
+  std::istream read&(std::istream&);
+
+  std::string name() const {
+    if (cp) return cp->name;
+    else throw std::runtime_error("uninitialilized student");
+  }
+
+  double grade() const {
+    if (cp) return cp->grade();
+    else throw std::runtime_error("unintialized student");
+  }
+
+  static bool compare (const Student_info& s1, const Student_info& s2) {
+    return s1.name() < s2.name();
+  }
+
+private:
+  Core* cp;
+};

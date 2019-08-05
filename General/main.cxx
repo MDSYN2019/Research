@@ -37,6 +37,7 @@ double f (int i) {
   return return_val;
 }
 
+
 //OMP AA(5);
 //using namespace Genfun;
 
@@ -80,13 +81,12 @@ int main (void) {
   Core records;
   std::string::size_type maxlen = 0;
 
-
   // read and store the data
 
-  while (records.read(std::cin)) {
-    maxlen = std::max(maxlen, records.name().size()); // get the maxiumum size of the students name
-    students.push_back(records); // push back the record
-  }
+  //  while (records.read(std::cin)) {
+  // maxlen = std::max(maxlen, records.name().size()); // get the maxiumum size of the students name
+  //  students.push_back(records); // push back the record
+  //}
 
   // Not sure if I need the std::sort
   

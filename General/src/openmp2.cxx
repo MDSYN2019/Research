@@ -26,6 +26,8 @@ private:
 
 */
 
+// Custom made Str type
+
 class Str {
 public:
   typedef Vec<char>::size_type size_type;

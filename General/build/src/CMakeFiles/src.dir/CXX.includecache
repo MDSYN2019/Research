@@ -57,8 +57,10 @@ string
 -
 vector
 -
-istream
--
+grade.hpp
+../include/grade.hpp
+median.hpp
+../include/median.hpp
 
 /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/grade.cxx
 stdexcept
@@ -119,22 +121,6 @@ openmp1.hpp
 /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/openmp1.hpp
 
 /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/openmp_dynamicbindingandinheritance.cxx
-iostream
--
-iomanip
--
-istream
--
-vector
--
-map
--
-fstream
--
-grade.hpp
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/grade.hpp
-median.hpp
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/median.hpp
 openmp_dynamicbindingandinheritance.hpp
 /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/openmp_dynamicbindingandinheritance.hpp
 

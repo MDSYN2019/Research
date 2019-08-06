@@ -5,8 +5,11 @@
 #include <iomanip>
 #include <string>
 #include <vector>
-#include <istream>
 
+// Include for the virtual function, which needs to be described for the non-inherited class explicitly
+
+#include "grade.hpp"
+#include "median.hpp"
 
 std::istream& read_hw(std::istream& in, std::vector<double>& hw) {
   if (in) {
@@ -21,32 +24,34 @@ std::istream& read_hw(std::istream& in, std::vector<double>& hw) {
   return in;
 }
 
+
 class Core {
+  friend class Student_info;
+  
 public:
-  Core() {};
-  // ~Core();
-  Core(std::istream&);
-  // virtual destructor
+  Core(): midterm(0), final(0) { }
+  Core(std::istream& is) { read(is); }
   //virtual ~Core();
   std::string name() const; // implemented in openmp_....cxx
-  std::istream& read(std::istream&); // Virtual because we need this to be dynamically bound because of the inherited method having an identical name 
-  double grade() const; // By using a virtual implementation, the function will now determine which function to run (the original or inherited version) binpsecting each object
-  
+  virtual std::istream& read(std::istream&); // Virtual because we need this to be dynamically bound because of the inherited method having an identical name 
+  virtual double grade() const {return ::grade(midterm, final, homework);}  // By using a virtual implementation, the function will now determine which function to run (the original or inherited version) binpsecting each object
+
 protected: // protection label allows inherited objects to use the variables/functions
   std::istream& read_common(std::istream&);
   double midterm, final;
   std::vector<double> homework; 
-private:
   std::string n;
-  std::filebuf fb;
+  // TODO
+  //  virtual Core* clone() const {return new Core(*this);}
+private:
+  //std::filebuf fb;
 };
 
 class Grad: public Core { // inherit from core
 public:
-  Grad();
-  Grad(std::istream&);
-  double grade() const;
-  std::istream& read(std::istream&);  
+  Grad(): thesis(0) { }
+  Grad(std::istream& is) { read(is); }
+  double grade() const { return std::min(Core::grade(), thesis); }
 private:
   double thesis;  
 };

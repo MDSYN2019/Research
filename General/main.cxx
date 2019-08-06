@@ -70,7 +70,7 @@ double f (int i) {
 int main (void) {
 
   //std::vector<Core> students;
-  Core records;
+  //  Core records;
   //std::string::size_type maxlen = 0;
 
   // read and store the data

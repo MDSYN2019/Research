@@ -8,7 +8,9 @@
 
 
 #include "grade.hpp"
+#include "median.hpp"
 #include "openmp_dynamicbindingandinheritance.hpp"
+
 
 /*
 
@@ -37,8 +39,6 @@ bool compare_grades(const Core& c1, const Core& c2) {
 
 // Filling in the details for the Core method
 
-Core::Core() {} // default constructor
-
 Core::Core(std::istream& is) {
   read(is);
 }
@@ -48,7 +48,7 @@ std::string Core::name() const {
 }
 
 double Core::grade() const {
-  return midterm; // 
+  return ::grade(midterm, final, homework); // 
 }
 
 std::istream& Core::read_common(std::istream& in) {

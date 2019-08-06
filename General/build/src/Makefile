@@ -125,6 +125,33 @@ src/fast:
 	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/build
 .PHONY : src/fast
 
+grade.o: grade.cxx.o
+
+.PHONY : grade.o
+
+# target to build an object file
+grade.cxx.o:
+	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/grade.cxx.o
+.PHONY : grade.cxx.o
+
+grade.i: grade.cxx.i
+
+.PHONY : grade.i
+
+# target to preprocess a source file
+grade.cxx.i:
+	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/grade.cxx.i
+.PHONY : grade.cxx.i
+
+grade.s: grade.cxx.s
+
+.PHONY : grade.s
+
+# target to generate assembly for a file
+grade.cxx.s:
+	cd /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/grade.cxx.s
+.PHONY : grade.cxx.s
+
 openmp1.o: openmp1.cxx.o
 
 .PHONY : openmp1.o
@@ -215,6 +242,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... src"
 	@echo "... edit_cache"
+	@echo "... grade.o"
+	@echo "... grade.i"
+	@echo "... grade.s"
 	@echo "... openmp1.o"
 	@echo "... openmp1.i"
 	@echo "... openmp1.s"

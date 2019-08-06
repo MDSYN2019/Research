@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+../include/grade.hpp
+vector
+-
+
+../include/median.hpp
+algorithm
+-
+stdexcept
+-
+vector
+-
+
 ../include/openmp1.hpp
 iostream
 -
@@ -47,6 +59,16 @@ vector
 -
 istream
 -
+
+/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/grade.cxx
+stdexcept
+-
+vector
+-
+grade.hpp
+/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/grade.hpp
+median.hpp
+/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/median.hpp
 
 /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/openmp1.cxx
 iostream
@@ -109,6 +131,10 @@ map
 -
 fstream
 -
+grade.hpp
+/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/grade.hpp
+median.hpp
+/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/median.hpp
 openmp_dynamicbindingandinheritance.hpp
 /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/openmp_dynamicbindingandinheritance.hpp
 

@@ -1,6 +1,5 @@
 #ifndef _CORE_H
 #define _CORE_H
-
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -23,7 +22,8 @@ std::istream& read_hw(std::istream& in, std::vector<double>& hw) {
 
 class Core {
 public:
-  Core();
+  Core() {};
+  // ~Core();
   Core(std::istream&);
   // virtual destructor
   //virtual ~Core();
@@ -34,8 +34,7 @@ public:
 protected: // protection label allows inherited objects to use the variables/functions
   std::istream& read_common(std::istream&);
   double midterm, final;
-  std::vector<double> homework;
-  
+  std::vector<double> homework; 
 private:
   std::string n;
   std::filebuf fb;
@@ -57,7 +56,5 @@ Our users ahve to remember to allocate space for the records as they read them.
 
 
  */
-
-
 
 #endif

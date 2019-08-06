@@ -7,6 +7,7 @@
 #include <fstream>
 
 
+#include "grade.hpp"
 #include "openmp_dynamicbindingandinheritance.hpp"
 
 /*
@@ -61,7 +62,6 @@ std::istream& Core::read(std::istream& in) {
   read_hw(in, homework);
   return in;
 }
-
 
 // Grad method
 

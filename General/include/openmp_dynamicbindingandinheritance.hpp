@@ -26,7 +26,6 @@ public:
   virtual std::istream& read(std::istream& in);
   // Virtual because we need this to be dynamically bound because of the inherited method having an identical name 
   virtual double grade() const {return ::grade(midterm, final, homework);}  // By using a virtual implementation, the function will now determine which function to run (the original or inherited version) binpsecting each object
-
 protected: // protection label allows inherited objects to use the variables/functions
   std::istream& read_common(std::istream&);
   double midterm, final;
@@ -47,10 +46,9 @@ private:
   double thesis;  
 };
 
-
 /*
   TODO
- */
+*/
 
 class Student_info {
   // constructor and copy control

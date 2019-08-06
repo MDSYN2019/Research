@@ -8,6 +8,9 @@
 // Eigen Library
 
 #include "Eigen/Dense"
+
+// cppunit libraries
+
 #include <cppunit/CompilerOutputter.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>
 #include <cppunit/ui/text/TestRunner.h>
@@ -18,6 +21,12 @@
 #include "openmp_LA.hpp"
 #include "openmp_dynamicbindingandinheritance.hpp"
 
+
+// Non-standard namespaces
+
+using namespace Eigen;
+
+
 //#include "syn_dbg.hpp"
 
 
@@ -26,7 +35,6 @@
 //#include "Variable.h"
 //#include "Argument.h"
 
-using namespace Eigen;
 
 double f (int i) {
   int j, start = i * (i + 1) / 2, finish = start +  i;
@@ -69,15 +77,16 @@ double f (int i) {
 
 int main (void) {
 
-  //std::vector<Core> students;
-  //  Core records;
-  //std::string::size_type maxlen = 0;
+  std::vector<Core> students;
+  Core record;
+  std::string::size_type maxlen = 0;
 
+  
   // read and store the data
 
-  //  while (records.read(std::cin)) {
-  // maxlen = std::max(maxlen, records.name().size()); // get the maxiumum size of the students name
-  //  students.push_back(records); // push back the record
+  //  while (record.read(std::cin)) {
+  //  maxlen = std::max(maxlen, record.name().size()); // get the maxiumum size of the students name
+  //  students.push_back(record); // push back the record
   //}
 
   // Not sure if I need the std::sort

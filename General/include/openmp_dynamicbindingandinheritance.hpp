@@ -1,6 +1,7 @@
 #ifndef _CORE_H_
 #define _CORE_H_
 
+#include <algorithm>
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -11,29 +12,19 @@
 #include "grade.hpp"
 #include "median.hpp"
 
-std::istream& read_hw(std::istream& in, std::vector<double>& hw) {
-  if (in) {
-    hw.clear();
-    double x;
-    while (in >> x) {
-      hw.push_back(x);
-      // Clear the stream so that input will work for the next student
-      in.clear();
-    } 
-  }  
-  return in;
-}
-
+std::istream& read_hw(std::istream& in, std::vector<double>& hw);
 
 class Core {
   friend class Student_info;
-  
 public:
+  // Constructors/destructors
   Core(): midterm(0), final(0) { }
   Core(std::istream& is) { read(is); }
-  //virtual ~Core();
+  virtual ~Core() {}
+  
   std::string name() const; // implemented in openmp_....cxx
-  virtual std::istream& read(std::istream&); // Virtual because we need this to be dynamically bound because of the inherited method having an identical name 
+  virtual std::istream& read(std::istream& in);
+  // Virtual because we need this to be dynamically bound because of the inherited method having an identical name 
   virtual double grade() const {return ::grade(midterm, final, homework);}  // By using a virtual implementation, the function will now determine which function to run (the original or inherited version) binpsecting each object
 
 protected: // protection label allows inherited objects to use the variables/functions
@@ -58,9 +49,16 @@ private:
 
 
 /*
-Our users ahve to remember to allocate space for the records as they read them.
-
-
+  TODO
  */
 
+class Student_info {
+  // constructor and copy control
+public:
+  Student_info(): cp(0) {}
+  Student_info(std::istream& is) : cp(0) {read(is);}
+  
+private:
+  Core* cp;
+};
 #endif

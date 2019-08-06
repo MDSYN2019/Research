@@ -8,8 +8,8 @@
 
 
 #include "openmp_dynamicbindingandinheritance.hpp"
-//#include "grade.hpp"
-//#include "median.hpp"
+#include "grade.hpp"
+#include "median.hpp"
 
 
 /*
@@ -35,6 +35,22 @@ bool compare_grades(const Core& c1, const Core& c2) {
   return c1.grade() < c2.grade();
 }
 
+std::istream& read_hw(std::istream& in, std::vector<double>& hw) {
+
+  if (in) {
+    hw.clear();
+
+    double x;
+
+    while (in >> x) {
+      hw.push_back(x);
+      // Clear the stream so that input will work for the next student
+      in.clear();
+    } 
+  }  
+  return in;
+}
+
 
 
 // Filling in the details for the Core method
@@ -47,9 +63,9 @@ std::string Core::name() const {
   return n;
 }
 
-//double Core::grade() const {
-// return ::grade(midterm, final, homework); // 
-//}
+double Core::grade() const {
+ return ::grade(midterm, final, homework); // 
+}
 
 std::istream& Core::read_common(std::istream& in) {
   // read and store the student's name and exam grades
@@ -63,19 +79,21 @@ std::istream& Core::read(std::istream& in) {
   return in;
 }
 
+Core::~Core() {}
+
+
 // Grad class
 
 // inherited read method 
 
-/*
-std::istream& Grad::read(std::istream& in) {
 
+std::istream& Grad::read(std::istream& in) {
   read_common(in);
   in >> thesis;
   read_hw(in, homework);
   return in; 
 }
-*/
+
 
 /*
   A simple handle class

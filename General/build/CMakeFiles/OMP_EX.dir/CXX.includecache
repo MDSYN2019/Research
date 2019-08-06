@@ -85,6 +85,8 @@ Eigen/LU
 ../include/Eigen/LU
 
 ../include/openmp_dynamicbindingandinheritance.hpp
+algorithm
+-
 iostream
 -
 iomanip

@@ -57,6 +57,8 @@ class Student_info {
 public:
   Student_info(): cp(0) {}
   Student_info(std::istream& is) : cp(0) {read(is);}
+  Student_info(const Student_info&);
+
   
 private:
   Core* cp;

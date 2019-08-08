@@ -2,68 +2,86 @@
 
 #include <algorithm>
 #include <iostream>
-#include <iomanip>
 #include <string>
 #include <vector>
 
-// Include for the virtual function, which needs to be described for the non-inherited class explicitly
-
-//#include "median.hpp"
-#include "grade.hpp"
-
+#include "grade.h"
 
 class Core {
   friend class Student_info;
 
-public:
-  // Constructors/destructors
-  Core(): midterm(0), fin(0) { }
-  Core(std::istream& is);
-  virtual ~Core() {}
-  
-  std::string name() const; // implemented in openmp_....cxx
-  virtual std::istream& read(std::istream& in);
-  // Virtual because we need this to be dynamically bound because of the inherited method having an identical name 
+ public:
+ Core(): midterm(0), final(0) { }
+  Core(std::istream& is) { read(is); }
 
-  virtual double grade() const {return ::grade(midterm, fin, homework);}  // By using a virtual implementation, the function will now determine which function to run (the original or inherited version) binpsecting each object
+  std::string name() const { return n; }
 
-protected: // protection label allows inherited objects to use the variables/functions
-  double midterm, fin;
-  std::vector<double> homework; 
+  virtual std::istream& read(std::istream&);
+  virtual double grade() const { return ::grade(midterm, final, homework); }
+  virtual bool valid() const { return !homework.empty(); }
+  virtual bool fulfill_reqs() const {
+    return (std::find(homework.begin(), homework.end(), 0.0)
+	    == homework.end());
+  }
+
+  virtual ~Core() { }
+
+ protected:
   std::string n;
+  double midterm, final;
+  std::vector<double> homework;
+
   std::istream& read_common(std::istream&);
- 
-  // TODO
-  //  virtual Core* clone() const {return new Core(*this);}
-private:
-  //std::filebuf fb;
+
+  virtual Core* clone() const { return new Core(*this); }
 };
 
-class Grad: public Core { // inherit from core
-public:
-  Grad(): thesis(0) { }
+class Grad: public Core {
+ public:
+ Grad(): thesis(0) { }
   Grad(std::istream& is) { read(is); }
+
   std::istream& read(std::istream&);
   double grade() const { return std::min(Core::grade(), thesis); }
-private:
-  double thesis;  
+  bool fulfill_reqs() const { return (thesis > 0.0); }
+
+ private:
+  double thesis;
+
+  Grad* clone() const { return new Grad(*this); }
 };
 
-/*
-  TODO
-*/
+class PassFail: public Core {
+ public:
+  PassFail() { }
+  PassFail(std::istream& is) { Core::read(is); }
 
-/*
-class Student_info {
-  // constructor and copy control
-public:
-  Student_info(): cp(0) {}
-  Student_info(std::istream& is) : cp(0) {read(is);}
-  Student_info(const Student_info&);
+  double grade() const {
+    if (homework.size() > 0) return ::grade(midterm, final, homework);
+    else return (midterm + final) / 2;
+  }
 
-  
-private:
-  Core* cp;
+  bool valid() const { return true; }  
+  bool fulfill_reqs() const { return true; }
+
+ private:
+  PassFail* clone() const { return new PassFail(*this); }
 };
-*/
 
+class Audit: public Core {
+ public:
+  Audit() { }
+  Audit(std::istream& is) { read(is); }
+
+  std::istream& read(std::istream&);
+  double grade() const { return 0.0; }
+  bool valid() const { return true; }  
+  bool fulfill_reqs() const { return true; }
+
+ private:
+  Audit* clone() const { return new Audit(*this); }
+};
+
+bool compare(const Core&, const Core&);
+bool compare_Core_ptrs(const Core*, const Core*);
+std::string letter_grade(double);

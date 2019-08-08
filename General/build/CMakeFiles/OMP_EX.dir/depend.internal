@@ -3,7 +3,6 @@
 
 CMakeFiles/OMP_EX.dir/main.cxx.o
  ../include/grade.hpp
- ../include/median.hpp
  ../include/openmp1.hpp
  ../include/openmp_LA.hpp
  ../include/openmp_dynamicbindingandinheritance.hpp

@@ -10,14 +10,6 @@
 vector
 -
 
-../include/median.hpp
-algorithm
--
-stdexcept
--
-vector
--
-
 ../include/openmp1.hpp
 iostream
 -
@@ -97,8 +89,6 @@ vector
 -
 grade.hpp
 ../include/grade.hpp
-median.hpp
-../include/median.hpp
 
 /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/main.cxx
 iostream

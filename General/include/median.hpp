@@ -1,6 +1,6 @@
-#pragma
-#ifndef __MED__
-#define __MED__
+
+
+#pragma once 
 
 #include <algorithm>
 #include <stdexcept>
@@ -20,8 +20,3 @@ template <class T> T median(std::vector<T> v) {
   }
 }
 
-
-
-
-#endif /* 
- */

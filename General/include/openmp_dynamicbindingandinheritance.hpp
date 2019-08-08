@@ -1,5 +1,4 @@
-#ifndef _CORE_H_
-#define _CORE_H_
+#pragma once
 
 #include <algorithm>
 #include <iostream>
@@ -9,28 +8,31 @@
 
 // Include for the virtual function, which needs to be described for the non-inherited class explicitly
 
+//#include "median.hpp"
 #include "grade.hpp"
-#include "median.hpp"
 
-std::istream& read_hw(std::istream& in, std::vector<double>& hw);
 
 class Core {
   friend class Student_info;
+
 public:
   // Constructors/destructors
-  Core(): midterm(0), final(0) { }
-  Core(std::istream& is) { read(is); }
+  Core(): midterm(0), fin(0) { }
+  Core(std::istream& is);
   virtual ~Core() {}
   
   std::string name() const; // implemented in openmp_....cxx
   virtual std::istream& read(std::istream& in);
   // Virtual because we need this to be dynamically bound because of the inherited method having an identical name 
-  virtual double grade() const {return ::grade(midterm, final, homework);}  // By using a virtual implementation, the function will now determine which function to run (the original or inherited version) binpsecting each object
+
+  virtual double grade() const {return ::grade(midterm, fin, homework);}  // By using a virtual implementation, the function will now determine which function to run (the original or inherited version) binpsecting each object
+
 protected: // protection label allows inherited objects to use the variables/functions
-  std::istream& read_common(std::istream&);
-  double midterm, final;
+  double midterm, fin;
   std::vector<double> homework; 
   std::string n;
+  std::istream& read_common(std::istream&);
+ 
   // TODO
   //  virtual Core* clone() const {return new Core(*this);}
 private:
@@ -41,6 +43,7 @@ class Grad: public Core { // inherit from core
 public:
   Grad(): thesis(0) { }
   Grad(std::istream& is) { read(is); }
+  std::istream& read(std::istream&);
   double grade() const { return std::min(Core::grade(), thesis); }
 private:
   double thesis;  
@@ -50,6 +53,7 @@ private:
   TODO
 */
 
+/*
 class Student_info {
   // constructor and copy control
 public:
@@ -61,4 +65,5 @@ public:
 private:
   Core* cp;
 };
-#endif
+*/
+

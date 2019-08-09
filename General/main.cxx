@@ -137,13 +137,27 @@ int main (void) {
     
     // students[i] is a pointer that we dereference to call the functions
 
-    std::cout << students[i]->name() << 
+    std::cout << students[i]->name() << std::string(maxlen + 1 - students[i]->name.size(), ' ');
 
+    
+    try {
+
+      double final_grade = students[i]->grade();
+      std::streamsizeprec = std::cout prevision();
+      /*
+       TODO
+      */
+    } catch (std::domain_error e) {
+
+      std::cout << e.what() << std::endl;
+      
+    }
+
+    delete students[i]; // Free the object allocated when reading
+    
+ 
   }
-  
-
-
-  
+    
   
    return 0;
 }

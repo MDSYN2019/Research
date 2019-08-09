@@ -5,7 +5,7 @@ using namespace std;
 std::istream& read_hw(std::istream& in, std::vector<double>& hw);
 
 istream& Core::read_common(istream& in) {
-  in >> n >> midterm >> final;
+  in >> n >> midterm >> final; // read n, midterm and final
   return in;
 }
 

@@ -103,16 +103,47 @@ void A() {
 // A local class - one where there is a class inside the function
 
 
-int main () {
+int main (void) {
  
-  std::vector<Core> students;
-  //  Core c1;
-  //Grad g1;
+  std::vector<Core*> students;
   
+  Core* record;
+  char ch;
+  std::string::size_type maxlen = 0;
   
-  // Core record;
   //std::string::size_type maxlen = 0;
 
+  // Read and store the data
+  // U = undergrad
+  // G = Grad
+  while (std::cin >> ch) {
+
+    if (ch == 'U') {
+      record = new Core; // allocate a Core object  - pointer to a class on the heap 
+    } else {
+      record = new Grad; // allocat a Grad object - pointer to a class on the heap 
+    }
+
+    record->read(std::cin); // virtual call 
+    maxlen = std::max(maxlen, record->name().size()); // dereference
+    students.push_back(record);
+  }
+
+  // pass the version of compare that works on pointers
+  std::sort(students.begin(), students.end(), compare_Core_ptrs); // Sort asks for the metric function at the end
+
+  
+  for (std::vector<Core*>::size_type i = 0; i != students.size(); ++i) {
+    
+    // students[i] is a pointer that we dereference to call the functions
+
+    std::cout << students[i]->name() << 
+
+  }
+  
+
+
+  
   
    return 0;
 }

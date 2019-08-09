@@ -106,8 +106,8 @@ void A() {
 int main () {
  
   std::vector<Core> students;
-  Core c1;
-  Grad g1;
+  //  Core c1;
+  //Grad g1;
   
   
   // Core record;

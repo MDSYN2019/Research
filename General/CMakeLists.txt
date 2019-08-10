@@ -17,6 +17,11 @@ if(CMAKE_Fortran_COMPILER_ID MATCHES "PGI")
     set(bounds "-C")
 endif()
 
+
+# TODO - how is this associated with virtual functions?
+set (CMAKE_AUTOMOC ON)
+set (CMAKE_INCLUDE_CURRENT_DIR ON)
+
 # Ensure C++11 is invokedinclude(CheckCXXCompilerFlag)
 
 FIND_LIBRARY(CPPUNIT_LIBRARY NAMES cppunit)

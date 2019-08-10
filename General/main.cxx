@@ -1,5 +1,5 @@
 #include <iostream>
-#include <iostream>
+#include <iomanip> // has the setprecision
 #include <cstdlib>
 #include <cmath>
 #include <cstdio>
@@ -116,48 +116,44 @@ int main (void) {
   // Read and store the data
   // U = undergrad
   // G = Grad
+
+  
   while (std::cin >> ch) {
 
     if (ch == 'U') {
-      record = new Core; // allocate a Core object  - pointer to a class on the heap 
+      record = new Core(); // allocate a Core object  - pointer to a class on the heap 
     } else {
-      record = new Grad; // allocat a Grad object - pointer to a class on the heap 
+      record = new Grad(); // allocat a Grad object - pointer to a class on the heap 
     }
-
-    record->read(std::cin); // virtual call 
-    maxlen = std::max(maxlen, record->name().size()); // dereference
+    record->read(std::cin);          // `virtual' call
+    maxlen = std::max(maxlen, record->name().size());// dereference
     students.push_back(record);
   }
 
-  // pass the version of compare that works on pointers
-  std::sort(students.begin(), students.end(), compare_Core_ptrs); // Sort asks for the metric function at the end
-
-  
-  for (std::vector<Core*>::size_type i = 0; i != students.size(); ++i) {
-    
-    // students[i] is a pointer that we dereference to call the functions
-
-    std::cout << students[i]->name() << std::string(maxlen + 1 - students[i]->name.size(), ' ');
-
-    
-    try {
-
-      double final_grade = students[i]->grade();
-      std::streamsizeprec = std::cout prevision();
-      /*
-       TODO
-      */
-    } catch (std::domain_error e) {
-
-      std::cout << e.what() << std::endl;
-      
-    }
-
-    delete students[i]; // Free the object allocated when reading
-    
- 
-  }
-    
-  
-   return 0;
+  std::sort(students.begin(), students.end(), compare_Core_ptrs);
+#ifdef _MSC_VER
+  for (std::vector<Core*>::size_type i = 0;
+#else
+       for (std::vector<Core*>::size_type i = 0;
+#endif
+	    i != students.size(); ++i) {
+	 // `students[i]' is a pointer that we dereference to call the functions
+	 std::cout << students[i]->name()
+	      << std::string(maxlen + 1 - students[i]->name().size(), ' ');
+	 try {
+	   double final_grade = students[i]->grade();
+	   std::streamsize prec = std::cout.precision();
+	   std::cout << std::setprecision(3) << final_grade
+		     << std::setprecision(prec) << std::endl;
+	   
+	 } catch (std::domain_error e) {
+	   std::cout << e.what() << std::endl;
+	 }
+	 delete students[i];        // free the object allocated when reading
+       }
+	 
+	 // pass the version of compare that works on pointers
+  //  using namespace std;::sort(students.begin(), students.end(), compare_Core_ptrs); // Sort asks for the metric function at the end
+	 
+	 return 0;
 }

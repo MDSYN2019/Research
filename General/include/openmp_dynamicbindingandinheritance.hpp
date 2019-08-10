@@ -11,7 +11,7 @@ class Core {
   friend class Student_info;
 
  public:
- Core(): midterm(0), final(0) { }
+  Core(): midterm(0), final(0) { }
   Core(std::istream& is) { read(is); }
 
   std::string name() const { return n; }
@@ -23,8 +23,7 @@ class Core {
     return (std::find(homework.begin(), homework.end(), 0.0)
 	    == homework.end());
   }
-
-  virtual ~Core() { }
+  virtual ~Core() {}
 
  protected:
   std::string n;
@@ -87,3 +86,14 @@ bool compare_Core_ptrs(const Core*, const Core*);
 std::string letter_grade(double);
 
 
+// vtable error
+
+class Port {
+private:
+  char *brand;
+  char style[20];
+  int bottles;
+public:
+  Port (const char *br = "none", const char *st = "none", int b = 0);
+  Port (const Port &p); // copy constructor 
+};

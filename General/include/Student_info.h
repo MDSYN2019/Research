@@ -32,6 +32,7 @@ class Student_info {
   std::istream& read(std::istream&);
 
   std::string name() const {
+
     if (cp) {
       return cp->name();
     }

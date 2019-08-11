@@ -85,14 +85,4 @@ bool compare_Core_ptrs(const Core*, const Core*);
 std::string letter_grade(double);
 
 
-// vtable error
 
-class Port {
-private:
-  char *brand;
-  char style[20];
-  int bottles;
-public:
-  Port (const char *br = "none", const char *st = "none", int b = 0);
-  Port (const Port &p); // copy constructor 
-};

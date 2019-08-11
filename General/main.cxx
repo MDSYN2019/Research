@@ -131,9 +131,23 @@ int main (void) {
   }
 
   std::sort(students.begin(), students.end(), compare_Core_ptrs);
-	 
-	 // pass the version of compare that works on pointers
-  //  using namespace std;::sort(students.begin(), students.end(), compare_Core_ptrs); // Sort asks for the metric function at the end
-	 
-	 return 0;
+
+  // Write the names and grades
+
+  for (std::vector<Core*>::size_type i = 0; i != students.size(); ++i) {
+    // students[i] is a pointer that we dereference to call the functions
+    std::cout << students[i]->name();
+    try {
+      double final_grade = students[i]->grade();
+
+      std::streamsize prec = std::cout.precision();
+      std::cout << std::setprecision(3) << final_grade << std::setprecision(prec) << std::endl;
+	
+    } catch (std::domain_error e) {
+      std::cout << e.what() << std::endl;
+    }
+    delete students[i];
+  }
+  
+  return 0;
 }

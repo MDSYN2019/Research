@@ -29,7 +29,6 @@ class Core {
   std::string n;
   double midterm, final;
   std::vector<double> homework;
-
   std::istream& read_common(std::istream&);
 
   virtual Core* clone() const { return new Core(*this); }

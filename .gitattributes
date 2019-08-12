@@ -1,4 +1,4 @@
-*.cxx linguist-language=cpp
+*.cxx linguist-documentation
 *.c++ linguist-language=cpp
 *.cc linguist-language=cpp
 * linguist-langage=cpp

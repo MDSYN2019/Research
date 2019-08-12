@@ -1,4 +1,4 @@
-# Install script for directory: /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src
+# Install script for directory: /home/oohnohnoh1/Desktop/GIT/Research/General/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

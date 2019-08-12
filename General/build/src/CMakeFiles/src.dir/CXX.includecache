@@ -72,27 +72,27 @@ vector
 grade.h
 ../include/grade.h
 
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/Student_info.cxx
+/home/oohnohnoh1/Desktop/GIT/Research/General/src/Student_info.cxx
 iostream
 -
 stdexcept
 -
 openmp_dynamicbindingandinheritance.hpp
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/openmp_dynamicbindingandinheritance.hpp
+/home/oohnohnoh1/Desktop/GIT/Research/General/src/openmp_dynamicbindingandinheritance.hpp
 Student_info.h
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/Student_info.h
+/home/oohnohnoh1/Desktop/GIT/Research/General/src/Student_info.h
 
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/grade.cxx
+/home/oohnohnoh1/Desktop/GIT/Research/General/src/grade.cxx
 stdexcept
 -
 vector
 -
 grade.h
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/grade.h
+/home/oohnohnoh1/Desktop/GIT/Research/General/src/grade.h
 median.hpp
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/median.hpp
+/home/oohnohnoh1/Desktop/GIT/Research/General/src/median.hpp
 
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/openmp1.cxx
+/home/oohnohnoh1/Desktop/GIT/Research/General/src/openmp1.cxx
 iostream
 -
 algorithm
@@ -112,7 +112,7 @@ memory
 omp.h
 -
 openmp1.hpp
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/openmp1.hpp
+/home/oohnohnoh1/Desktop/GIT/Research/General/src/openmp1.hpp
 cppunit/extensions/TestFactoryRegistry.h
 -
 cppunit/CompilerOutputter.h
@@ -124,7 +124,7 @@ cppunit/TestFixture.h
 cppunit/extensions/HelperMacros.h
 -
 
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/openmp2.cxx
+/home/oohnohnoh1/Desktop/GIT/Research/General/src/openmp2.cxx
 exception
 -
 iostream
@@ -138,9 +138,9 @@ vector
 cstring
 -
 openmp1.hpp
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/openmp1.hpp
+/home/oohnohnoh1/Desktop/GIT/Research/General/src/openmp1.hpp
 
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/openmp_dynamicbindingandinheritance.cxx
+/home/oohnohnoh1/Desktop/GIT/Research/General/src/openmp_dynamicbindingandinheritance.cxx
 openmp_dynamicbindingandinheritance.hpp
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/openmp_dynamicbindingandinheritance.hpp
+/home/oohnohnoh1/Desktop/GIT/Research/General/src/openmp_dynamicbindingandinheritance.hpp
 

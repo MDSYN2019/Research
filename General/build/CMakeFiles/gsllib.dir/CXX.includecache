@@ -100,7 +100,7 @@ vector
 grade.h
 ../include/grade.h
 
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/main.cxx
+/home/oohnohnoh1/Desktop/GIT/Research/General/main.cxx
 iostream
 -
 iomanip
@@ -114,7 +114,7 @@ cstdio
 omp.h
 -
 Eigen/Dense
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/Eigen/Dense
+/home/oohnohnoh1/Desktop/GIT/Research/General/Eigen/Dense
 cppunit/CompilerOutputter.h
 -
 cppunit/extensions/TestFactoryRegistry.h
@@ -122,13 +122,13 @@ cppunit/extensions/TestFactoryRegistry.h
 cppunit/ui/text/TestRunner.h
 -
 openmp1.hpp
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/openmp1.hpp
+/home/oohnohnoh1/Desktop/GIT/Research/General/openmp1.hpp
 openmp_LA.hpp
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/openmp_LA.hpp
+/home/oohnohnoh1/Desktop/GIT/Research/General/openmp_LA.hpp
 openmp_dynamicbindingandinheritance.hpp
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/openmp_dynamicbindingandinheritance.hpp
+/home/oohnohnoh1/Desktop/GIT/Research/General/openmp_dynamicbindingandinheritance.hpp
 Student_info.h
-/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/Student_info.h
+/home/oohnohnoh1/Desktop/GIT/Research/General/Student_info.h
 boost/chrono.hpp
 -
 

@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/Student_info.cxx" "/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/build/src/CMakeFiles/src.dir/Student_info.cxx.o"
-  "/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/grade.cxx" "/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/build/src/CMakeFiles/src.dir/grade.cxx.o"
-  "/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/openmp1.cxx" "/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/build/src/CMakeFiles/src.dir/openmp1.cxx.o"
-  "/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/openmp2.cxx" "/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/build/src/CMakeFiles/src.dir/openmp2.cxx.o"
-  "/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/src/openmp_dynamicbindingandinheritance.cxx" "/home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/build/src/CMakeFiles/src.dir/openmp_dynamicbindingandinheritance.cxx.o"
+  "/home/oohnohnoh1/Desktop/GIT/Research/General/src/Student_info.cxx" "/home/oohnohnoh1/Desktop/GIT/Research/General/build/src/CMakeFiles/src.dir/Student_info.cxx.o"
+  "/home/oohnohnoh1/Desktop/GIT/Research/General/src/grade.cxx" "/home/oohnohnoh1/Desktop/GIT/Research/General/build/src/CMakeFiles/src.dir/grade.cxx.o"
+  "/home/oohnohnoh1/Desktop/GIT/Research/General/src/openmp1.cxx" "/home/oohnohnoh1/Desktop/GIT/Research/General/build/src/CMakeFiles/src.dir/openmp1.cxx.o"
+  "/home/oohnohnoh1/Desktop/GIT/Research/General/src/openmp2.cxx" "/home/oohnohnoh1/Desktop/GIT/Research/General/build/src/CMakeFiles/src.dir/openmp2.cxx.o"
+  "/home/oohnohnoh1/Desktop/GIT/Research/General/src/openmp_dynamicbindingandinheritance.cxx" "/home/oohnohnoh1/Desktop/GIT/Research/General/build/src/CMakeFiles/src.dir/openmp_dynamicbindingandinheritance.cxx.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

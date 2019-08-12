@@ -5,17 +5,18 @@
 #include <stdexcept>
 #include <string>
 #include <vector>
+
 #include "openmp_dynamicbindingandinheritance.hpp"
 
 class Student_info {
  public:
  Student_info(): cp(0) {}
- Student_info(std::istream& is) : cp(0) {read(is);}
+ Student_info(std::istream& is) : cp(0) { read(is);}
   Student_info(const Student_info&);
   Student_info& operator=(const Student_info&);
   ~Student_info() { delete cp;}
   // operations
-
+  
   std::istream& read(std::istream&);
 
   std::string name() const {
@@ -43,7 +44,6 @@ class Student_info {
  private:
   Core* cp;
 };
-
 
 #endif
 

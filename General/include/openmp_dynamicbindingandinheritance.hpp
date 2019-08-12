@@ -4,11 +4,13 @@
 #include <iostream>
 #include <string>
 #include <vector>
+
 #include "grade.h"
 
 class Core {
-  friend class Student_info;
 
+  friend class Student_info;
+  
  public:
   Core(): midterm(0), final(0) { }
   Core(std::istream& is) { read(is); }

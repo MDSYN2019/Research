@@ -110,10 +110,15 @@ int main (void) {
   std::vector<Student_info> students;
   Student_info record;
   std::string::size_type maxlen = 0;
+
+
   std::cout << system_clock::now() << std::endl; 
 
   // read and store the data
-
+  while (record.read(std::cin)) {
+    maxlen = std::max(maxlen, record.name().size());
+    students.push_back(record);
+  }
   
   return 0;
 }

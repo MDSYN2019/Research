@@ -31,9 +31,15 @@ std::istream& Student_info::read(std::istream& is) {
   return is;
 }
 
-Student_info::Student_info(const Student_info& s): cp(0) {
-  if (s.cp) cp = s.cp->clone();
+Student_info::Student_info(const Student_info& s) : cp(0) {
+  if (s.cp) {
+    cp = s.cp->clone();    
+  }
 }
+
+
+
+
 
 Student_info& Student_info::operator=(const Student_info& s) {
   if (&s != this) {

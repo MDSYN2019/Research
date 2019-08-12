@@ -4,9 +4,19 @@
 #include "openmp_dynamicbindingandinheritance.hpp"
 #include "Student_info.h"
 
-using namespace std;
 
-istream& Student_info::read(istream& is) {
+
+/*
+
+The read function has three responsibilities: It must free the object, if any, to which 
+this handle is bound. It must then decide what kind of obejct we are about to read, and 
+it must allocate the right kind of obecjt, which it can initialize from the stream it was 
+given
+
+ */
+
+std::istream& Student_info::read(std::istream& is) {
+
   delete cp;
 
   char ch;
@@ -16,7 +26,7 @@ istream& Student_info::read(istream& is) {
   else if (ch == 'G') cp = new Grad(is);
   else if (ch == 'P') cp = new PassFail(is);
   else if (ch == 'A') cp = new Audit(is);
-  else throw runtime_error("read invalid student type");
+  else throw std::runtime_error("read invalid student type");
 
   return is;
 }

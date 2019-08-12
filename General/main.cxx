@@ -20,6 +20,7 @@
 #include "openmp1.hpp"
 #include "openmp_LA.hpp"
 #include "openmp_dynamicbindingandinheritance.hpp"
+#include "Student_info.h"
 
 
 // Non-standard namespaces
@@ -105,49 +106,12 @@ void A() {
 
 int main (void) {
  
-  std::vector<Core*> students;
-  
-  Core* record;
-  char ch;
+  std::vector<Student_info> students;
+  Student_info record;
   std::string::size_type maxlen = 0;
-  
-  //std::string::size_type maxlen = 0;
 
-  // Read and store the data
-  // U = undergrad
-  // G = Grad
+  // read and store the data
 
-  
-  while (std::cin >> ch) {
-
-    if (ch == 'U') {
-      record = new Core(); // allocate a Core object  - pointer to a class on the heap 
-    } else {
-      record = new Grad(); // allocat a Grad object - pointer to a class on the heap 
-    }
-    record->read(std::cin);          // `virtual' call
-    maxlen = std::max(maxlen, record->name().size());// dereference
-    students.push_back(record);
-  }
-
-  std::sort(students.begin(), students.end(), compare_Core_ptrs);
-
-  // Write the names and grades
-
-  for (std::vector<Core*>::size_type i = 0; i != students.size(); ++i) {
-    // students[i] is a pointer that we dereference to call the functions
-    std::cout << students[i]->name();
-    try {
-      double final_grade = students[i]->grade();
-
-      std::streamsize prec = std::cout.precision();
-      std::cout << std::setprecision(3) << final_grade << std::setprecision(prec) << std::endl;
-	
-    } catch (std::domain_error e) {
-      std::cout << e.what() << std::endl;
-    }
-    delete students[i];
-  }
   
   return 0;
 }

@@ -79,6 +79,7 @@ set(EXTRA_LIBS ${EXTRA_LIBS} include)
 
 set(MATH ${MATH} "-lm")
 set(CPPUNIT ${CPPUNIT} "-lcppunit")
+set(IN ${IN} "-Iinclude")
 
 # Include GSL directories
 include_directories (${GSL_INCLUDE_DIRS} ${GSLCBLAS_INCLUDE_DIRS})

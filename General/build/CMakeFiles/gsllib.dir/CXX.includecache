@@ -129,6 +129,8 @@ openmp_dynamicbindingandinheritance.hpp
 /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/openmp_dynamicbindingandinheritance.hpp
 Student_info.h
 /home/oohnohnoh1/Desktop/GIT/MD_Design_and_Research/General/Student_info.h
+boost/chrono.hpp
+-
 
 /usr/local/include/eigen3/Eigen/Cholesky
 Core

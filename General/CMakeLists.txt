@@ -2,6 +2,7 @@ cmake_minimum_required (VERSION 1.1)
 project (OMP_C++)
 include(CheckCXXCompilerFlag)
 
+
 if(CMAKE_Fortran_COMPILER_ID MATCHES "GNU")
     set(dialect "-ffree-form -std=f2008 -fimplicit-none")
     set(bounds "-fbounds-check")
@@ -56,6 +57,10 @@ find_package(pybind11 REQUIRED)  # or add_subdirectory(pybind11)
 
 # Boost directories 
 include_directories (${Boost_INCLUDE_DIRS})
+set(Boost_USE_STATIC_LIBS ON)
+set(Boost_USE_MULTITHREADED ON)
+set(Boost_USE_STATIC_RUNTIME OFF)
+
 
 # QAT directory
 include_directories ("${PROJECT_SOURCE_DIR}/thirdparty/include")
@@ -79,6 +84,8 @@ set(EXTRA_LIBS ${EXTRA_LIBS} include)
 
 set(MATH ${MATH} "-lm")
 set(CPPUNIT ${CPPUNIT} "-lcppunit")
+set(LBOOST ${LBOOST} "-lboost_system")
+
 set(IN ${IN} "-Iinclude")
 
 # Include GSL directories
@@ -88,7 +95,7 @@ set(Boost_USE_STATIC_LIBS ON)
 set(Boost_USE_MULTITHREADED ON)  
 set(Boost_USE_STATIC_RUNTIME OFF) 
 
-find_package(Boost)
+find_package(Boost REQUIRED filesystem program_options regex timer chrono) # Finding the chrono library .. Ugh, I do hate it
 
 if(Boost_FOUND)
   include_directories (${Boost_INCLUDE_DIRS})
@@ -119,7 +126,7 @@ add_library(gsllib main.cxx)
 target_link_libraries(gsllib -L/home/noh/anaconda3/pkgs/gsl-2.1-2/lib/)
 target_link_libraries(gsllib libgsl.a)
 target_link_libraries(gsllib libgslcblas.a)
-target_link_libraries(OMP_EX ${Boost_LIBRARIES} ${MATH} ${CPPUNIT} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB} ${QAT_LIBS}  ${STXXL_LIBRARIES} pybind11::module gsllib)
+target_link_libraries(OMP_EX ${Boost_LIBRARIES} ${MATH} ${CPPUNIT} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB} ${QAT_LIBS} ${STXXL_LIBRARIES} ${LBOOST} pybind11::module gsllib)
 
 find_package(OpenMP)
 

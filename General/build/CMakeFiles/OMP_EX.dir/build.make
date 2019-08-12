@@ -90,6 +90,12 @@ OMP_EX_EXTERNAL_OBJECTS =
 
 OMP_EX: CMakeFiles/OMP_EX.dir/main.cxx.o
 OMP_EX: CMakeFiles/OMP_EX.dir/build.make
+OMP_EX: /usr/lib/x86_64-linux-gnu/libboost_filesystem.a
+OMP_EX: /usr/lib/x86_64-linux-gnu/libboost_program_options.a
+OMP_EX: /usr/lib/x86_64-linux-gnu/libboost_regex.a
+OMP_EX: /usr/lib/x86_64-linux-gnu/libboost_timer.a
+OMP_EX: /usr/lib/x86_64-linux-gnu/libboost_chrono.a
+OMP_EX: /usr/lib/x86_64-linux-gnu/libboost_system.a
 OMP_EX: /home/oohnohnoh1/anaconda3/lib/libmpichcxx.so
 OMP_EX: /home/oohnohnoh1/anaconda3/lib/libmpich.so
 OMP_EX: /home/oohnohnoh1/anaconda3/lib/libopa.so

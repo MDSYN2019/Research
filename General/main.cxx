@@ -24,18 +24,19 @@
 
 
 // Non-standard namespaces
+// Boost
 
-using namespace Eigen;
+#include <boost/chrono.hpp>
 
+// namespace definitions
 
-//#include "syn_dbg.hpp"
-
+using namespace Eigen; // eigen 
+using namespace boost::chrono;  // chrono
 
 // QAT headers
 
 //#include "Variable.h"
 //#include "Argument.h"
-
 
 double f (int i) {
   int j, start = i * (i + 1) / 2, finish = start +  i;
@@ -109,6 +110,7 @@ int main (void) {
   std::vector<Student_info> students;
   Student_info record;
   std::string::size_type maxlen = 0;
+  std::cout << system_clock::now() << std::endl; 
 
   // read and store the data
 

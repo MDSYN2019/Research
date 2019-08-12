@@ -1,9 +1,0 @@
-#! /bin/csh -f
-
-set ttype = type2
-
-cp w.${ttype}.dat w.dat
-
-time ../Source/ising
-
-exit

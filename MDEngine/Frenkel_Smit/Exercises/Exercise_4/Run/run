@@ -1,6 +1,0 @@
-#! /bin/csh -f
-#
-
-time ../Source/random1d
-
-exit

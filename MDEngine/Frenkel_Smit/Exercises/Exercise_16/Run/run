@@ -1,7 +1,0 @@
-#! /bin/csh -f
-#
-
-time  ../Source/cbmc 
-
-end
-exit

@@ -1,5 +1,0 @@
-#! /bin/csh -f
-
-time ../Source/distribution
-
-exit

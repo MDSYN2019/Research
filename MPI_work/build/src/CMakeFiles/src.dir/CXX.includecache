@@ -28,7 +28,7 @@ cppunit/TestFixture.h
 cppunit/extensions/HelperMacros.h
 -
 
-/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/src/MPI_broadcast.cxx
+/home/oohnohnoh1/Desktop/GIT/Research/MPI_work/src/MPI_broadcast.cxx
 iostream
 -
 iomanip
@@ -43,12 +43,20 @@ iterator
 -
 numeric
 -
-string
--
 mpi.h
-/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/src/mpi.h
+/home/oohnohnoh1/Desktop/GIT/Research/MPI_work/src/mpi.h
 MPI_broadcast.hpp
-/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/src/MPI_broadcast.hpp
+/home/oohnohnoh1/Desktop/GIT/Research/MPI_work/src/MPI_broadcast.hpp
+cppunit/extensions/TestFactoryRegistry.h
+-
+cppunit/CompilerOutputter.h
+-
+cppunit/ui/text/TestRunner.h
+-
+cppunit/TestFixture.h
+-
+cppunit/extensions/HelperMacros.h
+-
 
 /home/oohnohnoh1/anaconda3/include/mpi.h
 mpio.h

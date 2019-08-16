@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work
+CMAKE_SOURCE_DIR = /home/oohnohnoh1/Desktop/GIT/Research/MPI_work
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build
+CMAKE_BINARY_DIR = /home/oohnohnoh1/Desktop/GIT/Research/MPI_work/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build/CMakeFiles /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build/src/CMakeFiles/progress.marks
-	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build/CMakeFiles 0
+	cd /home/oohnohnoh1/Desktop/GIT/Research/MPI_work/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/oohnohnoh1/Desktop/GIT/Research/MPI_work/build/CMakeFiles /home/oohnohnoh1/Desktop/GIT/Research/MPI_work/build/src/CMakeFiles/progress.marks
+	cd /home/oohnohnoh1/Desktop/GIT/Research/MPI_work/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/oohnohnoh1/Desktop/GIT/Research/MPI_work/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
+	cd /home/oohnohnoh1/Desktop/GIT/Research/MPI_work/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/oohnohnoh1/Desktop/GIT/Research/MPI_work/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/oohnohnoh1/Desktop/GIT/Research/MPI_work/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/oohnohnoh1/Desktop/GIT/Research/MPI_work/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/CMakeFiles/src.dir/rule:
-	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/src.dir/rule
+	cd /home/oohnohnoh1/Desktop/GIT/Research/MPI_work/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/src.dir/rule
 .PHONY : src/CMakeFiles/src.dir/rule
 
 # Convenience name for target.
@@ -122,22 +122,22 @@ src: src/CMakeFiles/src.dir/rule
 
 # fast build rule for target.
 src/fast:
-	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/build
+	cd /home/oohnohnoh1/Desktop/GIT/Research/MPI_work/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/build
 .PHONY : src/fast
 
 # target to build an object file
 MPI_broadcast.o:
-	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_broadcast.o
+	cd /home/oohnohnoh1/Desktop/GIT/Research/MPI_work/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_broadcast.o
 .PHONY : MPI_broadcast.o
 
 # target to preprocess a source file
 MPI_broadcast.i:
-	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_broadcast.i
+	cd /home/oohnohnoh1/Desktop/GIT/Research/MPI_work/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_broadcast.i
 .PHONY : MPI_broadcast.i
 
 # target to generate assembly for a file
 MPI_broadcast.s:
-	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_broadcast.s
+	cd /home/oohnohnoh1/Desktop/GIT/Research/MPI_work/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_broadcast.s
 .PHONY : MPI_broadcast.s
 
 # Help Target
@@ -163,6 +163,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/oohnohnoh1/Desktop/GIT/Research/MPI_work/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

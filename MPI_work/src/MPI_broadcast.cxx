@@ -159,8 +159,7 @@ void MPI_BC::SendVector() {
   // MPI_Send(&n, 1, MPI_INT, dest, 2, MPI_COMM_WORLD);
 } /* Send */
 
-void MPI_BC::Receive(float* a_ptr, float* b_ptr, int* n_ptr, int source) {
-  
+void MPI_BC::Receive(float* a_ptr, float* b_ptr, int* n_ptr, int source) {  
   MPI_Recv(a_ptr, 1, MPI_FLOAT, source, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
   MPI_Recv(b_ptr, 1, MPI_FLOAT, source, 1, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
   MPI_Recv(n_ptr, 1, MPI_INT, source, 2, MPI_COMM_WORLD, MPI_STATUS_IGNORE);

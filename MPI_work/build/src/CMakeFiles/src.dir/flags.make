@@ -6,5 +6,5 @@ CXX_FLAGS =  -std=c++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/src -I/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/include -I/home/oohnohnoh1/anaconda3/include 
+CXX_INCLUDES = -I/home/oohnohnoh1/Desktop/GIT/Research/MPI_work/src -I/home/oohnohnoh1/Desktop/GIT/Research/MPI_work/include -I/home/oohnohnoh1/anaconda3/include 
 

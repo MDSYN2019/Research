@@ -32,10 +32,8 @@ class Str {
 public:
   typedef Vec<char>::size_type size_type;
   Str() {}
-
   // Create a Str containing n copies of c
   Str(size_type n, char c): data(n, c) {}
-
   // Create a Str from a null-terminated array of char
   Str(const char* cp) {
     std::copy(cp, cp + std::strlen(cp), std::back_inserter(data));

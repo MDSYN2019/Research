@@ -71,7 +71,6 @@ public:
   void Receive(float*, float*, int*, int); // Standard send/receive pair 
   // void GetData(float*, float*, int*, int, int); // WIP
   void parallelAllocateVec(double*, double*, int, std::vector<int>*, MPI_Datatype*);
-
   void vectorTest();
 private:
   float* a_p;

@@ -1,4 +1,4 @@
-# Install script for directory: /home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/src
+# Install script for directory: /home/oohnohnoh1/Desktop/GIT/Research/MPI_work/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/main.cxx" "/home/oohnohnoh1/Desktop/GIT/PhD_work/MPI_work/build/CMakeFiles/gsllib.dir/main.o"
+  "/home/oohnohnoh1/Desktop/GIT/Research/MPI_work/main.cxx" "/home/oohnohnoh1/Desktop/GIT/Research/MPI_work/build/CMakeFiles/gsllib.dir/main.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

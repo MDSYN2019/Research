@@ -64,14 +64,16 @@ public:
   void time_ellapsed(); // Total time for the MPI program to execute
   void broadcast_input(); // broadcasting values
   void broadcast_vector(); // broadcasting vector
-  void add_vector();
   void buildMpiType(double*, double*, int*, MPI_Datatype*); // Allocates the data type into a struct and broadcasts it 
   void Send(float, float, int, int); // Standard send/receive pair 
   void SendVector(); // Standard send/receive pair 
   void Receive(float*, float*, int*, int); // Standard send/receive pair 
   // void GetData(float*, float*, int*, int, int); // WIP
   void parallelAllocateVec(double*, double*, int, std::vector<int>*, MPI_Datatype*);
-  void vectorTest();
+ 
+  // Functions yet to be implemented 
+  // void add_vector();
+  // void vectorTest(); // unit test function  
 private:
   float* a_p;
   float* b_p;

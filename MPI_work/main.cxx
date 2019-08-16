@@ -11,9 +11,9 @@
 MPI_BC AA;
 
 int main () {
-  AA.add_vector();
+  //AA.add_vector();
   //  AA.broadcast_vector();
-  AA.vectorTest();
+  // AA.vectorTest();
 
   return 0;
 }

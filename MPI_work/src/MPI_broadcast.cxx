@@ -142,18 +142,18 @@ void MPI_BC::Send(float a, float b, int n, int dest) {
 void MPI_BC::SendVector() {
   
   for (unsigned int i = 0; i < 10; i++) {
-    v[i].push_back(i);
+    v.push_back(i);
   }
 
-  MPI_Datatype column_mpi_t;
-  MPI_Type_vector(10, 1, 10, MPI_INT, &column_mpi_t);
-  MPI_Type_commit(&column_mpi_t);
+  //MPI_Datatype column_mpi_t;
+  //MPI_Type_vector(10, 1, 10, MPI_INT, &column_mpi_t);
+  //MPI_Type_commit(&column_mpi_t);
 
-  if (my_rank == 0) {
-    MPI_Send(&v[0][1], 1, column_mpi_t, 1, 0, MPI_COMM_WORLD);
-  } else {
-    MPI_Recv(&v[0][1], 1, column_mpi_t, 0, 0, MPI_COMM_WORLD, &status);
-  }
+  //if (my_rank == 0) {
+  //  MPI_Send(&v[0][1], 1, column_mpi_t, 1, 0, MPI_COMM_WORLD);
+  //} else {
+  //  MPI_Recv(&v[0][1], 1, column_mpi_t, 0, 0, MPI_COMM_WORLD, &status);
+  // }
   // MPI_Send(&a, 1, MPI_FLOAT, dest, 0, MPI_COMM_WORLD);
   // MPI_Send(&b, 1, MPI_FLOAT, dest, 1, MPI_COMM_WORLD);
   // MPI_Send(&n, 1, MPI_INT, dest, 2, MPI_COMM_WORLD);
@@ -172,6 +172,6 @@ MPI_BC::~MPI_BC() {
 
 // Test methods
 
-MPI_BC::vectorTest() {
-  CPPUNIT_ASSERT(v.size() == v.size());
-}
+//MPI_BC::vectorTest() {
+//  CPPUNIT_ASSERT(v.size() == v.size());
+//}

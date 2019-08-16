@@ -26,3 +26,8 @@ public:
     return elems.empty();
   }
 };
+
+template <typename T, typename CONT>
+void Stack<T, CONT>::push(T const& elem) {
+  elems.push_back(elem);
+}

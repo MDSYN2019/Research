@@ -105,8 +105,17 @@ void A() {
 // A local class - one where there is a class inside the function
 
 
-int main (void) {
- 
+int main (int argc, char **argv) {
+
+  
+  // Major built-in datatypes
+  Eigen::VectorXd Y(2);
+  Y(0) = 1.0;
+  Y(1) = 3.0;
+  
+  
+
+    
   std::vector<Student_info> students;
   Student_info record;
   std::string::size_type maxlen = 0;

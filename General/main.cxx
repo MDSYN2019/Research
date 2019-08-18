@@ -104,6 +104,7 @@ void A() {
 
 // A local class - one where there is a class inside the function
 
+#include "QatGenericFunctions/Variable.h"
 
 int main (int argc, char **argv) {
 
@@ -112,10 +113,11 @@ int main (int argc, char **argv) {
   Eigen::VectorXd Y(2);
   Y(0) = 1.0;
   Y(1) = 3.0;
-  
+
+  Genfun::Variable X;
   
 
-    
+  /*    
   std::vector<Student_info> students;
   Student_info record;
   std::string::size_type maxlen = 0;
@@ -128,6 +130,6 @@ int main (int argc, char **argv) {
     maxlen = std::max(maxlen, record.name().size());
     students.push_back(record);
   }
-  
+  */
   return 0;
 }

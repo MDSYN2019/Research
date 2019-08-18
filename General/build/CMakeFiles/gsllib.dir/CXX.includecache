@@ -6,22 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../include/Student_info.h
-iostream
--
-stdexcept
--
-string
--
-vector
--
-openmp_dynamicbindingandinheritance.hpp
-../include/openmp_dynamicbindingandinheritance.hpp
-
-../include/grade.h
-vector
--
-
 ../include/openmp1.hpp
 iostream
 -
@@ -131,6 +115,8 @@ Student_info.h
 /home/oohnohnoh1/Desktop/GIT/Research/General/Student_info.h
 boost/chrono.hpp
 -
+QatGenericFunctions/Variable.h
+/home/oohnohnoh1/Desktop/GIT/Research/General/QatGenericFunctions/Variable.h
 
 /usr/local/include/eigen3/Eigen/Cholesky
 Core

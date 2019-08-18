@@ -27,7 +27,7 @@
 //----------------------------------------------------------------------//
 #ifndef AbsFunction_h
 #define AbsFunction_h 1
-#include "QatGenericFunctions/Argument.h"
+#include "Argument.h"
 
 namespace Genfun {
 
@@ -167,20 +167,20 @@ inline classname *classname::clone() const          \
 //----------------------------------------------------------------------------
 
 
-#include "QatGenericFunctions/FunctionProduct.h"
-#include "QatGenericFunctions/FunctionSum.h"
-#include "QatGenericFunctions/FunctionDifference.h"
-#include "QatGenericFunctions/FunctionQuotient.h"
-#include "QatGenericFunctions/FunctionNegation.h"
-#include "QatGenericFunctions/FunctionDirectProduct.h"
-#include "QatGenericFunctions/FunctionComposition.h"
-#include "QatGenericFunctions/ConstPlusFunction.h"
-#include "QatGenericFunctions/ConstTimesFunction.h"
-#include "QatGenericFunctions/ConstMinusFunction.h"
-#include "QatGenericFunctions/ConstOverFunction.h"
-#include "QatGenericFunctions/FunctionPlusParameter.h"
-#include "QatGenericFunctions/FunctionTimesParameter.h"
-#include "QatGenericFunctions/FunctionNoop.h"
-#include "QatGenericFunctions/ParameterComposition.h"
+#include "FunctionProduct.h"
+#include "FunctionSum.h"
+#include "FunctionDifference.h"
+#include "FunctionQuotient.h"
+#include "FunctionNegation.h"
+#include "FunctionDirectProduct.h"
+#include "FunctionComposition.h"
+#include "ConstPlusFunction.h"
+#include "ConstTimesFunction.h"
+#include "ConstMinusFunction.h"
+#include "ConstOverFunction.h"
+#include "FunctionPlusParameter.h"
+#include "FunctionTimesParameter.h"
+#include "FunctionNoop.h"
+#include "ParameterComposition.h"
 
 #endif

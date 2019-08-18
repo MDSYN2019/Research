@@ -1,14 +1,17 @@
 #pragma once
 
+
 /*
+
 Default template arguments
+--------------------------
 
 For class templates you can also define defualt values for template parameters. These 
 values are called default template arguments.
 
 
-  
- */
+
+*/
 
 
 #include <vector>

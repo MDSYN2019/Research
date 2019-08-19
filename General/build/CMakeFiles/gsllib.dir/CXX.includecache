@@ -6,6 +6,24 @@
 
 #IncludeRegexTransform: 
 
+../include/Core.h
+
+../include/Student_info.h
+iostream
+-
+stdexcept
+-
+string
+-
+vector
+-
+Core.h
+../include/Core.h
+
+../include/grade.h
+vector
+-
+
 ../include/openmp1.hpp
 iostream
 -

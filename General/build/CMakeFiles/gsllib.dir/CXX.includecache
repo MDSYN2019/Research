@@ -6,24 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../include/Core.h
-
-../include/Student_info.h
-iostream
--
-stdexcept
--
-string
--
-vector
--
-Core.h
-../include/Core.h
-
-../include/grade.h
-vector
--
-
 ../include/openmp1.hpp
 iostream
 -
@@ -90,19 +72,13 @@ Eigen/Dense
 Eigen/LU
 ../include/Eigen/LU
 
-../include/openmp_dynamicbindingandinheritance.hpp
-algorithm
--
-iostream
--
-string
--
-vector
--
-grade.h
-../include/grade.h
-
 /home/oohnohnoh1/Desktop/GIT/Research/General/main.cxx
+QatGenericFunctions/Variable.h
+/home/oohnohnoh1/Desktop/GIT/Research/General/QatGenericFunctions/Variable.h
+QatGenericFunctions/Sin.h
+/home/oohnohnoh1/Desktop/GIT/Research/General/QatGenericFunctions/Sin.h
+QatGenericFunctions/AbsFunction.h
+/home/oohnohnoh1/Desktop/GIT/Research/General/QatGenericFunctions/AbsFunction.h
 iostream
 -
 iomanip
@@ -112,6 +88,8 @@ cstdlib
 cmath
 -
 cstdio
+-
+limits
 -
 omp.h
 -
@@ -127,14 +105,8 @@ openmp1.hpp
 /home/oohnohnoh1/Desktop/GIT/Research/General/openmp1.hpp
 openmp_LA.hpp
 /home/oohnohnoh1/Desktop/GIT/Research/General/openmp_LA.hpp
-openmp_dynamicbindingandinheritance.hpp
-/home/oohnohnoh1/Desktop/GIT/Research/General/openmp_dynamicbindingandinheritance.hpp
-Student_info.h
-/home/oohnohnoh1/Desktop/GIT/Research/General/Student_info.h
 boost/chrono.hpp
 -
-QatGenericFunctions/Variable.h
-/home/oohnohnoh1/Desktop/GIT/Research/General/QatGenericFunctions/Variable.h
 
 /usr/local/include/eigen3/Eigen/Cholesky
 Core

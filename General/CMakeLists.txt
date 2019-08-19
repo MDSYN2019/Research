@@ -3,6 +3,7 @@ project (OMP_C++)
 include(CheckCXXCompilerFlag)
 
 
+
 if(CMAKE_Fortran_COMPILER_ID MATCHES "GNU")
     set(dialect "-ffree-form -std=f2008 -fimplicit-none")
     set(bounds "-fbounds-check")
@@ -18,6 +19,10 @@ if(CMAKE_Fortran_COMPILER_ID MATCHES "PGI")
     set(bounds "-C")
 endif()
 
+if(WITH_QATZIP)
+  find_package(qatzip REQUIRED)
+  set(HAVE_QATZIP ${QATZIP_FOUND})
+endif(WITH_QATZIP)
 
 # TODO - how is this associated with virtual functions?
 set (CMAKE_AUTOMOC ON)

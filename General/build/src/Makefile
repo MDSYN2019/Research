@@ -125,60 +125,6 @@ src/fast:
 	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/build
 .PHONY : src/fast
 
-Student_info.o: Student_info.cxx.o
-
-.PHONY : Student_info.o
-
-# target to build an object file
-Student_info.cxx.o:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/Student_info.cxx.o
-.PHONY : Student_info.cxx.o
-
-Student_info.i: Student_info.cxx.i
-
-.PHONY : Student_info.i
-
-# target to preprocess a source file
-Student_info.cxx.i:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/Student_info.cxx.i
-.PHONY : Student_info.cxx.i
-
-Student_info.s: Student_info.cxx.s
-
-.PHONY : Student_info.s
-
-# target to generate assembly for a file
-Student_info.cxx.s:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/Student_info.cxx.s
-.PHONY : Student_info.cxx.s
-
-grade.o: grade.cxx.o
-
-.PHONY : grade.o
-
-# target to build an object file
-grade.cxx.o:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/grade.cxx.o
-.PHONY : grade.cxx.o
-
-grade.i: grade.cxx.i
-
-.PHONY : grade.i
-
-# target to preprocess a source file
-grade.cxx.i:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/grade.cxx.i
-.PHONY : grade.cxx.i
-
-grade.s: grade.cxx.s
-
-.PHONY : grade.s
-
-# target to generate assembly for a file
-grade.cxx.s:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/grade.cxx.s
-.PHONY : grade.cxx.s
-
 openmp1.o: openmp1.cxx.o
 
 .PHONY : openmp1.o
@@ -233,33 +179,6 @@ openmp2.cxx.s:
 	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp2.cxx.s
 .PHONY : openmp2.cxx.s
 
-openmp_dynamicbindingandinheritance.o: openmp_dynamicbindingandinheritance.cxx.o
-
-.PHONY : openmp_dynamicbindingandinheritance.o
-
-# target to build an object file
-openmp_dynamicbindingandinheritance.cxx.o:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp_dynamicbindingandinheritance.cxx.o
-.PHONY : openmp_dynamicbindingandinheritance.cxx.o
-
-openmp_dynamicbindingandinheritance.i: openmp_dynamicbindingandinheritance.cxx.i
-
-.PHONY : openmp_dynamicbindingandinheritance.i
-
-# target to preprocess a source file
-openmp_dynamicbindingandinheritance.cxx.i:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp_dynamicbindingandinheritance.cxx.i
-.PHONY : openmp_dynamicbindingandinheritance.cxx.i
-
-openmp_dynamicbindingandinheritance.s: openmp_dynamicbindingandinheritance.cxx.s
-
-.PHONY : openmp_dynamicbindingandinheritance.s
-
-# target to generate assembly for a file
-openmp_dynamicbindingandinheritance.cxx.s:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp_dynamicbindingandinheritance.cxx.s
-.PHONY : openmp_dynamicbindingandinheritance.cxx.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -269,21 +188,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... src"
 	@echo "... edit_cache"
-	@echo "... Student_info.o"
-	@echo "... Student_info.i"
-	@echo "... Student_info.s"
-	@echo "... grade.o"
-	@echo "... grade.i"
-	@echo "... grade.s"
 	@echo "... openmp1.o"
 	@echo "... openmp1.i"
 	@echo "... openmp1.s"
 	@echo "... openmp2.o"
 	@echo "... openmp2.i"
 	@echo "... openmp2.s"
-	@echo "... openmp_dynamicbindingandinheritance.o"
-	@echo "... openmp_dynamicbindingandinheritance.i"
-	@echo "... openmp_dynamicbindingandinheritance.s"
 .PHONY : help
 
 

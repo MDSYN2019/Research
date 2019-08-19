@@ -1,8 +1,13 @@
+#include "QatGenericFunctions/Variable.h" 
+#include "QatGenericFunctions/Sin.h"
+#include "QatGenericFunctions/AbsFunction.h" 
+
 #include <iostream>
 #include <iomanip> // has the setprecision
 #include <cstdlib>
 #include <cmath>
 #include <cstdio>
+#include <limits>
 #include <omp.h>
 
 // Eigen Library
@@ -19,8 +24,8 @@
 
 #include "openmp1.hpp"
 #include "openmp_LA.hpp"
-#include "openmp_dynamicbindingandinheritance.hpp"
-#include "Student_info.h"
+//#include "openmp_dynamicbindingandinheritance.hpp"
+//#include "Student_info.h"
 
 
 // Non-standard namespaces
@@ -103,10 +108,12 @@ void A() {
 //     -4, 24 , -41;
 
 // A local class - one where there is a class inside the function
+{
+Genfun::Sin sin;
+Genfun::GENFUNCTION f=(1 + sin)/2;
+}
 
-#include "QatGenericFunctions/Variable.h"
-
-int main (int argc, char **argv) {
+main (int argc, char **argv) {
 
   
   // Major built-in datatypes
@@ -115,7 +122,8 @@ int main (int argc, char **argv) {
   Y(1) = 3.0;
 
   Genfun::Variable X;
-  
+  Genfun::Sin sin;
+  std::cout << X(3.14) << std::endl;
 
   /*    
   std::vector<Student_info> students;
@@ -131,5 +139,5 @@ int main (int argc, char **argv) {
     students.push_back(record);
   }
   */
-  return 0;
+
 }

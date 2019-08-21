@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/src.dir/MPI_broadcast.cxx.o"
   "CMakeFiles/src.dir/MPI_pack.cxx.o"
   "CMakeFiles/src.dir/MPI_str.cxx.o"
+  "CMakeFiles/src.dir/statistics.cxx.o"
   "libsrc.pdb"
   "libsrc.a"
 )

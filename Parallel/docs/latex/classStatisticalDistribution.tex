@@ -1,11 +1,30 @@
 \hypertarget{classStatisticalDistribution}{}\section{Statistical\+Distribution Class Reference}
 \label{classStatisticalDistribution}\index{Statistical\+Distribution@{Statistical\+Distribution}}
+
+
+Statistical Distribution Class.  
+
+
+
+
+{\ttfamily \#include $<$statistics.\+h$>$}
+
+
+
+Inheritance diagram for Statistical\+Distribution\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{classStatisticalDistribution__inherit__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classStatisticalDistribution_a0c968a41a854b3d33310b7bd78a7238a}{Statistical\+Distribution} ()
 \begin{DoxyCompactList}\small\item\em A constructor. \end{DoxyCompactList}\item 
-virtual \hyperlink{classStatisticalDistribution_a0e7be123394637fb1bef9e7a23cc5618}{$\sim$\+Statistical\+Distribution} ()
+virtual \hyperlink{classStatisticalDistribution_a6bd83bc866a8156a3df846b98afe659a}{$\sim$\+Statistical\+Distribution} ()
 \begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classStatisticalDistribution_aef1b717d8c6bc58c5b5806d1b935eb12}\label{classStatisticalDistribution_aef1b717d8c6bc58c5b5806d1b935eb12}} 
 virtual double {\bfseries pdf} (const double \&x) const =0
@@ -30,6 +49,13 @@ virtual void \hyperlink{classStatisticalDistribution_affe04d41cb2e6f9526cc2ad4fb
 \begin{DoxyCompactList}\small\item\em Variable 3. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+Statistical Distribution Class. 
+
+We\textquotesingle{}ve specified pure virtual methods for the probability density function (pdf), cumulative density function (cdf), inverse cdf (inv\+\_\+cdf), as well as descriptive statistics functions such as as mean, var (variance) and stdev.
+
+Finally, we have a method that takes in a vector of uniform random variables on the open interval (0,1), then fills a vector of identical length with draws from the distribution 
+
 \subsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classStatisticalDistribution_a0c968a41a854b3d33310b7bd78a7238a}\label{classStatisticalDistribution_a0c968a41a854b3d33310b7bd78a7238a}} 
 \index{Statistical\+Distribution@{Statistical\+Distribution}!Statistical\+Distribution@{Statistical\+Distribution}}
@@ -41,18 +67,25 @@ virtual void \hyperlink{classStatisticalDistribution_affe04d41cb2e6f9526cc2ad4fb
 
 A constructor. 
 
-Statistical Distribution constructor \mbox{\Hypertarget{classStatisticalDistribution_a0e7be123394637fb1bef9e7a23cc5618}\label{classStatisticalDistribution_a0e7be123394637fb1bef9e7a23cc5618}} 
+Statistical Distribution.
+
+Statistical Distribution constructor
+
+A more elaborate class definition \mbox{\Hypertarget{classStatisticalDistribution_a6bd83bc866a8156a3df846b98afe659a}\label{classStatisticalDistribution_a6bd83bc866a8156a3df846b98afe659a}} 
 \index{Statistical\+Distribution@{Statistical\+Distribution}!````~Statistical\+Distribution@{$\sim$\+Statistical\+Distribution}}
 \index{````~Statistical\+Distribution@{$\sim$\+Statistical\+Distribution}!Statistical\+Distribution@{Statistical\+Distribution}}
 \subsubsection{\texorpdfstring{$\sim$\+Statistical\+Distribution()}{~StatisticalDistribution()}}
-{\footnotesize\ttfamily virtual Statistical\+Distribution\+::$\sim$\+Statistical\+Distribution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily Statistical\+Distribution\+::$\sim$\+Statistical\+Distribution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
 Virtual destructor. 
 
+Constructor.
+
 A more elaborate explanation here 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/oohnohnoh1/\+Desktop/\+G\+I\+T/\+Research/\+Parallel/include/statistics.\+h\end{DoxyCompactItemize}
+/home/oohnohnoh1/\+Desktop/\+G\+I\+T/\+Research/\+Parallel/include/statistics.\+h\item 
+/home/oohnohnoh1/\+Desktop/\+G\+I\+T/\+Research/\+Parallel/src/statistics.\+cxx\end{DoxyCompactItemize}

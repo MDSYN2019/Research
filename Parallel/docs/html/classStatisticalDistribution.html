@@ -65,15 +65,28 @@ $(function() {
 <div class="title">StatisticalDistribution Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Statistical Distribution Class.  
+ <a href="classStatisticalDistribution.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="statistics_8h_source.html">statistics.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for StatisticalDistribution:</div>
+<div class="dyncontent">
+<div class="center"><img src="classStatisticalDistribution__inherit__graph.png" border="0" usemap="#StatisticalDistribution_inherit__map" alt="Inheritance graph"/></div>
+<map name="StatisticalDistribution_inherit__map" id="StatisticalDistribution_inherit__map">
+<area shape="rect" id="node2" href="classStandardNormalDistribution.html" title="Standard Normal Distribution Implementation. " alt="" coords="5,80,188,107"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0c968a41a854b3d33310b7bd78a7238a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStatisticalDistribution.html#a0c968a41a854b3d33310b7bd78a7238a">StatisticalDistribution</a> ()</td></tr>
 <tr class="memdesc:a0c968a41a854b3d33310b7bd78a7238a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor.  <a href="#a0c968a41a854b3d33310b7bd78a7238a">More...</a><br /></td></tr>
 <tr class="separator:a0c968a41a854b3d33310b7bd78a7238a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e7be123394637fb1bef9e7a23cc5618"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStatisticalDistribution.html#a0e7be123394637fb1bef9e7a23cc5618">~StatisticalDistribution</a> ()</td></tr>
-<tr class="memdesc:a0e7be123394637fb1bef9e7a23cc5618"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#a0e7be123394637fb1bef9e7a23cc5618">More...</a><br /></td></tr>
-<tr class="separator:a0e7be123394637fb1bef9e7a23cc5618"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bd83bc866a8156a3df846b98afe659a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStatisticalDistribution.html#a6bd83bc866a8156a3df846b98afe659a">~StatisticalDistribution</a> ()</td></tr>
+<tr class="memdesc:a6bd83bc866a8156a3df846b98afe659a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#a6bd83bc866a8156a3df846b98afe659a">More...</a><br /></td></tr>
+<tr class="separator:a6bd83bc866a8156a3df846b98afe659a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef1b717d8c6bc58c5b5806d1b935eb12"><td class="memItemLeft" align="right" valign="top"><a id="aef1b717d8c6bc58c5b5806d1b935eb12"></a>
 virtual double&#160;</td><td class="memItemRight" valign="bottom"><b>pdf</b> (const double &amp;x) const =0</td></tr>
 <tr class="separator:aef1b717d8c6bc58c5b5806d1b935eb12"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -99,7 +112,11 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memdesc:affe04d41cb2e6f9526cc2ad4fb5fb150"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable 3. <br /></td></tr>
 <tr class="separator:affe04d41cb2e6f9526cc2ad4fb5fb150"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Statistical Distribution Class. </p>
+<p>We've specified pure virtual methods for the probability density function (pdf), cumulative density function (cdf), inverse cdf (inv_cdf), as well as descriptive statistics functions such as as mean, var (variance) and stdev.</p>
+<p>Finally, we have a method that takes in a vector of uniform random variables on the open interval (0,1), then fills a vector of identical length with draws from the distribution </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0c968a41a854b3d33310b7bd78a7238a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0c968a41a854b3d33310b7bd78a7238a">&#9670;&nbsp;</a></span>StatisticalDistribution()</h2>
 
@@ -116,12 +133,14 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 </div><div class="memdoc">
 
 <p>A constructor. </p>
-<p>Statistical Distribution constructor </p>
+<p>Statistical Distribution.</p>
+<p>Statistical Distribution constructor</p>
+<p>A more elaborate class definition </p>
 
 </div>
 </div>
-<a id="a0e7be123394637fb1bef9e7a23cc5618"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e7be123394637fb1bef9e7a23cc5618">&#9670;&nbsp;</a></span>~StatisticalDistribution()</h2>
+<a id="a6bd83bc866a8156a3df846b98afe659a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bd83bc866a8156a3df846b98afe659a">&#9670;&nbsp;</a></span>~StatisticalDistribution()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -130,7 +149,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual StatisticalDistribution::~StatisticalDistribution </td>
+          <td class="memname">StatisticalDistribution::~StatisticalDistribution </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -144,12 +163,14 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 </div><div class="memdoc">
 
 <p>Virtual destructor. </p>
+<p>Constructor.</p>
 <p>A more elaborate explanation here </p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/oohnohnoh1/Desktop/GIT/Research/Parallel/include/<a class="el" href="statistics_8h_source.html">statistics.h</a></li>
+<li>/home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/statistics.cxx</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

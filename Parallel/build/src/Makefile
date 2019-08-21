@@ -260,6 +260,33 @@ openmp2.cxx.s:
 	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp2.cxx.s
 .PHONY : openmp2.cxx.s
 
+statistics.o: statistics.cxx.o
+
+.PHONY : statistics.o
+
+# target to build an object file
+statistics.cxx.o:
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/statistics.cxx.o
+.PHONY : statistics.cxx.o
+
+statistics.i: statistics.cxx.i
+
+.PHONY : statistics.i
+
+# target to preprocess a source file
+statistics.cxx.i:
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/statistics.cxx.i
+.PHONY : statistics.cxx.i
+
+statistics.s: statistics.cxx.s
+
+.PHONY : statistics.s
+
+# target to generate assembly for a file
+statistics.cxx.s:
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/statistics.cxx.s
+.PHONY : statistics.cxx.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -284,6 +311,9 @@ help:
 	@echo "... openmp2.o"
 	@echo "... openmp2.i"
 	@echo "... openmp2.s"
+	@echo "... statistics.o"
+	@echo "... statistics.i"
+	@echo "... statistics.s"
 .PHONY : help
 
 

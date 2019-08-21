@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/MPI_str.cxx" "/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src/CMakeFiles/src.dir/MPI_str.cxx.o"
   "/home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/openmp1.cxx" "/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src/CMakeFiles/src.dir/openmp1.cxx.o"
   "/home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/openmp2.cxx" "/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src/CMakeFiles/src.dir/openmp2.cxx.o"
+  "/home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/statistics.cxx" "/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src/CMakeFiles/src.dir/statistics.cxx.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

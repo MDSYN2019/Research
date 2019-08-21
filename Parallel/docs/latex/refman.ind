@@ -1,7 +1,7 @@
 \begin{theindex}
 
   \item {$\sim$\+Statistical\+Distribution}
-    \subitem {Statistical\+Distribution}, \hyperpage{16}
+    \subitem {Statistical\+Distribution}, \hyperpage{19}
 
   \indexspace
 
@@ -52,23 +52,28 @@
 
   \indexspace
 
-  \item {S\+Y\+N\+\_\+\+Mat$<$ T $>$}, \hyperpage{18}
-  \item {Stack$<$ T, C\+O\+N\+T $>$}, \hyperpage{15}
-  \item {Statistical\+Distribution}, \hyperpage{16}
-    \subitem {$\sim$\+Statistical\+Distribution}, \hyperpage{16}
-    \subitem {Statistical\+Distribution}, \hyperpage{16}
-  \item {Str}, \hyperpage{16}
-  \item {Student\+\_\+info}, \hyperpage{17}
+  \item {Random\+Number\+Generator}, \hyperpage{15}
 
   \indexspace
 
-  \item {Template\+Under\+Test$<$ T $>$}, \hyperpage{19}
-  \item {Trap}, \hyperpage{19}
-  \item {tutorial\+::\+Vec$<$ T $>$}, \hyperpage{19}
+  \item {S\+Y\+N\+\_\+\+Mat$<$ T $>$}, \hyperpage{20}
+  \item {Stack$<$ T, C\+O\+N\+T $>$}, \hyperpage{16}
+  \item {Standard\+Normal\+Distribution}, \hyperpage{16}
+  \item {Statistical\+Distribution}, \hyperpage{17}
+    \subitem {$\sim$\+Statistical\+Distribution}, \hyperpage{19}
+    \subitem {Statistical\+Distribution}, \hyperpage{18}
+  \item {Str}, \hyperpage{19}
+  \item {Student\+\_\+info}, \hyperpage{20}
 
   \indexspace
 
-  \item {Vec$<$ T $>$}, \hyperpage{20}
-  \item {Vector\+Method\+Test}, \hyperpage{21}
+  \item {Template\+Under\+Test$<$ T $>$}, \hyperpage{21}
+  \item {Trap}, \hyperpage{21}
+  \item {tutorial\+::\+Vec$<$ T $>$}, \hyperpage{23}
+
+  \indexspace
+
+  \item {Vec$<$ T $>$}, \hyperpage{22}
+  \item {Vector\+Method\+Test}, \hyperpage{23}
 
 \end{theindex}

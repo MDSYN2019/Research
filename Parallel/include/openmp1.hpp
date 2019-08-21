@@ -12,6 +12,7 @@ It allows the programmer to speucfy the number of threads that should be execute
 /*
 What actually happens when the program gets to the parallel directive? Prior to the parllel directive, the program is using a 
 single thread, the process started when the program started execution.
+
 */
 
 
@@ -30,7 +31,6 @@ single thread, the process started when the program started execution.
 //#include <Eigen/Dense>
 #include <omp.h>
 
-
 #include <cppunit/extensions/TestFactoryRegistry.h>
 #include <cppunit/CompilerOutputter.h>
 #include <cppunit/ui/text/TestRunner.h>
@@ -41,10 +41,9 @@ single thread, the process started when the program started execution.
 
 template <class T> class OMP {
 public:
-  // Constructors and destructors 
-  OMP(int);
+  OMP(int);   // Constructors and destructors 
   explicit OMP(const OMP& OMPCopy); // Copy constructor 
-  OMP& operator=(const OMP& ref); // self-assignment operator
+  OMP& operator=(const OMP& ref); // self-assignment operator  
   ~OMP(); // Destructor  
   void add(T);
   void addup();

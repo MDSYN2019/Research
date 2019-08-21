@@ -10,24 +10,6 @@
 #include <cstring>
 #include "openmp1.hpp"
 
-/*
-template <typename T, typename Container = std::deque<T> >
-class stack {
-public:
-private:
-};
-
-
-template <typename T, typename Container = std::vector<T> >
-class AA {
-public:
-private:
-};
-
-*/
-
-// Custom made Str type
-
 class Str {
 public:
   typedef Vec<char>::size_type size_type;

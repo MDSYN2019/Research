@@ -4,13 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/oohnohnoh1/Desktop/GIT/Research/General/src/MPI_broadcast.cxx" "/home/oohnohnoh1/Desktop/GIT/Research/General/build/src/CMakeFiles/src.dir/MPI_broadcast.cxx.o"
-  "/home/oohnohnoh1/Desktop/GIT/Research/General/src/MPI_pack.cxx" "/home/oohnohnoh1/Desktop/GIT/Research/General/build/src/CMakeFiles/src.dir/MPI_pack.cxx.o"
-  "/home/oohnohnoh1/Desktop/GIT/Research/General/src/MPI_reduce.cxx" "/home/oohnohnoh1/Desktop/GIT/Research/General/build/src/CMakeFiles/src.dir/MPI_reduce.cxx.o"
-  "/home/oohnohnoh1/Desktop/GIT/Research/General/src/MPI_str.cxx" "/home/oohnohnoh1/Desktop/GIT/Research/General/build/src/CMakeFiles/src.dir/MPI_str.cxx.o"
-  "/home/oohnohnoh1/Desktop/GIT/Research/General/src/MPI_struct.cxx" "/home/oohnohnoh1/Desktop/GIT/Research/General/build/src/CMakeFiles/src.dir/MPI_struct.cxx.o"
-  "/home/oohnohnoh1/Desktop/GIT/Research/General/src/openmp1.cxx" "/home/oohnohnoh1/Desktop/GIT/Research/General/build/src/CMakeFiles/src.dir/openmp1.cxx.o"
-  "/home/oohnohnoh1/Desktop/GIT/Research/General/src/openmp2.cxx" "/home/oohnohnoh1/Desktop/GIT/Research/General/build/src/CMakeFiles/src.dir/openmp2.cxx.o"
+  "/home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/MPI_broadcast.cxx" "/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src/CMakeFiles/src.dir/MPI_broadcast.cxx.o"
+  "/home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/MPI_pack.cxx" "/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src/CMakeFiles/src.dir/MPI_pack.cxx.o"
+  "/home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/MPI_str.cxx" "/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src/CMakeFiles/src.dir/MPI_str.cxx.o"
+  "/home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/openmp1.cxx" "/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src/CMakeFiles/src.dir/openmp1.cxx.o"
+  "/home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/openmp2.cxx" "/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src/CMakeFiles/src.dir/openmp2.cxx.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

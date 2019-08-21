@@ -1,24 +1,57 @@
 \hypertarget{classStatisticalDistribution}{}\section{Statistical\+Distribution Class Reference}
 \label{classStatisticalDistribution}\index{Statistical\+Distribution@{Statistical\+Distribution}}
-
-
-{\ttfamily \#include $<$statistics.\+h$>$}
-
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{classStatisticalDistribution_a0c968a41a854b3d33310b7bd78a7238a}{Statistical\+Distribution} ()
+\begin{DoxyCompactList}\small\item\em A constructor. \end{DoxyCompactList}\item 
+virtual \hyperlink{classStatisticalDistribution_a0e7be123394637fb1bef9e7a23cc5618}{$\sim$\+Statistical\+Distribution} ()
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classStatisticalDistribution_aef1b717d8c6bc58c5b5806d1b935eb12}\label{classStatisticalDistribution_aef1b717d8c6bc58c5b5806d1b935eb12}} 
 virtual double {\bfseries pdf} (const double \&x) const =0
 \item 
 \mbox{\Hypertarget{classStatisticalDistribution_aa7f52f4c8cadc971d9e189453ea0eb95}\label{classStatisticalDistribution_aa7f52f4c8cadc971d9e189453ea0eb95}} 
 virtual double {\bfseries cdf} (const double \&x) const =0
-\end{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classStatisticalDistribution_aff50a79b73032b6f63db797124ec310f}\label{classStatisticalDistribution_aff50a79b73032b6f63db797124ec310f}} 
+virtual double {\bfseries inv\+\_\+cdf} (const double \&quantile) const =0
+\item 
+\mbox{\Hypertarget{classStatisticalDistribution_a68177d55b616f6c2f857ccf7afbf7789}\label{classStatisticalDistribution_a68177d55b616f6c2f857ccf7afbf7789}} 
+virtual double {\bfseries mean} () const =0
+\item 
+\mbox{\Hypertarget{classStatisticalDistribution_ae66c6543b8d40d200b45d26f4fb3e3c2}\label{classStatisticalDistribution_ae66c6543b8d40d200b45d26f4fb3e3c2}} 
+virtual double \hyperlink{classStatisticalDistribution_ae66c6543b8d40d200b45d26f4fb3e3c2}{var} () const =0
+\begin{DoxyCompactList}\small\item\em Variable 1. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStatisticalDistribution_af097e57c0d28489af68ca8a4edaebcac}\label{classStatisticalDistribution_af097e57c0d28489af68ca8a4edaebcac}} 
+virtual double \hyperlink{classStatisticalDistribution_af097e57c0d28489af68ca8a4edaebcac}{stdev} () const =0
+\begin{DoxyCompactList}\small\item\em Varable 2. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classStatisticalDistribution_affe04d41cb2e6f9526cc2ad4fb5fb150}\label{classStatisticalDistribution_affe04d41cb2e6f9526cc2ad4fb5fb150}} 
+virtual void \hyperlink{classStatisticalDistribution_affe04d41cb2e6f9526cc2ad4fb5fb150}{random\+\_\+draws} (const std\+::vector$<$ double $>$ \&uniform\+\_\+draws, std\+::vector$<$ double $>$ \&dist\+\_\+draws)=0
+\begin{DoxyCompactList}\small\item\em Variable 3. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
-One of the most common examples of concepts in quantitiative finance is that of a statistical distribtion. Random variables play a huge part in quantitive financial modelling. Derivatives, pricing, cash-\/flow forceasting and quantitive trading all make use of statitiscal methods in some fashion
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classStatisticalDistribution_a0c968a41a854b3d33310b7bd78a7238a}\label{classStatisticalDistribution_a0c968a41a854b3d33310b7bd78a7238a}} 
+\index{Statistical\+Distribution@{Statistical\+Distribution}!Statistical\+Distribution@{Statistical\+Distribution}}
+\index{Statistical\+Distribution@{Statistical\+Distribution}!Statistical\+Distribution@{Statistical\+Distribution}}
+\subsubsection{\texorpdfstring{Statistical\+Distribution()}{StatisticalDistribution()}}
+{\footnotesize\ttfamily Statistical\+Distribution\+::\+Statistical\+Distribution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Many of the chapters within this book have made use of random number generators in order to carry out pricing tasks 
+
+
+A constructor. 
+
+Statistical Distribution constructor \mbox{\Hypertarget{classStatisticalDistribution_a0e7be123394637fb1bef9e7a23cc5618}\label{classStatisticalDistribution_a0e7be123394637fb1bef9e7a23cc5618}} 
+\index{Statistical\+Distribution@{Statistical\+Distribution}!````~Statistical\+Distribution@{$\sim$\+Statistical\+Distribution}}
+\index{````~Statistical\+Distribution@{$\sim$\+Statistical\+Distribution}!Statistical\+Distribution@{Statistical\+Distribution}}
+\subsubsection{\texorpdfstring{$\sim$\+Statistical\+Distribution()}{~StatisticalDistribution()}}
+{\footnotesize\ttfamily virtual Statistical\+Distribution\+::$\sim$\+Statistical\+Distribution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Virtual destructor. 
+
+A more elaborate explanation here 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

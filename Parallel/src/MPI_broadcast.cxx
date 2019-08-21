@@ -1,14 +1,15 @@
-/*
+//! Comments on Code
+
+/*!
 
 Performance evaluation of MPI programs
 
 We're usually not interested in the time taken from the sstart of program execution 
 to the end of program execution. 
 
-We're nly interested in the time it takes to do the actual multiplicaton, 
-s we need to modify our source code by adding in calls to a function that will tell us the amount of 
-time that elapses frm the beginning t the end of the actual atual matrix
- */
+We're only interested in the time it takes to do the actual multiplicaton, so we need to modify our source code by adding in calls to a function that will tell us the amount of time that elapses from the beginning to the end of the actual matrix
+
+*/
 
 
 #include <iostream>
@@ -33,17 +34,27 @@ time that elapses frm the beginning t the end of the actual atual matrix
 
 std::map<std::string, std::string> typeConvDict; // TODO
 
+
+//! bcast definition
+/*! my_bcast function does the following..
+
+ */
+
 void my_bcast(void* data, int count, MPI_Datatype datatype, int root, MPI_Comm communicator) {
-  int world_rank;
+
+  int world_rank; /*!< int world rank */
+  int world_size; /*!< int world size */
+  
   MPI_Comm_rank(communicator, &world_rank);
-  int world_size;
   MPI_Comm_size(communicator, &world_size);
+
   if (world_rank == root) {
+    
     // If we are the root process, send our data to everyone
-    int i;
-    for (i = 0; i < world_size; i++) {
+   
+    for (int i = 0; i < world_size; i++) {
       if (i != world_rank) {
-        MPI_Send(data, count, datatype, i, 0, communicator);
+	MPI_Send(data, count, datatype, i, 0, communicator);
       }
     }
   } else {
@@ -51,6 +62,11 @@ void my_bcast(void* data, int count, MPI_Datatype datatype, int root, MPI_Comm c
     MPI_Recv(data, count, datatype, root, 0, communicator, MPI_STATUS_IGNORE);
   }
 }
+
+//! MPI_BC class template filling 
+/*! 
+  Placeholder
+*/
 
 MPI_BC::MPI_BC() {
 
@@ -80,7 +96,7 @@ void MPI_BC::packData() {
 
 void MPI_BC::buildMpiType(double* a_p, double* b_p, int* n_p, MPI_Datatype* input_mpi_t_p) {
   /*  
-    A derived datatype can bbe used to represent any collection 
+    A derived datatype can be used to represent any collection 
     of data items by storing both the types of items and their 
     relative locations in memory. 
 

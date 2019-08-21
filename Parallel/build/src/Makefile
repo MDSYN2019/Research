@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/oohnohnoh1/Desktop/GIT/Research/General
+CMAKE_SOURCE_DIR = /home/oohnohnoh1/Desktop/GIT/Research/Parallel
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/oohnohnoh1/Desktop/GIT/Research/General/build
+CMAKE_BINARY_DIR = /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/oohnohnoh1/Desktop/GIT/Research/General/build/CMakeFiles /home/oohnohnoh1/Desktop/GIT/Research/General/build/src/CMakeFiles/progress.marks
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/oohnohnoh1/Desktop/GIT/Research/General/build/CMakeFiles 0
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src/CMakeFiles/progress.marks
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/CMakeFiles/src.dir/rule:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/src.dir/rule
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/src.dir/rule
 .PHONY : src/CMakeFiles/src.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ src: src/CMakeFiles/src.dir/rule
 
 # fast build rule for target.
 src/fast:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/build
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/build
 .PHONY : src/fast
 
 MPI_broadcast.o: MPI_broadcast.cxx.o
@@ -131,7 +131,7 @@ MPI_broadcast.o: MPI_broadcast.cxx.o
 
 # target to build an object file
 MPI_broadcast.cxx.o:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_broadcast.cxx.o
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_broadcast.cxx.o
 .PHONY : MPI_broadcast.cxx.o
 
 MPI_broadcast.i: MPI_broadcast.cxx.i
@@ -140,7 +140,7 @@ MPI_broadcast.i: MPI_broadcast.cxx.i
 
 # target to preprocess a source file
 MPI_broadcast.cxx.i:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_broadcast.cxx.i
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_broadcast.cxx.i
 .PHONY : MPI_broadcast.cxx.i
 
 MPI_broadcast.s: MPI_broadcast.cxx.s
@@ -149,7 +149,7 @@ MPI_broadcast.s: MPI_broadcast.cxx.s
 
 # target to generate assembly for a file
 MPI_broadcast.cxx.s:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_broadcast.cxx.s
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_broadcast.cxx.s
 .PHONY : MPI_broadcast.cxx.s
 
 MPI_pack.o: MPI_pack.cxx.o
@@ -158,7 +158,7 @@ MPI_pack.o: MPI_pack.cxx.o
 
 # target to build an object file
 MPI_pack.cxx.o:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_pack.cxx.o
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_pack.cxx.o
 .PHONY : MPI_pack.cxx.o
 
 MPI_pack.i: MPI_pack.cxx.i
@@ -167,7 +167,7 @@ MPI_pack.i: MPI_pack.cxx.i
 
 # target to preprocess a source file
 MPI_pack.cxx.i:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_pack.cxx.i
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_pack.cxx.i
 .PHONY : MPI_pack.cxx.i
 
 MPI_pack.s: MPI_pack.cxx.s
@@ -176,35 +176,8 @@ MPI_pack.s: MPI_pack.cxx.s
 
 # target to generate assembly for a file
 MPI_pack.cxx.s:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_pack.cxx.s
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_pack.cxx.s
 .PHONY : MPI_pack.cxx.s
-
-MPI_reduce.o: MPI_reduce.cxx.o
-
-.PHONY : MPI_reduce.o
-
-# target to build an object file
-MPI_reduce.cxx.o:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_reduce.cxx.o
-.PHONY : MPI_reduce.cxx.o
-
-MPI_reduce.i: MPI_reduce.cxx.i
-
-.PHONY : MPI_reduce.i
-
-# target to preprocess a source file
-MPI_reduce.cxx.i:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_reduce.cxx.i
-.PHONY : MPI_reduce.cxx.i
-
-MPI_reduce.s: MPI_reduce.cxx.s
-
-.PHONY : MPI_reduce.s
-
-# target to generate assembly for a file
-MPI_reduce.cxx.s:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_reduce.cxx.s
-.PHONY : MPI_reduce.cxx.s
 
 MPI_str.o: MPI_str.cxx.o
 
@@ -212,7 +185,7 @@ MPI_str.o: MPI_str.cxx.o
 
 # target to build an object file
 MPI_str.cxx.o:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_str.cxx.o
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_str.cxx.o
 .PHONY : MPI_str.cxx.o
 
 MPI_str.i: MPI_str.cxx.i
@@ -221,7 +194,7 @@ MPI_str.i: MPI_str.cxx.i
 
 # target to preprocess a source file
 MPI_str.cxx.i:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_str.cxx.i
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_str.cxx.i
 .PHONY : MPI_str.cxx.i
 
 MPI_str.s: MPI_str.cxx.s
@@ -230,35 +203,8 @@ MPI_str.s: MPI_str.cxx.s
 
 # target to generate assembly for a file
 MPI_str.cxx.s:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_str.cxx.s
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_str.cxx.s
 .PHONY : MPI_str.cxx.s
-
-MPI_struct.o: MPI_struct.cxx.o
-
-.PHONY : MPI_struct.o
-
-# target to build an object file
-MPI_struct.cxx.o:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_struct.cxx.o
-.PHONY : MPI_struct.cxx.o
-
-MPI_struct.i: MPI_struct.cxx.i
-
-.PHONY : MPI_struct.i
-
-# target to preprocess a source file
-MPI_struct.cxx.i:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_struct.cxx.i
-.PHONY : MPI_struct.cxx.i
-
-MPI_struct.s: MPI_struct.cxx.s
-
-.PHONY : MPI_struct.s
-
-# target to generate assembly for a file
-MPI_struct.cxx.s:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_struct.cxx.s
-.PHONY : MPI_struct.cxx.s
 
 openmp1.o: openmp1.cxx.o
 
@@ -266,7 +212,7 @@ openmp1.o: openmp1.cxx.o
 
 # target to build an object file
 openmp1.cxx.o:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp1.cxx.o
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp1.cxx.o
 .PHONY : openmp1.cxx.o
 
 openmp1.i: openmp1.cxx.i
@@ -275,7 +221,7 @@ openmp1.i: openmp1.cxx.i
 
 # target to preprocess a source file
 openmp1.cxx.i:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp1.cxx.i
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp1.cxx.i
 .PHONY : openmp1.cxx.i
 
 openmp1.s: openmp1.cxx.s
@@ -284,7 +230,7 @@ openmp1.s: openmp1.cxx.s
 
 # target to generate assembly for a file
 openmp1.cxx.s:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp1.cxx.s
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp1.cxx.s
 .PHONY : openmp1.cxx.s
 
 openmp2.o: openmp2.cxx.o
@@ -293,7 +239,7 @@ openmp2.o: openmp2.cxx.o
 
 # target to build an object file
 openmp2.cxx.o:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp2.cxx.o
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp2.cxx.o
 .PHONY : openmp2.cxx.o
 
 openmp2.i: openmp2.cxx.i
@@ -302,7 +248,7 @@ openmp2.i: openmp2.cxx.i
 
 # target to preprocess a source file
 openmp2.cxx.i:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp2.cxx.i
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp2.cxx.i
 .PHONY : openmp2.cxx.i
 
 openmp2.s: openmp2.cxx.s
@@ -311,7 +257,7 @@ openmp2.s: openmp2.cxx.s
 
 # target to generate assembly for a file
 openmp2.cxx.s:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp2.cxx.s
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp2.cxx.s
 .PHONY : openmp2.cxx.s
 
 # Help Target
@@ -329,15 +275,9 @@ help:
 	@echo "... MPI_pack.o"
 	@echo "... MPI_pack.i"
 	@echo "... MPI_pack.s"
-	@echo "... MPI_reduce.o"
-	@echo "... MPI_reduce.i"
-	@echo "... MPI_reduce.s"
 	@echo "... MPI_str.o"
 	@echo "... MPI_str.i"
 	@echo "... MPI_str.s"
-	@echo "... MPI_struct.o"
-	@echo "... MPI_struct.i"
-	@echo "... MPI_struct.s"
 	@echo "... openmp1.o"
 	@echo "... openmp1.i"
 	@echo "... openmp1.s"
@@ -355,6 +295,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/General/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

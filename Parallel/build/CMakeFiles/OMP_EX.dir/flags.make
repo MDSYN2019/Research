@@ -6,5 +6,5 @@ CXX_FLAGS =  -std=c++11    -fvisibility=hidden -std=c++14 -fopenmp
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/oohnohnoh1/Desktop/GIT/Research/General/build -I/home/oohnohnoh1/Desktop/GIT/Research/General -I/home/oohnohnoh1/Desktop/GIT/Research/General/src -I/home/oohnohnoh1/Desktop/GIT/Research/General/include -I/usr/local/include/eigen3 -I/home/oohnohnoh1/anaconda3/include -I/home/oohnohnoh1/Desktop/GIT/Research/General/thirdparty/include -isystem /home/oohnohnoh1/anaconda3/include/python3.6m 
+CXX_INCLUDES = -I/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build -I/home/oohnohnoh1/Desktop/GIT/Research/Parallel -I/home/oohnohnoh1/Desktop/GIT/Research/Parallel/src -I/home/oohnohnoh1/Desktop/GIT/Research/Parallel/include -I/usr/local/include/eigen3 -I/home/oohnohnoh1/anaconda3/include -I/home/oohnohnoh1/Desktop/GIT/Research/Parallel/thirdparty/include -isystem /home/oohnohnoh1/anaconda3/include/python3.6m 
 

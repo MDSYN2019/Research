@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['vec',['Vec',['../classVec.html',1,'Vec&lt; T &gt;'],['../classtutorial_1_1Vec.html',1,'tutorial::Vec&lt; T &gt;']]],
-  ['vec_3c_20char_20_3e',['Vec&lt; char &gt;',['../classVec.html',1,'']]],
-  ['vectormethodtest',['VectorMethodTest',['../classVectorMethodTest.html',1,'']]]
+  ['stack',['Stack',['../classStack.html',1,'']]],
+  ['statisticaldistribution',['StatisticalDistribution',['../classStatisticalDistribution.html',1,'StatisticalDistribution'],['../classStatisticalDistribution.html#a0c968a41a854b3d33310b7bd78a7238a',1,'StatisticalDistribution::StatisticalDistribution()']]],
+  ['stdev',['stdev',['../classStatisticalDistribution.html#af097e57c0d28489af68ca8a4edaebcac',1,'StatisticalDistribution']]],
+  ['str',['Str',['../classStr.html',1,'']]],
+  ['student_5finfo',['Student_info',['../classStudent__info.html',1,'']]],
+  ['syn_5fmat',['SYN_Mat',['../classSYN__Mat.html',1,'']]]
 ];

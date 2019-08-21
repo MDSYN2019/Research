@@ -3,9 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/src.dir/openmp2.cxx.o"
   "CMakeFiles/src.dir/MPI_broadcast.cxx.o"
   "CMakeFiles/src.dir/MPI_pack.cxx.o"
-  "CMakeFiles/src.dir/MPI_reduce.cxx.o"
   "CMakeFiles/src.dir/MPI_str.cxx.o"
-  "CMakeFiles/src.dir/MPI_struct.cxx.o"
   "libsrc.pdb"
   "libsrc.a"
 )

@@ -1,3 +1,8 @@
+//! Composition study for the C12E2 budding paper
+/*! 
+Placeholder
+ */
+
 #ifndef __composition__
 #define __composition__
 
@@ -57,9 +62,11 @@ class compute {
   int A7_2, A6_1_2, A6_2_2, A3_1_2, A3_2_2, A3_3_2, A4_2; // Second Batch
   int A7_3, A6_1_3, A6_2_3, A3_1_3, A3_2_3, A3_3_3, A4_3; // Third Batch 
   int A7_4, A6_1_4, A6_2_4, A3_1_4, A3_2_4, A3_3_4, A4_4; // Fourth Batch
+
   // ----------------------------------------------------------------------//
   // Defining mimics (A13 -- A12_1 -- A12_2 -- A9_1 -- A9_2 -- A9_3 -- A10 //
   // ----------------------------------------------------------------------//  
+
   int A13, A12_1, A12_2, A9_1, A9_2, A9_3, A10; // First Batch
   int A13_2, A12_1_2, A12_2_2, A9_1_2, A9_2_2, A9_3_2, A10_2; // Second Batch
   int A13_3, A12_1_3, A12_2_3, A9_1_3, A9_2_3, A9_3_3, A10_3; // Third Batch

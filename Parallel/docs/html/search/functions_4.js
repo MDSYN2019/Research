@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7estatisticaldistribution',['~StatisticalDistribution',['../classStatisticalDistribution.html#a6bd83bc866a8156a3df846b98afe659a',1,'StatisticalDistribution']]]
+  ['var',['var',['../classStatisticalDistribution.html#ae66c6543b8d40d200b45d26f4fb3e3c2',1,'StatisticalDistribution::var()'],['../classStandardNormalDistribution.html#aaa5c3dbc1faee3610b3c9332301ceb97',1,'StandardNormalDistribution::var()']]]
 ];

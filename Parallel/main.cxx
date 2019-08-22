@@ -4,14 +4,13 @@
 #include "statistics.h"
 
 
-StandardNormalDistribution smd;
+//StandardNormalDistribution smd;
 
 
 // import most common Eigen types
 //USING_PART_OF_NAMESPACE_EIGEN
 
-int main()
-{
+int main(void) {
 
   return 0;
 }

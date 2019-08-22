@@ -23,7 +23,7 @@ class MPIInput {
 
 public:
   MPIInput(); /*!< Default constructor */ 
-  MPIInput(int, int);
+  MPIInput(int, int); /*!< int int constructor */
   void MPIStart();
   void getData();
   void bubbleSort();

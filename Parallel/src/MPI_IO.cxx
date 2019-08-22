@@ -19,6 +19,9 @@
 
 #include "MPI_IO.hpp"
 
+// Boost libraries to check MPI datatype
+
+#include <boost/mpi/datatype.hpp>
 
 // Non-object methods
 
@@ -31,13 +34,22 @@
  */
 
 
-MPIInput::MPI_input() {
-} // constructor 
 
-MPIInput::MPI_input(int mr, int pe) {
+//! MPIInput class - constructor
+/*! The default constructor */
+MPIInput::MPIInput() {} 
+
+
+//! MPIInput class - constructor
+/*! The input constructor */
+MPIInput::MPIInput(int mr, int pe) {
   my_rank = mr;
   p = pe;
 }
+
+
+//! MPIInput class - MPIStart method
+/*! Sets up the processor ranks and size for use later - could really be incoporated into the consturcotr */
 
 void MPIInput::MPIStart() { 
   MPI_Init(NULL, NULL);
@@ -76,11 +88,39 @@ void MPIInput::bubbleSort(int a[], int n) {
 }
 
 
-void MPIInput::getData() {
+void MPIInput::getDataPack(float* a_ptr, float* b_ptr, int* b_ptr) {
+
+  int position; /*!< Placeholder */
+  char buffer[100]; /*!< Keeping track of where the data is */
+
 
   if (my_rank == 0) {
+    std::cout << "Enter a, b, and n \n";
+    scanf("%f %f %d", a_ptr, b_ptr, n_ptr);
+
+    position = 0; /*!< Now pack the data into buffer. Positon = 0 says start at beginning of buffer */
+
+    MPI_Pack(a_ptr, 1, MPI_FLOAT, buffer, 100, &position, MPI_COMM_WORLD);
+  }
+  
+}
+
+
+
+void MPIInput::getData(float* a_ptr, float* b_ptr, int* b_ptr) {
+ 
+  
+  if (my_rank == 0) {
     std::cout << "Enter a, b and n \n";
+    
     scanf("%lf %lf %d", a_ptr, b_ptr, n_ptr);
+
+    //! MPI_pack allows ..
+    /*!
+      
+      
+     */
+   
     for (int dest = 1; dest < p; dest++) {
       tag = 0;
       MPI_Send(a_ptr, 1, MPI_FLOAT, dest, tag, MPI_COMM_WORLD);

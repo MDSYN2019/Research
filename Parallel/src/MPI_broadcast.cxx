@@ -1,13 +1,15 @@
 //! Comments on Code
 
 /*!
-
+--------------------------------------
 Performance evaluation of MPI programs
+--------------------------------------
 
 We're usually not interested in the time taken from the sstart of program execution 
-to the end of program execution. 
+to the end of program execution. We're only interested in the time it takes to do the 
+actual multiplicaton, so we need to modify our source code by adding in calls to a function 
+that will tell us the amount of time that elapses from the beginning to the end of the actual matrix.
 
-We're only interested in the time it takes to do the actual multiplicaton, so we need to modify our source code by adding in calls to a function that will tell us the amount of time that elapses from the beginning to the end of the actual matrix
 
 */
 

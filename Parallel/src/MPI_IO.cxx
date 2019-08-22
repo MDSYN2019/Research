@@ -1,7 +1,11 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
-#include <mpi.h>
+#include <algorithm>
+#include <iterator>
+#include <numeric>
+
+#include "mpi.h"
 
 // cppunit tests
 
@@ -11,8 +15,21 @@
 #include <cppunit/TestFixture.h>
 #include <cppunit/extensions/HelperMacros.h>
 
-// Custom headers
+// Class template for this ..class. Redundant statement.
+
 #include "MPI_IO.hpp"
+
+
+// Non-object methods
+
+/*
+  An alterntive appraoch to grouping data is provided by the MPI functions 
+  MPI_pack and MPI_Unpack. MPI_Pack allows one to explicitiy store noncontiguous
+  (translation - non-array continuous data) in contiguous memory locations,
+  and MPI_Unpack can be used to copy data from a contiguous buffer from 
+  a contiguous buffer into noncontiguous memory locations
+ */
+
 
 MPIInput::MPI_input() {
 } // constructor 
@@ -22,7 +39,7 @@ MPIInput::MPI_input(int mr, int pe) {
   p = pe;
 }
 
-void MPIInput::MPI_start() { 
+void MPIInput::MPIStart() { 
   MPI_Init(NULL, NULL);
   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
   MPI_Comm_size(MPI_COMM_WORLD, &p);  
@@ -59,21 +76,8 @@ void MPIInput::bubbleSort(int a[], int n) {
 }
 
 
-void MPIInput::bubbleSort(int a[], int n) {
-   // --  bubble sort variables --
-  int temp;
-  for (int list_length = n; list_length >= 2; list_length--) {
-    for (int i = 0; i < list_length - 1 ; i++) {
-      if (a[i] > a[i+1]) {
-  	temp = a[i];
-  	a[i] = a[i+1];
-  	a[i+1] = temp;
-      }
-    }
-  }
-}
-
 void MPIInput::getData() {
+
   if (my_rank == 0) {
     std::cout << "Enter a, b and n \n";
     scanf("%lf %lf %d", a_ptr, b_ptr, n_ptr);
@@ -95,7 +99,10 @@ void MPIInput::getData() {
   }
 }
 
+//! Class destructor for MPI
+/*! 
+  Destructor 
+*/
 MPIInput::~MPI_input() {
   MPI_Finalize();
-} // destructor 
-
+} 

@@ -66,6 +66,11 @@ $(function() {
 <div class="title">Str Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A constructor with a character pointer input.  
+ <a href="classStr.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="openmp2_8hpp_source.html">openmp2.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -88,17 +93,88 @@ Public Member Functions</h2></td></tr>
 template&lt;class In &gt; </td></tr>
 <tr class="memitem:a92caed2384063dca67f93a9788ed1115"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Str</b> (In b, In e)</td></tr>
 <tr class="separator:a92caed2384063dca67f93a9788ed1115"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51d07a34edbcb6ab60c23c0a1f6d2625"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStr.html#a51d07a34edbcb6ab60c23c0a1f6d2625">Str</a> ()</td></tr>
+<tr class="separator:a51d07a34edbcb6ab60c23c0a1f6d2625"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afedfc049e090cc83be3ea834948f28ba"><td class="memItemLeft" align="right" valign="top"><a id="afedfc049e090cc83be3ea834948f28ba"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Str</b> (size_type n, char c)</td></tr>
 <tr class="separator:afedfc049e090cc83be3ea834948f28ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8235816d2687bf223490568a18124cf4"><td class="memItemLeft" align="right" valign="top"><a id="a8235816d2687bf223490568a18124cf4"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Str</b> (const char *cp)</td></tr>
+<tr class="memitem:a8235816d2687bf223490568a18124cf4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStr.html#a8235816d2687bf223490568a18124cf4">Str</a> (const char *cp)</td></tr>
+<tr class="memdesc:a8235816d2687bf223490568a18124cf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor with a character pointer input.  <a href="#a8235816d2687bf223490568a18124cf4">More...</a><br /></td></tr>
 <tr class="separator:a8235816d2687bf223490568a18124cf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92caed2384063dca67f93a9788ed1115"><td class="memTemplParams" colspan="2"><a id="a92caed2384063dca67f93a9788ed1115"></a>
 template&lt;class In &gt; </td></tr>
-<tr class="memitem:a92caed2384063dca67f93a9788ed1115"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Str</b> (In b, In e)</td></tr>
+<tr class="memitem:a92caed2384063dca67f93a9788ed1115"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classStr.html#a92caed2384063dca67f93a9788ed1115">Str</a> (In b, In e)</td></tr>
+<tr class="memdesc:a92caed2384063dca67f93a9788ed1115"><td class="mdescLeft">&#160;</td><td class="mdescRight">create a <a class="el" href="classStr.html" title="A constructor with a character pointer input. ">Str</a> from the range denoted by iterators b and e <br /></td></tr>
 <tr class="separator:a92caed2384063dca67f93a9788ed1115"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A constructor with a character pointer input. </p>
+<hr/>
+ <h2>Custom <a class="el" href="classStr.html" title="A constructor with a character pointer input. ">Str</a> class </h2>
+<p>A numeric progression is a seuqence of numbers, where the value of each number depends on one or more of the previous value.</p>
+<p>Objects of built-in types generally behave like values: Whenever we copy an object of such a type, the original and copy have the same value but are otherwise indepedent.</p>
+<p>For most of the built-in types, the language also defines a rich set of operators and provides automatic conversions between logically similar types. For example, if we add an int and a double, the compiler automatically converts the int into a double</p>
+<p>When we define our own classes, we control the extent to which the resulting objects behave like values. By defining copying and assigning appropriately, the class author an arrange for objects of that class to act like values - that is, the class author can arrange for each object to have state that is independent of any other object.</p>
+<p>Our <a class="el" href="classVec.html">Vec</a> and <a class="el" href="classStudent__info.html">Student_info</a> classes are examples of types that act like values</p>
+<p>We shall see that the class author an also control conversions and related operations on class objects, thereby providing classes whose objects behave even more similarly to objects of built-in types.</p>
+<p>Defining a <a class="el" href="classStr.html" title="A constructor with a character pointer input. ">Str</a> class that lets us create objects that behave approproximately as we would like. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a51d07a34edbcb6ab60c23c0a1f6d2625"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51d07a34edbcb6ab60c23c0a1f6d2625">&#9670;&nbsp;</a></span>Str() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Str::Str </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>default constructor, create an empty str </p>
+
+</div>
+</div>
+<a id="a8235816d2687bf223490568a18124cf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8235816d2687bf223490568a18124cf4">&#9670;&nbsp;</a></span>Str() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Str::Str </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>cp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A constructor with a character pointer input. </p>
+<p>create a <a class="el" href="classStr.html" title="A constructor with a character pointer input. ">Str</a> containing n copies of c</p>
+<p>Copy constructor </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/openmp2.cxx</li>
 <li>/home/oohnohnoh1/Desktop/GIT/Research/Parallel/include/<a class="el" href="openmp2_8hpp_source.html">openmp2.hpp</a></li>

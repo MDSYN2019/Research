@@ -1,4 +1,4 @@
-1;5202;0c/*
+/*
   One obvious problem with our program is its lack of generality. The function, 
   f(x), and the input data, a, b, n, are hardwired. So if we want to change any 
   of these, we must edit and recompule the program. 
@@ -18,11 +18,11 @@
 #include <cppunit/TestFixture.h>
 #include <cppunit/extensions/HelperMacros.h>
 
-
+/
 class MPIInput {
 
 public:
-  MPIInput();
+  MPIInput(); /*!< Default constructor */ 
   MPIInput(int, int);
   void MPIStart();
   void getData();

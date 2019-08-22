@@ -1,5 +1,14 @@
 \hypertarget{classStr}{}\section{Str Class Reference}
 \label{classStr}\index{Str@{Str}}
+
+
+A constructor with a character pointer input.  
+
+
+
+
+{\ttfamily \#include $<$openmp2.\+hpp$>$}
+
 \subsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
@@ -21,16 +30,59 @@ typedef \hyperlink{classVec}{Vec}$<$ char $>$\+::size\+\_\+type {\bfseries size\
 \mbox{\Hypertarget{classStr_a92caed2384063dca67f93a9788ed1115}\label{classStr_a92caed2384063dca67f93a9788ed1115}} 
 {\footnotesize template$<$class In $>$ }\\{\bfseries Str} (In b, In e)
 \item 
+\hyperlink{classStr_a51d07a34edbcb6ab60c23c0a1f6d2625}{Str} ()
+\item 
 \mbox{\Hypertarget{classStr_afedfc049e090cc83be3ea834948f28ba}\label{classStr_afedfc049e090cc83be3ea834948f28ba}} 
 {\bfseries Str} (size\+\_\+type n, char c)
 \item 
-\mbox{\Hypertarget{classStr_a8235816d2687bf223490568a18124cf4}\label{classStr_a8235816d2687bf223490568a18124cf4}} 
-{\bfseries Str} (const char $\ast$cp)
-\item 
+\hyperlink{classStr_a8235816d2687bf223490568a18124cf4}{Str} (const char $\ast$cp)
+\begin{DoxyCompactList}\small\item\em A constructor with a character pointer input. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classStr_a92caed2384063dca67f93a9788ed1115}\label{classStr_a92caed2384063dca67f93a9788ed1115}} 
-{\footnotesize template$<$class In $>$ }\\{\bfseries Str} (In b, In e)
-\end{DoxyCompactItemize}
+{\footnotesize template$<$class In $>$ }\\\hyperlink{classStr_a92caed2384063dca67f93a9788ed1115}{Str} (In b, In e)
+\begin{DoxyCompactList}\small\item\em create a \hyperlink{classStr}{Str} from the range denoted by iterators b and e \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+A constructor with a character pointer input. 
+
+
+
+ \subsubsection*{Custom \hyperlink{classStr}{Str} class }
+
+A numeric progression is a seuqence of numbers, where the value of each number depends on one or more of the previous value.
+
+Objects of built-\/in types generally behave like values\+: Whenever we copy an object of such a type, the original and copy have the same value but are otherwise indepedent.
+
+For most of the built-\/in types, the language also defines a rich set of operators and provides automatic conversions between logically similar types. For example, if we add an int and a double, the compiler automatically converts the int into a double
+
+When we define our own classes, we control the extent to which the resulting objects behave like values. By defining copying and assigning appropriately, the class author an arrange for objects of that class to act like values -\/ that is, the class author can arrange for each object to have state that is independent of any other object.
+
+Our \hyperlink{classVec}{Vec} and \hyperlink{classStudent__info}{Student\+\_\+info} classes are examples of types that act like values
+
+We shall see that the class author an also control conversions and related operations on class objects, thereby providing classes whose objects behave even more similarly to objects of built-\/in types.
+
+Defining a \hyperlink{classStr}{Str} class that lets us create objects that behave approproximately as we would like. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classStr_a51d07a34edbcb6ab60c23c0a1f6d2625}\label{classStr_a51d07a34edbcb6ab60c23c0a1f6d2625}} 
+\index{Str@{Str}!Str@{Str}}
+\index{Str@{Str}!Str@{Str}}
+\subsubsection{\texorpdfstring{Str()}{Str()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Str\+::\+Str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+default constructor, create an empty str \mbox{\Hypertarget{classStr_a8235816d2687bf223490568a18124cf4}\label{classStr_a8235816d2687bf223490568a18124cf4}} 
+\index{Str@{Str}!Str@{Str}}
+\index{Str@{Str}!Str@{Str}}
+\subsubsection{\texorpdfstring{Str()}{Str()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Str\+::\+Str (\begin{DoxyParamCaption}\item[{const char $\ast$}]{cp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A constructor with a character pointer input. 
+
+create a \hyperlink{classStr}{Str} containing n copies of c
+
+Copy constructor 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

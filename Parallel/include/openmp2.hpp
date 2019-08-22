@@ -20,39 +20,58 @@
 #include <cppunit/TestFixture.h>
 #include <cppunit/extensions/HelperMacros.h>
 
-/*
+/*!
+----------------
+Custom Str class
+----------------
 
 A numeric progression is a seuqence of numbers, where the value of each number depends on one or more of the 
 previous value.
- 
+
+
+Objects of built-in types generally behave like values: Whenever we copy an object of 
+such a type, the original and copy have the same value but are otherwise indepedent. 
+
+For most of the built-in types, the language also defines a rich set of operators and provides 
+automatic conversions between logically similar types. For example, if we add 
+an int and a double, the compiler automatically converts the int into a double
+
+When we define our own classes, we control the extent to which the resulting objects behave like values.
+By defining copying and assigning appropriately, the class author an arrange for objects of that class 
+to act like values - that is, the class author can arrange for each object to have state that is independent
+of any other object. 
+
+Our Vec and Student_info classes are examples of types that act like values
+
+We shall see that the class author an also control conversions and related operations on class objects, thereby 
+providing classes whose objects behave even more similarly to objects of built-in types. 
+
 */
 
-
-/*
-Our class delegates the work of managed ing ts data to the vec class that we write in chapter 11. The class is almost as good enough to 
-
-
+//! A constructor with a character pointer input
+/*! 
+  Defining a Str class that lets us create objects that behave approproximately as we would like.
  */
-
-
 class Str {
 public:
   typedef Vec<char>::size_type size_type;
-  // default constructor, create an empty str
-  Str () {}
-  // create a Str containing n copies of c
-  Str (size_type n, char c): data(n, c) {};
+  Str () {}   /*!< default constructor, create an empty str */  
+  Str (size_type n, char c): data(n, c) {};  /*!<  create a Str containing n copies of c */
 
-  // create a Str from a null-terminated array of char
-  Str(const char* cp) {
+  //! A constructor with a character pointer input
+  /*! 
+    Copy constructor 
+  */
+  Str(const char* cp) {  
     std::copy(cp, cp + std::strlen(cp), std::back_inserter(data));
   }
-  // create a Str from the range denoted by iterators b and e
+  //! create a Str from the range denoted by iterators b and e
 
   template <class In> Str(In b, In e) {
     std::copy(b, e, std::back_inserter(data));
   }
-  
+private:
+  Vec<char> data;
 };
 
 

@@ -116,10 +116,15 @@ void MPIInput::getDataPack(float* a_ptr, float* b_ptr, int* b_ptr) {
     
     //! MPI_unpack 
     /*!
-   
-  */
-   
+      MPI_unpack can be used to copy data from a contiguous buffer into noncontiguous memory locations.
+      i.e. it is just the complete opposite of pack
+     */
+
     // Now unpack the contents of the buffer
+    MPI_Bcast(buffer, 100, MPI_PACKED, 0, MPI_COMM_WORLD);
+    MPI_Unpack(buffer, 100, &position, a_ptr, 1, MP_FLOAT, MPI_COMM_WORLD);
+    MPI_Unpack(buffer, 100, &position, b_ptr, 1, MPI_FLOAT, MPI_COMM_WORLD);
+    MPI_Unpack(buffer, 100, &position, n_ptr, 1, MPI_INT, MPI_COMM_WORLD);
   }
   
 }

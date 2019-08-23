@@ -116,7 +116,7 @@ void MPIInput::getDataPack(float* a_ptr, float* b_ptr, int* b_ptr) {
     
     //! MPI_unpack 
     /*!
-   
+      
   */
    
     // Now unpack the contents of the buffer

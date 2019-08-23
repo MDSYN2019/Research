@@ -60,6 +60,9 @@ public:
   MPI_BC(); // Default constructor 
   //  MPI_BC(int) : CppUnit::TestCase(name) {} // Test constructor  
   virtual ~MPI_BC();   
+
+  void Get_input(int, int, double*, double*, int*); // new function
+  
   void packData(); // Using MPI_Pack/MPI_unpack
   void time_ellapsed(); // Total time for the MPI program to execute
   void broadcast_input(); // broadcasting values
@@ -81,18 +84,22 @@ private:
   int my_rank, comm_sz;
   int lenOfVec;
   int* pointerToArray;
-  double start, finish; // integers for measuring the start and finish of the function called from this class
-  MPI_Aint aint; // What does MPI_Aint mean?
+  double start, finish; /*!< integers for measuring the start and finish of the function called from this class */
+  MPI_Aint aint; /*< What does MPI_Aint mean? */
   MPI_Status status;
   MPI_Datatype AA;
 
-  // Vectors 
+  //! Vectors 
+  /*! 
+    Vectors as part of the class 
+   */
   std::vector<int> vectorOfBlockLengths;
   std::vector<int> MPItype;
   std::vector<int> v;
   std::vector<MPI_Datatype> MPIDatatype;
   std::vector<MPI_Aint> MPIdisplacements;
   std::vector<std::vector<int> > TdVector;
+
   // Testing 
 };
 

@@ -4,11 +4,9 @@
 #include "statistics.h"
 
 
-//StandardNormalDistribution smd;
+//! MPI headers
+#include "MPI_broadcast.hpp"
 
-
-// import most common Eigen types
-//USING_PART_OF_NAMESPACE_EIGEN
 
 int main(void) {
 

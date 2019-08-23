@@ -1,7 +1,7 @@
 \begin{theindex}
 
   \item {$\sim$\+Statistical\+Distribution}
-    \subitem {Statistical\+Distribution}, \hyperpage{19}
+    \subitem {Statistical\+Distribution}, \hyperpage{20}
 
   \indexspace
 
@@ -20,6 +20,8 @@
   \indexspace
 
   \item {Genfun\+::\+Argument}, \hyperpage{5}
+  \item {get\+Data}
+    \subitem {M\+P\+I\+Input}, \hyperpage{13}
   \item {Grad}, \hyperpage{9}
 
   \indexspace
@@ -32,49 +34,54 @@
 		\hyperpage{11}
   \item {M\+P\+I\+\_\+\+BC}, \hyperpage{10}
     \subitem {M\+P\+I\+\_\+\+BC}, \hyperpage{11}
-  \item {M\+P\+I\+\_\+sorting\+\_\+methods}, \hyperpage{11}
+  \item {M\+P\+I\+\_\+sorting\+\_\+methods}, \hyperpage{12}
   \item {M\+P\+I\+Input}, \hyperpage{12}
+    \subitem {get\+Data}, \hyperpage{13}
+    \subitem {M\+P\+I\+Input}, \hyperpage{12}
+    \subitem {M\+P\+I\+Start}, \hyperpage{13}
+  \item {M\+P\+I\+Start}
+    \subitem {M\+P\+I\+Input}, \hyperpage{13}
 
   \indexspace
 
-  \item {O\+M\+P$<$ T $>$}, \hyperpage{12}
+  \item {O\+M\+P$<$ T $>$}, \hyperpage{13}
 
   \indexspace
 
-  \item {part1\+::\+Point}, \hyperpage{13}
-  \item {Partstruct}, \hyperpage{12}
-  \item {Pass\+Fail}, \hyperpage{13}
-  \item {Progression}, \hyperpage{14}
+  \item {part1\+::\+Point}, \hyperpage{14}
+  \item {Partstruct}, \hyperpage{13}
+  \item {Pass\+Fail}, \hyperpage{14}
+  \item {Progression}, \hyperpage{15}
 
   \indexspace
 
-  \item {Q\+Tstyle\+\_\+\+Test}, \hyperpage{15}
+  \item {Q\+Tstyle\+\_\+\+Test}, \hyperpage{16}
 
   \indexspace
 
-  \item {Random\+Number\+Generator}, \hyperpage{15}
+  \item {Random\+Number\+Generator}, \hyperpage{16}
 
   \indexspace
 
-  \item {S\+Y\+N\+\_\+\+Mat$<$ T $>$}, \hyperpage{21}
-  \item {Stack$<$ T, C\+O\+N\+T $>$}, \hyperpage{16}
-  \item {Standard\+Normal\+Distribution}, \hyperpage{16}
-  \item {Statistical\+Distribution}, \hyperpage{17}
-    \subitem {$\sim$\+Statistical\+Distribution}, \hyperpage{19}
-    \subitem {Statistical\+Distribution}, \hyperpage{18}
-  \item {Str}, \hyperpage{19}
-    \subitem {Str}, \hyperpage{20}
-  \item {Student\+\_\+info}, \hyperpage{21}
+  \item {S\+Y\+N\+\_\+\+Mat$<$ T $>$}, \hyperpage{22}
+  \item {Stack$<$ T, C\+O\+N\+T $>$}, \hyperpage{17}
+  \item {Standard\+Normal\+Distribution}, \hyperpage{17}
+  \item {Statistical\+Distribution}, \hyperpage{18}
+    \subitem {$\sim$\+Statistical\+Distribution}, \hyperpage{20}
+    \subitem {Statistical\+Distribution}, \hyperpage{19}
+  \item {Str}, \hyperpage{20}
+    \subitem {Str}, \hyperpage{21}
+  \item {Student\+\_\+info}, \hyperpage{22}
 
   \indexspace
 
-  \item {Template\+Under\+Test$<$ T $>$}, \hyperpage{22}
-  \item {Trap}, \hyperpage{22}
+  \item {Template\+Under\+Test$<$ T $>$}, \hyperpage{23}
+  \item {Trap}, \hyperpage{23}
   \item {tutorial\+::\+Vec$<$ T $>$}, \hyperpage{24}
 
   \indexspace
 
-  \item {Vec$<$ T $>$}, \hyperpage{23}
-  \item {Vector\+Method\+Test}, \hyperpage{24}
+  \item {Vec$<$ T $>$}, \hyperpage{24}
+  \item {Vector\+Method\+Test}, \hyperpage{25}
 
 \end{theindex}

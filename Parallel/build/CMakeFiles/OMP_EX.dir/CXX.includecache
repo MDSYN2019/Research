@@ -6,6 +6,28 @@
 
 #IncludeRegexTransform: 
 
+../include/MPI_broadcast.hpp
+iostream
+-
+vector
+-
+algorithm
+-
+mpi.h
+../include/mpi.h
+numeric
+-
+cppunit/extensions/TestFactoryRegistry.h
+-
+cppunit/CompilerOutputter.h
+-
+cppunit/ui/text/TestRunner.h
+-
+cppunit/TestFixture.h
+-
+cppunit/extensions/HelperMacros.h
+-
+
 ../include/statistics.h
 cmath
 -
@@ -21,6 +43,22 @@ vector
 -
 statistics.h
 /home/oohnohnoh1/Desktop/GIT/Research/Parallel/statistics.h
+MPI_broadcast.hpp
+/home/oohnohnoh1/Desktop/GIT/Research/Parallel/MPI_broadcast.hpp
+
+/home/oohnohnoh1/anaconda3/include/mpi.h
+mpio.h
+/home/oohnohnoh1/anaconda3/include/mpio.h
+mpicxx.h
+/home/oohnohnoh1/anaconda3/include/mpicxx.h
+
+/home/oohnohnoh1/anaconda3/include/mpicxx.h
+stdio.h
+-
+
+/home/oohnohnoh1/anaconda3/include/mpio.h
+mpi.h
+/home/oohnohnoh1/anaconda3/include/mpi.h
 
 /usr/local/include/eigen3/Eigen/Core
 src/Core/util/DisableStupidWarnings.h

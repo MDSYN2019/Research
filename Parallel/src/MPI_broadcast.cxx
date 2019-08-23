@@ -71,7 +71,6 @@ void my_bcast(void* data, int count, MPI_Datatype datatype, int root, MPI_Comm c
 */
 
 MPI_BC::MPI_BC() {
-
   MPI_Init(NULL, NULL);
   MPI_Comm_size(MPI_COMM_WORLD, &comm_sz);
   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
@@ -81,7 +80,7 @@ MPI_BC::MPI_BC() {
 void MPI_BC::parallelAllocateVec(double* aa, double* bb, int lenOfVec, std::vector<int>* vecpart, MPI_Datatype* input_mpi_t_p) {
 
   std::iota(MPItype.begin(), MPItype.end(), 1); // Vector allocation of types
-  std::iota(MPIDatatype.begin(), MPIDatatype.end(), MPI_INT); // Vector allocation of MPI_INt
+  std::iota(MPIDatatype.begin(), MPIDatatype.end(), MPI_INT); // Vector allocation of MPI_INT
   std::iota(MPIdisplacements.begin(), MPIdisplacements.end(), sizeof(int));  // vector allocation of the size of the vector 
 
   pointerToArray = &MPItype[0];  
@@ -89,10 +88,6 @@ void MPI_BC::parallelAllocateVec(double* aa, double* bb, int lenOfVec, std::vect
   //  MPI_Type_create_struct(lenOfVec, pointerToArray, MPIdisplacements, MPItype, input_mpi_t_p);
   MPI_Type_commit(input_mpi_t_p);
   finish = MPI_Wtime();
-}
-
-
-void MPI_BC::packData() {
 }
 
 
@@ -125,7 +120,6 @@ void MPI_BC::buildMpiType(double* a_p, double* b_p, int* n_p, MPI_Datatype* inpu
 
 // Build MPI type
 
-/*
 void MPI_BC::Get_input(int my_rank, int comm_sz, double* a_p, double* b_p, int* n_p) { // input, input, input, output, output
   if (my_rank == 0) {
     std::cout << "Enter a, b and n \n";
@@ -138,6 +132,7 @@ void MPI_BC::Get_input(int my_rank, int comm_sz, double* a_p, double* b_p, int* 
   // Get Input
 }
 
+/*
 void MPI_BC::Get_input2(int my_rank, int comm_sz, double* a_p, double* b_p, int* n_p) { // input, input, input, output, output
 
   MPI_Datatype input_mpi_t;

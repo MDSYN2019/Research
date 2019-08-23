@@ -74,7 +74,7 @@ public:
   
   /*
     Testing functions
-   */
+  */
 
   void test1();
   void test2();
@@ -97,7 +97,6 @@ private:
   //  double T; // One year until expiry
 };
 
-/*
 class ProbDist {
 public:
   // Constructor/Destructor section
@@ -115,7 +114,7 @@ public:
   double call_price(const double&, const double&, const double&, const double&, const double&);
   double put_price(const double&, const double&, const double&, const double&, const double&); 
 };
-*/
+
 
 /*
 void thomas_algorithm(const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, std::vector<double>&);
@@ -362,6 +361,14 @@ unsigned SYN_Mat<T>::get_cols() const {
   return this->cols; 
 }
 
+// Testfunctions
+
+
+template<typename T>
+void SYN_Mat<T>::test1() {
+  // CPPUNIT_ASSERT();
+  // CPPUNIT_ASSERT(); 
+}
 
 
 #endif

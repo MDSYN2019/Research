@@ -1,17 +1,16 @@
 
-/*
-  
-As we noted earlier, we'll usually specifiy the number of threads on the command line, so we'll modify our parllalel directive ws with the 
-num_threads clause. A clause in OpenMP is just some text that modifies a directive. The num_thereads clause 
-can be aded to a parallel directive. 
+//! Openmp explanation 
 
-It allows the programmer to speucfy the number of threads that should be execute the following block;
+/*!
 
-# prgama omp parlallel nun)threads(thread)count)
+As we noted earlier, we'll usually specify the number of threads on the command line, so we'll modify parallel directive was with the 
+num_threads clause. A clause in OpenMP is just some text that modifies a directive. The num_threaads clause, it allows a programmer 
+to specify the number of threads that should be executed in the following block:
 
-/*
-What actually happens when the program gets to the parallel directive? Prior to the parllel directive, the program is using a 
-single thread, the process started when the program started execution.
+# pragma omp parallel num_thrads (thread_count)
+
+What actually happens when the program gets to the parallel directive? Prior to the parallel directive, 
+the program is using a single thrad, the process started when tbe program started execution.
 
 */
 
@@ -19,10 +18,10 @@ single thread, the process started when the program started execution.
 #ifndef GUARD_VEC_H
 #define GUARD_VEC_H
 
-#include <iostream>	 // std::cout, std::endl
-#include <cstddef> 	 // std::size_t
-#include <algorithm>     // std::max
-#include <memory>	 // std::allocator, std::uninitialized_fill, std::uninitialized_copy
+#include <iostream>	 /*!< std::cout, std::endl */
+#include <cstddef> 	 /*!< std::size_t */
+#include <algorithm>     /*!< std::max */
+#include <memory>	 /*!< std::allocator, std::uninitialized_fill, std::uninitialized_copy */
 #include <cstdlib>
 #include <cstdio>
 #include <memory>

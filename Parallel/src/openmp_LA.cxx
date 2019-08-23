@@ -1,3 +1,9 @@
+//!
+/*!
+
+*/
+
+
 #include <iostream>
 #include <algorithm>
 #include <cstdlib>
@@ -265,11 +271,13 @@ unsigned SYN_Mat<T>::get_cols() const {
   return this->cols; 
 }
 
-// --- ProbDist
+//! ProbDist
 
 
-/*
+/*!
+
 European Options with Monte Carlo 
+---------------------------------
 
 In this chapter, we will pric a European Vanilla option via the correct analyci solution of the 
 Black-Scholes eqiation, as well as via the Monte Carlo method. We won't be cooncentrating on 

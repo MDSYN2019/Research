@@ -7,7 +7,6 @@
 //! MPI headers
 #include "MPI_broadcast.hpp"
 
-
 int main(void) {
 
   return 0;

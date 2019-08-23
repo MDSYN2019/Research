@@ -184,7 +184,7 @@ MPI_BC::~MPI_BC() {
 } // destructor 
 
 // Test methods
-
-MPI_BC::vectorTest() {
-  CPPUNIT_ASSERT(v.size() == v.size());
-}
+//
+//MPI_BC::vectorTest() {
+// CPPUNIT_ASSERT(v.size() == v.size());
+//}

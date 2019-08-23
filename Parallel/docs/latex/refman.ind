@@ -1,7 +1,7 @@
 \begin{theindex}
 
   \item {$\sim$\+Statistical\+Distribution}
-    \subitem {Statistical\+Distribution}, \hyperpage{20}
+    \subitem {Statistical\+Distribution}, \hyperpage{21}
 
   \indexspace
 
@@ -45,40 +45,45 @@
 
   \indexspace
 
-  \item {part1\+::\+Point}, \hyperpage{14}
-  \item {Partstruct}, \hyperpage{13}
+  \item {part1\+::\+Point}, \hyperpage{15}
+  \item {Partstruct}, \hyperpage{14}
   \item {Pass\+Fail}, \hyperpage{14}
-  \item {Progression}, \hyperpage{15}
+  \item {Prob\+Dist}, \hyperpage{16}
+  \item {Progression}, \hyperpage{16}
 
   \indexspace
 
-  \item {Q\+Tstyle\+\_\+\+Test}, \hyperpage{16}
+  \item {Q\+Tstyle\+\_\+\+Test}, \hyperpage{17}
 
   \indexspace
 
-  \item {Random\+Number\+Generator}, \hyperpage{16}
+  \item {Random\+Number\+Generator}, \hyperpage{18}
 
   \indexspace
 
-  \item {S\+Y\+N\+\_\+\+Mat$<$ T $>$}, \hyperpage{22}
-  \item {Stack$<$ T, C\+O\+N\+T $>$}, \hyperpage{17}
-  \item {Standard\+Normal\+Distribution}, \hyperpage{17}
-  \item {Statistical\+Distribution}, \hyperpage{18}
-    \subitem {$\sim$\+Statistical\+Distribution}, \hyperpage{20}
-    \subitem {Statistical\+Distribution}, \hyperpage{19}
-  \item {Str}, \hyperpage{20}
-    \subitem {Str}, \hyperpage{21}
-  \item {Student\+\_\+info}, \hyperpage{22}
+  \item {S\+Y\+N\+\_\+\+Mat}
+    \subitem {test4by4}, \hyperpage{25}
+  \item {S\+Y\+N\+\_\+\+Mat$<$ T $>$}, \hyperpage{24}
+  \item {Stack$<$ T, C\+O\+N\+T $>$}, \hyperpage{18}
+  \item {Standard\+Normal\+Distribution}, \hyperpage{18}
+  \item {Statistical\+Distribution}, \hyperpage{20}
+    \subitem {$\sim$\+Statistical\+Distribution}, \hyperpage{21}
+    \subitem {Statistical\+Distribution}, \hyperpage{21}
+  \item {Str}, \hyperpage{21}
+    \subitem {Str}, \hyperpage{22}
+  \item {Student\+\_\+info}, \hyperpage{23}
 
   \indexspace
 
-  \item {Template\+Under\+Test$<$ T $>$}, \hyperpage{23}
-  \item {Trap}, \hyperpage{23}
-  \item {tutorial\+::\+Vec$<$ T $>$}, \hyperpage{24}
+  \item {Template\+Under\+Test$<$ T $>$}, \hyperpage{25}
+  \item {test4by4}
+    \subitem {S\+Y\+N\+\_\+\+Mat}, \hyperpage{25}
+  \item {Trap}, \hyperpage{25}
+  \item {tutorial\+::\+Vec$<$ T $>$}, \hyperpage{27}
 
   \indexspace
 
-  \item {Vec$<$ T $>$}, \hyperpage{24}
-  \item {Vector\+Method\+Test}, \hyperpage{25}
+  \item {Vec$<$ T $>$}, \hyperpage{26}
+  \item {Vector\+Method\+Test}, \hyperpage{27}
 
 \end{theindex}

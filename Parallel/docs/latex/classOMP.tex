@@ -1,5 +1,14 @@
 \hypertarget{classOMP}{}\section{O\+MP$<$ T $>$ Class Template Reference}
 \label{classOMP}\index{O\+M\+P$<$ T $>$@{O\+M\+P$<$ T $>$}}
+
+
+Openmp explanation.  
+
+
+
+
+{\ttfamily \#include $<$openmp1.\+hpp$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -22,6 +31,26 @@ void {\bfseries addup} ()
 void {\bfseries pi} ()
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class O\+M\+P$<$ T $>$}
+
+Openmp explanation. 
+
+As we noted earlier, we\textquotesingle{}ll usually specify the number of threads on the command line, so we\textquotesingle{}ll modify parallel directive was with the num\+\_\+threads clause. A clause in Open\+MP is just some text that modifies a directive. The num\+\_\+threaads clause, it allows a programmer to specify the number of threads that should be executed in the following block\+:
+
+\subsection*{pragma omp parallel num\+\_\+thrads (thread\+\_\+count)}
+
+What actually happens when the program gets to the parallel directive? Prior to the parallel directive, the program is using a single thrad, the process started when tbe program started execution.
+
+$<$ std\+::cout, std\+::endl
+
+$<$ std\+::size\+\_\+t
+
+$<$ std\+::max
+
+$<$ std\+::allocator, std\+::uninitialized\+\_\+fill, std\+::uninitialized\+\_\+copy 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

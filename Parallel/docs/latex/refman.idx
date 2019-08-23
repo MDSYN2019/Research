@@ -19,28 +19,31 @@
 \indexentry{M\+P\+I\+Input@{M\+P\+I\+Input}!M\+P\+I\+Start@{M\+P\+I\+Start}|hyperpage}{13}
 \indexentry{M\+P\+I\+Start@{M\+P\+I\+Start}!M\+P\+I\+Input@{M\+P\+I\+Input}|hyperpage}{13}
 \indexentry{O\+M\+P$<$ T $>$@{O\+M\+P$<$ T $>$}|hyperpage}{13}
-\indexentry{Partstruct@{Partstruct}|hyperpage}{13}
+\indexentry{Partstruct@{Partstruct}|hyperpage}{14}
 \indexentry{Pass\+Fail@{Pass\+Fail}|hyperpage}{14}
-\indexentry{part1\+::\+Point@{part1\+::\+Point}|hyperpage}{14}
-\indexentry{Progression@{Progression}|hyperpage}{15}
-\indexentry{Q\+Tstyle\+\_\+\+Test@{Q\+Tstyle\+\_\+\+Test}|hyperpage}{16}
-\indexentry{Random\+Number\+Generator@{Random\+Number\+Generator}|hyperpage}{16}
-\indexentry{Stack$<$ T, C\+O\+N\+T $>$@{Stack$<$ T, C\+O\+N\+T $>$}|hyperpage}{17}
-\indexentry{Standard\+Normal\+Distribution@{Standard\+Normal\+Distribution}|hyperpage}{17}
-\indexentry{Statistical\+Distribution@{Statistical\+Distribution}|hyperpage}{18}
-\indexentry{Statistical\+Distribution@{Statistical\+Distribution}!Statistical\+Distribution@{Statistical\+Distribution}|hyperpage}{19}
-\indexentry{Statistical\+Distribution@{Statistical\+Distribution}!Statistical\+Distribution@{Statistical\+Distribution}|hyperpage}{19}
-\indexentry{Statistical\+Distribution@{Statistical\+Distribution}!````~Statistical\+Distribution@{$\sim$\+Statistical\+Distribution}|hyperpage}{20}
-\indexentry{````~Statistical\+Distribution@{$\sim$\+Statistical\+Distribution}!Statistical\+Distribution@{Statistical\+Distribution}|hyperpage}{20}
-\indexentry{Str@{Str}|hyperpage}{20}
-\indexentry{Str@{Str}!Str@{Str}|hyperpage}{21}
-\indexentry{Str@{Str}!Str@{Str}|hyperpage}{21}
-\indexentry{Str@{Str}!Str@{Str}|hyperpage}{21}
-\indexentry{Str@{Str}!Str@{Str}|hyperpage}{21}
-\indexentry{Student\+\_\+info@{Student\+\_\+info}|hyperpage}{22}
-\indexentry{S\+Y\+N\+\_\+\+Mat$<$ T $>$@{S\+Y\+N\+\_\+\+Mat$<$ T $>$}|hyperpage}{22}
-\indexentry{Template\+Under\+Test$<$ T $>$@{Template\+Under\+Test$<$ T $>$}|hyperpage}{23}
-\indexentry{Trap@{Trap}|hyperpage}{23}
-\indexentry{tutorial\+::\+Vec$<$ T $>$@{tutorial\+::\+Vec$<$ T $>$}|hyperpage}{24}
-\indexentry{Vec$<$ T $>$@{Vec$<$ T $>$}|hyperpage}{24}
-\indexentry{Vector\+Method\+Test@{Vector\+Method\+Test}|hyperpage}{25}
+\indexentry{part1\+::\+Point@{part1\+::\+Point}|hyperpage}{15}
+\indexentry{Prob\+Dist@{Prob\+Dist}|hyperpage}{16}
+\indexentry{Progression@{Progression}|hyperpage}{16}
+\indexentry{Q\+Tstyle\+\_\+\+Test@{Q\+Tstyle\+\_\+\+Test}|hyperpage}{17}
+\indexentry{Random\+Number\+Generator@{Random\+Number\+Generator}|hyperpage}{18}
+\indexentry{Stack$<$ T, C\+O\+N\+T $>$@{Stack$<$ T, C\+O\+N\+T $>$}|hyperpage}{18}
+\indexentry{Standard\+Normal\+Distribution@{Standard\+Normal\+Distribution}|hyperpage}{18}
+\indexentry{Statistical\+Distribution@{Statistical\+Distribution}|hyperpage}{20}
+\indexentry{Statistical\+Distribution@{Statistical\+Distribution}!Statistical\+Distribution@{Statistical\+Distribution}|hyperpage}{21}
+\indexentry{Statistical\+Distribution@{Statistical\+Distribution}!Statistical\+Distribution@{Statistical\+Distribution}|hyperpage}{21}
+\indexentry{Statistical\+Distribution@{Statistical\+Distribution}!````~Statistical\+Distribution@{$\sim$\+Statistical\+Distribution}|hyperpage}{21}
+\indexentry{````~Statistical\+Distribution@{$\sim$\+Statistical\+Distribution}!Statistical\+Distribution@{Statistical\+Distribution}|hyperpage}{21}
+\indexentry{Str@{Str}|hyperpage}{21}
+\indexentry{Str@{Str}!Str@{Str}|hyperpage}{22}
+\indexentry{Str@{Str}!Str@{Str}|hyperpage}{22}
+\indexentry{Str@{Str}!Str@{Str}|hyperpage}{22}
+\indexentry{Str@{Str}!Str@{Str}|hyperpage}{22}
+\indexentry{Student\+\_\+info@{Student\+\_\+info}|hyperpage}{23}
+\indexentry{S\+Y\+N\+\_\+\+Mat$<$ T $>$@{S\+Y\+N\+\_\+\+Mat$<$ T $>$}|hyperpage}{24}
+\indexentry{S\+Y\+N\+\_\+\+Mat@{S\+Y\+N\+\_\+\+Mat}!test4by4@{test4by4}|hyperpage}{25}
+\indexentry{test4by4@{test4by4}!S\+Y\+N\+\_\+\+Mat@{S\+Y\+N\+\_\+\+Mat}|hyperpage}{25}
+\indexentry{Template\+Under\+Test$<$ T $>$@{Template\+Under\+Test$<$ T $>$}|hyperpage}{25}
+\indexentry{Trap@{Trap}|hyperpage}{25}
+\indexentry{Vec$<$ T $>$@{Vec$<$ T $>$}|hyperpage}{26}
+\indexentry{tutorial\+::\+Vec$<$ T $>$@{tutorial\+::\+Vec$<$ T $>$}|hyperpage}{27}
+\indexentry{Vector\+Method\+Test@{Vector\+Method\+Test}|hyperpage}{27}

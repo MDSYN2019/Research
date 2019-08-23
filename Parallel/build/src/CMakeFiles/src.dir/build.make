@@ -105,9 +105,33 @@ src/CMakeFiles/src.dir/openmp2.cxx.o.provides: src/CMakeFiles/src.dir/openmp2.cx
 src/CMakeFiles/src.dir/openmp2.cxx.o.provides.build: src/CMakeFiles/src.dir/openmp2.cxx.o
 
 
+src/CMakeFiles/src.dir/openmp_LA.cxx.o: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/openmp_LA.cxx.o: ../src/openmp_LA.cxx
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/src.dir/openmp_LA.cxx.o"
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/src.dir/openmp_LA.cxx.o -c /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/openmp_LA.cxx
+
+src/CMakeFiles/src.dir/openmp_LA.cxx.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/src.dir/openmp_LA.cxx.i"
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/openmp_LA.cxx > CMakeFiles/src.dir/openmp_LA.cxx.i
+
+src/CMakeFiles/src.dir/openmp_LA.cxx.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/src.dir/openmp_LA.cxx.s"
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/openmp_LA.cxx -o CMakeFiles/src.dir/openmp_LA.cxx.s
+
+src/CMakeFiles/src.dir/openmp_LA.cxx.o.requires:
+
+.PHONY : src/CMakeFiles/src.dir/openmp_LA.cxx.o.requires
+
+src/CMakeFiles/src.dir/openmp_LA.cxx.o.provides: src/CMakeFiles/src.dir/openmp_LA.cxx.o.requires
+	$(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp_LA.cxx.o.provides.build
+.PHONY : src/CMakeFiles/src.dir/openmp_LA.cxx.o.provides
+
+src/CMakeFiles/src.dir/openmp_LA.cxx.o.provides.build: src/CMakeFiles/src.dir/openmp_LA.cxx.o
+
+
 src/CMakeFiles/src.dir/MPI_broadcast.cxx.o: src/CMakeFiles/src.dir/flags.make
 src/CMakeFiles/src.dir/MPI_broadcast.cxx.o: ../src/MPI_broadcast.cxx
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/src.dir/MPI_broadcast.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/src.dir/MPI_broadcast.cxx.o"
 	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/src.dir/MPI_broadcast.cxx.o -c /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/MPI_broadcast.cxx
 
 src/CMakeFiles/src.dir/MPI_broadcast.cxx.i: cmake_force
@@ -129,57 +153,9 @@ src/CMakeFiles/src.dir/MPI_broadcast.cxx.o.provides: src/CMakeFiles/src.dir/MPI_
 src/CMakeFiles/src.dir/MPI_broadcast.cxx.o.provides.build: src/CMakeFiles/src.dir/MPI_broadcast.cxx.o
 
 
-src/CMakeFiles/src.dir/MPI_pack.cxx.o: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/MPI_pack.cxx.o: ../src/MPI_pack.cxx
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/src.dir/MPI_pack.cxx.o"
-	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/src.dir/MPI_pack.cxx.o -c /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/MPI_pack.cxx
-
-src/CMakeFiles/src.dir/MPI_pack.cxx.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/src.dir/MPI_pack.cxx.i"
-	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/MPI_pack.cxx > CMakeFiles/src.dir/MPI_pack.cxx.i
-
-src/CMakeFiles/src.dir/MPI_pack.cxx.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/src.dir/MPI_pack.cxx.s"
-	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/MPI_pack.cxx -o CMakeFiles/src.dir/MPI_pack.cxx.s
-
-src/CMakeFiles/src.dir/MPI_pack.cxx.o.requires:
-
-.PHONY : src/CMakeFiles/src.dir/MPI_pack.cxx.o.requires
-
-src/CMakeFiles/src.dir/MPI_pack.cxx.o.provides: src/CMakeFiles/src.dir/MPI_pack.cxx.o.requires
-	$(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_pack.cxx.o.provides.build
-.PHONY : src/CMakeFiles/src.dir/MPI_pack.cxx.o.provides
-
-src/CMakeFiles/src.dir/MPI_pack.cxx.o.provides.build: src/CMakeFiles/src.dir/MPI_pack.cxx.o
-
-
-src/CMakeFiles/src.dir/MPI_str.cxx.o: src/CMakeFiles/src.dir/flags.make
-src/CMakeFiles/src.dir/MPI_str.cxx.o: ../src/MPI_str.cxx
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/src.dir/MPI_str.cxx.o"
-	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/src.dir/MPI_str.cxx.o -c /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/MPI_str.cxx
-
-src/CMakeFiles/src.dir/MPI_str.cxx.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/src.dir/MPI_str.cxx.i"
-	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/MPI_str.cxx > CMakeFiles/src.dir/MPI_str.cxx.i
-
-src/CMakeFiles/src.dir/MPI_str.cxx.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/src.dir/MPI_str.cxx.s"
-	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/MPI_str.cxx -o CMakeFiles/src.dir/MPI_str.cxx.s
-
-src/CMakeFiles/src.dir/MPI_str.cxx.o.requires:
-
-.PHONY : src/CMakeFiles/src.dir/MPI_str.cxx.o.requires
-
-src/CMakeFiles/src.dir/MPI_str.cxx.o.provides: src/CMakeFiles/src.dir/MPI_str.cxx.o.requires
-	$(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_str.cxx.o.provides.build
-.PHONY : src/CMakeFiles/src.dir/MPI_str.cxx.o.provides
-
-src/CMakeFiles/src.dir/MPI_str.cxx.o.provides.build: src/CMakeFiles/src.dir/MPI_str.cxx.o
-
-
 src/CMakeFiles/src.dir/statistics.cxx.o: src/CMakeFiles/src.dir/flags.make
 src/CMakeFiles/src.dir/statistics.cxx.o: ../src/statistics.cxx
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/src.dir/statistics.cxx.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/src.dir/statistics.cxx.o"
 	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/src.dir/statistics.cxx.o -c /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/statistics.cxx
 
 src/CMakeFiles/src.dir/statistics.cxx.i: cmake_force
@@ -205,9 +181,8 @@ src/CMakeFiles/src.dir/statistics.cxx.o.provides.build: src/CMakeFiles/src.dir/s
 src_OBJECTS = \
 "CMakeFiles/src.dir/openmp1.cxx.o" \
 "CMakeFiles/src.dir/openmp2.cxx.o" \
+"CMakeFiles/src.dir/openmp_LA.cxx.o" \
 "CMakeFiles/src.dir/MPI_broadcast.cxx.o" \
-"CMakeFiles/src.dir/MPI_pack.cxx.o" \
-"CMakeFiles/src.dir/MPI_str.cxx.o" \
 "CMakeFiles/src.dir/statistics.cxx.o"
 
 # External object files for target src
@@ -215,13 +190,12 @@ src_EXTERNAL_OBJECTS =
 
 src/libsrc.a: src/CMakeFiles/src.dir/openmp1.cxx.o
 src/libsrc.a: src/CMakeFiles/src.dir/openmp2.cxx.o
+src/libsrc.a: src/CMakeFiles/src.dir/openmp_LA.cxx.o
 src/libsrc.a: src/CMakeFiles/src.dir/MPI_broadcast.cxx.o
-src/libsrc.a: src/CMakeFiles/src.dir/MPI_pack.cxx.o
-src/libsrc.a: src/CMakeFiles/src.dir/MPI_str.cxx.o
 src/libsrc.a: src/CMakeFiles/src.dir/statistics.cxx.o
 src/libsrc.a: src/CMakeFiles/src.dir/build.make
 src/libsrc.a: src/CMakeFiles/src.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX static library libsrc.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX static library libsrc.a"
 	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && $(CMAKE_COMMAND) -P CMakeFiles/src.dir/cmake_clean_target.cmake
 	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/src.dir/link.txt --verbose=$(VERBOSE)
 
@@ -232,9 +206,8 @@ src/CMakeFiles/src.dir/build: src/libsrc.a
 
 src/CMakeFiles/src.dir/requires: src/CMakeFiles/src.dir/openmp1.cxx.o.requires
 src/CMakeFiles/src.dir/requires: src/CMakeFiles/src.dir/openmp2.cxx.o.requires
+src/CMakeFiles/src.dir/requires: src/CMakeFiles/src.dir/openmp_LA.cxx.o.requires
 src/CMakeFiles/src.dir/requires: src/CMakeFiles/src.dir/MPI_broadcast.cxx.o.requires
-src/CMakeFiles/src.dir/requires: src/CMakeFiles/src.dir/MPI_pack.cxx.o.requires
-src/CMakeFiles/src.dir/requires: src/CMakeFiles/src.dir/MPI_str.cxx.o.requires
 src/CMakeFiles/src.dir/requires: src/CMakeFiles/src.dir/statistics.cxx.o.requires
 
 .PHONY : src/CMakeFiles/src.dir/requires

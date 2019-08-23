@@ -65,6 +65,11 @@ $(function() {
 <div class="title">OMP&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Openmp explanation.  
+ <a href="classOMP.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="openmp1_8hpp_source.html">openmp1.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -87,7 +92,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addup</b> ()</td></tr
 void&#160;</td><td class="memItemRight" valign="bottom"><b>pi</b> ()</td></tr>
 <tr class="separator:af2e1072e3c0bf76fd14379eeca69dff9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;class T&gt;<br />
+class OMP&lt; T &gt;</h3>
+
+<p>Openmp explanation. </p>
+<p>As we noted earlier, we'll usually specify the number of threads on the command line, so we'll modify parallel directive was with the num_threads clause. A clause in OpenMP is just some text that modifies a directive. The num_threaads clause, it allows a programmer to specify the number of threads that should be executed in the following block:</p>
+<h1>pragma omp parallel num_thrads (thread_count)</h1>
+<p>What actually happens when the program gets to the parallel directive? Prior to the parallel directive, the program is using a single thrad, the process started when tbe program started execution.</p>
+<p>&lt; std::cout, std::endl</p>
+<p>&lt; std::size_t</p>
+<p>&lt; std::max</p>
+<p>&lt; std::allocator, std::uninitialized_fill, std::uninitialized_copy </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/oohnohnoh1/Desktop/GIT/Research/Parallel/include/<a class="el" href="openmp1_8hpp_source.html">openmp1.hpp</a></li>
 </ul>
 </div><!-- contents -->

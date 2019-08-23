@@ -89,6 +89,7 @@ option (USE_QAT "Use QAT implementation" OFF)
 #set (QATsrc ${QATsrc} "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/QAT/src")
 
 add_subdirectory (src)
+
 set(EXTRA_SRC ${EXTRA_SRC} src)
 set(EXTRA_LIBS ${EXTRA_LIBS} include)
 

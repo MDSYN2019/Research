@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['var',['var',['../classStatisticalDistribution.html#ae66c6543b8d40d200b45d26f4fb3e3c2',1,'StatisticalDistribution::var()'],['../classStandardNormalDistribution.html#aaa5c3dbc1faee3610b3c9332301ceb97',1,'StandardNormalDistribution::var()']]]
+  ['test4by4',['test4by4',['../classSYN__Mat.html#a7bfde7d0c295a4669c4a8718c01c1f5c',1,'SYN_Mat']]]
 ];

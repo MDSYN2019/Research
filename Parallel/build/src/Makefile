@@ -152,60 +152,6 @@ MPI_broadcast.cxx.s:
 	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_broadcast.cxx.s
 .PHONY : MPI_broadcast.cxx.s
 
-MPI_pack.o: MPI_pack.cxx.o
-
-.PHONY : MPI_pack.o
-
-# target to build an object file
-MPI_pack.cxx.o:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_pack.cxx.o
-.PHONY : MPI_pack.cxx.o
-
-MPI_pack.i: MPI_pack.cxx.i
-
-.PHONY : MPI_pack.i
-
-# target to preprocess a source file
-MPI_pack.cxx.i:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_pack.cxx.i
-.PHONY : MPI_pack.cxx.i
-
-MPI_pack.s: MPI_pack.cxx.s
-
-.PHONY : MPI_pack.s
-
-# target to generate assembly for a file
-MPI_pack.cxx.s:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_pack.cxx.s
-.PHONY : MPI_pack.cxx.s
-
-MPI_str.o: MPI_str.cxx.o
-
-.PHONY : MPI_str.o
-
-# target to build an object file
-MPI_str.cxx.o:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_str.cxx.o
-.PHONY : MPI_str.cxx.o
-
-MPI_str.i: MPI_str.cxx.i
-
-.PHONY : MPI_str.i
-
-# target to preprocess a source file
-MPI_str.cxx.i:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_str.cxx.i
-.PHONY : MPI_str.cxx.i
-
-MPI_str.s: MPI_str.cxx.s
-
-.PHONY : MPI_str.s
-
-# target to generate assembly for a file
-MPI_str.cxx.s:
-	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_str.cxx.s
-.PHONY : MPI_str.cxx.s
-
 openmp1.o: openmp1.cxx.o
 
 .PHONY : openmp1.o
@@ -260,6 +206,33 @@ openmp2.cxx.s:
 	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp2.cxx.s
 .PHONY : openmp2.cxx.s
 
+openmp_LA.o: openmp_LA.cxx.o
+
+.PHONY : openmp_LA.o
+
+# target to build an object file
+openmp_LA.cxx.o:
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp_LA.cxx.o
+.PHONY : openmp_LA.cxx.o
+
+openmp_LA.i: openmp_LA.cxx.i
+
+.PHONY : openmp_LA.i
+
+# target to preprocess a source file
+openmp_LA.cxx.i:
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp_LA.cxx.i
+.PHONY : openmp_LA.cxx.i
+
+openmp_LA.s: openmp_LA.cxx.s
+
+.PHONY : openmp_LA.s
+
+# target to generate assembly for a file
+openmp_LA.cxx.s:
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp_LA.cxx.s
+.PHONY : openmp_LA.cxx.s
+
 statistics.o: statistics.cxx.o
 
 .PHONY : statistics.o
@@ -299,18 +272,15 @@ help:
 	@echo "... MPI_broadcast.o"
 	@echo "... MPI_broadcast.i"
 	@echo "... MPI_broadcast.s"
-	@echo "... MPI_pack.o"
-	@echo "... MPI_pack.i"
-	@echo "... MPI_pack.s"
-	@echo "... MPI_str.o"
-	@echo "... MPI_str.i"
-	@echo "... MPI_str.s"
 	@echo "... openmp1.o"
 	@echo "... openmp1.i"
 	@echo "... openmp1.s"
 	@echo "... openmp2.o"
 	@echo "... openmp2.i"
 	@echo "... openmp2.s"
+	@echo "... openmp_LA.o"
+	@echo "... openmp_LA.i"
+	@echo "... openmp_LA.s"
 	@echo "... statistics.o"
 	@echo "... statistics.i"
 	@echo "... statistics.s"

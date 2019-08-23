@@ -20,8 +20,6 @@
   \indexspace
 
   \item {Genfun\+::\+Argument}, \hyperpage{5}
-  \item {get\+Data}
-    \subitem {M\+P\+I\+Input}, \hyperpage{13}
   \item {Grad}, \hyperpage{9}
 
   \indexspace
@@ -36,7 +34,6 @@
     \subitem {M\+P\+I\+\_\+\+BC}, \hyperpage{11}
   \item {M\+P\+I\+\_\+sorting\+\_\+methods}, \hyperpage{12}
   \item {M\+P\+I\+Input}, \hyperpage{12}
-    \subitem {get\+Data}, \hyperpage{13}
     \subitem {M\+P\+I\+Input}, \hyperpage{12}
     \subitem {M\+P\+I\+Start}, \hyperpage{13}
   \item {M\+P\+I\+Start}

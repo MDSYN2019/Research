@@ -48,10 +48,13 @@ int main(int argc, char** argv) {
 	// Send data to processes
 	double radius[n];
 	double C[n][d];
+
 	int begin = n / n_proc*rank;
 	int loc_n = n / n_proc;
-	MPI_Scatter(radius0, loc_n, MPI_DOUBLE, &(radius[begin]), loc_n, MPI_DOUBLE, 0, MPI_COMM_WORLD);
-	MPI_Scatter(C0, 3 * loc_n, MPI_DOUBLE, &(C[begin][0]), 3 * loc_n, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+
+	MPI_Scatter(radius0, loc_n, MPI_DOUBLE, &(radius[begin]), loc_n, MPI_DOUBLE, 0, MPI_COMM_WORLD); // What does MPI scatter do?
+	MPI_Scatter(C0, 3 * loc_n, MPI_DOUBLE, &(C[begin][0]), 3 * loc_n, MPI_DOUBLE, 0, MPI_COMM_WORLD); // ..
+
 	double bb[d][2];
 
 	// Compute the bounding box

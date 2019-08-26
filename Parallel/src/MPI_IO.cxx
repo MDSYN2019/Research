@@ -1,3 +1,5 @@
+// Last updated: 26/08/2019
+
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -156,9 +158,9 @@ Output parameters:
 IO on parallel systems
 ----------------------
 
+Last updated: 26/08/2019
+
 Converting the example in the book to a vector creation getdata and to send it to the nodes
-
-
 
 */
 
@@ -207,8 +209,12 @@ void MPIInput::getData(int* start_inp, int* end_inp, int* n_ptr) {
 
 //! Class destructor for MPI
 /*! 
-  Destructor 
+  
+Destructor 
+----------
+  MPI_Finalize() - What does it do?
 */
-MPIInput::~MPI_input() {
+
+  MPIInput::~MPI_input() {
   MPI_Finalize();
 } 

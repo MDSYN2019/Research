@@ -1,7 +1,6 @@
 /*
-  One obvious problem with our program is its lack of generality. The function, 
-  f(x), and the input data, a, b, n, are hardwired. So if we want to change any 
-  of these, we must edit and recompule the program. 
+
+
  */
 
 #ifndef __MPI_IO__
@@ -20,31 +19,29 @@
 
 
 
-class MPIInput {
+class MPIInput : public CppUnit::TestCase { // Inherit from Cppunittest
 
 public:
-  MPIInput(); /*!< Default constructor */ 
+  //  MPIInput(); /*!< Default constructor - at the moment disabled*/  
   MPIInput(int, int); /*!< int int constructor */
-  void MPIStart();
   void getData();
   void bubbleSort();
   void oddEvenSort();
-  void I_send();
-
-  virtual ~MPIInput();
+  virtual ~MPIInput(); 
   
 private:
-  int* n_ptr;
-  int source = 0;
-  int dest;
-  int tag;
+  int source = 0; /*!< process sending integral */ 
+  int dest = 0; /*!< All messages go to 0 */
+  int tag = 0; /*!< The tag int is used for marking MPI messages */
   int my_rank;
   int p;
-  int stage;
-  //  
-  float* a_ptr;
-  float* b_ptr;
+  
+  int* start;
+  int* end;
+  int* n_ptr;
+
   MPI_Status status;
+
 };
 
 #endif 

@@ -4,6 +4,8 @@
 #include <algorithm>
 #include <iterator>
 #include <numeric>
+#include <cassert>
+
 
 #include "mpi.h"
 
@@ -23,6 +25,9 @@
 
 #include <boost/mpi/datatype.hpp>
 
+// Boost libraries to read input
+
+
 // Non-object methods
 
 /*
@@ -36,14 +41,30 @@
 
 
 //! MPIInput class - constructor
-/*! The default constructor */
-MPIInput::MPIInput() {} 
+/*! Sets up the processor ranks and size for use in other functions 
 
-//! MPIInput class - constructor
-/*! The input constructor */
+  At the moment, we do not have a default constructor 
+*/
+
+
 MPIInput::MPIInput(int mr, int pe) {
   my_rank = mr;
   p = pe;
+
+  // Error checking - need to make sure there are valid in
+  if (mr == NULL || me == NULL) {
+    // Halt the program 
+  }
+
+  // Initiate MPI setup, including the number of processes and the ranks of processes.
+  // Generally speaking, 0 is the master process
+  
+ 
+  MPI_Init(NULL, NULL); // 
+
+  MPI_Comm_rank(MPI_COMM_WORLD, &my_rank); // Get the process rank
+  MPI_Comm_size(MPI_COMM_WORLD, &p); // allocate the number of processes being used
+  
 }
 
 
@@ -51,29 +72,9 @@ MPIInput::MPIInput(int mr, int pe) {
 /*! Sets up the processor ranks and size for use later - could really be incoporated into the consturcotr */
 
 void MPIInput::MPIStart() { 
-  MPI_Init(NULL, NULL);
-  MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
-  MPI_Comm_size(MPI_COMM_WORLD, &p);  
 }
-
-
-void MPIInput::I_send() {
-  int power_2_stage;
-
-  // 2^stage = 1 << stage
-  power_2_stage = 1 << stage;
-
-  if (my_rank < power_2_stage) {
-    *dest_ptr = my_rank + power_2_stage;
-
-    if (*dest_ptr >= p) return 0;
-    else return 1;  
-  }  
-}
-
 
 void MPIInput::bubbleSort(int a[], int n) {
-   // --  bubble sort variables --
   int temp;
   for (int list_length = n; list_length >= 2; list_length--) {
     for (int i = 0; i < list_length - 1 ; i++) {
@@ -131,24 +132,68 @@ void MPIInput::getDataPack(float* a_ptr, float* b_ptr, int* b_ptr) {
 
 
 
-void MPIInput::getData(float* a_ptr, float* b_ptr, int* b_ptr) {
- 
-  
-  if (my_rank == 0) {
-    std::cout << "Enter a, b and n \n";
-    
-    scanf("%lf %lf %d", a_ptr, b_ptr, n_ptr);
+/*
+Functino getData
 
-    for (int dest = 1; dest < p; dest++) {
+Reads in the user input a, b and n 
+
+Input parameters:
+-----------------
+
+1. int my_rank: rank of the current processor 
+
+2. int p: number of processors
+
+Output parameters:
+------------------
+
+1. float* a_ptr: pointer to left endpoint a 
+
+2. float* b_ptr: pointer to right endpoint b 
+
+3. int* n_ptr: pointer to the number  
+
+IO on parallel systems
+----------------------
+
+Converting the example in the book to a vector creation getdata and to send it to the nodes
+
+
+
+*/
+
+void MPIInput::getData(int* start_inp, int* end_inp, int* n_ptr) { 
+
+  if (my_rank == 0) {
+    
+    std::cout << "Enter a, b and n \n";  
+    std::cout << "Please ensure that a is smaller than b";
+    scanf("%lf %lf %d", start, end, n_ptr); // I should really change this into sstream for strict c++, but I dont think that is necessary
+    assert(end > start); // Program will stop if this is not accurate
+    
+    /* Ensure that a C++ style vector can be made */
+    std::vector<uint32_t> unintVec;
+    std::vector<int> intVec;
+    
+    for (int i = start; i <= end; i++) {
+      intVec.push_back(i);
+    }
+    
+    for (int dest = 1; dest < p; dest++) { // Looping over the number of processes
       tag = 0;
       MPI_Send(a_ptr, 1, MPI_FLOAT, dest, tag, MPI_COMM_WORLD);
       tag = 1;
       MPI_Send(b_ptr, 1, MPI_FLOAT, dest, tag, MPI_COMM_WORLD);
       tag = 2;
       MPI_Send(n_ptr, 1, MPI_INT, dest, tag, MPI_COMM_WORLD);
+      // Send vectors
+      tag = 3;
+      MPI_Send(&intVec[0], intVec.size(), MPI_INT, dest, tag, MPI_COMM_WORLD); // This should point to the address of the first 
+                                                                               // element of the vector 
     }
   } else {
-    tag = 0;
+    
+    tag = 0; // The purpose of the tag
     MPI_Recv(a_ptr, 1, MPI_FLOAT, source, tag, MPI_COMM_WORLD, &status);
     tag = 1;
     MPI_Recv(b_ptr, 1, MPI_FLOAT, source, tag, MPI_COMM_WORLD, &status);

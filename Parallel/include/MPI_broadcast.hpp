@@ -1,11 +1,15 @@
 /*
   Tree structured-program looking at MPI_Broadcast 
+  ------------------------------------------------
+
   A communiation pattern that involves all the processes in a communiator is a 
   collective communication. As a consequence, a collective commmunication involves more 
   than two processes. 
-
+  
   A broadcast is a collective communcation in which a single process
   sends the same data to every proceess in the communicator.
+  
+
 */
 
 #ifndef __MPI_BC__
@@ -14,8 +18,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include "mpi.h"
 #include <numeric>
+#include "mpi.h"
 
 // cppunit tests
 

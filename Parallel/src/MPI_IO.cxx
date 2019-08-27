@@ -54,29 +54,22 @@ MPIInput::MPIInput(int mr, int pe) {
   p = pe;
 
   // Error checking - need to make sure there are valid in
-  if (mr == NULL || me == NULL) {
+  //if (my_rank == NULL || pe == NULL) {
     // Halt the program 
-  }
+  //}
 
   // Initiate MPI setup, including the number of processes and the ranks of processes.
   // Generally speaking, 0 is the master process
   
  
   MPI_Init(NULL, NULL); // 
-
   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank); // Get the process rank
   MPI_Comm_size(MPI_COMM_WORLD, &p); // allocate the number of processes being used
   
 }
 
 
-//! MPIInput class - MPIStart method
-/*! Sets up the processor ranks and size for use later - could really be incoporated into the consturcotr */
-
-void MPIInput::MPIStart() { 
-}
-
-void MPIInput::bubbleSort(int a[], int n) {
+void MPIInput::bubbleSort(int* a, int n) {
   int temp;
   for (int list_length = n; list_length >= 2; list_length--) {
     for (int i = 0; i < list_length - 1 ; i++) {
@@ -90,7 +83,7 @@ void MPIInput::bubbleSort(int a[], int n) {
 }
 
 
-void MPIInput::getDataPack(float* a_ptr, float* b_ptr, int* b_ptr) {
+void MPIInput::getDataPack(float* a_ptr, float* b_ptr, int* n_ptr) {
 
   int position; /*!< Placeholder */
   char buffer[100]; /*!< Keeping track of where the data is */
@@ -125,7 +118,7 @@ void MPIInput::getDataPack(float* a_ptr, float* b_ptr, int* b_ptr) {
 
     // Now unpack the contents of the buffer
     MPI_Bcast(buffer, 100, MPI_PACKED, 0, MPI_COMM_WORLD);
-    MPI_Unpack(buffer, 100, &position, a_ptr, 1, MP_FLOAT, MPI_COMM_WORLD);
+    MPI_Unpack(buffer, 100, &position, a_ptr, 1, MPI_FLOAT, MPI_COMM_WORLD);
     MPI_Unpack(buffer, 100, &position, b_ptr, 1, MPI_FLOAT, MPI_COMM_WORLD);
     MPI_Unpack(buffer, 100, &position, n_ptr, 1, MPI_INT, MPI_COMM_WORLD);
   }
@@ -170,26 +163,28 @@ void MPIInput::getData(int* start_inp, int* end_inp, int* n_ptr) {
     
     std::cout << "Enter a, b and n \n";  
     std::cout << "Please ensure that a is smaller than b";
-    scanf("%lf %lf %d", start, end, n_ptr); // I should really change this into sstream for strict c++, but I dont think that is necessary
+    scanf("%lf %lf %d", start_inp, end_inp, n_ptr); // I should really change this into sstream for strict c++, but I dont think that is necessary
     assert(end > start); // Program will stop if this is not accurate
     
     /* Ensure that a C++ style vector can be made */
     std::vector<uint32_t> unintVec;
     std::vector<int> intVec;
     
-    for (int i = start; i <= end; i++) {
+    for (int i = *start; i <= *end; i++) {
       intVec.push_back(i);
     }
     int vecSize = intVec.size();
 
     if (my_rank == 0) {
+      
     for (int dest = 1; dest < p; dest++) { // Looping over the number of processes
       tag = 0;
-      MPI_Send(a_ptr, 1, MPI_FLOAT, dest, tag, MPI_COMM_WORLD);
+      MPI_Send(start, 1, MPI_FLOAT, dest, tag, MPI_COMM_WORLD);
       tag = 1;
-      MPI_Send(b_ptr, 1, MPI_FLOAT, dest, tag, MPI_COMM_WORLD);
+      MPI_Send(end, 1, MPI_FLOAT, dest, tag, MPI_COMM_WORLD);
       tag = 2;
       MPI_Send(n_ptr, 1, MPI_INT, dest, tag, MPI_COMM_WORLD);
+
       // Send vectors
       tag = 3;
       MPI_Send(&intVec[0], vecSize, MPI_INT, dest, tag, MPI_COMM_WORLD); // This should point to the address of the first 
@@ -197,16 +192,18 @@ void MPIInput::getData(int* start_inp, int* end_inp, int* n_ptr) {
     }
   } else {
     tag = 0; // The purpose of the tag
-    MPI_Recv(a_ptr, 1, MPI_FLOAT, source, tag, MPI_COMM_WORLD, &status);
+    MPI_Recv(start, 1, MPI_FLOAT, source, tag, MPI_COMM_WORLD, &status);
     tag = 1;
-    MPI_Recv(b_ptr, 1, MPI_FLOAT, source, tag, MPI_COMM_WORLD, &status);
+    MPI_Recv(end, 1, MPI_FLOAT, source, tag, MPI_COMM_WORLD, &status);
     tag = 2;
     MPI_Recv(n_ptr, 1, MPI_INT, source, tag, MPI_COMM_WORLD, &status);
+
     tag = 3;
     MPI_Recv(&intVec[0], vecSize, MPI_INT, source, tag, MPI_COMM_WORLD, &status);
-    }
-}
 
+    }
+  }
+}
 //! Class destructor for MPI
 /*! 
   
@@ -215,6 +212,6 @@ Destructor
   MPI_Finalize() - What does it do?
 */
 
-  MPIInput::~MPI_input() {
+  MPIInput::~MPIInput() {
   MPI_Finalize();
-} 
+  } 

@@ -37,8 +37,8 @@ private:
   int my_rank;
   int p;
   
-  int* start;
-  int* end;
+  int* start_inp;
+  int* end_inp;
   int* n_ptr;
 
   // MPI pack pointers

@@ -125,6 +125,33 @@ src/fast:
 	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/build
 .PHONY : src/fast
 
+MPI_IO.o: MPI_IO.cxx.o
+
+.PHONY : MPI_IO.o
+
+# target to build an object file
+MPI_IO.cxx.o:
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_IO.cxx.o
+.PHONY : MPI_IO.cxx.o
+
+MPI_IO.i: MPI_IO.cxx.i
+
+.PHONY : MPI_IO.i
+
+# target to preprocess a source file
+MPI_IO.cxx.i:
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_IO.cxx.i
+.PHONY : MPI_IO.cxx.i
+
+MPI_IO.s: MPI_IO.cxx.s
+
+.PHONY : MPI_IO.s
+
+# target to generate assembly for a file
+MPI_IO.cxx.s:
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_IO.cxx.s
+.PHONY : MPI_IO.cxx.s
+
 MPI_broadcast.o: MPI_broadcast.cxx.o
 
 .PHONY : MPI_broadcast.o
@@ -269,6 +296,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... src"
 	@echo "... edit_cache"
+	@echo "... MPI_IO.o"
+	@echo "... MPI_IO.i"
+	@echo "... MPI_IO.s"
 	@echo "... MPI_broadcast.o"
 	@echo "... MPI_broadcast.i"
 	@echo "... MPI_broadcast.s"

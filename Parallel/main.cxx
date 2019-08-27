@@ -6,11 +6,10 @@
 
 //! MPI headers
 #include "MPI_broadcast.hpp"
+#include "MPI_IO.hpp"
 #include "openmp_LA.hpp"
 
-int main() {
-
-
+int main(void) {
   // Furst we create the parameter list
   double S = 100.0;
   double K = 100.0;
@@ -24,7 +23,7 @@ int main() {
   call = probdist.call_price(S, K, r, v, T);
   put = probdist.put_price(S, K, r, v, T);
 
-  
+ 
   std::cout << "call_price: " << call << std::endl; 
   std::cout << "Put_price: " << put << std::endl; 
   

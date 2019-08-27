@@ -18,7 +18,6 @@
 #include <cppunit/extensions/HelperMacros.h>
 
 
-
 class MPIInput : public CppUnit::TestCase { // Inherit from Cppunittest
 
 public:
@@ -27,8 +26,9 @@ public:
   void getData(int*, int*, int*);
   void bubbleSort(int*, int);
   void getDataPack(float*, float*, int*);
-
-  virtual ~MPIInput(); 
+  ~MPIInput(); 
+  // Test functions
+  void test1();
   
 private:
   int source = 0; /*!< process sending integral */ 
@@ -37,14 +37,15 @@ private:
   int my_rank;
   int p;
   
-  int* start;
-  int* end;
+  int* start_inp;
+  int* end_inp;
   int* n_ptr;
 
   // MPI pack pointers
   float* a_ptr;
   float* b_ptr;
- 
+  int B = 23;
+  int C = 24;
   MPI_Status status;
 
 };

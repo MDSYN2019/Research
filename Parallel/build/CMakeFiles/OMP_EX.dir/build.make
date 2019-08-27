@@ -90,6 +90,7 @@ OMP_EX_EXTERNAL_OBJECTS =
 
 OMP_EX: CMakeFiles/OMP_EX.dir/main.cxx.o
 OMP_EX: CMakeFiles/OMP_EX.dir/build.make
+OMP_EX: src/libsrc.a
 OMP_EX: /usr/lib/x86_64-linux-gnu/libboost_filesystem.a
 OMP_EX: /usr/lib/x86_64-linux-gnu/libboost_program_options.a
 OMP_EX: /usr/lib/x86_64-linux-gnu/libboost_regex.a

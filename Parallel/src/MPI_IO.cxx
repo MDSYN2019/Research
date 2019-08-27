@@ -1,5 +1,7 @@
 // Last updated: 26/08/2019
 
+
+
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -164,24 +166,25 @@ void MPIInput::getData(int* start_inp, int* end_inp, int* n_ptr) {
     std::cout << "Enter a, b and n \n";  
     std::cout << "Please ensure that a is smaller than b";
     scanf("%lf %lf %d", start_inp, end_inp, n_ptr); // I should really change this into sstream for strict c++, but I dont think that is necessary
-    assert(end > start); // Program will stop if this is not accurate
+    assert(end_inp > start_inp); // Program will stop if this is not accurate
     
     /* Ensure that a C++ style vector can be made */
     std::vector<uint32_t> unintVec;
     std::vector<int> intVec;
     
-    for (int i = *start; i <= *end; i++) {
+    for (int i = *start_inp; i <= *end_inp; i++) { // Deallocation of start and end values
       intVec.push_back(i);
     }
+
     int vecSize = intVec.size();
 
     if (my_rank == 0) {
       
     for (int dest = 1; dest < p; dest++) { // Looping over the number of processes
       tag = 0;
-      MPI_Send(start, 1, MPI_FLOAT, dest, tag, MPI_COMM_WORLD);
+      MPI_Send(start_inp, 1, MPI_FLOAT, dest, tag, MPI_COMM_WORLD);
       tag = 1;
-      MPI_Send(end, 1, MPI_FLOAT, dest, tag, MPI_COMM_WORLD);
+      MPI_Send(end_inp, 1, MPI_FLOAT, dest, tag, MPI_COMM_WORLD);
       tag = 2;
       MPI_Send(n_ptr, 1, MPI_INT, dest, tag, MPI_COMM_WORLD);
 
@@ -192,9 +195,9 @@ void MPIInput::getData(int* start_inp, int* end_inp, int* n_ptr) {
     }
   } else {
     tag = 0; // The purpose of the tag
-    MPI_Recv(start, 1, MPI_FLOAT, source, tag, MPI_COMM_WORLD, &status);
+    MPI_Recv(start_inp, 1, MPI_FLOAT, source, tag, MPI_COMM_WORLD, &status);
     tag = 1;
-    MPI_Recv(end, 1, MPI_FLOAT, source, tag, MPI_COMM_WORLD, &status);
+    MPI_Recv(end_inp, 1, MPI_FLOAT, source, tag, MPI_COMM_WORLD, &status);
     tag = 2;
     MPI_Recv(n_ptr, 1, MPI_INT, source, tag, MPI_COMM_WORLD, &status);
 
@@ -204,14 +207,27 @@ void MPIInput::getData(int* start_inp, int* end_inp, int* n_ptr) {
     }
   }
 }
+
 //! Class destructor for MPI
 /*! 
   
 Destructor 
 ----------
-  MPI_Finalize() - What does it do?
+MPI_Finalize() - What does it do?
+
+
+
+
 */
 
-  MPIInput::~MPIInput() {
-  MPI_Finalize();
-  } 
+MPIInput::~MPIInput() {
+  MPI_Finalize();  
+} 
+
+
+/* Test Functions */
+/*
+ */
+void MPIInput::test1() { 
+  CPPUNIT_ASSERT(B == C); // What am I testing here?  - Test whether this runs
+}

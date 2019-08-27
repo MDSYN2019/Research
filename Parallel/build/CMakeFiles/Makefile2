@@ -63,6 +63,7 @@ CMAKE_BINARY_DIR = /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build
 # Target rules for target CMakeFiles/OMP_EX.dir
 
 # All Build rule for target.
+CMakeFiles/OMP_EX.dir/all: src/CMakeFiles/src.dir/all
 CMakeFiles/OMP_EX.dir/all: CMakeFiles/gsllib.dir/all
 	$(MAKE) -f CMakeFiles/OMP_EX.dir/build.make CMakeFiles/OMP_EX.dir/depend
 	$(MAKE) -f CMakeFiles/OMP_EX.dir/build.make CMakeFiles/OMP_EX.dir/build
@@ -76,7 +77,7 @@ all: CMakeFiles/OMP_EX.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/OMP_EX.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles 11
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/OMP_EX.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles 0
 .PHONY : CMakeFiles/OMP_EX.dir/rule

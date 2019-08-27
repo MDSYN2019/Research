@@ -1,1 +1,127 @@
-https://www.lix.polytechnique.fr/~nielsen/HPC4DS/
+Some Notes on the background of Parallel Computing
+--------------------------------------------------
+
+Flynn's Taxonomy - Single Instruction Single Data (SISD)
+                 - Multiple Instruction Multiple Data (MIMD)
+
+
+-> The Classical Von Neumann Machine
+
+The classic VNM is divided into a CPU and main memory. The CPU is further
+divided into a control unit and an arithmetic logic unit .
+
+Both data and program instructions are moved between memory and the
+registers in the CPU. The route wires together with some hardware that
+controls access to the bus. (buses are basically a collection of parallel wires
+together with some hardware that controls access to the bus)
+
+
+=> Pipelining
+
+The first widely used extension to the basic Von Neumann Model
+was pipelining. If the various circuits in the CPU are split
+up into functional units, and the functional units are set up
+in a pipeline, then the pipeline can, in theory, produce
+a result during each instruction cycle
+
+For example - The code:
+
+float x[100]
+float y[100]
+float z[100]
+
+for (int i = 0; i < 100; i++) {
+    z[i] = x[i] + y[i];
+}
+
+A single addition consists of the following sequence of operations:
+
+1. Fetch the operands from memory
+
+2. Compare exponents
+
+3. shift one operand
+
+4. Add
+
+5. Normalize the result
+
+6. Store result in memory
+
+
+Suppose we have functional units that perform each of these basic operations, and
+these functional units are arranged in a pipeline. That is, the output
+of one functional unit is the input to the next. Then, while say, x[0] and y[0]
+are being added, one of x[1] and y[1] can be shifted, the exponents in
+x[2] and y[2] can be computed, and x[3] and y[3] can be fetched.
+
+A further improvement can be obtained by adding vector instructions to the basic machine learning
+instruction set. In our example of adding 100 pairs of floats, if we don't have vector instructions, an instruction
+corresponding to each of our basic operations will have to be fetched and decoded 100 times. With vector instructions,
+each of the basic instructions only needs to be issued once.
+
+Another improvement in vevotr machine is the use of multiple memory banks: operations that access main mamory are several times
+slower than operations that only involve the CPU. The use of independent memory banks, can, to a degree, overcome this problem.
+
+For example, suppose that we can execute a CPU operation once every CPU cycle.
+
+
+
+
+
+
+Abbreviations:
+
+ALU - arithmetic logic unit
+
+
+SIMD Systems - Single Instruction Single Data 
+---------------------------------------------
+
+A pure SIMD has a single CPU devoted exclusively to control and a large collection of subordinate
+ALUs, each with its own (small amount of) memory. During each instruction cycle, the control
+processor broadcasts an instruction to all of the subordinate processors, and each of the subordinate
+processors either executes the instruction or is idle.
+
+CPU --> ALUS (memory)
+
+
+For example, suppose we have three arrays, x, y, and z, distributed so that the
+memory of each processor contains one element of each array.
+
+Code sample:
+
+for (i = 0; i < 1000; i++) {
+    if (y[i] != 0.0) {
+    z[i] = x[i]/y[i];
+
+    } else
+    z[i] = x[i];
+    }       
+}
+
+This example makes th disadvantages of a SIMD system clear: in a program with
+many conditional branches or long segments of code whose
+execution depends on conditionals, it is entirely possible that
+many processes will remain idle for long periods of time.
+
+However, the example doesn't make clear that SIMD machines tend to be relatively
+easy to program if the underlying problem has a regular structure.
+
+Furthermore, although communication is quite expensive in distributed memory
+MIMD systems, it is basically no more expeice thatn computation
+in SIMD systems
+
+
+
+General MIMD Systems
+--------------------
+
+The key difference between MIMD and SIMD systems is that with MIMD systems,
+the processor are autonomous - each processor is a full fledged CPU with both
+a control unit and a ALU. Thus each processor is capable of executing 
+
+
+
+
+

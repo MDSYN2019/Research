@@ -53,6 +53,10 @@ endif()
 
 include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/src")
 include_directories ("${CMAKE_CURRENT_SOURCE_DIR}/include")
+
+link_directories ("${CMAKE_CURRENT_SOURCE_DIR}/include") # Link the include directory .. hopefully.
+
+
 include_directories (${GSL_INCLUDE_DIRS} ${GSLCBLAS_INCLUDE_DIRS})
 include_directories (${MPI_CXX_INCLUDE_PATH})
 
@@ -137,7 +141,7 @@ add_library(gsllib main.cxx)
 target_link_libraries(gsllib -L/home/noh/anaconda3/pkgs/gsl-2.1-2/lib/)
 target_link_libraries(gsllib libgsl.a)
 target_link_libraries(gsllib libgslcblas.a)
-target_link_libraries(OMP_EX ${Boost_LIBRARIES} ${MATH} ${CPPUNIT} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB} ${QAT_LIBS} ${STXXL_LIBRARIES} ${LBOOST} pybind11::module gsllib)
+target_link_libraries(OMP_EX ${EXTRA_SRC} ${Boost_LIBRARIES} ${MATH} ${CPPUNIT} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB} ${QAT_LIBS} ${STXXL_LIBRARIES} ${LBOOST} pybind11::module gsllib )
 
 find_package(OpenMP)
 

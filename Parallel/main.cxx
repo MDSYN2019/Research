@@ -6,8 +6,8 @@
 
 //! MPI headers
 #include "MPI_broadcast.hpp"
-#include "MPI_IO.hpp"
 #include "openmp_LA.hpp"
+#include "MPI_IO.hpp"
 
 int main(void) {
   // Furst we create the parameter list
@@ -26,6 +26,11 @@ int main(void) {
  
   std::cout << "call_price: " << call << std::endl; 
   std::cout << "Put_price: " << put << std::endl; 
-  
+
+
+  // Call MPI
+
+  MPIInput A(3,3);
+ 
   return 0;
 }

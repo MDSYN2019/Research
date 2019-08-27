@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+../include/Core.h
+algorithm
+-
+iostream
+-
+string
+-
+vector
+-
+grade.h
+../include/grade.h
+
 ../include/MPI_IO.hpp
 iostream
 -
@@ -46,6 +58,10 @@ cppunit/ui/text/TestRunner.h
 cppunit/TestFixture.h
 -
 cppunit/extensions/HelperMacros.h
+-
+
+../include/grade.h
+vector
 -
 
 ../include/openmp_LA.hpp
@@ -105,6 +121,8 @@ openmp_LA.hpp
 /home/oohnohnoh1/Desktop/GIT/Research/Parallel/openmp_LA.hpp
 MPI_IO.hpp
 /home/oohnohnoh1/Desktop/GIT/Research/Parallel/MPI_IO.hpp
+Core.h
+/home/oohnohnoh1/Desktop/GIT/Research/Parallel/Core.h
 
 /home/oohnohnoh1/anaconda3/include/mpi.h
 mpio.h

@@ -109,9 +109,7 @@ However, the example doesn't make clear that SIMD machines tend to be relatively
 easy to program if the underlying problem has a regular structure.
 
 Furthermore, although communication is quite expensive in distributed memory
-MIMD systems, it is basically no more expeice thatn computation
-in SIMD systems
-
+MIMD systems, it is basically no more expensive that in computation in SIMD systems
 
 
 General MIMD Systems
@@ -119,7 +117,15 @@ General MIMD Systems
 
 The key difference between MIMD and SIMD systems is that with MIMD systems,
 the processor are autonomous - each processor is a full fledged CPU with both
-a control unit and a ALU. Thus each processor is capable of executing 
+a control unit and a ALU. Thus each processor is capable of executing its own program
+at its own pace.
+
+The world of MIMD (Multiple Instruction Multiple Data) is divided into shared-memory
+and distributed memory systems. Some authors distinguish between the two architetures by
+calling shared memory systems multiprocessors, and distributed memory systems multicomputers.
+
+
+
 
 
 

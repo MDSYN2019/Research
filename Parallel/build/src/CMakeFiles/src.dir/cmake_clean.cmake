@@ -5,6 +5,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/src.dir/MPI_broadcast.cxx.o"
   "CMakeFiles/src.dir/MPI_IO.cxx.o"
   "CMakeFiles/src.dir/statistics.cxx.o"
+  "CMakeFiles/src.dir/Core.cc.o"
+  "CMakeFiles/src.dir/grade.cc.o"
+  "CMakeFiles/src.dir/read_hw.cc.o"
+  "CMakeFiles/src.dir/Student_info.cc.o"
   "libsrc.pdb"
   "libsrc.a"
 )

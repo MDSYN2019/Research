@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.2.2)  23 AUG 2019 19:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.2.2)  27 AUG 2019 15:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1222,15 +1222,16 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 8.99994pt on input line 1.
+ [1
+
+]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.19995pt on input line 21.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 21.
+(Font)              scaled to size 7.19995pt on input line 48.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 48.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [1
-
-])
+))
 \tf@toc=\write5
 \openout5 = `refman.toc'.
 
@@ -1286,25 +1287,25 @@ LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
 (Font)              scaled to size 8.99994pt on input line 6.
 )
 (./classArithProgression.tex
-<classArithProgression__inherit__graph.pdf, id=467, 169.63374pt x 156.585pt>
+<classArithProgression__inherit__graph.pdf, id=448, 169.63374pt x 156.585pt>
 File: classArithProgression__inherit__graph.pdf Graphic file (type pdf)
 <use classArithProgression__inherit__graph.pdf>
 Package pdftex.def Info: classArithProgression__inherit__graph.pdf  used on inp
 ut line 9.
 (pdftex.def)             Requested size: 169.0pt x 156.0064pt.
-<classArithProgression__coll__graph.pdf, id=468, 169.63374pt x 156.585pt>
+<classArithProgression__coll__graph.pdf, id=449, 169.63374pt x 156.585pt>
 File: classArithProgression__coll__graph.pdf Graphic file (type pdf)
 <use classArithProgression__coll__graph.pdf>
 Package pdftex.def Info: classArithProgression__coll__graph.pdf  used on input 
 line 18.
 (pdftex.def)             Requested size: 169.0pt x 156.0064pt.
  [5 <./classArithProgression__inherit__graph.pdf>]) (./classAudit.tex
-<classAudit__inherit__graph.pdf, id=493, 119.44624pt x 156.585pt>
+<classAudit__inherit__graph.pdf, id=474, 119.44624pt x 156.585pt>
 File: classAudit__inherit__graph.pdf Graphic file (type pdf)
 <use classAudit__inherit__graph.pdf>
 Package pdftex.def Info: classAudit__inherit__graph.pdf  used on input line 9.
 (pdftex.def)             Requested size: 119.0pt x 155.99922pt.
-<classAudit__coll__graph.pdf, id=494, 119.44624pt x 156.585pt>
+<classAudit__coll__graph.pdf, id=475, 119.44624pt x 156.585pt>
 File: classAudit__coll__graph.pdf Graphic file (type pdf)
 <use classAudit__coll__graph.pdf>
 Package pdftex.def Info: classAudit__coll__graph.pdf  used on input line 18.
@@ -1315,20 +1316,20 @@ f
 pdfTeX warning: pdflatex (file ./classAudit__inherit__graph.pdf): PDF inclusion
 : multiple pdfs with page group included in a single page
 >]) (./classbackground__task.tex) (./classComplex.tex) (./classCore.tex
-<classCore__inherit__graph.pdf, id=520, 249.93375pt x 156.585pt>
+<classCore__inherit__graph.pdf, id=501, 249.93375pt x 156.585pt>
 File: classCore__inherit__graph.pdf Graphic file (type pdf)
 <use classCore__inherit__graph.pdf>
 Package pdftex.def Info: classCore__inherit__graph.pdf  used on input line 9.
 (pdftex.def)             Requested size: 249.0pt x 156.0064pt.
 
 [7 <./classAudit__coll__graph.pdf>]) (./classGrad.tex
-<classGrad__inherit__graph.pdf, id=544, 118.4425pt x 156.585pt>
+<classGrad__inherit__graph.pdf, id=525, 118.4425pt x 156.585pt>
 File: classGrad__inherit__graph.pdf Graphic file (type pdf)
 <use classGrad__inherit__graph.pdf>
 Package pdftex.def Info: classGrad__inherit__graph.pdf  used on input line 9.
 (pdftex.def)             Requested size: 118.0pt x 156.004pt.
  [8 <./classCore__inherit__graph.pdf>]
-<classGrad__coll__graph.pdf, id=574, 118.4425pt x 156.585pt>
+<classGrad__coll__graph.pdf, id=554, 118.4425pt x 156.585pt>
 File: classGrad__coll__graph.pdf Graphic file (type pdf)
 <use classGrad__coll__graph.pdf>
 Package pdftex.def Info: classGrad__coll__graph.pdf  used on input line 18.
@@ -1356,13 +1357,13 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
 
 ) (./classMPI__BC.tex
-<classMPI__BC__inherit__graph.pdf, id=600, 139.52126pt x 156.585pt>
+<classMPI__BC__inherit__graph.pdf, id=581, 139.52126pt x 156.585pt>
 File: classMPI__BC__inherit__graph.pdf Graphic file (type pdf)
 <use classMPI__BC__inherit__graph.pdf>
 Package pdftex.def Info: classMPI__BC__inherit__graph.pdf  used on input line 9
 .
 (pdftex.def)             Requested size: 139.0pt x 156.004pt.
-<classMPI__BC__coll__graph.pdf, id=601, 139.52126pt x 156.585pt>
+<classMPI__BC__coll__graph.pdf, id=582, 139.52126pt x 156.585pt>
 File: classMPI__BC__coll__graph.pdf Graphic file (type pdf)
 <use classMPI__BC__coll__graph.pdf>
 Package pdftex.def Info: classMPI__BC__coll__graph.pdf  used on input line 18.
@@ -1401,17 +1402,30 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
 
-) (./classMPI__sorting__methods.tex) (./classMPIInput.tex [11]
-LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 7.19995pt on input line 30.
+) (./classMPI__sorting__methods.tex) (./classMPIInput.tex
+<classMPIInput__inherit__graph.pdf, id=611, 139.52126pt x 156.585pt>
+File: classMPIInput__inherit__graph.pdf Graphic file (type pdf)
+<use classMPIInput__inherit__graph.pdf>
+Package pdftex.def Info: classMPIInput__inherit__graph.pdf  used on input line 
+10.
+(pdftex.def)             Requested size: 139.0pt x 156.004pt.
+ [11]
+<classMPIInput__coll__graph.pdf, id=631, 139.52126pt x 156.585pt>
+File: classMPIInput__coll__graph.pdf Graphic file (type pdf)
+<use classMPIInput__coll__graph.pdf>
+Package pdftex.def Info: classMPIInput__coll__graph.pdf  used on input line 20.
 
+(pdftex.def)             Requested size: 139.0pt x 156.004pt.
+ [12 <./classMPIInput__inherit__graph.pdf> <./classMPIInput__coll__graph.pdf
 
-LaTeX Font Warning: Font shape `T1/pcr/bc/n' undefined
-(Font)              using `T1/pcr/m/n' instead on input line 30.
-
+pdfTeX warning: pdflatex (file ./classMPIInput__coll__graph.pdf): PDF inclusion
+: multiple pdfs with page group included in a single page
+>]
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 43.
-[12]) (./classOMP.tex
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 48.
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 77.
+) (./classOMP.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
@@ -1428,29 +1442,34 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
 
-) (./structPartstruct.tex [13]) (./classPassFail.tex
-<classPassFail__inherit__graph.pdf, id=689, 135.50626pt x 156.585pt>
+[13]) (./structPartstruct.tex) (./classPassFail.tex
+<classPassFail__inherit__graph.pdf, id=674, 135.50626pt x 156.585pt>
 File: classPassFail__inherit__graph.pdf Graphic file (type pdf)
 <use classPassFail__inherit__graph.pdf>
 Package pdftex.def Info: classPassFail__inherit__graph.pdf  used on input line 
 9.
 (pdftex.def)             Requested size: 135.0pt x 156.0064pt.
-<classPassFail__coll__graph.pdf, id=690, 135.50626pt x 156.585pt>
+ [14]
+<classPassFail__coll__graph.pdf, id=688, 135.50626pt x 156.585pt>
 File: classPassFail__coll__graph.pdf Graphic file (type pdf)
 <use classPassFail__coll__graph.pdf>
 Package pdftex.def Info: classPassFail__coll__graph.pdf  used on input line 18.
 
 (pdftex.def)             Requested size: 135.0pt x 156.0064pt.
- [14 <./classPassFail__inherit__graph.pdf>]) (./classpart1_1_1Point.tex) (./cla
-ssProbDist.tex [15 <./classPassFail__coll__graph.pdf>]) (./classProgression.tex
-<classProgression__inherit__graph.pdf, id=731, 169.63374pt x 156.585pt>
+ [15 <./classPassFail__inherit__graph.pdf> <./classPassFail__coll__graph.pdf
+
+pdfTeX warning: pdflatex (file ./classPassFail__coll__graph.pdf): PDF inclusion
+: multiple pdfs with page group included in a single page
+>]) (./classpart1_1_1Point.tex) (./classProbDist.tex) (./classProgression.tex
+<classProgression__inherit__graph.pdf, id=716, 169.63374pt x 156.585pt>
 File: classProgression__inherit__graph.pdf Graphic file (type pdf)
 <use classProgression__inherit__graph.pdf>
 Package pdftex.def Info: classProgression__inherit__graph.pdf  used on input li
 ne 9.
 (pdftex.def)             Requested size: 169.0pt x 156.0064pt.
- [16 <./classProgression__inherit__graph.pdf>]) (./classQTstyle__Test.tex)
-(./classRandomNumberGenerator.tex [17]) (./classStack.tex
+
+[16]) (./classQTstyle__Test.tex [17 <./classProgression__inherit__graph.pdf>])
+(./classRandomNumberGenerator.tex) (./classStack.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
@@ -1467,8 +1486,8 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
 
-) (./classStandardNormalDistribution.tex
-<classStandardNormalDistribution__inherit__graph.pdf, id=764, 217.81375pt x 156
+[18]) (./classStandardNormalDistribution.tex
+<classStandardNormalDistribution__inherit__graph.pdf, id=766, 217.81375pt x 156
 .585pt>
 File: classStandardNormalDistribution__inherit__graph.pdf Graphic file (type pd
 f)
@@ -1476,91 +1495,57 @@ f)
 Package pdftex.def Info: classStandardNormalDistribution__inherit__graph.pdf  u
 sed on input line 18.
 (pdftex.def)             Requested size: 217.0pt x 155.99922pt.
-<classStandardNormalDistribution__coll__graph.pdf, id=765, 217.81375pt x 156.58
+<classStandardNormalDistribution__coll__graph.pdf, id=767, 217.81375pt x 156.58
 5pt>
 File: classStandardNormalDistribution__coll__graph.pdf Graphic file (type pdf)
 <use classStandardNormalDistribution__coll__graph.pdf>
 Package pdftex.def Info: classStandardNormalDistribution__coll__graph.pdf  used
  on input line 27.
 (pdftex.def)             Requested size: 217.0pt x 155.99922pt.
- [18])
-(./classStatisticalDistribution.tex [19 <./classStandardNormalDistribution__inh
-erit__graph.pdf> <./classStandardNormalDistribution__coll__graph.pdf
-
-pdfTeX warning: pdflatex (file ./classStandardNormalDistribution__coll__graph.p
-df): PDF inclusion: multiple pdfs with page group included in a single page
->]
-<classStatisticalDistribution__inherit__graph.pdf, id=815, 217.81375pt x 156.58
+ [19 <./classStandardNormalDistribution__inherit__graph.pdf>]) (./classStatisti
+calDistribution.tex
+<classStatisticalDistribution__inherit__graph.pdf, id=791, 217.81375pt x 156.58
 5pt>
 File: classStatisticalDistribution__inherit__graph.pdf Graphic file (type pdf)
 <use classStatisticalDistribution__inherit__graph.pdf>
 Package pdftex.def Info: classStatisticalDistribution__inherit__graph.pdf  used
  on input line 18.
 (pdftex.def)             Requested size: 217.0pt x 155.99922pt.
- [20 <./classStatisticalDistribution__inherit__graph.pdf>]) (./classStr.tex
-[21pdfTeX warning (ext4): destination with the same identifier (name{classStr_a
-8a51ef48a27e5e597fde5edd7d36f7d8}) has been already used, duplicate ignored
+ [20 <./classStandardNormalDistribution__coll__graph.pdf>] [21 <./classStatisti
+calDistribution__inherit__graph.pdf>]) (./classStr.tex [22pdfTeX warning (ext4)
+: destination with the same identifier (name{classStr_a8a51ef48a27e5e597fde5edd
+7d36f7d8}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.54 O
-      bjects of built-\/in types generally behave like values\+: Whenever we...
-] [22pdfTeX warning (ext4): destination with the same identifier (name{classStr
+l.55 
+     pdfTeX warning (ext4): destination with the same identifier (name{classStr
 _afedfc049e090cc83be3ea834948f28ba}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.90 /
-      home/oohnohnoh1/\+Desktop/\+G\+I\+T/\+Research/\+Parallel/include/open...
-pdfTeX warning (ext4): destination with the same identifier (name{classStr_a92c
-aed2384063dca67f93a9788ed1115}) has been already used, duplicate ignored
+l.55 
+     pdfTeX warning (ext4): destination with the same identifier (name{classStr
+_a92caed2384063dca67f93a9788ed1115}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.90 /
-      home/oohnohnoh1/\+Desktop/\+G\+I\+T/\+Research/\+Parallel/include/open...
+l.55 
+     ]
+LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
+(Font)              scaled to size 7.19995pt on input line 70.
+
+
+LaTeX Font Warning: Font shape `T1/pcr/bc/n' undefined
+(Font)              using `T1/pcr/m/n' instead on input line 70.
+
 pdfTeX warning (ext4): destination with the same identifier (name{classStr_a823
 5816d2687bf223490568a18124cf4}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.90 /
-      home/oohnohnoh1/\+Desktop/\+G\+I\+T/\+Research/\+Parallel/include/open...
-]) (./classStudent__info.tex) (./classSYN__Mat.tex
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-<classSYN__Mat__inherit__graph.pdf, id=878, 163.61125pt x 156.585pt>
-File: classSYN__Mat__inherit__graph.pdf Graphic file (type pdf)
-<use classSYN__Mat__inherit__graph.pdf>
-Package pdftex.def Info: classSYN__Mat__inherit__graph.pdf  used on input line 
-9.
-(pdftex.def)             Requested size: 163.0pt x 155.99922pt.
-<classSYN__Mat__coll__graph.pdf, id=879, 163.61125pt x 156.585pt>
-File: classSYN__Mat__coll__graph.pdf Graphic file (type pdf)
-<use classSYN__Mat__coll__graph.pdf>
-Package pdftex.def Info: classSYN__Mat__coll__graph.pdf  used on input line 18.
-
-(pdftex.def)             Requested size: 163.0pt x 155.99922pt.
-[23] [24 <./classSYN__Mat__inherit__graph.pdf> <./classSYN__Mat__coll__graph.pd
-f
-
-pdfTeX warning: pdflatex (file ./classSYN__Mat__coll__graph.pdf): PDF inclusion
-: multiple pdfs with page group included in a single page
->]) (./classTemplateUnderTest.tex
+<to be read again> 
+                   \relax 
+l.73 ...assStr_a8235816d2687bf223490568a18124cf4}}
+                                                  ) (./classStudent__info.tex
+[23]) (./classTemplateUnderTest.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
@@ -1594,18 +1579,18 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
 
-<classVec__inherit__graph.pdf, id=949, 139.52126pt x 156.585pt>
+<classVec__inherit__graph.pdf, id=874, 139.52126pt x 156.585pt>
 File: classVec__inherit__graph.pdf Graphic file (type pdf)
 <use classVec__inherit__graph.pdf>
 Package pdftex.def Info: classVec__inherit__graph.pdf  used on input line 9.
 (pdftex.def)             Requested size: 139.0pt x 156.004pt.
-[25]
-<classVec__coll__graph.pdf, id=968, 139.52126pt x 156.585pt>
+[24]
+<classVec__coll__graph.pdf, id=894, 139.52126pt x 156.585pt>
 File: classVec__coll__graph.pdf Graphic file (type pdf)
 <use classVec__coll__graph.pdf>
 Package pdftex.def Info: classVec__coll__graph.pdf  used on input line 18.
 (pdftex.def)             Requested size: 139.0pt x 156.004pt.
- [26pdfTeX warning (ext4): destination with the same identifier (name{classVec_
+ [25pdfTeX warning (ext4): destination with the same identifier (name{classVec_
 a18d486e3211b998ce0dd000d95dddbbe}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
@@ -1648,35 +1633,36 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1.
 
 ) (./classVectorMethodTest.tex
-<classVectorMethodTest__inherit__graph.pdf, id=1000, 188.705pt x 156.585pt>
+<classVectorMethodTest__inherit__graph.pdf, id=926, 188.705pt x 156.585pt>
 File: classVectorMethodTest__inherit__graph.pdf Graphic file (type pdf)
 <use classVectorMethodTest__inherit__graph.pdf>
 Package pdftex.def Info: classVectorMethodTest__inherit__graph.pdf  used on inp
 ut line 9.
 (pdftex.def)             Requested size: 188.0pt x 155.99922pt.
-<classVectorMethodTest__coll__graph.pdf, id=1001, 188.705pt x 156.585pt>
+<classVectorMethodTest__coll__graph.pdf, id=927, 188.705pt x 156.585pt>
 File: classVectorMethodTest__coll__graph.pdf Graphic file (type pdf)
 <use classVectorMethodTest__coll__graph.pdf>
 Package pdftex.def Info: classVectorMethodTest__coll__graph.pdf  used on input 
 line 18.
 (pdftex.def)             Requested size: 188.0pt x 155.99922pt.
- [27 <./classVectorMethodTest__inherit__graph.pdf> <./classVectorMethodTest__co
+ [26 <./classVectorMethodTest__inherit__graph.pdf> <./classVectorMethodTest__co
 ll__graph.pdf
 
 pdfTeX warning: pdflatex (file ./classVectorMethodTest__coll__graph.pdf): PDF i
 nclusion: multiple pdfs with page group included in a single page
->]) [28] (./refman.ind [29
+>]) [27] [28
 
+] (./refman.ind [29
 
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 187.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 187.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 186.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 186.
  (./refman.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 187.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 187.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 186.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 186.
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 6252354E88C43EF4CBAB5A9559BF25F5;13471.
+(rerunfilecheck)             Checksum: 6ED5FEB7609D5B2EF40E6A1141DC9812;12710.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1684,16 +1670,16 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 187.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 186.
  ) 
 Here is how much of TeX's memory you used:
- 15586 strings out of 492982
- 236428 string characters out of 6134897
- 317883 words of memory out of 5000000
- 18451 multiletter control sequences out of 15000+600000
- 66877 words of font info for 90 fonts, out of 8000000 for 9000
+ 15530 strings out of 492982
+ 233978 string characters out of 6134897
+ 315528 words of memory out of 5000000
+ 18425 multiletter control sequences out of 15000+600000
+ 67252 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,16n,92p,1183b,510s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 53i,15n,92p,1183b,509s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
@@ -1707,10 +1693,10 @@ e/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
 w/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (33 pages, 242067 bytes).
+Output written on refman.pdf (33 pages, 238676 bytes).
 PDF statistics:
- 1204 PDF objects out of 1440 (max. 8388607)
- 1102 compressed objects within 12 object streams
- 368 named destinations out of 1000 (max. 500000)
- 578 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1127 PDF objects out of 1200 (max. 8388607)
+ 1026 compressed objects within 11 object streams
+ 340 named destinations out of 1000 (max. 500000)
+ 554 words of extra memory for PDF output out of 10000 (max. 10000000)
 

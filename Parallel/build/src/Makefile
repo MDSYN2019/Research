@@ -125,6 +125,33 @@ src/fast:
 	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/build
 .PHONY : src/fast
 
+Core.o: Core.cc.o
+
+.PHONY : Core.o
+
+# target to build an object file
+Core.cc.o:
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/Core.cc.o
+.PHONY : Core.cc.o
+
+Core.i: Core.cc.i
+
+.PHONY : Core.i
+
+# target to preprocess a source file
+Core.cc.i:
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/Core.cc.i
+.PHONY : Core.cc.i
+
+Core.s: Core.cc.s
+
+.PHONY : Core.s
+
+# target to generate assembly for a file
+Core.cc.s:
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/Core.cc.s
+.PHONY : Core.cc.s
+
 MPI_IO.o: MPI_IO.cxx.o
 
 .PHONY : MPI_IO.o
@@ -178,6 +205,60 @@ MPI_broadcast.s: MPI_broadcast.cxx.s
 MPI_broadcast.cxx.s:
 	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/MPI_broadcast.cxx.s
 .PHONY : MPI_broadcast.cxx.s
+
+Student_info.o: Student_info.cc.o
+
+.PHONY : Student_info.o
+
+# target to build an object file
+Student_info.cc.o:
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/Student_info.cc.o
+.PHONY : Student_info.cc.o
+
+Student_info.i: Student_info.cc.i
+
+.PHONY : Student_info.i
+
+# target to preprocess a source file
+Student_info.cc.i:
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/Student_info.cc.i
+.PHONY : Student_info.cc.i
+
+Student_info.s: Student_info.cc.s
+
+.PHONY : Student_info.s
+
+# target to generate assembly for a file
+Student_info.cc.s:
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/Student_info.cc.s
+.PHONY : Student_info.cc.s
+
+grade.o: grade.cc.o
+
+.PHONY : grade.o
+
+# target to build an object file
+grade.cc.o:
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/grade.cc.o
+.PHONY : grade.cc.o
+
+grade.i: grade.cc.i
+
+.PHONY : grade.i
+
+# target to preprocess a source file
+grade.cc.i:
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/grade.cc.i
+.PHONY : grade.cc.i
+
+grade.s: grade.cc.s
+
+.PHONY : grade.s
+
+# target to generate assembly for a file
+grade.cc.s:
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/grade.cc.s
+.PHONY : grade.cc.s
 
 openmp1.o: openmp1.cxx.o
 
@@ -260,6 +341,33 @@ openmp_LA.cxx.s:
 	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/openmp_LA.cxx.s
 .PHONY : openmp_LA.cxx.s
 
+read_hw.o: read_hw.cc.o
+
+.PHONY : read_hw.o
+
+# target to build an object file
+read_hw.cc.o:
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/read_hw.cc.o
+.PHONY : read_hw.cc.o
+
+read_hw.i: read_hw.cc.i
+
+.PHONY : read_hw.i
+
+# target to preprocess a source file
+read_hw.cc.i:
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/read_hw.cc.i
+.PHONY : read_hw.cc.i
+
+read_hw.s: read_hw.cc.s
+
+.PHONY : read_hw.s
+
+# target to generate assembly for a file
+read_hw.cc.s:
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build && $(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/read_hw.cc.s
+.PHONY : read_hw.cc.s
+
 statistics.o: statistics.cxx.o
 
 .PHONY : statistics.o
@@ -296,12 +404,21 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... src"
 	@echo "... edit_cache"
+	@echo "... Core.o"
+	@echo "... Core.i"
+	@echo "... Core.s"
 	@echo "... MPI_IO.o"
 	@echo "... MPI_IO.i"
 	@echo "... MPI_IO.s"
 	@echo "... MPI_broadcast.o"
 	@echo "... MPI_broadcast.i"
 	@echo "... MPI_broadcast.s"
+	@echo "... Student_info.o"
+	@echo "... Student_info.i"
+	@echo "... Student_info.s"
+	@echo "... grade.o"
+	@echo "... grade.i"
+	@echo "... grade.s"
 	@echo "... openmp1.o"
 	@echo "... openmp1.i"
 	@echo "... openmp1.s"
@@ -311,6 +428,9 @@ help:
 	@echo "... openmp_LA.o"
 	@echo "... openmp_LA.i"
 	@echo "... openmp_LA.s"
+	@echo "... read_hw.o"
+	@echo "... read_hw.i"
+	@echo "... read_hw.s"
 	@echo "... statistics.o"
 	@echo "... statistics.i"
 	@echo "... statistics.s"

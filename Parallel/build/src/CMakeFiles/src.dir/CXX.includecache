@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+../include/Core.h
+algorithm
+-
+iostream
+-
+string
+-
+vector
+-
+grade.h
+../include/grade.h
+
 ../include/MPI_IO.hpp
 iostream
 -
@@ -46,6 +58,30 @@ cppunit/ui/text/TestRunner.h
 cppunit/TestFixture.h
 -
 cppunit/extensions/HelperMacros.h
+-
+
+../include/Student_info.h
+iostream
+-
+stdexcept
+-
+string
+-
+vector
+-
+Core.h
+../include/Core.h
+
+../include/grade.h
+vector
+-
+
+../include/median.h
+algorithm
+-
+stdexcept
+-
+vector
 -
 
 ../include/openmp1.hpp
@@ -120,6 +156,10 @@ cmath
 vector
 -
 
+/home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/Core.cc
+Core.h
+/home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/Core.h
+
 /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/MPI_IO.cxx
 iostream
 -
@@ -181,6 +221,26 @@ cppunit/TestFixture.h
 -
 cppunit/extensions/HelperMacros.h
 -
+
+/home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/Student_info.cc
+iostream
+-
+stdexcept
+-
+Core.h
+/home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/Core.h
+Student_info.h
+/home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/Student_info.h
+
+/home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/grade.cc
+stdexcept
+-
+vector
+-
+grade.h
+/home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/grade.h
+median.h
+/home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/median.h
 
 /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/openmp1.cxx
 iostream
@@ -263,6 +323,12 @@ cppunit/extensions/HelperMacros.h
 -
 openmp_LA.hpp
 /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/openmp_LA.hpp
+
+/home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/read_hw.cc
+iostream
+-
+vector
+-
 
 /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/statistics.cxx
 statistics.h

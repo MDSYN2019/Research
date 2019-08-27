@@ -2,8 +2,6 @@ cmake_minimum_required (VERSION 1.1)
 project (OMP_C++)
 include(CheckCXXCompilerFlag)
 
-
-
 if(CMAKE_Fortran_COMPILER_ID MATCHES "GNU")
     set(dialect "-ffree-form -std=f2008 -fimplicit-none")
     set(bounds "-fbounds-check")
@@ -74,7 +72,6 @@ set(Boost_USE_STATIC_RUNTIME OFF)
 
 find_package(MPI REQUIRED)
 include_directories(${MPI_INCLUDE_PATH})
-
 
 # QAT directory
 include_directories ("${PROJECT_SOURCE_DIR}/thirdparty/include")

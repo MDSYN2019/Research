@@ -102,6 +102,7 @@ void MPI_BC::buildMpiType(double* a_p, double* b_p, int* n_p, MPI_Datatype* inpu
   */
   
   start = MPI_Wtime();
+
   int array_of_blocklengths[3] = {1,1,1};
 
   MPI_Datatype array_of_types[3] = {MPI_DOUBLE, MPI_DOUBLE, MPI_INT};
@@ -125,6 +126,7 @@ void MPI_BC::Get_input(int my_rank, int comm_sz, double* a_p, double* b_p, int* 
     std::cout << "Enter a, b and n \n";
     scanf("%lf %lf %d", a_p, b_p, n_p); 
   }
+
   MPI_Bcast(a_p, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
   MPI_Bcast(b_p, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
   MPI_Bcast(n_p, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);

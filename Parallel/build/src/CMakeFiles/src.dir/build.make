@@ -201,6 +201,102 @@ src/CMakeFiles/src.dir/statistics.cxx.o.provides: src/CMakeFiles/src.dir/statist
 src/CMakeFiles/src.dir/statistics.cxx.o.provides.build: src/CMakeFiles/src.dir/statistics.cxx.o
 
 
+src/CMakeFiles/src.dir/Core.cc.o: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/Core.cc.o: ../src/Core.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/src.dir/Core.cc.o"
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/src.dir/Core.cc.o -c /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/Core.cc
+
+src/CMakeFiles/src.dir/Core.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/src.dir/Core.cc.i"
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/Core.cc > CMakeFiles/src.dir/Core.cc.i
+
+src/CMakeFiles/src.dir/Core.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/src.dir/Core.cc.s"
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/Core.cc -o CMakeFiles/src.dir/Core.cc.s
+
+src/CMakeFiles/src.dir/Core.cc.o.requires:
+
+.PHONY : src/CMakeFiles/src.dir/Core.cc.o.requires
+
+src/CMakeFiles/src.dir/Core.cc.o.provides: src/CMakeFiles/src.dir/Core.cc.o.requires
+	$(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/Core.cc.o.provides.build
+.PHONY : src/CMakeFiles/src.dir/Core.cc.o.provides
+
+src/CMakeFiles/src.dir/Core.cc.o.provides.build: src/CMakeFiles/src.dir/Core.cc.o
+
+
+src/CMakeFiles/src.dir/grade.cc.o: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/grade.cc.o: ../src/grade.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/src.dir/grade.cc.o"
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/src.dir/grade.cc.o -c /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/grade.cc
+
+src/CMakeFiles/src.dir/grade.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/src.dir/grade.cc.i"
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/grade.cc > CMakeFiles/src.dir/grade.cc.i
+
+src/CMakeFiles/src.dir/grade.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/src.dir/grade.cc.s"
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/grade.cc -o CMakeFiles/src.dir/grade.cc.s
+
+src/CMakeFiles/src.dir/grade.cc.o.requires:
+
+.PHONY : src/CMakeFiles/src.dir/grade.cc.o.requires
+
+src/CMakeFiles/src.dir/grade.cc.o.provides: src/CMakeFiles/src.dir/grade.cc.o.requires
+	$(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/grade.cc.o.provides.build
+.PHONY : src/CMakeFiles/src.dir/grade.cc.o.provides
+
+src/CMakeFiles/src.dir/grade.cc.o.provides.build: src/CMakeFiles/src.dir/grade.cc.o
+
+
+src/CMakeFiles/src.dir/read_hw.cc.o: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/read_hw.cc.o: ../src/read_hw.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/src.dir/read_hw.cc.o"
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/src.dir/read_hw.cc.o -c /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/read_hw.cc
+
+src/CMakeFiles/src.dir/read_hw.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/src.dir/read_hw.cc.i"
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/read_hw.cc > CMakeFiles/src.dir/read_hw.cc.i
+
+src/CMakeFiles/src.dir/read_hw.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/src.dir/read_hw.cc.s"
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/read_hw.cc -o CMakeFiles/src.dir/read_hw.cc.s
+
+src/CMakeFiles/src.dir/read_hw.cc.o.requires:
+
+.PHONY : src/CMakeFiles/src.dir/read_hw.cc.o.requires
+
+src/CMakeFiles/src.dir/read_hw.cc.o.provides: src/CMakeFiles/src.dir/read_hw.cc.o.requires
+	$(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/read_hw.cc.o.provides.build
+.PHONY : src/CMakeFiles/src.dir/read_hw.cc.o.provides
+
+src/CMakeFiles/src.dir/read_hw.cc.o.provides.build: src/CMakeFiles/src.dir/read_hw.cc.o
+
+
+src/CMakeFiles/src.dir/Student_info.cc.o: src/CMakeFiles/src.dir/flags.make
+src/CMakeFiles/src.dir/Student_info.cc.o: ../src/Student_info.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/src.dir/Student_info.cc.o"
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/src.dir/Student_info.cc.o -c /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/Student_info.cc
+
+src/CMakeFiles/src.dir/Student_info.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/src.dir/Student_info.cc.i"
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/Student_info.cc > CMakeFiles/src.dir/Student_info.cc.i
+
+src/CMakeFiles/src.dir/Student_info.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/src.dir/Student_info.cc.s"
+	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/oohnohnoh1/Desktop/GIT/Research/Parallel/src/Student_info.cc -o CMakeFiles/src.dir/Student_info.cc.s
+
+src/CMakeFiles/src.dir/Student_info.cc.o.requires:
+
+.PHONY : src/CMakeFiles/src.dir/Student_info.cc.o.requires
+
+src/CMakeFiles/src.dir/Student_info.cc.o.provides: src/CMakeFiles/src.dir/Student_info.cc.o.requires
+	$(MAKE) -f src/CMakeFiles/src.dir/build.make src/CMakeFiles/src.dir/Student_info.cc.o.provides.build
+.PHONY : src/CMakeFiles/src.dir/Student_info.cc.o.provides
+
+src/CMakeFiles/src.dir/Student_info.cc.o.provides.build: src/CMakeFiles/src.dir/Student_info.cc.o
+
+
 # Object files for target src
 src_OBJECTS = \
 "CMakeFiles/src.dir/openmp1.cxx.o" \
@@ -208,7 +304,11 @@ src_OBJECTS = \
 "CMakeFiles/src.dir/openmp_LA.cxx.o" \
 "CMakeFiles/src.dir/MPI_broadcast.cxx.o" \
 "CMakeFiles/src.dir/MPI_IO.cxx.o" \
-"CMakeFiles/src.dir/statistics.cxx.o"
+"CMakeFiles/src.dir/statistics.cxx.o" \
+"CMakeFiles/src.dir/Core.cc.o" \
+"CMakeFiles/src.dir/grade.cc.o" \
+"CMakeFiles/src.dir/read_hw.cc.o" \
+"CMakeFiles/src.dir/Student_info.cc.o"
 
 # External object files for target src
 src_EXTERNAL_OBJECTS =
@@ -219,9 +319,13 @@ src/libsrc.a: src/CMakeFiles/src.dir/openmp_LA.cxx.o
 src/libsrc.a: src/CMakeFiles/src.dir/MPI_broadcast.cxx.o
 src/libsrc.a: src/CMakeFiles/src.dir/MPI_IO.cxx.o
 src/libsrc.a: src/CMakeFiles/src.dir/statistics.cxx.o
+src/libsrc.a: src/CMakeFiles/src.dir/Core.cc.o
+src/libsrc.a: src/CMakeFiles/src.dir/grade.cc.o
+src/libsrc.a: src/CMakeFiles/src.dir/read_hw.cc.o
+src/libsrc.a: src/CMakeFiles/src.dir/Student_info.cc.o
 src/libsrc.a: src/CMakeFiles/src.dir/build.make
 src/libsrc.a: src/CMakeFiles/src.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX static library libsrc.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX static library libsrc.a"
 	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && $(CMAKE_COMMAND) -P CMakeFiles/src.dir/cmake_clean_target.cmake
 	cd /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/src.dir/link.txt --verbose=$(VERBOSE)
 
@@ -236,6 +340,10 @@ src/CMakeFiles/src.dir/requires: src/CMakeFiles/src.dir/openmp_LA.cxx.o.requires
 src/CMakeFiles/src.dir/requires: src/CMakeFiles/src.dir/MPI_broadcast.cxx.o.requires
 src/CMakeFiles/src.dir/requires: src/CMakeFiles/src.dir/MPI_IO.cxx.o.requires
 src/CMakeFiles/src.dir/requires: src/CMakeFiles/src.dir/statistics.cxx.o.requires
+src/CMakeFiles/src.dir/requires: src/CMakeFiles/src.dir/Core.cc.o.requires
+src/CMakeFiles/src.dir/requires: src/CMakeFiles/src.dir/grade.cc.o.requires
+src/CMakeFiles/src.dir/requires: src/CMakeFiles/src.dir/read_hw.cc.o.requires
+src/CMakeFiles/src.dir/requires: src/CMakeFiles/src.dir/Student_info.cc.o.requires
 
 .PHONY : src/CMakeFiles/src.dir/requires
 

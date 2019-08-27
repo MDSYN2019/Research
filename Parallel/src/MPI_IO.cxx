@@ -62,12 +62,16 @@ MPIInput::MPIInput(int mr, int pe) {
 
   // Initiate MPI setup, including the number of processes and the ranks of processes.
   // Generally speaking, 0 is the master process
-  
+
+
+  /*
+   Before any other MPI functions can be called, the function MPI_Init must be called, and it should
+   only be called once. Its parameters are pointers to the main functions parameter. 
+   */
  
   MPI_Init(NULL, NULL); // 
   MPI_Comm_rank(MPI_COMM_WORLD, &my_rank); // Get the process rank
-  MPI_Comm_size(MPI_COMM_WORLD, &p); // allocate the number of processes being used
-  
+  MPI_Comm_size(MPI_COMM_WORLD, &p); // allocate the number of processes being used 
 }
 
 
@@ -93,8 +97,9 @@ void MPIInput::getDataPack(float* a_ptr, float* b_ptr, int* n_ptr) {
 
   if (my_rank == 0) {
     std::cout << "Enter a, b, and n \n";
-    scanf("%f %f %d", a_ptr, b_ptr, n_ptr); /*< Read data */
-  
+    scanf("%i %i %i", a_ptr, b_ptr, n_ptr); /*< Read data */
+
+    
     //! MPI_pack 
     /*!
       MPI_pack allows one to explicitly store uncontiguous data in 
@@ -162,12 +167,13 @@ Converting the example in the book to a vector creation getdata and to send it t
 void MPIInput::getData(int* start_inp, int* end_inp, int* n_ptr) { 
 
   if (my_rank == 0) {
-    
-    std::cout << "Enter a, b and n \n";  
+    std::cout << "Enter a, b and n" << std::endl;
+      
     std::cout << "Please ensure that a is smaller than b";
-    scanf("%lf %lf %d", start_inp, end_inp, n_ptr); // I should really change this into sstream for strict c++, but I dont think that is necessary
-    assert(end_inp > start_inp); // Program will stop if this is not accurate
-    
+
+    // Scanf does not read whitespace characters
+    scanf("%i %i %i", start_inp, end_inp, n_ptr); // I should really change this into sstream for strict c++, but I dont think that is necessary
+    assert(end_inp > start_inp); // Program will stop if this is not accurate    
     /* Ensure that a C++ style vector can be made */
     std::vector<uint32_t> unintVec;
     std::vector<int> intVec;
@@ -176,34 +182,31 @@ void MPIInput::getData(int* start_inp, int* end_inp, int* n_ptr) {
       intVec.push_back(i);
     }
 
-    int vecSize = intVec.size();
+    //int vecSize = intVec.size(); 
+    if (my_rank == 0) {   
 
-    if (my_rank == 0) {
+      // From rank 0, send to all other ranks
       
-    for (int dest = 1; dest < p; dest++) { // Looping over the number of processes
-      tag = 0;
-      MPI_Send(start_inp, 1, MPI_FLOAT, dest, tag, MPI_COMM_WORLD);
-      tag = 1;
-      MPI_Send(end_inp, 1, MPI_FLOAT, dest, tag, MPI_COMM_WORLD);
-      tag = 2;
-      MPI_Send(n_ptr, 1, MPI_INT, dest, tag, MPI_COMM_WORLD);
-
-      // Send vectors
-      tag = 3;
-      MPI_Send(&intVec[0], vecSize, MPI_INT, dest, tag, MPI_COMM_WORLD); // This should point to the address of the first 
-                                                                               // element of the vector 
-    }
-  } else {
-    tag = 0; // The purpose of the tag
-    MPI_Recv(start_inp, 1, MPI_FLOAT, source, tag, MPI_COMM_WORLD, &status);
-    tag = 1;
-    MPI_Recv(end_inp, 1, MPI_FLOAT, source, tag, MPI_COMM_WORLD, &status);
-    tag = 2;
-    MPI_Recv(n_ptr, 1, MPI_INT, source, tag, MPI_COMM_WORLD, &status);
-
-    tag = 3;
-    MPI_Recv(&intVec[0], vecSize, MPI_INT, source, tag, MPI_COMM_WORLD, &status);
-
+      for (int dest = 1; dest < p; dest++) { // Looping over the number of processes
+	MPI_Send(start_inp, 1, MPI_INT, dest, 0, MPI_COMM_WORLD);
+	MPI_Send(end_inp, 1, MPI_INT, dest, 1, MPI_COMM_WORLD);
+	MPI_Send(n_ptr, 1, MPI_INT, dest, 2, MPI_COMM_WORLD);
+	//std::cout << dest << std::endl; 
+	// Send vectors
+	//tag = 3;
+	//MPI_Send(&intVec[0], vecSize, MPI_INT, dest, tag, MPI_COMM_WORLD); // This should point to the address of the first
+	// element of the vector 
+      }
+    } else {
+      for (int source = 1; source < p; dest++) { // Looping over the number of processes
+	if (my_rank == source) {
+	  // We receive from rank 0 
+	  MPI_Recv(start_inp, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, &status);
+	  MPI_Recv(end_inp, 1, MPI_INT, 0, 1, MPI_COMM_WORLD, &status);
+	  MPI_Recv(n_ptr, 1, MPI_INT, 0, 2, MPI_COMM_WORLD, &status);
+	  std::cout << *n_ptr << " " <<  p << " " <<  my_rank; 
+	}
+      }
     }
   }
 }
@@ -215,15 +218,11 @@ Destructor
 ----------
 MPI_Finalize() - What does it do?
 
-
-
-
 */
 
 MPIInput::~MPIInput() {
-  MPI_Finalize();  
+  MPI_Finalize();  // Shut down MPI  
 } 
-
 
 /* Test Functions */
 /*

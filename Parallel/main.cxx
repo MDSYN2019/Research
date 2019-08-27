@@ -9,7 +9,20 @@
 #include "openmp_LA.hpp"
 #include "MPI_IO.hpp"
 
+// Accelerated C++
+#include "Core.h"
+
 int main(void) {
+
+
+  
+  // MPIInput MPIobj(3,3);
+  // MPIobj.getData(&A, &B, &C);
+  // Call MPI
+
+  int A, B, C;
+
+  
   // Furst we create the parameter list
   double S = 100.0;
   double K = 100.0;
@@ -27,10 +40,18 @@ int main(void) {
   std::cout << "call_price: " << call << std::endl; 
   std::cout << "Put_price: " << put << std::endl; 
 
+  std::vector<Core> students;
+  Core record;
+  std::string::size_type maxlen = 0;
 
-  // Call MPI
+  // read and store the data
 
-  MPIInput A(3,3);
- 
+  while (record.read(std::cin)) {
+    maxlen = std::max(maxlen, record.name().size());
+    students.push_back(record);
+  }
+
+  std::sort(students.begin(), students.end(), compare);
+  
   return 0;
 }

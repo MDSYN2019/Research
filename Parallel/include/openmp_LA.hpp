@@ -69,6 +69,8 @@ public:
   double d_j(const int&, const double&, const double&, const double&, const double&, const double&);
   double call_price(const double&, const double&, const double&, const double&, const double&);
   double put_price(const double&, const double&, const double&, const double&, const double&); 
+
+  double gaussian_box_muller();
 };
 
 ProbDist::ProbDist() {
@@ -110,10 +112,34 @@ double ProbDist::put_price(const double& S, const double& K, const double& r, co
 
 
 /*
+double ProbDist::gaussian_box_muller() {
+  double x = 0.0;
+  double y = 0.0;
+  double euclid_eq = 0.0;
+
+  // Continue generating two uniform random variables
+  // until the square of their 'euclidean distance"
+  // is less than unity
+
+  do {
+    x = 2.0 * rand() / static_cast<double>(RANDMAX) - 1;
+    y = 2.0 * rand() / static_cast<double>(RANDMAX) - 1;
+    euclid_sq = x * x + y * y; 
+  } while (euclid_eq >= 1.0);
+
+  return x* sqrt(-2 * log(euclid_sq)/euclid_eq);
+}
+
+*/
+
+/*
 void thomas_algorithm(const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, std::vector<double>&);
 void cholesky_decomposition();
 */
 
 // --------------------------------------//
+
+
+
 
 #endif 

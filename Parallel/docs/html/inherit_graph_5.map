@@ -1,6 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node2" href="$classMPI__BC.html" title="MPI_BC" alt="" coords="151,5,223,32"/>
-<area shape="rect" id="node3" href="$classSYN__Mat.html" title="SYN_Mat\&lt; T \&gt;" alt="" coords="132,56,243,83"/>
-<area shape="rect" id="node4" href="$classVec.html" title="Vec\&lt; T \&gt;" alt="" coords="149,107,226,133"/>
-<area shape="rect" id="node5" href="$classVec.html" title="Vec\&lt; char \&gt;" alt="" coords="140,157,235,184"/>
+<area shape="rect" id="node2" href="$classMPI__BC.html" title="MPI_BC" alt="" coords="143,5,215,32"/>
+<area shape="rect" id="node3" href="$classMPIInput.html" title="MPIInput" alt="" coords="142,56,217,83"/>
+<area shape="rect" id="node4" href="$classVec.html" title="Vec\&lt; T \&gt;" alt="" coords="141,107,218,133"/>
+<area shape="rect" id="node5" href="$classVec.html" title="Vec\&lt; char \&gt;" alt="" coords="132,157,227,184"/>
 </map>

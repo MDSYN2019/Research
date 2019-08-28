@@ -104,13 +104,26 @@ public:
       All these are binary operators, so that if we define as funcitons, 
       each function will have two parameters, one of which may be implicit
       if the function is a member 
-
       
     */
+
+    //! 
+    /*! 
+      
+      The index operators just forward their work to the corresponding 
+      Vec operations. It is worth noting that, as we did for class Vec,
+      we define two version of the index operator.
+
+      
+      
+     */
     char& operator[] (size_type i) {return data[i];}
     const char& operator[] (size_type i) const {return data[i];}
-    
 
+    std::istream& operator>> (std::istream&, Str&);
+    
+    
+    
   private:
     Vec<char> data;
   };

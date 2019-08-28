@@ -52,21 +52,37 @@ providing classes whose objects behave even more similarly to objects of built-i
 /*! 
   Defining a Str class that lets us create objects that behave approproximately as we would like.
  */
+
 class Str {
 public:
   typedef Vec<char>::size_type size_type;
   Str () {}   /*!< default constructor, create an empty str */  
   Str (size_type n, char c): data(n, c) {};  /*!<  create a Str containing n copies of c */
 
-  //! A constructor with a character pointer input
-  /*! 
-    Copy constructor 
-  */
-  Str(const char* cp) {  
-    std::copy(cp, cp + std::strlen(cp), std::back_inserter(data));
-  }
-  //! create a Str from the range denoted by iterators b and e
 
+  //! Last two custom constructors
+  /*! 
+
+    The last two consturctors are similar to each oter. Their constructor initializers 
+    are empty, which means that data is implicitly initializes as an empty Vec. Each 
+    constructor asks copy to append the supplied characters  to the initally 
+    empty data.
+
+
+   */
+  Str(const char* cp) {  
+    std::copy(cp, cp + std::strlen(cp), std::back_inserter(data); // Copy input string into the vector
+  } 
+  //! create a Str from the range denoted by iterators b and e
+  /*!
+    The most interesting constructor is the ifnal one, which takes two iterators 
+    and creates a new Str that contains a copy of the characters in the given 
+    sequence. 
+
+    Like the 
+
+
+   */    
   template <class In> Str(In b, In e) {
     std::copy(b, e, std::back_inserter(data));
   }

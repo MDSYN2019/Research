@@ -2,11 +2,22 @@
 \label{classCore}\index{Core@{Core}}
 
 
-Inheritance diagram for Core\+:\nopagebreak
+Inheritance diagram for Core\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=249pt]{classCore__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Core\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=121pt]{classCore__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -18,7 +29,25 @@ Inheritance diagram for Core\+:\nopagebreak
 \mbox{\Hypertarget{classCore_a60d51fbac9805972bac7b117af8f1a54}\label{classCore_a60d51fbac9805972bac7b117af8f1a54}} 
 std\+::string {\bfseries name} () const
 \item 
-\mbox{\Hypertarget{classCore_ae3bbc66cb3733082f8537d438c0521d6}\label{classCore_ae3bbc66cb3733082f8537d438c0521d6}} 
+\mbox{\Hypertarget{classCore_a80ab3115704b9152dc014cc8e56b57a0}\label{classCore_a80ab3115704b9152dc014cc8e56b57a0}} 
+virtual std\+::istream \& {\bfseries read} (std\+::istream \&)
+\item 
+\mbox{\Hypertarget{classCore_a0d609cb4037c6dfe99ce0d68c1d69f04}\label{classCore_a0d609cb4037c6dfe99ce0d68c1d69f04}} 
+virtual double {\bfseries grade} () const
+\item 
+\mbox{\Hypertarget{classCore_a557816073236f9ed9fa91edbb9cea451}\label{classCore_a557816073236f9ed9fa91edbb9cea451}} 
+virtual bool {\bfseries valid} () const
+\item 
+\mbox{\Hypertarget{classCore_a81f50dc6932b75f6dbd7c9014bf23644}\label{classCore_a81f50dc6932b75f6dbd7c9014bf23644}} 
+virtual bool {\bfseries fulfill\+\_\+reqs} () const
+\item 
+\mbox{\Hypertarget{classCore_ad1013e09510ddff40c114943de99093f}\label{classCore_ad1013e09510ddff40c114943de99093f}} 
+{\bfseries Core} (std\+::istream \&is)
+\item 
+\mbox{\Hypertarget{classCore_a60d51fbac9805972bac7b117af8f1a54}\label{classCore_a60d51fbac9805972bac7b117af8f1a54}} 
+std\+::string {\bfseries name} () const
+\item 
+\mbox{\Hypertarget{classCore_a80ab3115704b9152dc014cc8e56b57a0}\label{classCore_a80ab3115704b9152dc014cc8e56b57a0}} 
 virtual std\+::istream \& {\bfseries read} (std\+::istream \&)
 \item 
 \mbox{\Hypertarget{classCore_a0d609cb4037c6dfe99ce0d68c1d69f04}\label{classCore_a0d609cb4037c6dfe99ce0d68c1d69f04}} 
@@ -33,7 +62,13 @@ virtual bool {\bfseries fulfill\+\_\+reqs} () const
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classCore_a05a303331fa92fae980dca24267a870e}\label{classCore_a05a303331fa92fae980dca24267a870e}} 
+\mbox{\Hypertarget{classCore_a357e613c5ceab22af89eb400fab58472}\label{classCore_a357e613c5ceab22af89eb400fab58472}} 
+std\+::istream \& {\bfseries read\+\_\+common} (std\+::istream \&)
+\item 
+\mbox{\Hypertarget{classCore_ae781fdf236da68fabe00b8207608078b}\label{classCore_ae781fdf236da68fabe00b8207608078b}} 
+virtual \hyperlink{classCore}{Core} $\ast$ {\bfseries clone} () const
+\item 
+\mbox{\Hypertarget{classCore_a357e613c5ceab22af89eb400fab58472}\label{classCore_a357e613c5ceab22af89eb400fab58472}} 
 std\+::istream \& {\bfseries read\+\_\+common} (std\+::istream \&)
 \item 
 \mbox{\Hypertarget{classCore_ae781fdf236da68fabe00b8207608078b}\label{classCore_ae781fdf236da68fabe00b8207608078b}} 
@@ -51,18 +86,18 @@ double {\bfseries midterm}
 \mbox{\Hypertarget{classCore_aa6cd0056b25e33c985fc8e347b9ed377}\label{classCore_aa6cd0056b25e33c985fc8e347b9ed377}} 
 double {\bfseries final}
 \item 
-\mbox{\Hypertarget{classCore_a2975c3a0120d19df7bd74f40d518c3ef}\label{classCore_a2975c3a0120d19df7bd74f40d518c3ef}} 
+\mbox{\Hypertarget{classCore_a8e9985533d221353e8d20fcee42e0f3b}\label{classCore_a8e9985533d221353e8d20fcee42e0f3b}} 
 std\+::vector$<$ double $>$ {\bfseries homework}
 \end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classCore_a3697f82fec59c97d4afdca80e2f07686}\label{classCore_a3697f82fec59c97d4afdca80e2f07686}} 
+\mbox{\Hypertarget{classCore_a0bedab406577c0c9300433087863c413}\label{classCore_a0bedab406577c0c9300433087863c413}} 
 class {\bfseries Student\+\_\+info}
 \end{DoxyCompactItemize}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/oohnohnoh1/\+Desktop/\+G\+I\+T/\+Research/\+Parallel/include/openmp\+\_\+dynamicbindingandinheritance.\+hpp\item 
-/home/oohnohnoh1/\+Desktop/\+G\+I\+T/\+Research/\+Parallel/src/openmp\+\_\+dynamicbindingandinheritance.\+cxx\end{DoxyCompactItemize}
+/home/oohnohnoh1/\+Desktop/\+G\+I\+T/\+Research/\+Parallel/include/Core.\+h\item 
+/home/oohnohnoh1/\+Desktop/\+G\+I\+T/\+Research/\+Parallel/include/openmp\+\_\+dynamicbindingandinheritance.\+hpp\end{DoxyCompactItemize}

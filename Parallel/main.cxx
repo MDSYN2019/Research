@@ -36,7 +36,6 @@ int main(void) {
   call = probdist.call_price(S, K, r, v, T);
   put = probdist.put_price(S, K, r, v, T);
 
- 
   std::cout << "call_price: " << call << std::endl; 
   std::cout << "Put_price: " << put << std::endl; 
 
@@ -52,6 +51,33 @@ int main(void) {
   }
 
   std::sort(students.begin(), students.end(), compare);
+
+  // write the names and grades
+
+  for (std::vector<Core>::size_type i = 0; i != students.size(); ++i) {
+    std::cout << students[i].name() << std::string(maxlen + 1 - students[i].name().size(),  ' ');
+
+    /*
+      Exceptions provide a way to react to exception circumstances, like runtime erros, in programs
+      by transferring control to special functions called handlers
+
+      To catch exceptions, a portion of code is placed under exception inspection. This is done 
+      by enclosing that portion of code in a try-block. When an exceptional circumtance arises within
+      that block, an exception is thrown that transfers the control to the exception handler. 
+
+      An exception is thrown by using the throw keyword from inside the try block. Exception 
+      handlers are declared with the keyword catch, which must be placed immediately after the try block
+
+     */
+    try {
+      double final_grade = students[i].grade(); // Core::grade
+      std::streamsize prec = std::cout.precision();
+      std::cout << std::setprecision(3) << final_grade << std::setprecision(prec) << std::endl;
+        
+    } catch (std::domain_error e) { // catches the domain error 
+      std::cout << e.what() << std::endl; 
+    }
+  }
   
   return 0;
 }

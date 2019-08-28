@@ -2,7 +2,8 @@
 #define __MATRIX_CPP__
 
 #include <iostream>
-#include <algorithm>
+#include <algorithm> // The algorithm libary provides access the max comparison function
+#include <cmath>
 #include <cstdlib>
 #include <cstdio>
 #include <ctime>
@@ -71,6 +72,7 @@ public:
   double put_price(const double&, const double&, const double&, const double&, const double&); 
 
   double gaussian_box_muller();
+  double monte_carlo_call_price(const int&, const double&, const double&, const double&, const double&, const double&);
 };
 
 ProbDist::ProbDist() {
@@ -110,36 +112,62 @@ double ProbDist::put_price(const double& S, const double& K, const double& r, co
   return -S * this->norm_cdf(-(this->d_j(1,S,K,r,v,T))) + K * exp(-r * T) * this->norm_cdf(-(this->d_j(2, S, K, r, v, T)));
 }
 
-
-/*
 double ProbDist::gaussian_box_muller() {
+
+  /*
+    The box-muller algorithm - designed to convert two uniform random vairables
+    into a standard Gaussian random variable.
+
+    Box-Muller is a good choice for random number generator if your compiler
+    does not support the C++11 standard.
+
+   */
+  
   double x = 0.0;
   double y = 0.0;
-  double euclid_eq = 0.0;
+  double euclid_sq = 0.0;
 
-  // Continue generating two uniform random variables
-  // until the square of their 'euclidean distance"
-  // is less than unity
+  /*
 
+    Continue genereating two uniform random variables
+    until the square of their 'euclidean distance' 
+    is less than unity
+
+  */
+
+  // What does static cast do?
+
+  /*
+    The static_cast operator converts variable j to type float. This allows
+    the compiler to generate a division with an answer of type float. All 
+    static_cast resolve at compile time nd do not remove any const or 
+    volatile modifiers
+   */
   do {
-    x = 2.0 * rand() / static_cast<double>(RANDMAX) - 1;
-    y = 2.0 * rand() / static_cast<double>(RANDMAX) - 1;
-    euclid_sq = x * x + y * y; 
-  } while (euclid_eq >= 1.0);
+    x = 2.0 * rand() / static_cast<double>(RAND_MAX) -1;
+    y = 2.0 * rand() / static_cast<double>(RAND_MAX) -1;
+    euclid_sq = x*x + y*y;
+  } while (euclid_sq >= 1.0);
 
-  return x* sqrt(-2 * log(euclid_sq)/euclid_eq);
+  return x*sqrt(-2 * log(euclid_sq)/euclid_sq);
 }
 
-*/
+// pricing a European vanilla call option with a MC method
 
-/*
-void thomas_algorithm(const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, const std::vector<double>&, std::vector<double>&);
-void cholesky_decomposition();
-*/
+double ProbDist::monte_carlo_call_price(const int& num_sims, const double& S, const double& K, const double& r, const double& v, const double& T) {
 
-// --------------------------------------//
+  double S_adjust = S * exp(T * (r - 0.5 * v * v));
+  double S_cur = 0.0;
+  double payoff_sum = 0.0;
+  
+  for (int i = 0; i < num_sims; i++) {
+    double gauss_bm = this->gaussian_box_muller(); // Refer to the class within the same method
+    S_cur = S_adjust * exp(sqrt(v*v*T) * gauss_bm);
+    payoff_sum += std::max(S_cur - K, 0.0);
+    
+  }
 
-
-
+  return (payoff_sum / static_cast<double>(num_sims)) * exp(-r * T);
+}
 
 #endif 

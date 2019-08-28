@@ -79,17 +79,42 @@ public:
     and creates a new Str that contains a copy of the characters in the given 
     sequence. 
 
-    Like the 
+    What is interesting about this constructor is that it is itself a template 
+    function. Because it is a template, it effectively defines a family of constrctors
+    that can be instantiated for different types of iterators.
 
+    This constructor could be used to create a Str from an array of characters.
 
-   */    
-  template <class In> Str(In b, In e) {
-    std::copy(b, e, std::back_inserter(data));
-  }
-private:
-  Vec<char> data;
-};
+  */    
+      template <class In> Str(In b, In e) {
+      std::copy(b, e, std::back_inserter(data));
+    }
 
+    //! Str operations
+
+    /*! 
+      If we think about the kind of core we've used that used strings, we can see that 
+      we used several operators:
+
+      cin >> s // use the input operator to read a string 
+      cout << s  // use the output operator to write a string  
+      s[i] // use the index operator to access a character 
+      s1 + s2 // use the addition oeprator to concatenate two strings
+
+      All these are binary operators, so that if we define as funcitons, 
+      each function will have two parameters, one of which may be implicit
+      if the function is a member 
+
+      
+    */
+    char& operator[] (size_type i) {return data[i];}
+    const char& operator[] (size_type i) const {return data[i];}
+    
+
+  private:
+    Vec<char> data;
+  };
+}
 
 typedef std::complex<double> Complex;
 
@@ -115,11 +140,12 @@ protected:
   long inc;
 };
 
+// TODO 
 template <class T>
 class TemplateUnderTest {
-  T *t_;
+  T *t_; // Pointer of type T - template class
 public:
-  TemplateUnderTest(T *t) : t_(t) {} // allocate to t_ the value of t 
+  TemplateUnderTest(T *t) : t_(t) {} // allocate to t_ the value of t  - I think this was called a value constructor 
   void SomeMethod() {
     t->DoSomething();
     t->DoSomeOtherThing();

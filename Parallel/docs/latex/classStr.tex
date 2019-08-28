@@ -14,21 +14,9 @@ A constructor with a character pointer input.
 \item 
 \mbox{\Hypertarget{classStr_a8a51ef48a27e5e597fde5edd7d36f7d8}\label{classStr_a8a51ef48a27e5e597fde5edd7d36f7d8}} 
 typedef \hyperlink{classVec}{Vec}$<$ char $>$\+::size\+\_\+type {\bfseries size\+\_\+type}
-\item 
-\mbox{\Hypertarget{classStr_a8a51ef48a27e5e597fde5edd7d36f7d8}\label{classStr_a8a51ef48a27e5e597fde5edd7d36f7d8}} 
-typedef \hyperlink{classVec}{Vec}$<$ char $>$\+::size\+\_\+type {\bfseries size\+\_\+type}
 \end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classStr_afedfc049e090cc83be3ea834948f28ba}\label{classStr_afedfc049e090cc83be3ea834948f28ba}} 
-{\bfseries Str} (size\+\_\+type n, char c)
-\item 
-\mbox{\Hypertarget{classStr_a8235816d2687bf223490568a18124cf4}\label{classStr_a8235816d2687bf223490568a18124cf4}} 
-{\bfseries Str} (const char $\ast$cp)
-\item 
-\mbox{\Hypertarget{classStr_a92caed2384063dca67f93a9788ed1115}\label{classStr_a92caed2384063dca67f93a9788ed1115}} 
-{\footnotesize template$<$class In $>$ }\\{\bfseries Str} (In b, In e)
 \item 
 \hyperlink{classStr_a51d07a34edbcb6ab60c23c0a1f6d2625}{Str} ()
 \item 
@@ -36,8 +24,7 @@ typedef \hyperlink{classVec}{Vec}$<$ char $>$\+::size\+\_\+type {\bfseries size\
 {\bfseries Str} (size\+\_\+type n, char c)
 \item 
 \hyperlink{classStr_a8235816d2687bf223490568a18124cf4}{Str} (const char $\ast$cp)
-\begin{DoxyCompactList}\small\item\em A constructor with a character pointer input. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classStr_a92caed2384063dca67f93a9788ed1115}\label{classStr_a92caed2384063dca67f93a9788ed1115}} 
+\begin{DoxyCompactList}\small\item\em Last two custom constructors. \end{DoxyCompactList}\item 
 {\footnotesize template$<$class In $>$ }\\\hyperlink{classStr_a92caed2384063dca67f93a9788ed1115}{Str} (In b, In e)
 \begin{DoxyCompactList}\small\item\em create a \hyperlink{classStr}{Str} from the range denoted by iterators b and e \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -67,24 +54,38 @@ Defining a \hyperlink{classStr}{Str} class that lets us create objects that beha
 \mbox{\Hypertarget{classStr_a51d07a34edbcb6ab60c23c0a1f6d2625}\label{classStr_a51d07a34edbcb6ab60c23c0a1f6d2625}} 
 \index{Str@{Str}!Str@{Str}}
 \index{Str@{Str}!Str@{Str}}
-\subsubsection{\texorpdfstring{Str()}{Str()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\subsubsection{\texorpdfstring{Str()}{Str()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily Str\+::\+Str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 default constructor, create an empty str \mbox{\Hypertarget{classStr_a8235816d2687bf223490568a18124cf4}\label{classStr_a8235816d2687bf223490568a18124cf4}} 
 \index{Str@{Str}!Str@{Str}}
 \index{Str@{Str}!Str@{Str}}
-\subsubsection{\texorpdfstring{Str()}{Str()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\subsubsection{\texorpdfstring{Str()}{Str()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily Str\+::\+Str (\begin{DoxyParamCaption}\item[{const char $\ast$}]{cp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-A constructor with a character pointer input. 
+Last two custom constructors. 
 
 create a \hyperlink{classStr}{Str} containing n copies of c
 
-Copy constructor 
+The last two consturctors are similar to each oter. Their constructor initializers are empty, which means that data is implicitly initializes as an empty \hyperlink{classVec}{Vec}. Each constructor asks copy to append the supplied characters to the initally empty data. \mbox{\Hypertarget{classStr_a92caed2384063dca67f93a9788ed1115}\label{classStr_a92caed2384063dca67f93a9788ed1115}} 
+\index{Str@{Str}!Str@{Str}}
+\index{Str@{Str}!Str@{Str}}
+\subsubsection{\texorpdfstring{Str()}{Str()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$class In $>$ \\
+Str\+::\+Str (\begin{DoxyParamCaption}\item[{In}]{b,  }\item[{In}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+
+
+create a \hyperlink{classStr}{Str} from the range denoted by iterators b and e 
+
+The most interesting constructor is the ifnal one, which takes two iterators and creates a new \hyperlink{classStr}{Str} that contains a copy of the characters in the given sequence.
+
+What is interesting about this constructor is that it is itself a template function. Because it is a template, it effectively defines a family of constrctors that can be instantiated for different types of iterators.
+
+This constructor could be used to create a \hyperlink{classStr}{Str} from an array of characters. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/oohnohnoh1/\+Desktop/\+G\+I\+T/\+Research/\+Parallel/src/openmp2.\+cxx\item 
 /home/oohnohnoh1/\+Desktop/\+G\+I\+T/\+Research/\+Parallel/include/openmp2.\+hpp\end{DoxyCompactItemize}

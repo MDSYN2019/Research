@@ -1,0 +1,38 @@
+#ifndef __T__
+#define __T__
+
+/*
+
+ */
+
+struct func {
+  int& i;
+
+  func (int& i_):i(i_){}
+
+  void operator()() { // operator callable by brackets () that takes in no parameters
+
+
+    for (unsigned j =  0; j < 10000; ++j) {
+
+      std::cout << j << std::endl;
+      
+    } 
+  }
+};
+
+void f() {
+  int some_local_state = 0;
+  std::thread t(func(some_local_state));
+  try {
+    do_something_in_current_thread();
+  }
+  catch () {
+    t.join();
+    
+  }
+		
+  
+}
+
+#endif 

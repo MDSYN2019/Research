@@ -204,10 +204,17 @@ void MPIInput::getData(int* start_inp, int* end_inp, int* n_ptr) {
 	  MPI_Recv(start_inp, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, &status);
 	  MPI_Recv(end_inp, 1, MPI_INT, 0, 1, MPI_COMM_WORLD, &status);
 	  MPI_Recv(n_ptr, 1, MPI_INT, 0, 2, MPI_COMM_WORLD, &status);
-	  std::cout << *n_ptr << " " <<  p << " " <<  my_rank; 
 	}
       }
     }
+  }
+}
+
+// Needs testing
+
+void MPIInput::printData() {
+  if (my_rank != 0) {
+    std::cout << " " << start_inp << " " <<  my_rank << std::endl;  
   }
 }
 

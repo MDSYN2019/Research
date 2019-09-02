@@ -1,5 +1,7 @@
 /*
+
 MPI Types
+---------
 
 MPI_CHAR - signed char
 MPI_SHORT - signed short int
@@ -49,6 +51,8 @@ public:
   //  MPIInput(); /*!< Default constructor - at the moment disabled*/  
   MPIInput(int, int); /*!< int int constructor */
   void getData(int*, int*, int*);
+  void printData();
+  
   void bubbleSort(int*, int);
   void getDataPack(float*, float*, int*);
   ~MPIInput(); 

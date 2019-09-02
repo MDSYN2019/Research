@@ -1,0 +1,107 @@
+# Compilation:  g++ -std=c++11 foo.cpp -lpthread -o foo
+
+Basic Thread Management
+-----------------------
+
+Every C++ program has at least one thread, which is started by the C++ runtime.
+
+
+The thread running main(). Your program can then launch additional threads which
+have another function as the entry function. These threads then run concurrently
+with each other and the initial thread.
+
+=> Launching a thread
+
+Threads are started by constructing a std::thread object that specifies the task to run on
+that thread. In the simplest case, that task is just a plain ordinary void-returning
+function that takes no parameters.
+
+At the the other extreme, the task could be a function object that takes additional parameters.
+It doesn't matter what the thread is going to do, or where it's launched from, but starting
+a thread using the C++ thread library always boils down to constructing a std::thread object.
+
+void do_some_work()
+std::thread my_thread(do_some_work)
+
+You can pass an instance of a class with a function call operator to the std::thread instead - A
+function call operation.
+
+Since the callable object supplied to the constructor is copied into the thread, the original
+object can be destroyed immediately.
+
+e.g. A function that returns whilst a thread still has access to local vairables
+
+struct func {
+
+int& i;
+
+func(int& i_): i(i_){}
+
+void operator()() {
+
+     for (unsigned j = 0; j < 1000; ++j) {
+
+     	 do_something(i)    
+}	 		    
+}
+
+};
+
+void oops() {
+     int some_local_stat = 0;
+     std::thread my_thread(func(some_local_stat));
+}
+
+
+=> Waiting for a thread to complete
+
+If you need to wait for a thread to complete, this can be done
+by calling join() on the associated std::thread instance.
+Inserting a call to my_thread.join() before the closing brace
+of the function body would therefore be sufficient to ensure that the thread
+was finished before the function has exited.
+
+In this case, there would little point running the function on a separate
+thread,as the first thread would not be doing anything useful in the meantime.
+
+join() is very simple, and brute-force - either you wait
+for a thread to finish, or you don't. If you need more fine-grained
+control over waiting for a thread, such as just to check whether a thread
+is finished, or wait only a certain period of time, then you have to use
+alternative mechanisms.
+
+The act of calling join() also cleans up any storage associated
+with the thread, so the std::thread is no longer associated with the
+now-finished thread.
+
+
+struct func;
+
+void f() {
+     int some_local_state = 0;
+
+     std::thread t(func(some_local_state));
+     try {
+     	 do_something_in_current_thread();
+     }    
+
+     catch(...) {
+     t.join();
+	throw;
+		
+}
+	t.join();
+}
+
+
+The above listing shows code to ensure that a thread with access to local state is finished before the function extis, whether
+he function exits normally, or by an exception. Just as it is important to ensure that any other locallly allocated resources are properly cleaned up on function exit, local threads are no exception. If the thread must complete before the functon exits, whether because it has a reference
+to other variables, or for any other reason, then it is important to ensure that this is the case fo all possible exit paths, whether
+normal or exceptional.
+
+One way of doing this is to use the standard resource acquisition Is iniitialization idiot (RAII) and provide a class that does the join().
+
+
+
+
+

@@ -1,3 +1,4 @@
+--------------------
 MPI Send and Receive
 --------------------
 
@@ -23,10 +24,11 @@ messages with different tags will be buffered by the network until B is ready fo
 
 With these concepts in mind, let's look at the prototypes for MPI sending and receiving functions
 
+------------------------------------------------------------------------------------------------------------
 => MPI_Send(void* data, int count, MPI_Datatype datatype, int destination, int tag, MPI_Comm communicator)
 
 => MPI_Recv(void* data, int count, MPI_Datatype datatype, int tag, MPI_Comm communicator, MPI_Status* status)
-
+------------------------------------------------------------------------------------------------------------
 
 Although this might eem like a mouthful when reading all of the arguments, they become
 easier to rememebr since almost every MPI call uses similar syntax. The first argument is the data buffer.
@@ -35,10 +37,10 @@ the exact count of elements, and MPU_Recv will receive at most the count of elem
 
 The fourth and fifth arguments specify the rank of sending/receiving process and the tag of the message. 
 
-
 ------------------------
 Collective Communication
 ------------------------
+
 
 
 

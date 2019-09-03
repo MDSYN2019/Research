@@ -19,3 +19,4 @@ Work in this repository references the following works and books:
 [4]. "Bias and error in estimates of equilibrium free-energy differences from nonequilibrium measurements", PNAS, 12564 - 12569, 100, 22, 2003 
 
 
+-lQatPlotWidgets -lQt5PrintSupport -lQt5Svg -lQatPlotting -lQt5Widgets -lQatDataAnalysis -lQatGenericFunctions

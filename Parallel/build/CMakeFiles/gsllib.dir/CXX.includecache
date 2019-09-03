@@ -115,8 +115,10 @@ iostream
 -
 vector
 -
-statistics.h
-/home/oohnohnoh1/Desktop/GIT/Research/Parallel/statistics.h
+complex
+-
+limits
+-
 MPI_broadcast.hpp
 /home/oohnohnoh1/Desktop/GIT/Research/Parallel/MPI_broadcast.hpp
 openmp_LA.hpp
@@ -125,6 +127,12 @@ MPI_IO.hpp
 /home/oohnohnoh1/Desktop/GIT/Research/Parallel/MPI_IO.hpp
 Core.h
 /home/oohnohnoh1/Desktop/GIT/Research/Parallel/Core.h
+statistics.h
+/home/oohnohnoh1/Desktop/GIT/Research/Parallel/statistics.h
+QatGenericFunctions/Variable.h
+/home/oohnohnoh1/Desktop/GIT/Research/Parallel/QatGenericFunctions/Variable.h
+QatGenericFunctions/Sin.h
+/home/oohnohnoh1/Desktop/GIT/Research/Parallel/QatGenericFunctions/Sin.h
 
 /home/oohnohnoh1/anaconda3/include/mpi.h
 mpio.h

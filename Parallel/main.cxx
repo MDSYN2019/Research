@@ -1,20 +1,66 @@
 #include <Eigen/Core>
 #include <iostream>
 #include <vector>
-#include "statistics.h"
-
+#include <complex>
+#include <limits>
 
 //! MPI headers
 #include "MPI_broadcast.hpp"
 #include "openmp_LA.hpp"
 #include "MPI_IO.hpp"
 
-// Accelerated C++
+//! Accelerated C++
 #include "Core.h"
+
+//! Statistics
+#include "statistics.h"
+
+// QAT
+
+#include "QatGenericFunctions/Variable.h"
+#include "QatGenericFunctions/Sin.h"
+
+
+// ------------------------
+// Example - root finding
+// -----------------------
+
+double newtonRaphson(double x, Genfun::GENFUNCTION P) {
+
+  double x1 = x;
+  
+  while (1) {
+    double deltaX = -P(x) / P.prime() (x);
+    x += deltaX;
+    if (float(x1) == float(x)) break;
+    x1 = x;
+  }
+  return x;
+}
 
 int main(void) {
 
+  Genfun::Variable X;
+  std::cout << X(3.14) << std::endl;
+  Genfun::Sin sin;
+  
+  Genfun::GENFUNCTION f = 1 + 2 * X + X * X * X;
+  Genfun::GENFUNCTION FF = (X-1) * (X-2) * (X-3) * (X - M_PI) * (X-4);
+ 
+  std::cout << 1 << " " << f(1) <<  " " << f.prime()(1) << std::endl;
+  std::cout << 1 << " " << FF(1) <<  " " << FF.prime()(1) << std::endl;
 
+
+  // Root Finding
+
+  const Genfun::AbsFunction * f = &FF;
+
+  for (int i = 0; i < 5; i++) {
+    double x = newtonRaphson(-1.0, *f);
+    Genfun::GENFUNCTION F1 = (*f) / (X - x);
+    if (f != &FF) delete f;
+    f = F1.clone();
+  }
   
   // MPIInput MPIobj(3,3);
   // MPIobj.getData(&A, &B, &C);
@@ -78,6 +124,9 @@ int main(void) {
       std::cout << e.what() << std::endl; 
     }
   }
+
+  //  Genfun::Variable X;
   
+
   return 0;
 }

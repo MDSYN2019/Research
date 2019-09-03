@@ -1,24 +1,31 @@
+//! Generic C++ Headers
+
 #include <Eigen/Core>
 #include <iostream>
 #include <vector>
 #include <complex>
 #include <limits>
 
-//! MPI headers
+//! MPI Headers
+
 #include "MPI_broadcast.hpp"
 #include "openmp_LA.hpp"
 #include "MPI_IO.hpp"
 
-//! Accelerated C++
+//! Accelerated C++ Headers
+
 #include "Core.h"
 
-//! Statistics
+//! Statistics Headers
+
 #include "statistics.h"
 
-// QAT
+//! QAT Headers
 
 #include "QatGenericFunctions/Variable.h"
 #include "QatGenericFunctions/Sin.h"
+#include "QatGenericFunctions/NormalDistribution.h"
+#include "QatGenericFunctions/Parameter.h"
 
 
 // ------------------------

@@ -33,16 +33,24 @@
 // -----------------------
 
 double newtonRaphson(double x, Genfun::GENFUNCTION P) {
-
   double x1 = x;
-  
   while (1) {
     double deltaX = -P(x) / P.prime() (x);
     x += deltaX;
     if (float(x1) == float(x)) break;
     x1 = x;
   }
+  
   return x;
+}
+
+
+double f(const std::vector<double> &a, double x) {
+  unsigned int N = (a.size() - 1) / 2;
+  // allocate and zero the arrays
+  std::vector<double> e(2 * N +1, 0.0);
+  std::vector<double> q(2*N, 0.0);
+  // TODO
 }
 
 int main(void) {

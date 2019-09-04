@@ -52,6 +52,15 @@ void oops() {
      std::thread my_thread(func(some_local_stat));
 }
 
+In this case, the new thread associated with my_thread will probably still be running
+when oops exits,in which case the next call to do_something will access an already destroyed
+variable.
+
+This is just like normal single-threaded code, as it is not necrssarily immediately apprent that
+this has happened. Using join(), we can ensure that the thread finished before the function exits
+
+
+
 
 => Waiting for a thread to complete
 

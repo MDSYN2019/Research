@@ -11,20 +11,14 @@
 #include <cppunit/extensions/HelperMacros.h>
 
 
-/*
-Example of a function call operator
- */
-
 class Distance {
 private:
   int feet;
   int inches;
-
 public:
+  
   // required constructors
-
   Distance() {}
-
   Distance (int f, int i) {
     feet = f;
     inches = i;
@@ -35,11 +29,9 @@ public:
 
   Distance operator() (int a, int b, int c) { // Operator is () - i.e. we call a class() function that does something 
     Distance D;                               // which in this case, is simply makeing another Distance objec 
-
     // just put a random calculation
     D.feet = a + c + 100;
     D.inches = b + c + 100;
-
     return D;
   }
 
@@ -50,99 +42,46 @@ public:
   }
 };
 
-void hello() {
-
-  std::cout << "Hello concurrent world" << std::endl;
-  
-}
-
-
-
 struct func {
-  
   int& i;
+  
+  func(int& i_): i(i_){}
 
-  func (int& i_): i(i_) {}
+  void operator()() {
 
-  void operator()() { // operator callable by brackets () that takes in no parameters
-
-    for (unsigned j =  0; j < 10000; ++j) {
-      std::cout << i << std::endl;     
-    }    
-
+    for (unsigned j = 0; j < 1000; j++) {
+      std::cout << j << std::endl;
+    }
   }
 };
 
-void oops() {
-  int some_local_state = 0;
-  std::thread my_thread(func(some_local_state));
-}
+void f() { // Function that runs func
 
-
-
-void f() {
   int some_local_state = 0;
 
-  std::thread t(func(some_local_state)); // open thread with some local state that does 
- 
+  std::thread t(func(some_local_state)); // Start a thread running the func
   try {
-    do_something_in_current_thread();
+    // Anything we do here is done in this current thread
+    std::cout << "Doing" << std::endk;
   }
-
-  catch (..)
-    {
-      t.join();
-      throw; // If there is an error, the thread finishes
-    }
-  t.join(); // finish the thread after computatin has finished
   
+
 }
-
-/*
-
-Running threads in the background
----------------------------------
-
-Detached threads are often called demon threads after the unix concept of daemon 
-process that runs in the background without any explitiy uder interface. Such threads 
-
-
-*/
-
-
-// using RAII to wait for a thread to complete
-
-/*
-
-Just as it is important to ensure that any other locally 
-allocated resources are properly cleaned up on it is 
-important to ensure that any other locally allocated 
-resources are properly cleaned up on function exit.
-
-Local threads are no exception - if the thread must complete
-before the function exits, whether because it has a reference
-to other local variables.
-
-One way of doing this is to use the standard resource acquisition 
-initialization idiom (RAII), and provide a class that does the join()
-in its destructor.
-
-*/
-
-
-
 // RAII - Resource Acquisition Initialization idiom (RAII) 
+
+
 class thread_guard {
   std::thread& t;
-
 public:
   explicit thread_guard(std::thread& t_): t(t_) {}
-  ~thread_guard() {
+  
+  ~thread_guard() { // a class with a join in its destructor 
     if (t.joinable()) {
       t.join();
     }
-    thread_guard(thread_guard const&)=delete;
+    thread_guard(thread_guard const&)=delete; // 
     thread_guard& operator=(thread_guard const&)=delete;
+    
   }
 };
 
@@ -152,15 +91,26 @@ public:
 Running Threads in the Background
 --------------------------------
 
-
 Detarched threads are often called daemon threads 
- */
 
+*/
+
+void counting() {
+  for (int i = 0; i < 1000; i++) {
+    std::cout << i << std::endl; 
+  }
+}
 
 int main(void) {
+  int placeholder = 3;
+  func A(placeholder);
+  std::cout << A.i  <<  std::endl;
+  //  A();
 
-  oops();
-  std::thread t(hello);
+  std::thread t(counting);
   t.join();
+  
+  //  std::thread t(counting);
+  //t.join();
 
 }

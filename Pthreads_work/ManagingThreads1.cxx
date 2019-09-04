@@ -112,6 +112,26 @@ process that runs in the background without any explitiy uder interface. Such th
 
 // using RAII to wait for a thread to complete
 
+/*
+
+Just as it is important to ensure that any other locally 
+allocated resources are properly cleaned up on it is 
+important to ensure that any other locally allocated 
+resources are properly cleaned up on function exit.
+
+Local threads are no exception - if the thread must complete
+before the function exits, whether because it has a reference
+to other local variables.
+
+One way of doing this is to use the standard resource acquisition 
+initialization idiom (RAII), and provide a class that does the join()
+in its destructor.
+
+*/
+
+
+
+// RAII - Resource Acquisition Initialization idiom (RAII) 
 class thread_guard {
   std::thread& t;
 
@@ -125,6 +145,17 @@ public:
     thread_guard& operator=(thread_guard const&)=delete;
   }
 };
+
+
+/*
+
+Running Threads in the Background
+--------------------------------
+
+
+Detarched threads are often called daemon threads 
+ */
+
 
 int main(void) {
 

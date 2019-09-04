@@ -1,0 +1,36 @@
+\begin{theindex}
+
+  \item {binary}
+    \subitem {value}, \hyperpage{5}
+  \item {binary$<$ 0 $>$}, \hyperpage{5}
+  \item {binary$<$ N $>$}, \hyperpage{5}
+
+  \indexspace
+
+  \item {Distance}, \hyperpage{6}
+
+  \indexspace
+
+  \item {func}, \hyperpage{6}
+
+  \indexspace
+
+  \item {is\+\_\+incrementable$<$ T, std\+::void\+\_\+t$<$ decltype(++std\+::declval$<$ T \& $>$())$>$ $>$}, 
+		\hyperpage{7}
+  \item {is\+\_\+incrementable$<$ typename, typename $>$}, 
+		\hyperpage{6}
+
+  \indexspace
+
+  \item {less$<$ T $>$}, \hyperpage{8}
+
+  \indexspace
+
+  \item {thread\+\_\+guard}, \hyperpage{8}
+
+  \indexspace
+
+  \item {value}
+    \subitem {binary}, \hyperpage{5}
+
+\end{theindex}

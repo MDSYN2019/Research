@@ -1,28 +1,26 @@
 #include "Core.h"
 
-using namespace std;
-
 std::istream& read_hw(std::istream& in, std::vector<double>& hw);
 
-istream& Core::read_common(istream& in) {
+std::istream& Core::read_common(std::istream& in) {
   in >> n >> midterm >> final;
   return in;
 }
 
-istream& Core::read(istream& in) {
+std::istream& Core::read(std::istream& in) {
   read_common(in);
   read_hw(in, homework);
   return in;
 }
 
-istream& Grad::read(istream& in) {
+std::istream& Grad::read(std::istream& in) {
   read_common(in);
   in >> thesis;
   read_hw(in, homework);
   return in;
 }
 
-istream& Audit::read(istream& in) {
+std::istream& Audit::read(std::istream& in) {
   in >> n;
   return in;
 }
@@ -35,7 +33,7 @@ bool compare_Core_ptrs(const Core* cp1, const Core* cp2) {
   return compare(*cp1, *cp2);
 }
 
-string letter_grade(double grade) {
+std::string letter_grade(double grade) {
   static const double numbers[] = {
     97, 94, 90, 87, 84, 80, 77, 74, 70, 60, 0
   };

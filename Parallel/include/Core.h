@@ -4,12 +4,15 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
 #include "grade.h"
+
+/*
+
+ */
 
 class Core {
   friend class Student_info;
-
+  
  public:
  Core(): midterm(0), final(0) { }
   Core(std::istream& is) { read(is); }
@@ -23,14 +26,12 @@ class Core {
     return (std::find(homework.begin(), homework.end(), 0.0)
 	    == homework.end());
   }
-
   virtual ~Core() { }
 
- protected:
+ protected: // These methods are accessible for inherited classes 
   std::string n;
   double midterm, final;
   std::vector<double> homework;
-
   std::istream& read_common(std::istream&);
 
   virtual Core* clone() const { return new Core(*this); }

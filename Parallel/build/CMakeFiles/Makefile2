@@ -63,8 +63,8 @@ CMAKE_BINARY_DIR = /home/oohnohnoh1/Desktop/GIT/Research/Parallel/build
 # Target rules for target CMakeFiles/OMP_EX.dir
 
 # All Build rule for target.
-CMakeFiles/OMP_EX.dir/all: src/CMakeFiles/src.dir/all
 CMakeFiles/OMP_EX.dir/all: CMakeFiles/gsllib.dir/all
+CMakeFiles/OMP_EX.dir/all: src/CMakeFiles/src.dir/all
 	$(MAKE) -f CMakeFiles/OMP_EX.dir/build.make CMakeFiles/OMP_EX.dir/depend
 	$(MAKE) -f CMakeFiles/OMP_EX.dir/build.make CMakeFiles/OMP_EX.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles --progress-num=1,2 "Built target OMP_EX"

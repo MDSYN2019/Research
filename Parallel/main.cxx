@@ -44,14 +44,25 @@ double newtonRaphson(double x, Genfun::GENFUNCTION P) {
   return x;
 }
 
-
+/*
 double f(const std::vector<double> &a, double x) {
   unsigned int N = (a.size() - 1) / 2;
   // allocate and zero the arrays
   std::vector<double> e(2 * N +1, 0.0);
   std::vector<double> q(2*N, 0.0);
-  // TODO
+  std::vector<double> eold(2*N+1, 0.0);
+  std::vector<double> quold(2*N+1, 0.0);
+  std::vector<double> cf(2*N, 0.0);
+
+  for (int j = 0; j <= 2*N-1; j++) {
+    qold[j] = a[j+1]/a[j];
+    cf[0] = a[0];
+    cf[1] = -qold[0];
+  }
+
+  // Evaluate the coefficients  
 }
+*/
 
 int main(void) {
 
@@ -68,14 +79,14 @@ int main(void) {
 
   // Root Finding
 
-  const Genfun::AbsFunction * f = &FF;
+  //  const Genfun::AbsFunction * f = &FF;
 
-  for (int i = 0; i < 5; i++) {
-    double x = newtonRaphson(-1.0, *f);
-    Genfun::GENFUNCTION F1 = (*f) / (X - x);
-    if (f != &FF) delete f;
-    f = F1.clone();
-  }
+  //  for (int i = 0; i < 5; i++) {
+  // double x = newtonRaphson(-1.0, *f);
+  //  Genfun::GENFUNCTION F1 = (*f) / (X - x);
+    //  if (f != &FF) delete f;
+    //f = F1.clone();
+  //}
   
   // MPIInput MPIobj(3,3);
   // MPIobj.getData(&A, &B, &C);
@@ -130,6 +141,8 @@ int main(void) {
       handlers are declared with the keyword catch, which must be placed immediately after the try block
 
      */
+
+
     try {
       double final_grade = students[i].grade(); // Core::grade
       std::streamsize prec = std::cout.precision();
@@ -141,7 +154,25 @@ int main(void) {
   }
 
   //  Genfun::Variable X;
-  
 
+  /*
+    Managing memory (almost) manually
+    ---------------------------------
+
+    When we built our student_info handle class, we combined 
+    two separable abstractions. Not only was that class an interface
+    to the operations on student records.
+    
+    What we'd like is to be able to define a class that is similar to 
+    student_info, but that is strictly an interface class. Such interface
+    classes are common in C++, especially when they interface to an 
+    interface hierachy. 
+
+
+    
+    
+   */
+
+  
   return 0;
 }

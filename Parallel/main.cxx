@@ -44,6 +44,9 @@ double newtonRaphson(double x, Genfun::GENFUNCTION P) {
   return x;
 }
 
+Genfun::Variable X;
+Genfun::GENFUNCTION FF = (X - 1) * (X-2) * (X-3) * (X - M_PI) * (X-4);
+
 /*
 double f(const std::vector<double> &a, double x) {
   unsigned int N = (a.size() - 1) / 2;

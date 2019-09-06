@@ -6,10 +6,6 @@
 #include <vector>
 #include "grade.h"
 
-/*
-
- */
-
 class Core {
   friend class Student_info;
   

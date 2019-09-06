@@ -111,6 +111,8 @@ vector
 /home/oohnohnoh1/Desktop/GIT/Research/Parallel/main.cxx
 Eigen/Core
 -
+Eigen/Dense
+-
 iostream
 -
 vector

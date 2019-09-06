@@ -101,6 +101,8 @@ set(LBOOST ${LBOOST} "-lboost_system")
 # QAT libraries
 
 set(QAT ${QAT} "-lQatPlotWidgets -lQt5PrintSupport -lQt5Svg -lQatPlotting -lQt5Widgets -lQatDataAnalysis -lQatGenericFunctions")
+set(QT ${QT} "-lQt5PrintSupport -lQt5Svg -L/home/oohnohnoh1/anaconda3/lib -lQt5Gui -lQt5Core -lGL -lpthread")
+
 
 set(IN ${IN} "-Iinclude")
 
@@ -142,7 +144,7 @@ add_library(gsllib main.cxx)
 target_link_libraries(gsllib -L/home/noh/anaconda3/pkgs/gsl-2.1-2/lib/)
 target_link_libraries(gsllib libgsl.a)
 target_link_libraries(gsllib libgslcblas.a)
-target_link_libraries(OMP_EX ${EXTRA_SRC} ${Boost_LIBRARIES} ${MATH} ${CPPUNIT} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB} ${QAT_LIBS} ${STXXL_LIBRARIES} ${LBOOST} ${QAT} pybind11::module gsllib)
+target_link_libraries(OMP_EX ${EXTRA_SRC} ${Boost_LIBRARIES} ${MATH} ${CPPUNIT} ${MPI_CXX_LIBRARIES} ${CMAKE_GSL_LINKER_LIB} ${QAT_LIBS} ${STXXL_LIBRARIES} ${LBOOST} ${QAT} ${QT} pybind11::module gsllib)
 
 find_package(OpenMP)
 

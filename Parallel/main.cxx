@@ -1,6 +1,10 @@
 //! Generic C++ Headers
 
+// Eigen Libraries
+
 #include <Eigen/Core>
+#include <Eigen/Dense>
+
 #include <iostream>
 #include <vector>
 #include <complex>
@@ -21,12 +25,13 @@
 #include "statistics.h"
 
 //! QAT Headers
+// QAT library instructions are seen here : http://qat.pitt.edu/qat-manual.html
+
 
 #include "QatGenericFunctions/Variable.h"
 #include "QatGenericFunctions/Sin.h"
 #include "QatGenericFunctions/NormalDistribution.h"
 #include "QatGenericFunctions/Parameter.h"
-
 
 // ------------------------
 // Example - root finding
@@ -172,12 +177,6 @@ int main(void) {
     student_info, but that is strictly an interface class. Such interface
     classes are common in C++, especially when they interface to an 
     interface hierachy. 
-
-
-    
     
    */
-
-  
-  return 0;
 }

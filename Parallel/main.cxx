@@ -33,6 +33,11 @@
 #include "QatGenericFunctions/NormalDistribution.h"
 #include "QatGenericFunctions/Parameter.h"
 
+// Boost
+
+#include <boost/scoped_ptr.hpp>
+
+
 // ------------------------
 // Example - root finding
 // -----------------------
@@ -71,6 +76,26 @@ double f(const std::vector<double> &a, double x) {
   // Evaluate the coefficients  
 }
 */
+
+
+
+bool foo2() {
+  foo_class* p;
+}
+
+bool foo3() {
+  const boost::scoped_ptr()<foo_class> p(new foo_class("Some data"));
+  const bool something_else_happened = some_function(*p);
+
+  if (something_else_happened) {
+    return false;
+  }
+
+  some_function2(p.get());
+  return true;
+}
+
+
 
 int main(void) {
 

@@ -58,7 +58,6 @@ double newtonRaphson(double x, Genfun::GENFUNCTION P) {
 Genfun::Variable X;
 Genfun::GENFUNCTION FF = (X - 1) * (X-2) * (X-3) * (X - M_PI) * (X-4);
 
-/*
 double f(const std::vector<double> &a, double x) {
   unsigned int N = (a.size() - 1) / 2;
   // allocate and zero the arrays
@@ -73,18 +72,15 @@ double f(const std::vector<double> &a, double x) {
     cf[0] = a[0];
     cf[1] = -qold[0];
   }
-
   // Evaluate the coefficients  
 }
-*/
-
-
 
 bool foo2() {
   foo_class* p;
 }
 
 bool foo3() {
+
   const boost::scoped_ptr()<foo_class> p(new foo_class("Some data"));
   const bool something_else_happened = some_function(*p);
 

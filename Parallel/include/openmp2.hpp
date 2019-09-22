@@ -7,7 +7,7 @@
 
 /* Instead of just calling the OpenMP functions, e can first check whetehr _OPENMP is defined. */
 
-#ifndef _OPENMP
+#ifndef _OPENMP2_
 #include <omp.h>
 #endif
 
@@ -20,40 +20,13 @@
 #include <cppunit/TestFixture.h>
 #include <cppunit/extensions/HelperMacros.h>
 
-/*!
-----------------
-Custom Str class
-----------------
-
-A numeric progression is a seuqence of numbers, where the value of each number depends on one or more of the 
-previous value.
-
-
-Objects of built-in types generally behave like values: Whenever we copy an object of 
-such a type, the original and copy have the same value but are otherwise indepedent. 
-
-For most of the built-in types, the language also defines a rich set of operators and provides 
-automatic conversions between logically similar types. For example, if we add 
-an int and a double, the compiler automatically converts the int into a double
-
-When we define our own classes, we control the extent to which the resulting objects behave like values.
-By defining copying and assigning appropriately, the class author an arrange for objects of that class 
-to act like values - that is, the class author can arrange for each object to have state that is independent
-of any other object. 
-
-Our Vec and Student_info classes are examples of types that act like values
-
-We shall see that the class author an also control conversions and related operations on class objects, thereby 
-providing classes whose objects behave even more similarly to objects of built-in types. 
-
-*/
-
 //! A constructor with a character pointer input
 /*! 
   Defining a Str class that lets us create objects that behave approproximately as we would like.
  */
 
 class Str {
+
 public:
   typedef Vec<char>::size_type size_type;
   Str () {}   /*!< default constructor, create an empty str */  
@@ -108,22 +81,16 @@ public:
     */
 
     //! 
-    /*! 
-      
+
+    /*!  
       The index operators just forward their work to the corresponding 
       Vec operations. It is worth noting that, as we did for class Vec,
       we define two version of the index operator.
-
-      
-      
-     */
-    char& operator[] (size_type i) {return data[i];}
-    const char& operator[] (size_type i) const {return data[i];}
-
-    std::istream& operator>> (std::istream&, Str&);
+    */
     
-    
-    
+    char& operator[] (const size_type i) {return data[i];}
+    const char& operator[] (const size_type i) const {return data[i];}
+    std::istream& operator>> (std::istream&, Str&);    
   private:
     Vec<char> data;
   };
@@ -165,3 +132,4 @@ public:
   }
 };
 
+#endif 

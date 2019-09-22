@@ -174,9 +174,11 @@ template <class T> class Vec : public CppUnit::TestCase {
 
 template <class T>
 Vec<T>& Vec<T>::operator=(const Vec& rhs) {
+
   if (&rhs != this) {
     uncreate();
   }
+
   create(rhs.begin(), rhs.end());
   return *this;
 }

@@ -10,7 +10,7 @@
 #include <sstream>
 #include <cstring>
 #include "openmp1.hpp"
-#include "openmp2.hpp"
+//#include "openmp2.hpp"
 
 
 #endif 

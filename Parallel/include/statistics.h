@@ -31,8 +31,6 @@ generators for out statisics classes for reliability, extensibility and efficien
   A more elaborate class definition
  */
 
-class QTstyle_Test {
-};
 //! Statistical Distribution Class
 
 /*! 

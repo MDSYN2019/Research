@@ -1,3 +1,6 @@
+#ifndef __openmp2__
+#define __openmp2__
+
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
@@ -21,6 +24,7 @@
 #include <cppunit/extensions/HelperMacros.h>
 
 //! A constructor with a character pointer input
+
 /*! 
   Defining a Str class that lets us create objects that behave approproximately as we would like.
  */
@@ -53,32 +57,36 @@ public:
 
 
      */
-
     char& operator[] (const size_type i) {return data[i];} // The index operator -> Take a index i and return .. 
     const char& operator[] (const size_type i) const {return data[i];}
 
     // Input/Output Operators
 
     /*
+      -------------------------------
       What about the other functions? 
       -------------------------------
-
       The most interesting problem in defining these functions 
       is deciding whether these operations should be members 
       of the Str class. 
-      
+     
     */
-    
-    std::istream& operator>>(std::istream&, Str&);    
-    std::ostream& operator<<(std::ostream&, const Str&); 
 
+    std::ostream& operator<<(std::ostream& os, const Str& s) {
+      /*
+	output operator - iterate through the Str, writing a 
+	single character at a time
+      */
+      for (Str::size_type i = 0; i != s.size(); ++i) {
+	os << s[i];
+      }
+      return os;
+    }
     
   private:
     Vec<char> data;
-  };
-}
-
-  
+  }
+};
 
   
 typedef std::complex<double> Complex;

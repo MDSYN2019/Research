@@ -51,7 +51,7 @@ typedef std::complex<double> Complex;
 // Example - root finding
 // -----------------------
 
-double newtonRaphson(const double x, const Genfun::GENFUNCTION P) {
+double newtonRaphson(double x, Genfun::GENFUNCTION P) {
   double x1 = x;
   while (1) {
     double deltaX = -P(x) / P.prime() (x);

@@ -7,6 +7,7 @@
 #include <deque>
 #include <thread>
 #include <vector>
+#include <sstream>
 #include <cstring>
 #include "openmp1.hpp"
 
@@ -49,5 +50,58 @@ behave like values.
   would have done.
 
  */
+
+Str::ostream& operator<<(std::ostream& os, const Str& s) {
+  /*
+    output operator - iterate through the Str, writing a 
+    single character at a time
+  */
+  for (Str::size_type i = 0; i != s.size(); ++i) {
+    os << s[i];
+  }
+  return os;
+}
+
+
+/*
+  Friends 
+  -------
+ */
+
+Str::istream& operator>>(std::istream& is, const Str& s) {
+
+  /*
+
+    The input operator isn't much harder to write than the output operator. It needs to 
+    read and remember characters from the input stream. Each time we call the input 
+    operator, it should read and discard any leading whitespace, and then read and rememeber 
+    characters until it hits whitespace or end-of-life 
+
+
+    Each time we call the input operator, it should read 
+    and discard any leading whitespace, and then and remember 
+    characters until it hits whitespace or the end of file 
+
+  */
+
+  s.data.clear();
+  
+  char c;
+
+  // isspace - check whether c is a whitespace character 
+  while (is.get(c) && isspace(c)) {
+    // Nothing to do, except testing the condition
+  }
+  // If there is still something to read, do so until next whitespace character 
+  if (is) {
+    do s.data.push_back(c);
+    while (is.get(c) && !isspace(c));
+    // if we read whitespace, then put it back on the stream
+    if (is) {
+      is.unget(); 
+    }
+  }
+  return is;
+}
 
 #endif 

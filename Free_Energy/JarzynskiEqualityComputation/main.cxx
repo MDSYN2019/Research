@@ -82,7 +82,7 @@ int main(int argc, char *argv[]) {
   std::vector<std::string> traj;
 
   FE.resetIndex();  
-  for (int index = 0; index < numberOfFiles; i++) {     
+  for (int index = 0; index < numberOfFiles; index++) {     
     fileIndex = index + 1; // Filename index
     auto b = std::to_string(fileIndex);
     filename = filenameString + "." + b; // Concatenate string  

@@ -86,7 +86,7 @@ public:
   double alpha(double, double, double); /*< */   
 
   // friend functions to take care of the MPI implementation
-  friend class MPI_setup (const JarzynskiFreeEnergy&);
+  // friend class MPI_setup (const JarzynskiFreeEnergy&);
 
   //friend class JEunitTest;
 private:
@@ -145,6 +145,7 @@ public:
 // In short, usually, using public should be sufficient! 
 
  */
+
 
 class MPI_setup : public JarzynskiFreeEnergy { // Make sure we inherit from the JarzynskiFreeEnergy 
 public:

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/oohnohnoh1/Desktop/GIT/PhD_work/JE_work/src/JE_alg.cxx" "/home/oohnohnoh1/Desktop/GIT/PhD_work/JE_work/build/src/CMakeFiles/src.dir/JE_alg.o"
+  "/home/synnoh/Desktop/Repository/Research/Free_Energy/JarzynskiEqualityComputation/src/JE_alg.cxx" "/home/synnoh/Desktop/Repository/Research/Free_Energy/JarzynskiEqualityComputation/build/src/CMakeFiles/src.dir/JE_alg.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -12,11 +12,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../src"
   "../include"
-  "/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi"
-  "/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/opal/mca/event/libevent2022/libevent"
-  "/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi/opal/mca/event/libevent2022/libevent/include"
-  "/usr/lib/x86_64-linux-gnu/openmpi/include"
-  "/usr/local/include/eigen3"
+  "/home/synnoh/miniconda3/include/eigen3"
   )
 
 # Targets to which this target links.

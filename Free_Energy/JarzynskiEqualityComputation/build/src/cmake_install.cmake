@@ -1,4 +1,4 @@
-# Install script for directory: /home/oohnohnoh1/Desktop/GIT/PhD_work/JE_work/src
+# Install script for directory: /home/synnoh/Desktop/Repository/Research/Free_Energy/JarzynskiEqualityComputation/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

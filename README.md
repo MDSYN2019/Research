@@ -1,8 +1,14 @@
+# Last Updated: 24/08/2021
+
+
 # MD design in nanoparticles, free energy analysis of trajectories and other MPI/OpenMP files
 
 CI link: https://travis-ci.com/MDSYN2019/PhD_work
  
-[![Build Status](https://travis-ci.com/MDSYN2019/PhD_work.svg?branch=master)](https://travis-ci.com/MDSYN2019/PhD_work)
+[![
+
+
+Build Status](https://travis-ci.com/MDSYN2019/PhD_work.svg?branch=master)](https://travis-ci.com/MDSYN2019/PhD_work)
 
 PhD Molecular Dynamics analysis code 
 

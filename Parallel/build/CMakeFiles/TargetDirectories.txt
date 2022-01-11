@@ -1,7 +1,0 @@
-/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles/rebuild_cache.dir
-/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles/edit_cache.dir
-/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles/OMP_EX.dir
-/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/CMakeFiles/gsllib.dir
-/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src/CMakeFiles/rebuild_cache.dir
-/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src/CMakeFiles/src.dir
-/home/oohnohnoh1/Desktop/GIT/Research/Parallel/build/src/CMakeFiles/edit_cache.dir

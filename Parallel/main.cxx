@@ -5,6 +5,7 @@
 #include <Eigen/Core>
 #include <Eigen/Dense>
 
+
 #include <iostream>
 #include <vector>
 #include <complex>
@@ -188,11 +189,11 @@ int main(void) {
     student_info, but that is strictly an interface class. Such interface
     classes are common in C++, especially when they interface to an
     interface hierachy.
-
-   */
+    
+  */
   
   Eigen::VectorXd Y(2,2);
-
+  
   Y(0,0) = 1.0;
   Y(0,1) = 2.0;
   Y(1,0) = 4.0;

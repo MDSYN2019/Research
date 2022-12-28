@@ -6,13 +6,16 @@
 // dictionary equivalent
 #include <complex> // library for complex numbers
 #include <unordered_map>
-
 // pteros library and custom class import
 #include "analysis_pteros.h"
 #include <pteros/core/grid.h>
 #include <pteros/pteros.h>
 
 // filling in functions
+
+// random new comment for the sake of using magit
+
+
 bool compare_by_distance(const oph_struct &a, const oph_struct &b) {
   /*
    */

@@ -1,49 +1,19 @@
-/* --------------------------------------------------------------------------------
-  ---------------------------------------------------------------------------------
-  |Calculate the Clustering of the Mixed Lipid Bilayer through a DBSCAN Algorithm | 
-  ---------------------------------------------------------------------------------
 
-   How does the DBSCAN algorithm work?
-   
-   -> Point P in a cluster is a 'core' point if there are a critical number of the same type of points within a distance E.
-   -> Point Q is a point in the cluster if there is a clear vector towards that from any of the elements of the P vector 
-   -> All points not reachable from any other points are outliers
-   
-   Two main algorithms are required, where there are 
-   
-  --------------------------------------------------------------------------------*/
-
-/*
- ----------------------------------
- | DBSCAN algorithm -  Pseudocode:|
- ----------------------------------
-*/
-
-/*
-  DBSCAN(D, eps, MinPts) {
-  C = 0
-  for each point P in dataset D {
-  if P is visited 
-  continue next point 
-  mark P as visited
-  NeighbourPts = regionQuery(P, eps)
-  if Sizeof(NeighbourPts) < MinPts
-  mark P as NOISE
-  else {
-  C = next cluster
-  expandCluster(P, NeighbourPts, C, eps, MinPits)
-  }
-  }
-  }
- */
-
-/*
-void DBSCAN(double *, eps, Minpts);
-void regionQuery(double Distcriteria, double (*COMref) (double)) {
-  COMref = CenterOfMass;  
-}  
-*/
-
-/* Function to find the center of mass of the C12E2 */
+Some further analysis that need to be implemented:
 
 
+- Does budding only occur in mixed surfactant systems? i.e. test with a pure bilayer
+
+- What is the budding ‘rate’? Plot z coordinate of the NP over time.
+
+- Does budding correlate with de-mixing? How does the distribution of surfactants change as budding occurs? Does a certain amount of phase-separation trigger budding? What is the distribution of surfactant A and B around the NP and does this change as budding occurs?
+
+- If we start the membrane in a phase-separated state, does budding still occur? (Or is it the dynamics process and starting out of equilibrium that provides the driving force?)
+
+- We should do repeat simulations with different random starting distributions of the different surfactant types and see if we can extract the common features of budding.
+
+- Is budding dependent on NP size?
+
+- Is budding dependent on the strength of repulsion between A and B?
+
+ 

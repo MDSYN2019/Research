@@ -1,0 +1,20 @@
+==38755== Memcheck, a memory error detector
+==38755== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==38755== Using Valgrind-3.18.1-42b08ed5bd-20211015 and LibVEX; rerun with -h for copyright info
+==38755== Command: ./new
+==38755== Parent PID: 9232
+==38755== 
+--38755-- 
+--38755-- Valgrind options:
+--38755--    --leak-check=full
+--38755--    --show-leak-kinds=all
+--38755--    --track-origins=yes
+--38755--    --verbose
+--38755--    --log-file=valgrind-out.txt
+--38755-- Contents of /proc/version:
+--38755--   Linux version 5.15.0-48-generic (buildd@lcy02-amd64-080) (gcc (Ubuntu 11.2.0-19ubuntu1) 11.2.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #54-Ubuntu SMP Fri Aug 26 13:26:29 UTC 2022
+--38755-- 
+--38755-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-rdtscp-sse3-ssse3-avx-f16c
+--38755-- Page sizes: currently 4096, max supported 4096
+--38755-- Valgrind library directory: /usr/libexec/valgrind
+--38755-- Reading syms from /home/sang/Desktop/git/Research/C12E2_work/new

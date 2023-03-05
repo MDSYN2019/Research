@@ -1,1 +1,0 @@
-/usr/bin/c++   -std=c++11  -rdynamic -Wl,-rpath -Wl,/home/oohnohnoh1/anaconda3/lib CMakeFiles/JE.dir/main.o  -o JE  -L/home/oohnohnoh1/anaconda3/lib -Wl,-rpath,/home/oohnohnoh1/anaconda3/lib -lm /home/oohnohnoh1/anaconda3/lib/libmpichcxx.so /home/oohnohnoh1/anaconda3/lib/libmpich.so /home/oohnohnoh1/anaconda3/lib/libopa.so /home/oohnohnoh1/anaconda3/lib/libmpl.so -lrt -lpthread 

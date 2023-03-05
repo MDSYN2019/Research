@@ -1,0 +1,2 @@
+/home/sang/miniconda3/bin/x86_64-conda-linux-gnu-ar qc libsrc.a CMakeFiles/src.dir/JE_alg.o
+/home/sang/miniconda3/bin/x86_64-conda-linux-gnu-ranlib libsrc.a

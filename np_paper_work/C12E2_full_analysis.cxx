@@ -8,7 +8,7 @@
 
  Version = "0.0.1"
 
- Updated = 11/09/2019
+ Updated = 04/04/2023
 
  The papers referenced for this work is:
 
@@ -45,16 +45,49 @@
 #include <tuple>
 #include <utility>
 #include <vector>
+#include <chrono> 
 
 #define _USE_MATH_DEFINES
 
+template <typename T> class basic_stopwatch : T {
+  typedef typename T BaseTimer;
+public:
+  // create, optionally start timing an activity
+  explicit basic_stopwatch(bool start);
+  explicit basic_stopwatch(char const* activity = "Stopwatch",
+			   bool start=true);
+  basic_stopwatch(std::ostream& log,
+		  char const* activity="Stopwatch",
+		  bool start=true);
+  // stop and destroy a stopwatch
+  ~basic_stopwatch();
+  // get last lap time (time of last stop)
+  unsigned LapGet() const;
+  // predicate: return true if the stopwatch is running
+  bool IsStarted() const;
+  // show accumulated time, keep running, set/return lap
+  unsigned Show(char const* event="show");
+  // (re)start a stopwatch, set/return lap time
+  unsigned Start(char const* event_name="start");
+  // stop a running stopwatch, set/return lap time
+  unsigned Stop(char const* event_name="stop");
+private:
+  // members
+  char const* m_activity; // "activity" string
+  unsigned m_lap;
+  // lap time (time of last stop)
+  std::ostream& m_log;
+  // stream on which to log events
+};
+
+
 // Constants for use later with analysis
-const int NumberOfPolymers =
+const int number_of_polymers =
     998; // The number of polymers of each type - C12E2 or mimic
-const int numberofatoms = 71313; // Total number of beads in the simulation
-const int indexCG = 7;
-int numberofSS = 100; /*The number of screenshots in the dump file*/
-const int boxdim = 3;
+const int number_of_atoms = 71313; // Total number of beads in the simulation
+const int index_cg = 7;
+const int number_of_snapshots = 100; /*The number of screenshots in the dump file*/
+const int box_dim = 3;
 
 typedef struct {
   int index[7];
@@ -288,7 +321,7 @@ public:
 
   void storeFile() {
 
-    boost::progress_display show_progress(numberofSS);
+    boost::progress_display show_progress(number_of_snapshots);
 
     // open file for reading
     ipf = fopen("dump.mixed2", "r"); // Needs correction
@@ -298,7 +331,7 @@ public:
       exit(1);
     }
     // loop over the values
-    for (int SSno = 0; SSno < numberofSS; SSno++) {
+    for (int SSno = 0; SSno < number_of_snapshots; SSno++) {
 
       l = 0;
       n = 0;
@@ -475,13 +508,15 @@ public:
     }
   }
   
-  void ComputePhi() { // Computes the phi, or the mismatch between the bilayer
-                      // leaflets around the NP
+  void ComputePhi() {
+    
     // std::cout << C12E2IndexVector.size() << " " <<  C12E2MIndexVector.size()
     // << " " << inputTotal.size() << std::endl;
 
     /*
       Following Python's comment system """ """
+      
+      Computes the phi, or the mismatch between the bilayer leaflets around the NP
 
       We are explcitily ignoring flip-flops in the case of this study
     */
@@ -584,6 +619,7 @@ public:
           }
         }
       }
+      
       phiTotal.push_back(phiCount);
       phiCount.clear();
     }
@@ -670,7 +706,7 @@ public:
 
         stdev = std::sqrt(sq_sum / NewNew[it - NewNew.begin()].phimVec.size() -
                           mean * mean) /
-                (pow(numberofSS, 0.5));
+                (pow(number_of_snapshots, 0.5));
       }
 
       std::cout << " " << it - NewNew.begin() << " "
@@ -904,7 +940,6 @@ public:
 
   void LargePrint() {
     double sum, mean;
-
     for (unsigned int i = 0; i != ABC.size(); i++) {
       sum = std::accumulate(ABC[i].VV.begin(), ABC[i].VV.end(),
                             0.0);    // Compute sum
@@ -914,6 +949,8 @@ public:
   }
 
   void allocateCOM() {
+    /*
+     */
     CenterOfMass(&C12E2IndexVector, &C12E2MIndexVector, &inputTotal, &C12E2COM,
                  &C12E2MCOM, &C12E2TotalCOMArray, &C12E2MTotalCOMArray);
   }
@@ -953,12 +990,12 @@ private:
   FILE *ipf; /* input file */
   int atomtype;
   int index, l, n;
-  int nlines = numberofatoms + 9;
+  int nlines = number_of_atoms + 9;
   double x, y, z; /*coordinates for the atoms in the box*/
   double box1;
   double box2;
   double NPX, NPY, NPZ;
-  double boxlength[boxdim];
+  double boxlength[box_dim];
   char line[100];
   inputCoord inputline;
   double DistVec1, DistVec2, DistVec3, DistVec4;
@@ -981,19 +1018,18 @@ class testClass {};
 compute C12E2PhiOrderphobic;
 
 int main(int argc, char *argv[]) {
-
-  C12E2PhiOrderphobic.storeFile();
-  C12E2PhiOrderphobic.sortVectors();
-  C12E2PhiOrderphobic.check();
-  C12E2PhiOrderphobic.headGroupVectorFormation();
-  C12E2PhiOrderphobic.allocateCOM();
-  C12E2PhiOrderphobic.ComputePhi();
-  C12E2PhiOrderphobic.PhiPrint();
-  C12E2PhiOrderphobic.ComputePhiStandardDev();
-  C12E2PhiOrderphobic.ComputeOrderphobic();
-  C12E2PhiOrderphobic.OrderphobicSort();
-  C12E2PhiOrderphobic.printop();
-  C12E2PhiOrderphobic.LargePrint();
+  C12E2PhiOrderphobic.storeFile(); // 
+  C12E2PhiOrderphobic.sortVectors(); // 
+  C12E2PhiOrderphobic.check(); // 
+  C12E2PhiOrderphobic.headGroupVectorFormation(); // 
+  C12E2PhiOrderphobic.allocateCOM(); // 
+  C12E2PhiOrderphobic.ComputePhi(); // 
+  C12E2PhiOrderphobic.PhiPrint(); // 
+  C12E2PhiOrderphobic.ComputePhiStandardDev(); // 
+  C12E2PhiOrderphobic.ComputeOrderphobic(); //
+  C12E2PhiOrderphobic.OrderphobicSort(); // 
+  C12E2PhiOrderphobic.printop(); // 
+  C12E2PhiOrderphobic.LargePrint(); //
 
   return 0;
 }

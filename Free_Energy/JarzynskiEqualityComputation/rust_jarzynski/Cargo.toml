@@ -1,0 +1,12 @@
+[package]
+name = "jarzynski_rs"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "jarzynski_rs"
+path = "src/lib.rs"
+
+[[bin]]
+name = "jarzynski-cli"
+path = "src/main.rs"

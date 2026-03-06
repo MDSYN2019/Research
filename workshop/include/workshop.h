@@ -1,15 +1,14 @@
 #ifndef workshop_h
 #define workshop_h
 
-#include <iostream>
-#include <vector>
-#include <tuple>
-#include <cmath>
 #include <chrono>
-#include <string>
-#include <fstream>
-#include <random>
-#include <cstdint>
+#include <cmath>
+#include <cstddef>
+#include <cstdlib>
+#include <iostream>
+#include <new>
+#include <stdexcept>
+#include <vector>
 
 #if defined(__INTEL_COMPILER)
 #include <malloc.h>
@@ -69,6 +68,7 @@ class aligned_allocator
  
 		bool operator!=(const aligned_allocator& other) const
 		{
+			(void)other;
 			return !(*this == other);
 		}
  
@@ -89,6 +89,7 @@ class aligned_allocator
 		// Always returns true for stateless allocators.
 		bool operator==(const aligned_allocator& other) const
 		{
+			(void)other;
 			return true;
 		}
  
@@ -114,7 +115,7 @@ class aligned_allocator
 			// in which case the bad_alloc check below would fire).
 			// All allocators can return NULL in this case.
 			if (n == 0) {
-				return NULL;
+				return nullptr;
 			}
  
 			// All allocators should contain an integer overflow check.
@@ -129,7 +130,7 @@ class aligned_allocator
 			void * const pv = _mm_malloc(n * sizeof(T), Alignment);
  
 			// Allocators should throw std::bad_alloc in the case of memory allocation failure.
-			if (pv == NULL)
+			if (pv == nullptr)
 			{
 				throw std::bad_alloc();
 			}
@@ -139,6 +140,7 @@ class aligned_allocator
  
 		void deallocate(T * const p, const std::size_t n) const
 		{
+			(void)n;
 			_mm_free(p);
 		}
  
@@ -305,4 +307,3 @@ public:
 } // end of namespace workshop
 
 #endif
-

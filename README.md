@@ -1,28 +1,56 @@
-# Last Updated: 24/08/2021
+# Research Monorepo (MD, Free-Energy, and Parallel Computing Work)
 
+This repository combines several years of experimental and reference work related to:
 
-# MD design in nanoparticles, free energy analysis of trajectories and other MPI/OpenMP files
+- molecular dynamics and free-energy estimation (including Jarzynski/Bennett workflows),
+- MPI/OpenMP/C++ experimentation,
+- CMake learning and cookbook-style examples,
+- prototype and work-in-progress research code.
 
-CI link: https://travis-ci.com/MDSYN2019/PhD_work
- 
-[![
+The previous root README was minimal and outdated (last updated 2021). This version provides a current navigation map and maintenance conventions so the repo is easier to understand and evolve.
 
+## Repository layout
 
-Build Status](https://travis-ci.com/MDSYN2019/PhD_work.svg?branch=master)](https://travis-ci.com/MDSYN2019/PhD_work)
+Top-level directories and their main purpose:
 
-PhD Molecular Dynamics analysis code 
+- `Free_Energy/` — primary free-energy analysis work (Jarzynski, Bennett, and related computation).
+- `free_energy/` — legacy/alternate free-energy tree (kept for compatibility and historical reference).
+- `Parallel/` — MPI/OpenMP and modern C++ experiments, with docs/tests/third-party code.
+- `C12E2_work/` — molecular interaction and Hamaker-related calculations plus archived material.
+- `CMake_practice/` — cookbook-style CMake examples and notes.
+- `Graph/` — graphing/plot-related materials.
+- `WIP/` — active prototypes and unfinished studies.
+- `workshop/` — workshop examples and headers.
 
-This repository contains some of the code I used during period of my PhD, including free energy calculation codes, such as the Jarzynski Equality.
+## Current state and maintenance notes
 
-Work in this repository references the following works and books:
+This is a research-first monorepo with mixed maturity levels. Some folders are polished; others are snapshots.
 
-[1]. "Nonequilibrium equality for free energy differences", Phys Rev Lett, 78, 2690 
-   
-[2]. "Free energy reconstruction from nonequilibrium single-molecule pulling experiments", PNAS, 3658 - 3661, 98, 7, 2001
+To keep the repository manageable:
 
-[3]. "Free energy calculation from steered molecular dynamics simulations using Jarzynski's equality", Journal of Chemical Physics, 119, 6, 2003
- 
-[4]. "Bias and error in estimates of equilibrium free-energy differences from nonequilibrium measurements", PNAS, 12564 - 12569, 100, 22, 2003 
+1. **Do not remove historical folders lightly** — many are referenced in notes/scripts.
+2. **Prefer adding clear README files in subfolders** when introducing or reviving work.
+3. **Keep generated artifacts out of version control** (see root `.gitignore`).
+4. **Treat `WIP/` as unstable** and keep runnable/documented code in domain folders when ready.
 
+## Quick navigation tasks
 
--lQatPlotWidgets -lQt5PrintSupport -lQt5Svg -lQatPlotting -lQt5Widgets -lQatDataAnalysis -lQatGenericFunctions
+- Find CMake entry points:
+  - `rg --files -g 'CMakeLists.txt'`
+- Find tests:
+  - `rg --files -g '*test*' Parallel/test Free_Energy free_energy`
+- Identify documentation roots:
+  - `rg --files -g 'README*'`
+
+## Legacy references
+
+Earlier project notes referenced these classic free-energy papers:
+
+1. *Nonequilibrium equality for free energy differences* (Phys. Rev. Lett. 78, 2690).
+2. *Free energy reconstruction from nonequilibrium single-molecule pulling experiments* (PNAS 98, 7, 3658–3661).
+3. *Free energy calculation from steered molecular dynamics simulations using Jarzynski's equality* (JCP 119, 6, 2003).
+4. *Bias and error in estimates of equilibrium free-energy differences from nonequilibrium measurements* (PNAS 100, 22, 12564–12569).
+
+---
+
+If you are onboarding to this repository, start with [`REPO_STRUCTURE.md`](REPO_STRUCTURE.md) for a higher-level organization and cleanup roadmap.
